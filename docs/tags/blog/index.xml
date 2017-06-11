@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Random Determinism</title>
-    <link>http://example.org/tags/blog/</link>
+    <link>https://adityam.github.io/context-blog/tags/blog/</link>
     <description>Recent content in Blog on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://adityam.github.io/context-blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using a static website  instead of wordpress</title>
-      <link>http://example.org/post/moving-from-wordpress/</link>
+      <link>https://adityam.github.io/context-blog/post/moving-from-wordpress/</link>
       <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
       
-      <guid>http://example.org/post/moving-from-wordpress/</guid>
+      <guid>https://adityam.github.io/context-blog/post/moving-from-wordpress/</guid>
       <description>I used to blog, mainly about ConTeXt, but occasionally about other stuff as well. My blog was hosted on Wordpress and it has been almost three years since I last posted there. A lot of things have happened in the interim, both in my professional and personal life. I enjoyed writing the blog and my posts on ConTeXt were reasonably popular; but after a while using the wordpress platform to write posts was a bit annoying.</description>
     </item>
     
