@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Some thoughts on lowering the learning curve for using TeX" />
+<meta property="og:description" content="Rant about making TeX easy to use" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityam.github.io/context-blog/2011/09/some-thoughts-on-lowering-the-learning-curve-for-using-tex/" />
+
+
+
+<meta property="article:published_time" content="2011-09-04T20:06:31-07:00"/>
+<meta property="article:modified_time" content="2011-09-04T20:06:31-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Some thoughts on lowering the learning curve for using TeX"/>
+<meta name="twitter:title" content="Some thoughts on lowering the learning curve for using TeX"/>
+<meta name="twitter:description" content="Rant about making TeX easy to use"/>
+
+<meta name="generator" content="Hugo 0.21" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Some thoughts on lowering the learning curve for using TeX",
+  "url": "https://adityam.github.io/context-blog/2011/09/some-thoughts-on-lowering-the-learning-curve-for-using-tex/",
+  "wordCount": "1208",
+  "datePublished": "2011-09-04T20:06:31-07:00",
+  "dateModified": "2011-09-04T20:06:31-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Aditya Mahajan"
+  },
+  "keywords": "rant,beginners",
+  "description": "Rant about making TeX easy to use"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://adityam.github.io/context-blog/2011/09/some-thoughts-on-lowering-the-learning-curve-for-using-tex/">
+
+    <title>Some thoughts on lowering the learning curve for using TeX | Random Determinism</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://adityam.github.io/context-blog/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://adityam.github.io/context-blog/">Home</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://adityam.github.io/context-blog/" rel="home">Random Determinism</a></h1>
+        <p class="lead blog-description">Random thoughts on ConTeXt</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://adityam.github.io/context-blog/2011/09/some-thoughts-on-lowering-the-learning-curve-for-using-tex/">Some thoughts on lowering the learning curve for using TeX</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-09-04T20:06:31-07:00">Sun Sep 04, 2011</time> by Aditya Mahajan in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/context-blog/categories/rant" rel="category tag">rant</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/context-blog/tags/beginners" rel="tag">beginners</a>
+
+</p>
+  </header>
+  
+
+<p>TeX has a steep learning curve. Often times, steeper than it needs to be.
+Take, for example, the special characters in TeX. Almost every introduction to
+plain TeX, eplain, LaTeX, or ConTeXt has a section on these special characters</p>
+
+<pre><code>\ { } $ &amp; # ^ _ &amp; ~
+</code></pre>
+
+<p>A good introduction then goes on to explain why these special characters are
+important; sometimes dropping a hint about category codes. I feel that these
+details are useless and, <strong>at the user level</strong>, we should get rid of them.</p>
+
+<p>If you are skeptical, I don’t blame you. After all, category codes are the
+very soul of TeX. However, I strongly believe that they are useless at the
+user level. Lets go over each of these special characters one-by-one and see
+if we really need them.</p>
+
+<h3 id="minimum-category-codes">Minimum category codes: <code>\ { }</code></h3>
+
+<p>The only category codes that we need at the user level are <code>\</code> <code>{</code> <code>}</code>. The
+character <code>\</code> marks the start of a control sequence, and <code>{</code> and <code>}</code> group the
+arguments. The rest, can simply be replaced by control sequences.</p>
+
+<h3 id="math-mode-category-codes">Math mode category codes: <code>$ _ ^</code></h3>
+
+<p>In TeX, <code>$</code> is used to delimit math mode—Knuth used dollars as the math shift
+character because typesetting math was expensive, so goes an old joke. But do
+we really need to stick to <code>$</code>? After all, at the user level, both LaTeX and
+ConTeXt do not use <code>$$</code> to move to display math mode. Both macro packages
+provide environments for display math. Can’t we do the same for in-line math?
+In fact, both LaTeX and ConTeXt also provide macros for in-line math: LaTeX
+uses <code>\(...\)</code> and ConTeXt uses <code>\m{...}</code> and <code>\math{...}</code>. The only trouble
+is that these macros are not widely used (and that the LaTeX macros are not
+robust, but that is easily correctable). The only real argument in favor of
+<code>$...$</code> is that it shorted to type, but compared to <code>\(...\)</code> or <code>\m{...}</code>,
+not by much.</p>
+
+<p>The same is true for <code>_</code> and <code>^</code>. Both LaTeX and ConTeXt (in fact, so does plain
+TeX!) provide macros for both of them: <code>\sp</code> for <code>^</code> and <code>\sb</code> for <code>_</code>. But don’t
+panic! I am not asking everyone to start using <code>\sp</code> and <code>\sb</code>. What I am asking
+is that <code>_</code> and <code>^</code> have normal meaning in text mode. That is, if I type <code>_</code>, I
+should get <code>_</code>, not a funky error message. In fact, this is not too difficult to
+achieve. In LaTeX, use the <a href="https://www.ctan.org/pkg/underscore">underscore</a> package (it is easy to extend that to
+take care of <code>^</code> as well), and in ConTeXt use <code>\nonknuthmode</code> somewhere in your
+preamble.</p>
+
+<p>Of course, the next logical step is to make <code>$</code> a normal letter: that is, if you
+type <code>$</code> you get <code>$</code>.</p>
+
+<h3 id="align-character">Align character <code>&amp;</code></h3>
+
+<p>Horizontal alignment is one of the strengths of TeX. Most table and multi-line
+display math environments use horizontal alignment and <code>&amp;</code> specifies the
+alignment point for horizontal alignment. Surely, getting rid of <code>&amp;</code> will not
+work.</p>
+
+<p>Unfortunately, that is true in LaTeX. The <code>&amp;</code> character is so critical for
+horizontal alignment at the user-level that eliminating it will mean a lot of
+change. Perhaps, <code>&amp;</code> can be handled in the same manner as <code>_</code> and <code>^</code>: it can
+be a regular letter in text mode and have special meaning inside horizontal
+alignment. But, it is not always clear to the users which macros use
+horizontal alignment internally. As such, changing the meaning of <code>&amp;</code> inside
+some environments will bring more trouble than benefits.</p>
+
+<p>However, the situation in ConTeXt is completely different. At the user-level,
+<code>&amp;</code> is never used to indicate the alignment point. Both tables and multi-line
+math display use <code>\NC ... \NC ... \NC \NR</code> type of syntax to indicate new
+columns. In such a situation it is all the more awkward to explain to a user
+why <code>&amp;</code> is a special character. It should just be made a normal letter. LuaTeX
+provides a <code>\aligntab</code> primitive which can be used instead in alignment macros.</p>
+
+<h3 id="parameter-indicator">Parameter indicator <code>#</code></h3>
+
+<p>Macros is what makes TeX different from all other text markup languages.
+Automatic numbering, cross-references, headers and footers, and all possible
+due to macros. And <code>#1</code> is used to indicate the first parameter for the macro,
+<code>#2</code> the second, and so on. But, why do we need this special meaning at the
+user-level? Only the macro writer needs to care about it.</p>
+
+<p>Most LaTeX macros are written in <code>.sty</code> files, that are loaded under a different
+catcode regime anyways. Most ConTeXt macros are written inside <code>\unprotect ...
+\protect</code>. So, it is easy to set the traditional catcode regime in both cases.
+If a user really needs to define macros in the middle of the document, there
+can be a “programming” environment. For example, ConTeXt provides
+<code>\starttexcode...\stoptexcode</code>, which sets the same catcodes as
+<code>\unprotect...\protect</code>. Implementing the same environment in LaTeX is trivial
+(think `\makeatletter&hellip;\makeatother on steroids).</p>
+
+<h3 id="unbreakable-space">Unbreakable space <code>~</code></h3>
+
+<p>Knuth used <code>~</code> to indicate an unbreakable space, and that tradition has
+continued ever since. In this age of Unicode text, do we still need such
+crutches. It is easy enough to type Unicode <code>0x00AA</code> (non-breakable space) in
+most editors. For example, in vim I just need to type <code>CTRL+K+&lt;space&gt;+&lt;space&gt;</code>.
+A smart syntax highlighting scheme will make the non-breakable space visible.
+So, there is no real reason to keep on using <code>~</code> as a non-breakable space. The
+same argument holds for the TeX macros for accents, typing in Unicode is easy
+to input and easy to read (but that will be the subject of another rant).</p>
+
+<h3 id="so-what-s-the-point-of-all-this">So, what’s the point of all this?</h3>
+
+<p>Now image that all these features have been implemented. Then, we may split
+the introduction to a TeX macro package into two parts: using the macro
+package and programming the macro package. Split the first part into two
+further parts: text mode and math mode. For the text mode, the only special
+characters are <code>\</code> <code>{</code> <code>}</code> <code>%</code>. All other characters are normal, that means if
+you type them, you see them in the output (provided the font has the glyph;
+lets ignore complex languages like Arabic, CJK, and Indic scripts and setting
+appropriate font features for them at the moment). <code>\</code> starts a control
+sequence, <code>{...}</code> groups an argument, and <code>%</code> is a line comment. For the math
+mode, explain how to enter math mode (<code>\(...\)</code> or <code>\m{...}</code> or the display-math
+environments) and explain that <code>_</code> and <code>^</code> are used to indicate sub- and
+super-scripts. Postpone explaining the programming mode for later. I think
+that such a scheme will lower the cognitive load on the new user.</p>
+
+<p>Will such a system work? Yes, it will. In fact, it already does. For about an
+year now, ConTeXt has a <code>\asciimode</code> macro that implements all these features,
+with a slight twist. <code>%</code> is also a normal letter and you need to type <code>%%</code> to get
+a line comment (and <code>%{}%</code> if you really need the output <code>%%</code>). This macro is not
+enabled by default. I think that making it default will simplify understanding
+TeX for the first time. As an added advantage, it will also make the job of
+sanitizing the input simpler for converters (such as pandoc) that convert some
+other markup language to TeX.</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fadityam.github.io%2fcontext-blog%2f2011%2f09%2fsome-thoughts-on-lowering-the-learning-curve-for-using-tex%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fadityam.github.io%2fcontext-blog%2f2011%2f09%2fsome-thoughts-on-lowering-the-learning-curve-for-using-tex%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fadityam.github.io%2fcontext-blog%2f2011%2f09%2fsome-thoughts-on-lowering-the-learning-curve-for-using-tex%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fadityam.github.io%2fcontext-blog%2f2011%2f09%2fsome-thoughts-on-lowering-the-learning-curve-for-using-tex%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>A blog about ConTeXt</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/context-blog/2017/06/using-a-static-website--instead-of-wordpress/">Using a static website  instead of wordpress</a></li>
+
+<li><a href="/context-blog/2014/01/metapost-and-tex-labels/">Metapost and TeX labels</a></li>
+
+<li><a href="/context-blog/2013/01/creating-a-clean-presentation-style-in-40-commits/">Creating a clean presentation style in 40 commits</a></li>
+
+<li><a href="/context-blog/2011/09/some-thoughts-on-lowering-the-learning-curve-for-using-tex/">Some thoughts on lowering the learning curve for using TeX</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="http://wiki.contextgarden.net/Main_Page">Context garden</a></li>
+      
+      <li><a href="https://tex.stackexchange.com">TeX StackExchange</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

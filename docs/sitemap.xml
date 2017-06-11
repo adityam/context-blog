@@ -18,8 +18,19 @@
   </url>
   
   <url>
+    <loc>https://adityam.github.io/context-blog/2011/09/some-thoughts-on-lowering-the-learning-curve-for-using-tex/</loc>
+    <lastmod>2011-09-04T20:06:31-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/categories/announcement/</loc>
     <lastmod>2017-06-10T16:26:40-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/tags/beginners/</loc>
+    <lastmod>2011-09-04T20:06:31-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,8 +89,14 @@
   </url>
   
   <url>
+    <loc>https://adityam.github.io/context-blog/categories/rant/</loc>
+    <lastmod>2011-09-04T20:06:31-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/tags/</loc>
-    <lastmod>2017-06-10T16:26:40-07:00</lastmod>
+    <lastmod>2011-09-04T20:06:31-07:00</lastmod>
     <priority>0</priority>
   </url>
   

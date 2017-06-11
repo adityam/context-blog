@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 Sep 2011 20:06:31 -0700</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Beginners</title>
+      <link>https://adityam.github.io/context-blog/tags/beginners/</link>
+      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/beginners/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blog</title>
