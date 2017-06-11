@@ -32,5 +32,16 @@ label(&amp;quot;text&amp;quot;, location);  while TeX labels are created using
 label(btex text etex, location);  In the latter case, Metapost collects everything between btex and etex in a separate file, processes that file through TeX, and includes the resulting postscript code at an appropriate location. Such a Golberg-esque mechanism is needed to propertly typeset mathematics, get proper kerning, etc.</description>
     </item>
     
+    <item>
+      <title>Creating a clean presentation style in 40 commits</title>
+      <link>https://adityam.github.io/context-blog/2013/01/creating-a-clean-presentation-style-in-40-commits/</link>
+      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/2013/01/creating-a-clean-presentation-style-in-40-commits/</guid>
+      <description>Did you always want to learn ConTeXt, but did not know where to start? I have written a git-based tutorial that should help you get started.
+The idea of the tutorial is to start with an empty document, and add features one-by-one. Each git commit corresponds to one small change in the document, and includes pointers to the documentation corresponding to that change. Read Use this tutorial as follows:
+ Clone the git repository:</description>
+    </item>
+    
   </channel>
 </rss>
