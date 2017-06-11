@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Random Determinism"
-theme = hugo-theme-bootstrap4-blog
 disqusShortname = ""
+theme = "hugo-theme-bootstrap4-blog"
 publishDir = "docs"
