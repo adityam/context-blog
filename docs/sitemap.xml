@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://adityam.github.io/context-blog/post/moving-from-wordpress/</loc>
+    <loc>https://adityam.github.io/context-blog/2017/06/using-a-static-website--instead-of-wordpress/</loc>
     <lastmod>2017-06-10T16:26:40-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/2014/01/metapost-and-tex-labels/</loc>
+    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
   </url>
   
   <url>
@@ -22,6 +27,30 @@
   <url>
     <loc>https://adityam.github.io/context-blog/categories/</loc>
     <lastmod>2017-06-10T16:26:40-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/tags/context/</loc>
+    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/categories/feature/</loc>
+    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/tags/label/</loc>
+    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/tags/metapost/</loc>
+    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
     <priority>0</priority>
   </url>
   

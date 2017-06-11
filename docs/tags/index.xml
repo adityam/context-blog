@@ -6,6 +6,7 @@
     <description>Recent content in Tags on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
     <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -17,6 +18,33 @@
       <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Context</title>
+      <link>https://adityam.github.io/context-blog/tags/context/</link>
+      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/context/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Label</title>
+      <link>https://adityam.github.io/context-blog/tags/label/</link>
+      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/label/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metapost</title>
+      <link>https://adityam.github.io/context-blog/tags/metapost/</link>
+      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
       <description></description>
     </item>
     
