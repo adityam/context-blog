@@ -1,5 +1,8 @@
 {{ partial "header.html" . }}
 
+<h1>{{ .Title }}</h1>
+<p class="post-time">{{ .Date.Format "January 2, 2006" }}</p>
+
 {{ .Content }}
 
 {{ partial "footer.html" . }}
