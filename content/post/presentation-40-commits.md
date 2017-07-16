@@ -5,7 +5,7 @@ description = "Tutorial on creating ConTeXt presentation"
 draft = false
 tags = ["context", "git"]
 title = "Creating a clean presentation style in 40 commits"
-
+linktitle = "Clean presentation style"
 +++
 
 Did you always want to learn ConTeXt, but did not know where to start? I have

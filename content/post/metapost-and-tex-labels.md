@@ -5,7 +5,6 @@ description = "Using string labels in Metapost"
 draft = false
 tags = ["context","metapost", "label"]
 title = "Metapost and TeX labels"
-images = ["2014/images/metapost-labels.png"]
 
 +++
 

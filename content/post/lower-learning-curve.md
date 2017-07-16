@@ -5,7 +5,7 @@ description = "Rant about making TeX easy to use"
 draft = false
 tags = ["beginners"]
 title = "Some thoughts on lowering the learning curve for using TeX"
-
+linktitle = "Lowering the learning curve for TeX"
 +++
 
 TeX has a steep learning curve. Often times, steeper than it needs to be.

@@ -1,6 +1,6 @@
 ---
 title : ""
-short : ""
+linktitle : ""
 tags  :
   - tag1
   - tag2
