@@ -39,19 +39,52 @@
     <div id="content" role="main">
 
 
-<p>I used to blog, mainly about ConTeXt, but occasionally about other stuff as
-well. My blog was hosted on
-<a href="https://randomdeterminism.wordpress.com">Wordpress</a> and it has been almost
-three years since I last posted there. A lot of things have happened in the
-interim, both in my professional and personal life. I enjoyed writing the blog
-and my posts on ConTeXt were reasonably popular; but after a while using the
-wordpress platform to write posts was a bit annoying. I am try to start
-blogging again; this time using a <a href="http://gohugo.io">Hugo</a>, which is a static website generator.
-I hope that without having to worry about the minor formatting anoyances of
-wordpress this time around, I&rsquo;ll be able to keep the blog going for longer.</p>
+<p>Did you always want to learn ConTeXt, but did not know where to start? I have
+written a <a href="https://github.com/adityam/context-slides-example/commits">git-based
+tutorial</a> that should help you get started.</p>
 
-<p>For old times sake, I have imported some of my old posts to this blog. If I am
-in the mood, I might import a few others as well.</p>
+<p>The idea of the tutorial is to start with an empty document, and add features
+one-by-one. Each git commit corresponds to one small change in the document,
+and includes pointers to the documentation corresponding to that change. Read
+Use this tutorial as follows:</p>
+
+<ol>
+<li><p>Clone the git repository:</p>
+
+<pre><code>git clone git://github.com/adityam/context-slides-example.git
+cd context-slides-example
+</code></pre></li>
+
+<li><p>Get git-walk (requires ruby)</p>
+
+<pre><code>wget https://raw.github.com/augustl/binbin/master/git-walk
+chmod +x git-walk
+</code></pre></li>
+
+<li><p>Checkout the first commit</p>
+
+<pre><code>git checkout init
+</code></pre></li>
+
+<li><p>Open the two files, <code>slides.tex</code> and <code>example.tex</code> in the editor.</p></li>
+
+<li><p>Read the log message, compile example.tex and view the result.</p>
+
+<pre><code>git log -n 1
+context example.tex
+evince example.pdf &amp;
+</code></pre></li>
+
+<li><p>Go to next commit and repeat step 5. (This requires <code>git-walk</code> to be in
+your <code>$PATH</code>.</p>
+
+<pre><code>git walk next
+</code></pre></li>
+</ol>
+
+<p>(Alternatively, instead of using <code>git-walk</code>, you can use a GUI tool to
+incrementally checkout the commits one by one, compile <code>example.tex</code> at each
+step, and view the result).</p>
 
 
     </div>

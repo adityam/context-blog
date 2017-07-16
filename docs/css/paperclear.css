@@ -1,0 +1,20 @@
+body { font-family: monospace; color: #444444; background-color: #eeeeee; }
+* { font-size: 1em; }
+.luaStatement { color: #005faf; }
+.luaTable { color: #0087af; font-weight: bold; }
+.Macro { color: #005faf; }
+.Keyword { color: #005faf; }
+.String { color: #5f8700; }
+.Character { color: #5f8700; }
+.Number { color: #d75f00; }
+.luaRepeat { color: #005faf; font-weight: bold; }
+.Delimiter { color: #0087af; }
+.Normal { color: #444444; background-color: #eeeeee; padding-bottom: 1px; }
+.Comment { color: #878787; }
+.Special { color: #444444; }
+.Identifier { color: #005f87; }
+.Statement { color: #d70087; }
+.PreProc { color: #005faf; }
+.Type { color: #d70087; font-weight: bold; }
+.Conditional { color: #8700af; font-weight: bold; }
+-->

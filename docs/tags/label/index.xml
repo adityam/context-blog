@@ -6,7 +6,6 @@
     <description>Recent content in Label on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
     <lastBuildDate>Wed, 22 Jan 2014 19:25:23 -0700</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/label/index.xml" rel="self" type="application/rss+xml" />
@@ -14,13 +13,13 @@
     
     <item>
       <title>Metapost and TeX labels</title>
-      <link>https://adityam.github.io/context-blog/2014/01/metapost-and-tex-labels/</link>
+      <link>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</link>
       <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/2014/01/metapost-and-tex-labels/</guid>
+      <guid>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</guid>
       <description>Default Metapost has the concept of two types of labels, postscript labels and TeX labels. Postscript labels are created using
 label(&amp;quot;text&amp;quot;, location);  while TeX labels are created using
-label(btex text etex, location);  In the latter case, Metapost collects everything between btex and etex in a separate file, processes that file through TeX, and includes the resulting postscript code at an appropriate location. Such a Golberg-esque mechanism is needed to propertly typeset mathematics, get proper kerning, etc.</description>
+label(btextext etex, location);  In the latter case, Metapost collects everything between btex and etex in a separate file, processes that file through TeX, and includes the resulting postscript code at an appropriate location. Such a Golberg-esque mechanism is needed to propertly typeset mathematics, get proper kerning, etc.</description>
     </item>
     
   </channel>
