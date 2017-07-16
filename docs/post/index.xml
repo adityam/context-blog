@@ -43,6 +43,17 @@ The idea of the tutorial is to start with an empty document, and add features on
     </item>
     
     <item>
+      <title>Separation of content and presentation in tables</title>
+      <link>https://adityam.github.io/context-blog/post/formatting-tables/</link>
+      <pubDate>Sun, 18 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/formatting-tables/</guid>
+      <description>&lt;p&gt;Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from &lt;a href=&#34;http://css.paperplaza.net/conferences/support/files/sample.tex&#34;&gt;sample tex file&lt;/a&gt; for the &lt;a href=&#34;http://control.disp.uniroma2.it/cdc2012/author_info.php&#34;&gt;IEEE Conference on Decision and Control&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Some thoughts on lowering the learning curve for using TeX</title>
       <link>https://adityam.github.io/context-blog/post/lower-learning-curve/</link>
       <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>

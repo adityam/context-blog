@@ -2,6 +2,7 @@ body { font-family: monospace; color: #444444; background-color: #eeeeee; }
 * { font-size: 1em; }
 .luaStatement { color: #005faf; }
 .luaTable { color: #0087af; font-weight: bold; }
+.PreCondit { color: #0087af; }
 .Macro { color: #005faf; }
 .Keyword { color: #005faf; }
 .String { color: #5f8700; }
@@ -12,6 +13,7 @@ body { font-family: monospace; color: #444444; background-color: #eeeeee; }
 .Normal { color: #444444; background-color: #eeeeee; padding-bottom: 1px; }
 .Comment { color: #878787; }
 .Special { color: #444444; }
+.SpecialChar { color: #d7afaf; font-weight: bold; }
 .Identifier { color: #005f87; }
 .Statement { color: #d70087; }
 .PreProc { color: #005faf; }

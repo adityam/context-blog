@@ -3,7 +3,7 @@ categories = ["feature"]
 date = "2014-01-22T19:25:23-07:00"
 description = "Using string labels in Metapost"
 draft = false
-tags = ["context","metapost", "label"]
+tags = ["metapost", "label"]
 title = "Metapost and TeX labels"
 
 +++

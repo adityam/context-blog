@@ -3,7 +3,7 @@ categories = ["tutorial"]
 date = "2013-01-13T19:54:48-07:00"
 description = "Tutorial on creating ConTeXt presentation"
 draft = false
-tags = ["context", "git"]
+tags = ["git"]
 title = "Creating a clean presentation style in 40 commits"
 linktitle = "Clean presentation style"
 +++

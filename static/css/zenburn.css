@@ -1,0 +1,16 @@
+pre { white-space: pre-wrap; font-family: monospace; color: #d7d7d7; background-color: #3a3a3a; }
+.Special { color: #d7afaf; }
+.Statement { color: #d7d7af; }
+.String { color: #d78787; }
+.SpecialChar { color: #d7afaf; font-weight: bold; }
+.Delimiter { color: #8a8a8a; }
+.Function { color: #ffff87; }
+.Identifier { color: #ffd7af; }
+.Number { color: #87d7d7; }
+.Operator { color: #ffffd7; }
+.Type { color: #d7d7af; font-weight: bold; }
+.Normal { color: #d7d7d7; background-color: #3a3a3a; padding-bottom: 1px; }
+.Comment { color: #87af87; }
+.PreProc { color: #ffd7af; font-weight: bold; }
+
+
