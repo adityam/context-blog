@@ -57,13 +57,13 @@ very soul of TeX. However, I strongly believe that they are useless at the
 user level. Lets go over each of these special characters one-by-one and see
 if we really need them.</p>
 
-<h3 id="minimum-category-codes">Minimum category codes: <code>\ { }</code></h3>
+<h2 id="minimum-category-codes">Minimum category codes: <code>\ { }</code></h2>
 
 <p>The only category codes that we need at the user level are <code>\</code> <code>{</code> <code>}</code>. The
 character <code>\</code> marks the start of a control sequence, and <code>{</code> and <code>}</code> group the
 arguments. The rest, can simply be replaced by control sequences.</p>
 
-<h3 id="math-mode-category-codes">Math mode category codes: <code>$ _ ^</code></h3>
+<h2 id="math-mode-category-codes">Math mode category codes: <code>$ _ ^</code></h2>
 
 <p>In TeX, <code>$</code> is used to delimit math mode—Knuth used dollars as the math shift
 character because typesetting math was expensive, so goes an old joke. But do
@@ -89,7 +89,7 @@ preamble.</p>
 <p>Of course, the next logical step is to make <code>$</code> a normal letter: that is, if you
 type <code>$</code> you get <code>$</code>.</p>
 
-<h3 id="align-character">Align character <code>&amp;</code></h3>
+<h2 id="align-character">Align character <code>&amp;</code></h2>
 
 <p>Horizontal alignment is one of the strengths of TeX. Most table and multi-line
 display math environments use horizontal alignment and <code>&amp;</code> specifies the
@@ -111,7 +111,7 @@ columns. In such a situation it is all the more awkward to explain to a user
 why <code>&amp;</code> is a special character. It should just be made a normal letter. LuaTeX
 provides a <code>\aligntab</code> primitive which can be used instead in alignment macros.</p>
 
-<h3 id="parameter-indicator">Parameter indicator <code>#</code></h3>
+<h2 id="parameter-indicator">Parameter indicator <code>#</code></h2>
 
 <p>Macros is what makes TeX different from all other text markup languages.
 Automatic numbering, cross-references, headers and footers, and all possible
@@ -128,7 +128,7 @@ can be a “programming” environment. For example, ConTeXt provides
 <code>\unprotect...\protect</code>. Implementing the same environment in LaTeX is trivial
 (think `\makeatletter&hellip;\makeatother on steroids).</p>
 
-<h3 id="unbreakable-space">Unbreakable space <code>~</code></h3>
+<h2 id="unbreakable-space">Unbreakable space <code>~</code></h2>
 
 <p>Knuth used <code>~</code> to indicate an unbreakable space, and that tradition has
 continued ever since. In this age of Unicode text, do we still need such
@@ -139,7 +139,7 @@ So, there is no real reason to keep on using <code>~</code> as a non-breakable s
 same argument holds for the TeX macros for accents, typing in Unicode is easy
 to input and easy to read (but that will be the subject of another rant).</p>
 
-<h3 id="so-what-s-the-point-of-all-this">So, what’s the point of all this?</h3>
+<h2 id="so-what-s-the-point-of-all-this">So, what’s the point of all this?</h2>
 
 <p>Now image that all these features have been implemented. Then, we may split
 the introduction to a TeX macro package into two parts: using the macro

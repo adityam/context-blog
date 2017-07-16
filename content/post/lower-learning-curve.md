@@ -23,13 +23,13 @@ very soul of TeX. However, I strongly believe that they are useless at the
 user level. Lets go over each of these special characters one-by-one and see
 if we really need them.
 
-### Minimum category codes: `\ { }`
+## Minimum category codes: `\ { }`
 
 The only category codes that we need at the user level are `\` `{` `}`. The
 character `\` marks the start of a control sequence, and `{` and `}` group the
 arguments. The rest, can simply be replaced by control sequences.
 
-### Math mode category codes: `$ _ ^`
+## Math mode category codes: `$ _ ^`
 
 In TeX, `$` is used to delimit math mode—Knuth used dollars as the math shift
 character because typesetting math was expensive, so goes an old joke. But do
@@ -57,7 +57,7 @@ preamble.
 Of course, the next logical step is to make `$` a normal letter: that is, if you
 type `$` you get `$`. 
 
-### Align character `&`
+## Align character `&`
 
 Horizontal alignment is one of the strengths of TeX. Most table and multi-line
 display math environments use horizontal alignment and `&` specifies the
@@ -79,7 +79,7 @@ columns. In such a situation it is all the more awkward to explain to a user
 why `&` is a special character. It should just be made a normal letter. LuaTeX
 provides a `\aligntab` primitive which can be used instead in alignment macros.
 
-### Parameter indicator `#`
+## Parameter indicator `#`
 
 Macros is what makes TeX different from all other text markup languages.
 Automatic numbering, cross-references, headers and footers, and all possible
@@ -96,7 +96,7 @@ can be a “programming” environment. For example, ConTeXt provides
 `\unprotect...\protect`. Implementing the same environment in LaTeX is trivial
 (think `\makeatletter...\makeatother on steroids).
 
-### Unbreakable space `~`
+## Unbreakable space `~`
 
 Knuth used `~` to indicate an unbreakable space, and that tradition has
 continued ever since. In this age of Unicode text, do we still need such
@@ -107,7 +107,7 @@ So, there is no real reason to keep on using `~` as a non-breakable space. The
 same argument holds for the TeX macros for accents, typing in Unicode is easy
 to input and easy to read (but that will be the subject of another rant).
 
-### So, what’s the point of all this?
+## So, what’s the point of all this?
 
 Now image that all these features have been implemented. Then, we may split
 the introduction to a TeX macro package into two parts: using the macro
