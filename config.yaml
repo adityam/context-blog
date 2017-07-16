@@ -1,4 +1,4 @@
-baseURL       : "https://adityam.github.io/context-blog/"
+baseURL       : "https://adityam.github.io/context-blog"
 
 languageCode  : "en-us"
 title         : Random Determinism
