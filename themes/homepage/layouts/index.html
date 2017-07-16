@@ -1,0 +1,29 @@
+{{ partial "header.html" .}}
+
+{{ range (.Paginator 10).Pages }}     
+    <article class="post">
+
+        <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+        <p class="post-time">{{ .Date.Format "January 2, 2006" }}</p>
+
+        <div class="post-content">
+            <p>{{ .Summary }}</p>
+            <a class="btn btn-default" href="{{.RelPermalink}}" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
+{{ end }}
+{{ if .Paginator.HasPrev }}
+    <a class="btn btn-default" href="{{ .Paginator.Prev.URL }}">
+        &lt; Previous Page
+    </a>
+{{ end }}
+{{ if .Paginator.HasNext }}
+    <a class="btn btn-default" href="{{ .Paginator.Next.URL }}">
+        Next Page &gt;
+    </a>
+{{ end }}
+
+{{ partial "footer.html" . }}
