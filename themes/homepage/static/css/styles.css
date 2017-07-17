@@ -202,14 +202,23 @@ ul li {
 }
 
 
-img.float{ 
+img.left { 
   float: left; 
   margin-right: 1.5em; 
 }
 
-img.float-right{ 
+img.right{ 
   float: right; 
   margin-right: 1.5em; 
+}
+
+img.center {
+    border: thin solid #b0c4de;
+    display: block;
+    background-color: #f8f8ff;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0.7em 0;
 }
 
 pre { 

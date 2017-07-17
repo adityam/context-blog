@@ -106,7 +106,7 @@ difference between the postscript and the TeX labels!**. For example
 
 gives
 
-![Metapost labels](metapost-labels.png)
+{{< img class="center" src="metapost-labels.png" alt="Metapost labels" >}}
 
 Notice that both `w` and `p` are in the Times Math font. So, there is no need for
 those pesky `btex ... etex` tags anymore.

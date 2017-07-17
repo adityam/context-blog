@@ -40,7 +40,7 @@ Simply browse through the questions tagged [tables] on TeX.SE if you don’t bel
 
 Lets start with a simple example.
 
-![Simple table](ex-1.png)
+{{< img src="ex-1.png" class="center" alt="Simple table" >}}
 
 which was typeset using the following code:
 
@@ -118,7 +118,7 @@ The ConTeXt interface is relatively clean. Rows are indicated by `\bTR...\eTR` a
 
 So far, there is a clear separation between content and presentation, simply because we haven’t tweaked the presentation at all. Now suppose, I want to typeset the header as white on blue.
 
-![Blue header](ex-2.png)
+{{< img src="ex-2.png" class="center" alt="Table with blue header"  >}}
 
 The clean way to add this achieve this is to define a new setup
 
@@ -144,7 +144,7 @@ and simply change the first line of the table to
 
 Note that the presentation element (how to style the first row) is defined in the document preamble, and the setup can be shared in all the tables that need that particular style. Now, suppose that in addition to the header, we want to remove the vertical lines in the middle of the table.
 
-![Modified table](ex-3.png)
+{{< img src="ex-3.png" class="center" alt="Table with blue header and no vertical lines"  >}}
 
 Again, to achieve this, define a new setups as follows:
 
@@ -176,7 +176,7 @@ and add the setups table:frame to the first line of the table
 
 Continuing this way, suppose we want to change the alignment of cells, say vertically middle align the first column, horizontally middle align the third column, add hyphenation to the second column; and add some offset between the cells.
 
-![No vertical lines](ex-4.png)
+{{< img src="ex-3.png" class="center" alt="Table with blue header,  no vertical lines, and vertically centered column"  >}}
 
 (I am not arguing that this is a good visual style; just using this as an example without making the use case too complicated). As before, we define a new setups
 
