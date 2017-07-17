@@ -1,6 +1,6 @@
 {{ partial "header.html" .}}
 
-{{ range (.Paginator 10).Pages }}     
+{{ range .Paginator.Pages }}     
     <article class="post">
 
         <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
@@ -17,12 +17,12 @@
 {{ end }}
 {{ if .Paginator.HasPrev }}
     <a class="btn btn-default" href="{{ .Paginator.Prev.URL }}">
-        &lt; Previous Page
+        < Previous Page
     </a>
 {{ end }}
 {{ if .Paginator.HasNext }}
     <a class="btn btn-default" href="{{ .Paginator.Next.URL }}">
-        Next Page &gt;
+        Next Page >
     </a>
 {{ end }}
 

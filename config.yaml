@@ -7,3 +7,6 @@ theme         : homepage
 
 metaDataFormat: yaml
 publishDir    : docs
+
+params:
+  disqus : "random-determinism"

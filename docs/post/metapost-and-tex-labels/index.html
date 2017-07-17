@@ -149,7 +149,7 @@ difference between the postscript and the TeX labels!</strong>. For example</p>
 <p>gives</p>
 
 <img class="center"
-  alt="{map[src:metapost-labels.png alt:Metapost labels class:center]  Page(&#34;Metapost and TeX labels&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[class:center src:metapost-labels.png alt:Metapost labels]  Page(&#34;Metapost and TeX labels&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="metapost-labels.png" />
 
 
@@ -160,6 +160,27 @@ those pesky <code>btex ... etex</code> tags anymore.</p>
 nothing has changed at the ConTeXt end, so it appears that MetaPost is now
 directly parsing the postscript labels using TeX. Nonetheless, this means that
 there is one less thing to worry about while learning and using Metapost. Yay!</p>
+
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+</script>
+<script id="dsq-count-scr" src="//random-determinism.disqus.com/count.js" async></script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
 
 
     </div>
