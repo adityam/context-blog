@@ -81,7 +81,7 @@ Simply browse through the questions tagged <a href="http://tex.stackexchange.com
 <p>Lets start with a simple example.</p>
 
 <img class="center"
-  alt="{map[class:center alt:Simple table src:ex-1.png]  Page(&#34;Separation of content and presentation in tables&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[alt:Simple table src:ex-1.png class:center]  Page(&#34;Separation of content and presentation in tables&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="ex-1.png" />
 
 
@@ -163,7 +163,7 @@ Simply browse through the questions tagged <a href="http://tex.stackexchange.com
 <p>So far, there is a clear separation between content and presentation, simply because we haven’t tweaked the presentation at all. Now suppose, I want to typeset the header as white on blue.</p>
 
 <img class="center"
-  alt="{map[alt:Table with blue header src:ex-2.png class:center]  Page(&#34;Separation of content and presentation in tables&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:ex-2.png class:center alt:Table with blue header]  Page(&#34;Separation of content and presentation in tables&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="ex-2.png" />
 
 
@@ -271,6 +271,11 @@ LaTeX tables are considered hard.)</p>
 show how one can use Lua to simplify typesetting of complicated tables, <em>while
 still maintaining a separation of content and presentation.</em></p>
 
+<p class="nav">
+<a href="/context-blog/post/lower-learning-curve/">&lt;&nbsp;Lowering the learning curve for TeX</a>
+ | <a href="/context-blog/post/presentation-40-commits/">Clean presentation style&nbsp;></a>
+</p>
+
 <div id="disqus_thread"></div>
 <div id="disqus_comments">
   <button onclick="load_disqus()">Show Comments</button>
@@ -284,8 +289,13 @@ still maintaining a separation of content and presentation.</em></p>
         var load_button = document.getElementById('disqus_comments');
         load_button.parentNode.removeChild(load_button);
     };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
 </script>
-<script id="dsq-count-scr" src="//random-determinism.disqus.com/count.js" async></script>
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

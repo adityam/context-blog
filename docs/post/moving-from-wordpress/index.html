@@ -73,6 +73,11 @@ and see if I miss any of the features.</p>
 <p>For old times sake, I have imported some of my old posts to this blog. I
 might import a few others, if time permits.</p>
 
+<p class="nav">
+<a href="/context-blog/post/metapost-and-tex-labels/">&lt;&nbsp;Metapost and TeX labels</a>
+
+</p>
+
 <div id="disqus_thread"></div>
 <div id="disqus_comments">
   <button onclick="load_disqus()">Show Comments</button>
@@ -86,8 +91,13 @@ might import a few others, if time permits.</p>
         var load_button = document.getElementById('disqus_comments');
         load_button.parentNode.removeChild(load_button);
     };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
 </script>
-<script id="dsq-count-scr" src="//random-determinism.disqus.com/count.js" async></script>
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

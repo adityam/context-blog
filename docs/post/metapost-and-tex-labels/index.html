@@ -73,7 +73,7 @@ label(btex text etex, location);
 
 <p>In the latter case,  Metapost collects everything between <code>btex</code> and <code>etex</code> in a
 separate file, processes that file through TeX, and includes the resulting
-postscript code at an appropriate location. Such a Golberg-esque mechanism is
+postscript code at an appropriate location. Such a Rube Golberg-esque mechanism is
 needed to propertly typeset mathematics, get proper kerning, etc.; tasks that
 TeX can do but Postscript cannot.</p>
 
@@ -162,6 +162,11 @@ directly parsing the postscript labels using TeX. Nonetheless, this means that
 there is one less thing to worry about while learning and using Metapost. Yay!</p>
 
 
+<p class="nav">
+<a href="/context-blog/post/presentation-40-commits/">&lt;&nbsp;Clean presentation style</a>
+ | <a href="/context-blog/post/moving-from-wordpress/">Rising from the ashes&nbsp;></a>
+</p>
+
 <div id="disqus_thread"></div>
 <div id="disqus_comments">
   <button onclick="load_disqus()">Show Comments</button>
@@ -175,8 +180,13 @@ there is one less thing to worry about while learning and using Metapost. Yay!</
         var load_button = document.getElementById('disqus_comments');
         load_button.parentNode.removeChild(load_button);
     };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
 </script>
-<script id="dsq-count-scr" src="//random-determinism.disqus.com/count.js" async></script>
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

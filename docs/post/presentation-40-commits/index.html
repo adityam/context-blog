@@ -100,6 +100,11 @@ incrementally checkout the commits one by one, compile <code>example.tex</code> 
 step, and view the result).</p>
 
 
+<p class="nav">
+<a href="/context-blog/post/formatting-tables/">&lt;&nbsp;Separation of content and presentation in tables</a>
+ | <a href="/context-blog/post/metapost-and-tex-labels/">Metapost and TeX labels&nbsp;></a>
+</p>
+
 <div id="disqus_thread"></div>
 <div id="disqus_comments">
   <button onclick="load_disqus()">Show Comments</button>
@@ -113,8 +118,13 @@ step, and view the result).</p>
         var load_button = document.getElementById('disqus_comments');
         load_button.parentNode.removeChild(load_button);
     };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
 </script>
-<script id="dsq-count-scr" src="//random-determinism.disqus.com/count.js" async></script>
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

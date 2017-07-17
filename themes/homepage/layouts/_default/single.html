@@ -5,6 +5,11 @@
 
 {{ .Content }}
 
+<p class="nav">
+{{ if .Next }}<a href="{{ .Next.RelPermalink }}"><&nbsp;{{ .Next.LinkTitle }}</a>{{end}}
+{{ if .Prev }} | <a href="{{ .Prev.RelPermalink }}">{{ .Prev.LinkTitle }}&nbsp;></a>{{end}}
+</p>
+
 {{ partial "disqus.html" . }}
 
 {{ partial "footer.html" . }}

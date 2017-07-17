@@ -18,6 +18,8 @@ A good introduction then goes on to explain why these special characters are
 important; sometimes dropping a hint about category codes. I feel that these
 details are useless and, **at the user level**, we should get rid of them.
 
+<!--more-->
+
 If you are skeptical, I don’t blame you. After all, category codes are the
 very soul of TeX. However, I strongly believe that they are useless at the
 user level. Lets go over each of these special characters one-by-one and see

@@ -28,7 +28,7 @@ label(btex text etex, location);
 
 In the latter case,  Metapost collects everything between `btex` and `etex` in a
 separate file, processes that file through TeX, and includes the resulting
-postscript code at an appropriate location. Such a Golberg-esque mechanism is
+postscript code at an appropriate location. Such a Rube Golberg-esque mechanism is
 needed to propertly typeset mathematics, get proper kerning, etc.; tasks that
 TeX can do but Postscript cannot.
 
