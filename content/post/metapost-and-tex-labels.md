@@ -49,7 +49,7 @@ label(\sometxt{text}, location);
 -->
 
 <pre><code><span class="Macro">label</span>(<span class="Keyword">\sometxt</span>{<span class="Statement">text</span>}, location);
-<code></pre>
+</code></pre>
 
 [My Way]: http://dl.contextgarden.net/myway/sometxt.pdf
 

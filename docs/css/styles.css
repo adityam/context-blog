@@ -1,6 +1,6 @@
 body {
   background-color:#f2f2f2;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   font-family:Georgia, Palatino, Palatino Linotype, serif;
   font-size:14px;
   margin:0;
@@ -227,3 +227,8 @@ pre {
   padding: 1em;
 }
 
+code {
+	font-family: Courier, monospace, sans-serif;
+	text-align: left;
+	color: #555;
+}

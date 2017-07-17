@@ -23,7 +23,7 @@ Preparation of Papers for IEEE CSS Sponsored Conferences \& Symposia
 <pre><code><span class="PreCondit">\title{</span><span class="Type">\LARGE</span> <span class="Type">\bf</span>
 Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialChar">\&amp;</span> Symposia
 <span class="PreCondit">}</span>
-<code></pre>
+</code></pre>
 
 (Seriously, how can anyone **recommend** writing TeX code like that!) In
 spite of the falseness of the argument, the general sentiment is true. It is
