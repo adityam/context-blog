@@ -7,25 +7,27 @@ title = "Rising from the ashes"
 
 +++
 
-I used to blog, mainly about ConTeXt, but occasionally about other stuff as
-well. My blog was hosted on
-[Wordpress](https://randomdeterminism.wordpress.com) and it has been almost
-three years since I last posted there. A lot of things have happened in the
-interim, both in my professional and personal life. I enjoyed writing the blog
-and my posts on ConTeXt were reasonably popular; but after a while using the
-wordpress platform to write posts was a bit annoying. I am try to start
-blogging again; this time using a [Hugo], which is a static website generator.
+I used to blog on [Wordpress], mainly about ConTeXt, but occasionally about
+other stuff as well. If has been almost three years since I last posted
+there. I got busy. Both in my personal and professional life. This is an
+attempt to restart that blog.
 
-There are many available themes for blogging with Hugo. I tried a few of them
-but did not like any of the existing themes. They were all too complex for my
-taste. So, I am attempting to create my own theme. So, at present, this blog
-does not have all the bells and whistles of a typical blog. I'll work on
-these features as time permits; but my hope is that not having to worry about
-the formatting anoyances of wordpress, I'll be able to keep the blog going for longer.
+<!--more-->
 
+I used to enjoy writing and some of my posts got a lot of traffic. However, I
+found the Wordpress platform annoying. I am a terminal+vim sort-a-guy, and
+found writing content on a textarea to be frustating. So, this time around, I
+am using a static website generator---[Hugo].
 
+[Wordpress]: https://randomdeterminism.wordpress.com
 [Hugo]: http://gohugo.io
 
-For old times sake, I have imported some of my old posts to this blog. If I am
-in the mood, I might import a few others as well.
+Many themes are available for blogging with Hugo, but I find them too
+complicated for what I plan to do. So, I decided to create my own theme. I am
+still trying to learn Hugo, so this blog lacks many of the features that you
+associate with a typical blog. I'll use this barebones structure for a while
+and see if I miss any of the features. 
+
+For old times sake, I have imported some of my old posts to this blog. I
+might import a few others, if time permits.
 
