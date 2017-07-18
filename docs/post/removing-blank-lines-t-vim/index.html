@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href=/context-blog/post/moving-from-wordpress/>Rising from the ashes</a></li>
+            
+            <li><a href=/context-blog/post/metapost-and-tex-labels/>Metapost and TeX labels</a></li>
+            
+            <li><a href=/context-blog/post/presentation-40-commits/>Clean presentation style</a></li>
+            
+            <li><a href=/context-blog/post/formatting-tables/>Separation of content and presentation in tables</a></li>
+            
+            <li><a href=/context-blog/post/removing-blank-lines-t-vim/>Removing blank lines from code listings</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Removing multiple blank lines when typesetting code listings</h1>
+<p class="post-time">September 29, 2012</p>
+
+<p>The <code>listings</code> package in LaTeX has an option to collapse multiple empty lines
+into a single empty line when typesetting code lists. Today, there was a
+question on <a href="https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted">TeX.SE</a> how to do something similar when using the <code>minted</code>
+package. The <code>t-vim</code> module uses the same principle as the <code>minted</code> package.
+So, I wondered how one could collapse multiple empty lines into a single
+line in <code>t-vim</code>?</p>
+
+<p></p>
+
+<p>In the <code>vim</code> module, it is possible to specify a <code>vimrc</code> file that is sourced
+when the code snippet is loaded in the editor. I included this option to
+pass options to syntax highlighting (e.g., for laguages like <code>sh</code> and <code>tex</code>,
+one can specify the <em>flavor</em> using keywords set in the <code>.vimrc</code> file).</p>
+
+<p>One can use this feature to pre-process the file using <code>vim</code> macros. The
+following regular expression collapses multiple lines to a single line:</p>
+
+<pre><code>%s/\(^\s*\n\)\{2,\}/\r/ge | w
+</code></pre>
+
+<p>So, we want this regular expression to be run when the file is loaded. The
+<code>t-vim</code> module writes the file with extension <code>.tmp</code>, so the following
+snippet works:</p>
+
+<!--
+au BufEnter *.tmp %s/\(^\s*\n\)\{2,\}/\r/ge | w
+-->
+
+<pre><code><span class="Statement">au</span> <span class="Type">BufEnter</span> *.tmp <span class="Number">%</span><span class="Statement">s</span><span class="Delimiter">/</span><span class="SpecialChar">\(</span>^\s*\n<span class="SpecialChar">\)</span>\{2,\}<span class="Delimiter">/</span>\r<span class="Delimiter">/</span><span class="Special">ge</span> | <span class="Statement">w</span>
+</code></pre>
+
+<p>We may use this from the <code>t-vim</code> module as follows:</p>
+
+<!----
+\usemodule[vim]
+ 
+\startvimrc[name=collapse]
+au BufEnter *.tmp %s/\(^\s*\n\)\{2,\}/\r/ge | w
+\stopvimrc
+ 
+ 
+\definevimtyping[CPPtyping][syntax=cpp, vimrc=collapse]
+ 
+\starttext
+\startCPPtyping
+  i++;
+ 
+ 
+  i++;
+ 
+ 
+ 
+ 
+ 
+ 
+  i--;
+\stopCPPtyping
+\stoptext
+-->
+
+<pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">vim</span><span class="Delimiter">]</span>
+<span class="Delimiter"> </span>
+<span class="Keyword">\startvimrc</span><span class="Delimiter">[</span><span class="Type">name=collapse</span><span class="Delimiter">]</span>
+<span class="Statement">au</span> <span class="Type">BufEnter</span> *.tmp <span class="Number">%</span><span class="Statement">s</span><span class="Delimiter">/</span><span class="SpecialChar">\(</span>^\s*\n<span class="SpecialChar">\)</span>\{2,\}<span class="Delimiter">/</span>\r<span class="Delimiter">/</span><span class="Special">ge</span> | <span class="Statement">w</span>
+<span class="Keyword">\stopvimrc</span>
+<span class="Keyword"> </span>
+<span class="Keyword"> </span>
+<span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">CPPtyping</span><span class="Delimiter">][</span><span class="Type">syntax=cpp, vimrc=collapse</span><span class="Delimiter">]</span>
+<span class="Delimiter"> </span>
+<span class="PreProc">\starttext</span>
+<span class="PreProc">\startCPPtyping</span>
+<span class="Special">  i++;</span>
+<span class="Special"> </span>
+<span class="Special"> </span>
+<span class="Special">  i++;</span>
+<span class="Special"> </span>
+<span class="Special"> </span>
+<span class="Special"> </span>
+<span class="Special"> </span>
+<span class="Special"> </span>
+<span class="Special"> </span>
+<span class="Special">  i--;</span>
+<span class="PreProc">\stopCPPtyping</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>Agreed, this is not as simple as the <code>extralines=1</code> option in the listings
+package. But, it is not too complicated when you consider the fact that I had
+not thought about this feature at all when I wrote the <code>t-vim</code> module.</p>
+
+<p class="nav">
+<a href="/context-blog/post/lower-learning-curve/">&lt;&nbsp;Lowering the learning curve for TeX</a>
+ | <a href="/context-blog/post/formatting-tables/">Separation of content and presentation in tables&nbsp;></a>
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-6887174-3']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+
