@@ -8,7 +8,7 @@ title = "Rising from the ashes"
 +++
 
 I used to blog on [Wordpress], mainly about ConTeXt, but occasionally about
-other stuff as well. If has been almost three years since I last posted
+other stuff as well. It has been almost three years since I last posted
 there. I got busy. Both in my personal and professional life. This is an
 attempt to restart that blog.
 
