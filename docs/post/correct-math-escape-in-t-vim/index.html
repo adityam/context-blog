@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href=/context-blog/post/correct-math-escape-in-t-vim/>Correct math escape in t-vim</a></li>
+            
+            <li><a href=/context-blog/post/moving-from-wordpress/>Rising from the ashes</a></li>
+            
+            <li><a href=/context-blog/post/metapost-and-tex-labels/>Metapost and TeX labels</a></li>
+            
+            <li><a href=/context-blog/post/presentation-40-commits/>Clean presentation style</a></li>
+            
+            <li><a href=/context-blog/post/formatting-tables/>Separation of content and presentation in tables</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Correct math escape in t-vim</h1>
+<p class="post-time">July 22, 2017</p>
+
+<p>There is a feature in <code>t-vim</code> module that allows the use of TeX code in
+comments, which is useful when typeset math in comments. For example:</p>
+
+<!--
+\definevimtyping[C][syntax=c, escape=on]
+
+\startC
+/* The following function computes the roots of \m{ax^2+bx+c=0}
+ * using the determinant \m{\Delta=\frac{-b\pm\sqrt{b^2-2ac}}{2a}} 
+ */
+
+double root (double a, double b, double c) {....}
+\stopC
+-->
+
+<pre><code><span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">C</span><span class="Delimiter">][</span><span class="Type">syntax=c, escape=on</span><span class="Delimiter">]</span>
+
+<span class="Keyword">\startC</span>
+<span class="Comment">/*</span><span class="Comment"> The following function computes the roots of <span class="Statement">\m</span><span class="Delimiter">{</span>ax^2+bx+c=0<span class="Delimiter">}</span>
+<span class="Comment"> * using the determinant <span class="Statement">\m</span><span class="Delimiter">{</span><span class="Statement">\Delta</span>=<span class="Statement">\frac</span><span class="Delimiter">{</span>-b<span class="Statement">\pm\sqrt</span><span class="Delimiter">{</span>b^2-2ac<span class="Delimiter">}}{</span>2a<span class="Delimiter">}}</span>
+<span class="Comment"> </span><span class="Comment">*/</span>
+
+<span class="Type">double</span> root (<span class="Type">double</span> a, <span class="Type">double</span> b, <span class="Type">double</span> c) {....}
+<span class="Keyword">\stopC</span>
+</code></pre>
+
+<p></p>
+
+<p>The <code>escape=on</code> option activates this feature. Only <code>\</code>, <code>{</code>, and <code>}</code> have
+their usual meaning inside the <code>Comment</code> region, so I use <code>\m{...}</code> to enter
+math mode. The above code get typeset as:</p>
+
+<img class="center"
+  alt="{map[class:center src:root.png alt:Typeset example]  Page(&#34;Correct math escape in t-vim&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="root.png" />
+
+
+<p>Gerion Entrup reported on the <a href="https://mailman.ntg.nl/pipermail/ntg-context/2017/089189.html">context mailing list</a> that the spacing
+inside the math mode is not always correct. The incorrect behavior is not
+visit in the above example, because there was no blank space inside the math
+mode. As soon as we add space in the math mode, the output is too
+spaced out. For example,</p>
+
+<pre><code><span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">C</span><span class="Delimiter">][</span><span class="Type">syntax=c, escape=on</span><span class="Delimiter">]</span>
+
+<span class="Keyword">\startC</span>
+<span class="Comment">/*</span><span class="Comment"> The following function computes the roots of <span class="Statement">\m</span><span class="Delimiter">{</span>ax^2 + bx + c = 0<span class="Delimiter">}</span>
+<span class="Comment"> * using the determinant <span class="Statement">\m</span><span class="Delimiter">{</span><span class="Statement">\Delta</span> = <span class="Statement">\frac</span><span class="Delimiter">{</span>-b<span class="Statement"> \pm \sqrt</span><span class="Delimiter">{</span>b^2 - 2ac<span class="Delimiter">}}{</span>2a<span class="Delimiter">}}</span>
+<span class="Comment"> </span><span class="Comment">*/</span>
+
+<span class="Type">double</span> root (<span class="Type">double</span> a, <span class="Type">double</span> b, <span class="Type">double</span> c) {....}
+<span class="Keyword">\stopC</span>
+</code></pre>
+
+<img class="center"
+  alt="{map[class:center src:root-2.png alt:Typeset example]  Page(&#34;Correct math escape in t-vim&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="root-2.png" />
+
+
+<p>Spacing inside math mode should not affect the output. What is happening
+here? After a bit of sleuthing, I found the culprit.</p>
+
+<p>As I had ranted in an old <a href="https://randomdeterminism.wordpress.com/2011/06/06/clean-tex-output/">blog post</a>, I want syntax highlighting
+programs to generate clean TeX output. Therefore, I do not escape space and
+newline characters. After all, it is easy enough to tell ConTeXt to honor
+spaces and newlines by using <code>\obeyspaces</code> and <code>\obeylines</code>. By themselves,
+<code>\obeyspaces</code> and <code>\obeylines</code> are okay.</p>
+
+<!--
+\bgroup
+\obeylines\obeyspaces\tttf
+The following function computes the roots of \m{ax^2 + bx + c = 0}
+using the determinant \m{\Delta = \frac{-b \pm \sqrt{b^2 - 2ac}}{2a}}
+\egroup
+-->
+
+<pre><code><span class="Character">\bgroup</span>
+<span class="Statement">\obeylines\obeyspaces\tttf</span>
+The following function computes the roots of <span class="Statement">\m</span><span class="Delimiter">{</span>ax^2 + bx + c = 0<span class="Delimiter">}</span>
+using the determinant <span class="Statement">\m</span><span class="Delimiter">{</span><span class="Statement">\Delta</span> = <span class="Statement">\frac</span><span class="Delimiter">{</span>-b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>b^2 - 2ac<span class="Delimiter">}}{</span>2a<span class="Delimiter">}}</span>
+<span class="Character">\egroup</span>
+</code></pre>
+
+<img class="center"
+  alt="{map[alt:Typeset example class:center src:test-1.png]  Page(&#34;Correct math escape in t-vim&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="test-1.png" />
+
+
+<p>In <code>t-vim</code>, I wanted to control how to wrap long lines. The default option is
+not to do anything and let the user figure out how to wrap the source code.
+There is also an option to split a long line at a space.
+(For other options on splitting long lines, see the <a href="https://github.com/adityam/filter/blob/master/vim-README.md#wrapping-lines">documentation</a>).</p>
+
+<p>To control whether a long line should be split at a space or not, I redefined
+<code>\obeyedspace</code>. For those who are not familiar with ConTeXt internals,
+whenever <code>\obeyspaces</code> is active, space is mapped to <code>\obeyedspace</code>. This
+makes it possible, for example, to visualize spaces. For example,</p>
+
+<!--
+\bgroup
+\obeylines\obeyspaces\tttf\def\obeyedspace{-}
+The following function computes the roots 
+\egroup
+-->
+
+<pre><code><span class="Character">\bgroup</span>
+<span class="Statement">\obeylines\obeyspaces\tttf</span><span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span>-<span class="Delimiter">}</span>
+The following function computes the roots
+<span class="Character">\egroup</span>
+</code></pre>
+
+<img class="center"
+  alt="{map[class:center src:test-2.png alt:Typeset example]  Page(&#34;Correct math escape in t-vim&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="test-2.png" />
+
+
+<p>So, to allow a line to break at a space, I use</p>
+
+<!--
+\def\obeyedspace{\hskip\interwordspace\relax}
+-->
+
+<pre><code><span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\hskip\interwordspace\relax</span><span class="Delimiter">}</span>
+</code></pre>
+ 
+
+<p>and to prevent lines from breaking at a space, I use</p>
+
+<pre><code><span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\kern\interwordspace\relax</span><span class="Delimiter">}</span>
+</code></pre>
+
+<p>However, this definition creates a wreck inside math mode.
+<!--
+\bgroup
+\obeylines\obeyspaces\tttf\def\obeyedspace{\hskip\interwordspace\relax}
+The following function computes the roots of \m{ax^2 + bx + c = 0}
+using the determinant \m{\Delta = \frac{-b \pm \sqrt{b^2 - 2ac}}{2a}}
+\egroup
+--></p>
+
+<pre><code><span class="Character">\bgroup</span>
+<span class="Statement">\obeylines\obeyspaces\tttf</span>
+<span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\hskip\interwordspace\relax</span><span class="Delimiter">}</span>
+The following function computes the roots of <span class="Statement">\m</span><span class="Delimiter">{</span>ax^2 + bx + c = 0<span class="Delimiter">}</span>
+using the determinant <span class="Statement">\m</span><span class="Delimiter">{</span><span class="Statement">\Delta</span> = <span class="Statement">\frac</span><span class="Delimiter">{</span>-b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>b^2 - 2ac<span class="Delimiter">}}{</span>2a<span class="Delimiter">}}</span>
+<span class="Character">\egroup</span>
+</code></pre>
+
+<img class="center"
+  alt="{map[class:center src:test-3.png alt:Typeset example]  Page(&#34;Correct math escape in t-vim&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="test-3.png" />
+
+
+<p>Now, that we know what is going on, it is an easy fix (suggested by Henri
+Menke). Define <code>\obeyedspace</code> to</p>
+
+<pre><code><span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\hskip\interwordspace\relax</span><span class="Delimiter">}</span>
+</code></pre>
+
+<p>Let&rsquo;s test this.</p>
+
+<pre><code><span class="Character">\bgroup</span>
+<span class="Statement">\obeylines\obeyspaces\tttf</span>
+<span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\mathortext\normalspace</span><span class="Delimiter">{</span><span class="Statement">\hskip\interwordspace\relax</span><span class="Delimiter">}}</span>
+The following function computes the roots of <span class="Statement">\m</span><span class="Delimiter">{</span>ax^2 + bx + c = 0<span class="Delimiter">}</span>
+using the determinant <span class="Statement">\m</span><span class="Delimiter">{</span><span class="Statement">\Delta</span> = <span class="Statement">\frac</span><span class="Delimiter">{</span>-b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>b^2 - 2ac<span class="Delimiter">}}{</span>2a<span class="Delimiter">}}</span>
+<span class="Character">\egroup</span>
+</code></pre>
+
+<img class="center"
+  alt="{map[src:test-4.png alt:Typeset example class:center]  Page(&#34;Correct math escape in t-vim&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="test-4.png" />
+
+
+<p>I&rsquo;ll fix this bug in the next release of <code>t-vim</code>.</p>
+
+<p class="nav">
+<a href="/context-blog/post/moving-from-wordpress/">&lt;&nbsp;Rising from the ashes</a>
+
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-6887174-3']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

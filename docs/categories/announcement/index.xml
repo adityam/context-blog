@@ -6,10 +6,45 @@
     <description>Recent content in Announcement on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jul 2017 21:53:37 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/announcement/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Correct math escape in t-vim</title>
+      <link>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</guid>
+      <description>&lt;p&gt;There is a feature in &lt;code&gt;t-vim&lt;/code&gt; module that allows the use of TeX code in
+comments, which is useful when typeset math in comments. For example:&lt;/p&gt;
+
+&lt;!--
+\definevimtyping[C][syntax=c, escape=on]
+
+\startC
+/* The following function computes the roots of \m{ax^2+bx+c=0}
+ * using the determinant \m{\Delta=\frac{-b\pm\sqrt{b^2-2ac}}{2a}} 
+ */
+
+double root (double a, double b, double c) {....}
+\stopC
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\definevimtyping&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;syntax=c, escape=on&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;Keyword&#34;&gt;\startC&lt;/span&gt;
+&lt;span class=&#34;Comment&#34;&gt;/*&lt;/span&gt;&lt;span class=&#34;Comment&#34;&gt; The following function computes the roots of &lt;span class=&#34;Statement&#34;&gt;\m&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;ax^2+bx+c=0&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;Comment&#34;&gt; * using the determinant &lt;span class=&#34;Statement&#34;&gt;\m&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\Delta&lt;/span&gt;=&lt;span class=&#34;Statement&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;-b&lt;span class=&#34;Statement&#34;&gt;\pm\sqrt&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;b^2-2ac&lt;span class=&#34;Delimiter&#34;&gt;}}{&lt;/span&gt;2a&lt;span class=&#34;Delimiter&#34;&gt;}}&lt;/span&gt;
+&lt;span class=&#34;Comment&#34;&gt; &lt;/span&gt;&lt;span class=&#34;Comment&#34;&gt;*/&lt;/span&gt;
+
+&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; root (&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; a, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; b, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; c) {....}
+&lt;span class=&#34;Keyword&#34;&gt;\stopC&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Rising from the ashes</title>

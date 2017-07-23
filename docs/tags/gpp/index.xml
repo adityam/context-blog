@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gpp on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/tags/gpp/</link>
+    <description>Recent content in Gpp on Random Determinism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jun 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adityam.github.io/context-blog/tags/gpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How I stopped worrying and started using Markdown like TeX</title>
+      <link>https://adityam.github.io/context-blog/post/markdown-with-gpp/</link>
+      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/markdown-with-gpp/</guid>
+      <description>These days I type most of simple documents (short articles, blog entries, course notes) in markdown. Markdown provides only the basic structured elements (sections, emphasis, urls, lists, footnotes, syntax highlighting, simple tables and figures) which makes it easy to transform the input into multiple output formats. Most of the time, I still want PDF output and for that, I use pandoc to convert markdown to ConTeXt. At the same time, I have the peace of mind that if I need HTML or DOC output, I’ll be able to get that easily.</description>
+    </item>
+    
+  </channel>
+</rss>

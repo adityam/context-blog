@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href=/context-blog/post/correct-math-escape-in-t-vim/>Correct math escape in t-vim</a></li>
+            
+            <li><a href=/context-blog/post/moving-from-wordpress/>Rising from the ashes</a></li>
+            
+            <li><a href=/context-blog/post/metapost-and-tex-labels/>Metapost and TeX labels</a></li>
+            
+            <li><a href=/context-blog/post/presentation-40-commits/>Clean presentation style</a></li>
+            
+            <li><a href=/context-blog/post/formatting-tables/>Separation of content and presentation in tables</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>How I stopped worrying and started using Markdown like TeX</h1>
+<p class="post-time">June 1, 2012</p>
+
+
+
+<p>These days I type most of simple documents (short articles, blog entries,
+course notes) in markdown. Markdown provides only the basic structured
+elements (sections, emphasis, urls, lists, footnotes, syntax highlighting,
+simple tables and figures) which makes it easy to transform the input into
+multiple output formats. Most of the time, I still want PDF output and for
+that, I use <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> to convert markdown to <a href="http://contextgarden.net/">ConTeXt</a>. At the same time, I
+have the peace of mind that if I need HTML or DOC output, I’ll be able to get
+that easily.</p>
+
+<p>For most of the last decade, I have almost exclusively used LaTeX/ConTeXt for
+writing all my documents. After moving to Markdown, I miss three features of
+TeX: separation of content and presentation; conditional inclusion of
+content; and including external documents. In this post, I’ll explain how to
+get these with Markdown.</p>
+
+<h2 id="separation-of-content-and-presentation">Separation of content and presentation</h2>
+
+<p>TeX gives you a lot of control for creating new structural elements. Let’s
+take a simple example. Suppose I want to write a file name in a document.
+Normally, I want the filename to appear in typewriter font. In LaTeX, I could
+type it as</p>
+
+<!--
+\texttt{src/hello.c}
+-->
+
+<pre><code><span class="Type">\texttt</span><span class="Delimiter">{</span>src/hello.c<span class="Delimiter">}</span>
+</code></pre>
+
+<p>but it is better to define a custom macro <code>\filename</code> and use</p>
+
+<pre><code><span class="Type">\filename</span><span class="Delimiter">{</span>src/hello.c<span class="Delimiter">}</span>
+</code></pre>
+
+<p>The advantage is two-fold. Firstly, while writing the file, I am thinking in
+term of content (<em>filename</em>) rather than presentation (<em>typewriter font</em>).
+Secondly, in the future, if I want to change how a filename is displayed
+(perhaps as a hyper-link to the file), all I need to do is change the
+definition of the macro. Markdown, with its simplistic structure, lacks the
+ability to define custom macros.</p>
+
+<h1 id="conditional-compilation">Conditional compilation</h1>
+
+<p>TeX also makes it trivial to generate multiple versions of the document from the same source. Again, lets take an example. Suppose I am writing notes for a class. Normally, I like to include a short bullet list on my lecture slides, but include a detailed description in the lecture handout. In ConTeXt I can use [modes] as follows (In LaTeX, I could use the <code>comments</code> package):</p>
+
+<!--
+Features of the solution
+\startitemize[n] 
+   \item Feature 1 
+
+     \startmode[handout] 
+       Explanation of the feature ... 
+     \stopmode 
+
+   \item Feature 2 
+
+     \startmode[handout]
+       Explanation of the feature ... 
+     \stopmode
+\stopitemize
+-->
+
+<pre><code>Features of the solution
+<span class="Keyword">\startitemize</span><span class="Delimiter">[</span><span class="Type">n</span><span class="Delimiter">] </span>
+   <span class="Statement">\item</span> Feature 1
+
+     <span class="Keyword">\startmode</span><span class="Delimiter">[</span><span class="Type">handout</span><span class="Delimiter">] </span>
+<span class="Delimiter">       </span>Explanation of the feature ...
+     <span class="Keyword">\stopmode </span>
+
+   <span class="Statement">\item</span> Feature 2
+
+     <span class="Keyword">\startmode</span><span class="Delimiter">[</span><span class="Type">handout</span><span class="Delimiter">]</span>
+<span class="Delimiter">       </span>Explanation of the feature ...
+     <span class="Keyword">\stopmode</span>
+<span class="Keyword">\stopitemize</span>
+</code></pre>
+
+<p>To generate the slides version of my lecture notes, I compile them using</p>
+
+<pre><code>context --mode=slides --result=slides &lt;filename&gt;
+</code></pre>
+
+<p>This version just contains the bullet list. Since the handout mode is not set, the content between <code>\startmode[handout] ... \stopmode</code> is omitted.</p>
+
+<p>To generate the handout version of my lecture notes, I compile them using</p>
+
+<pre><code>context --mode=handout --result=slides &lt;filename&gt;
+</code></pre>
+
+<p>Since the handout mode is set, the content between <code>\startmode[handout] ...
+\stopmode</code> is included.</p>
+
+<p>Such a conditional compilation is extremely useful to keep the slides and
+handouts in sync. Again, markdown with its simplistic feature set, lacks the
+ability of conditional compilation.</p>
+
+<h2 id="including-external-documents">Including external documents</h2>
+
+
+<p class="nav">
+<a href="/context-blog/post/lower-learning-curve/">&lt;&nbsp;Lowering the learning curve for TeX</a>
+ | <a href="/context-blog/post/removing-blank-lines-t-vim/">Removing blank lines from code listings&nbsp;></a>
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-6887174-3']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

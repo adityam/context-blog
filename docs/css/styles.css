@@ -1,7 +1,6 @@
 body {
   background-color:#f2f2f2;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-family:Georgia, Palatino, Palatino Linotype, serif;
+  font-family: sans-serif;
   font-size:14px;
   margin:0;
   padding:0;
@@ -40,7 +39,7 @@ a:hover {
 
 #title {
   color:#F8F8F8;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:2.32em;
 }
 
@@ -58,7 +57,7 @@ a:hover {
 
 #sub-title {
   color:#F8F8F8;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:1.12em;
   line-height: 150%;
 }
@@ -118,7 +117,7 @@ a:hover {
   color:#F8F8F8;
   font-size:0.9em;
   display:block;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   text-decoration:none;
   margin:0;
   padding:0.125em;;
@@ -142,7 +141,7 @@ a:hover {
 
 h3 {
   color:#2A4776;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:1em;
   font-weight:200;
   margin-left:-0.5em;
@@ -152,7 +151,7 @@ h3 {
 
 h2 {
   color:#2A4776;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:1.3em;
   font-weight:400;
   margin-left:-0.5em;
@@ -171,7 +170,7 @@ h2 a:hover {
 
 h1 {
   color:#2A4776;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:1.6em;
   font-weight:400;
   margin-left:-0.5em;
@@ -228,7 +227,8 @@ pre {
 }
 
 code {
-	font-family: Courier, monospace, sans-serif;
+	font-family: monospace;
 	text-align: left;
 	color: #555;
+    background-color:#F8F8F8;
 }
