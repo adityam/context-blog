@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jul 2017 21:53:37 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,27 +14,27 @@
     <item>
       <title>Announcement</title>
       <link>https://adityam.github.io/context-blog/categories/announcement/</link>
-      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
+      <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/announcement/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Feature</title>
-      <link>https://adityam.github.io/context-blog/categories/feature/</link>
-      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
+      <title>Formatting</title>
+      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/categories/feature/</guid>
+      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Formatting</title>
-      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
-      <pubDate>Sun, 18 Nov 2012 00:00:00 +0000</pubDate>
+      <title>Learning</title>
+      <link>https://adityam.github.io/context-blog/categories/learning/</link>
+      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
+      <guid>https://adityam.github.io/context-blog/categories/learning/</guid>
       <description></description>
     </item>
     
@@ -48,20 +48,11 @@
     </item>
     
     <item>
-      <title>Rant</title>
-      <link>https://adityam.github.io/context-blog/categories/rant/</link>
-      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
+      <title>Metapost</title>
+      <link>https://adityam.github.io/context-blog/categories/metapost/</link>
+      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/categories/rant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorial</title>
-      <link>https://adityam.github.io/context-blog/categories/tutorial/</link>
-      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/tutorial/</guid>
+      <guid>https://adityam.github.io/context-blog/categories/metapost/</guid>
       <description></description>
     </item>
     

@@ -4,8 +4,23 @@
     <article class="post">
 
         <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-        <p class="post-time">{{ .Date.Format "January 2, 2006" }}
-        ({{ .ReadingTime }} minute read)
+        <p class="post-time">{{ .Date.Format "2 January, 2006" }}
+        ({{ .ReadingTime }} minute read).
+        Category: 
+        {{ with .Params.categories }} 
+        {{- range $index, $value := . -}}{{ if ne $index 0 }},{{ end }}
+        <a href="{{ "categories" | absURL }}/{{ $value | urlize | lower }}">
+          {{$value  | title}}</a>
+        {{- end -}}.
+        {{ end }} 
+        Tags:
+        {{ with .Params.tags }} 
+        {{- range $index, $value := . -}}{{ if ne $index 0 }},{{ end }}
+        <a href="{{ "tags" | absURL }}/{{ $value | urlize | lower }}">
+          {{- $value  | lower -}}
+        </a>
+        {{- end -}}.
+        {{ end }} 
         </p>
 
         <div class="post-content">

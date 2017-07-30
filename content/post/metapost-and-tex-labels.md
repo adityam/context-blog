@@ -1,9 +1,9 @@
 +++
-categories = ["feature"]
+categories = ["metapost"]
 date = "2014-01-22T19:25:23-07:00"
 description = "Using string labels in Metapost"
 draft = false
-tags = ["metapost", "label"]
+tags = ["label", "metapost"]
 title = "Metapost and TeX labels"
 
 +++

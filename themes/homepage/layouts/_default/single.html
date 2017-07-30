@@ -5,9 +5,33 @@
 
 {{ .Content }}
 
+<hr />
+
 <p class="nav">
-{{ if .Next }}<a href="{{ .Next.RelPermalink }}"><&nbsp;{{ .Next.LinkTitle }}</a>{{end}}
-{{ if .Prev }} | <a href="{{ .Prev.RelPermalink }}">{{ .Prev.LinkTitle }}&nbsp;></a>{{end}}
+{{ with .Next }}
+<a href="{{ .RelPermalink }}">&nbsp;{{ .LinkTitle }}</a>
+{{ end }}
+{{ with .Prev }}
+ | <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+{{ end }}
+</p>
+
+<p>
+This entry was posted in 
+{{ with .Params.categories }} 
+{{- range $index, $value := . -}}{{ if ne $index 0 }},{{ end }}
+<a href="{{ "categories" | absURL }}/{{ $value | urlize | lower }}">
+  {{$value  | title}}</a>
+{{- end -}}
+{{ end }} 
+and tagged 
+{{ with .Params.tags }} 
+{{- range $index, $value := . -}}{{ if ne $index 0 }},{{ end }}
+<a href="{{ "tags" | absURL }}/{{ $value | urlize | lower }}">
+  {{- $value  | lower -}}
+</a>
+{{- end -}}.
+{{ end }} 
 </p>
 
 {{ partial "disqus.html" . }}

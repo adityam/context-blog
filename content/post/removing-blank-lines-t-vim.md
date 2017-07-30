@@ -1,6 +1,6 @@
 ---
 categories:
-  - feature
+  - Formatting
 date: 2012-09-29
 tags:
   - t-vim

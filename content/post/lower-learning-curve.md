@@ -1,9 +1,9 @@
 +++
-categories = ["rant"]
+categories = ["learning"]
 date = "2011-09-04T20:06:31-07:00"
 description = "Rant about making TeX easy to use"
 draft = false
-tags = ["beginners"]
+tags = ["asciimode", "catcodes"]
 title = "Some thoughts on lowering the learning curve for using TeX"
 linktitle = "Lowering the learning curve for TeX"
 +++

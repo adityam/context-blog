@@ -4,6 +4,7 @@ categories:
 date: 2012-06-01
 tags:
   - gpp
+  - pandoc
 title: "How I stopped worrying and started using Markdown like TeX"
 linktitle: "Preprocessing Markdown with GPP"
 

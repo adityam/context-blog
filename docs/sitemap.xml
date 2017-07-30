@@ -44,12 +44,12 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/categories/announcement/</loc>
-    <lastmod>2017-07-22T21:53:37-04:00</lastmod>
+    <lastmod>2017-06-10T16:26:40-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/tags/beginners/</loc>
+    <loc>https://adityam.github.io/context-blog/tags/asciimode/</loc>
     <lastmod>2011-09-04T20:06:31-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -61,20 +61,20 @@
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/categories/</loc>
-    <lastmod>2017-07-22T21:53:37-04:00</lastmod>
+    <loc>https://adityam.github.io/context-blog/tags/catcodes/</loc>
+    <lastmod>2011-09-04T20:06:31-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/categories/feature/</loc>
-    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
+    <loc>https://adityam.github.io/context-blog/categories/</loc>
+    <lastmod>2017-06-10T16:26:40-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adityam.github.io/context-blog/categories/formatting/</loc>
-    <lastmod>2012-11-18T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-22T21:53:37-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -97,6 +97,12 @@
   </url>
   
   <url>
+    <loc>https://adityam.github.io/context-blog/categories/learning/</loc>
+    <lastmod>2013-01-13T19:54:48-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/categories/markdown/</loc>
     <lastmod>2012-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -109,8 +115,26 @@
   </url>
   
   <url>
+    <loc>https://adityam.github.io/context-blog/categories/metapost/</loc>
+    <lastmod>2014-01-22T19:25:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/tags/pandoc/</loc>
+    <lastmod>2012-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/post/</loc>
     <lastmod>2017-07-22T21:53:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/tags/presentation/</loc>
+    <lastmod>2013-01-13T19:54:48-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -121,8 +145,8 @@
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/categories/rant/</loc>
-    <lastmod>2011-09-04T20:06:31-07:00</lastmod>
+    <loc>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</loc>
+    <lastmod>2012-11-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -145,7 +169,7 @@
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/categories/tutorial/</loc>
+    <loc>https://adityam.github.io/context-blog/tags/tutorial/</loc>
     <lastmod>2013-01-13T19:54:48-07:00</lastmod>
     <priority>0</priority>
   </url>

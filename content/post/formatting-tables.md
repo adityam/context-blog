@@ -1,11 +1,14 @@
 ---
 categories:
-- formatting
+  - formatting
 date: 2012-11-18
 linktitle: ""
 tags:
-- tables
+  - tables
+  - separating content and presentation
+
 title: "Separation of content and presentation in tables"
+
 ---
 
 Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from [sample tex file][sample] for the [IEEE Conference on Decision and Control][CDC]:

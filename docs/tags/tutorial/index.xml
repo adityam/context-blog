@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Random Determinism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Jan 2013 19:54:48 -0700</lastBuildDate>
+    
+	<atom:link href="https://adityam.github.io/context-blog/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a clean presentation style in 40 commits</title>
+      <link>https://adityam.github.io/context-blog/post/presentation-40-commits/</link>
+      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/presentation-40-commits/</guid>
+      <description>Did you always want to learn ConTeXt, but did not know where to start? I have written a git-based tutorial that should help you get started.
+The idea of the tutorial is to start with an empty document, and add features one-by-one. Each git commit corresponds to one small change in the document, and includes pointers to the documentation corresponding to that change. Read Use this tutorial as follows:
+ Clone the git repository:</description>
+    </item>
+    
+  </channel>
+</rss>
