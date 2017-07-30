@@ -153,6 +153,193 @@ ability of conditional compilation.</p>
 
 <h2 id="including-external-documents">Including external documents</h2>
 
+<p>TeX makes it easy to include external documents. This is really important when
+you want to include source code in your documents. I teach an introductory
+programming class, and want to make sure that the example code included in my
+notes is correct. I write the code in a separate file, write the corresponding
+test files to ensure that the code works correctly, and then include it in my
+notes using</p>
+
+<!--
+\typeJAVAfile[src/FactoryExample.java]
+-->
+
+<pre><code><span class="Statement">\typeJAVAfile</span><span class="Delimiter">[</span>src/FactoryExample.java<span class="Delimiter">]</span>
+</code></pre>
+
+<p>which gives me syntax highlighted source code. Pandoc does generate syntax highlighted source code, but does not provide any means to include external source code. So, I have to copy paste the code from the actual source file to the markdown document, but that is an error-prone process.</p>
+
+<h1 id="enter-gpp">Enter GPP</h1>
+
+<p>If I only cared about PDF output (via LaTeX/ConTeXt backend), I could simply
+use the same TeX macros in the markdown document. Pandoc passes the TeX macros
+unchanged to the LaTeX/ConTeXt backend, so I would get a TeX document with all
+the bells and whistles. But, if I tried to generate HTML or DOC output, these
+TeX macros will be omitted, and I’d get a broken document. One of my reasons
+to switching to Markdown was the peace of mind that I can generate HTML or DOC
+output if needed. Using TeX macros in the source takes away that advantage.</p>
+
+<p>So, I started looking for possible solutions and found <strong><a href="http://files.nothingisreal.com/software/gpp/gpp.html">GPP</a></strong>—the generic
+pre-processor. It is similar to the C-preprocessor: it allows to define a
+macro (similar to <code>#define</code> in the C-preprocessor) and it allows to <code>#include</code>
+an external file. For example, consider the following file:</p>
+
+<pre><code>#define filename `#1`
+
+filename(src/hello.c)
+</code></pre>
+
+<p>Compiling this through <code>gpp</code> gives</p>
+
+<pre><code>`src/hello.c`
+</code></pre>
+
+<p>This was perfect! I can define GPP macros and use them in the markdown
+document. Then simply preprocess the markdown file with GPP and then pass the
+parsed output to pandoc.</p>
+
+<p>However, I find the default, C-like, style of defining macros to be very
+fragile. For example, in the above example, I need to run through hoops if I
+wanted to use the string <code>filename</code> in my markdown file. Luckily, GPP makes it
+easy to change the way user macros are defined. One can use TeX-like syntax
+(enabled using <code>gpp -T</code>):</p>
+
+<pre><code>\define{filename}{`#1`}
+\filename{src/hello.c}
+</code></pre>
+
+<p>or HTML like syntax (enabled using <code>gpp -H</code>):</p>
+
+<pre><code>&lt;#define filename|`#1`&gt;
+&lt;#filename src/hello.c&gt;
+</code></pre>
+
+<p>I ended up using a slightly modified version of HTML like syntax which is
+enabled using</p>
+
+<pre><code>gpp  -U &quot;&lt;##&quot; &quot;&gt;&quot; &quot;\\B&quot; &quot;|&quot; &quot;&gt;&quot; &quot;&lt;&quot; &quot;&gt;&quot; &quot;#&quot; &quot;&quot; 
+</code></pre>
+
+<p>This is almost like the HTML syntax, except macros are defined and used using
+<code>&lt;##define ...&gt;</code>. The other subtle difference is that in the HTML syntax <code>\</code>
+is used as a quote character (which is useful for multi-line definitions).
+However, that means that if I use a TeX command in markdown (say
+<code>\filename{src/hello.c}</code>) then the leading backslash is stripped. With this
+modified syntax, I can define and use macros as follows:</p>
+
+<pre><code>&lt;##define filename | `#1`&gt;
+&lt;##filename src/hello.c&gt;
+</code></pre>
+
+<p>Now, I&rsquo;ll show how to use GPP to get the three features that I miss from TeX.</p>
+
+<h2 id="separation-of-content-and-presentation-1">Separation of content and presentation</h2>
+
+<p>With GPP, I can define new macros that denote structural elements, e.g.,</p>
+
+<pre><code>&lt;##define filename | `#1`&gt;
+The source is included in &lt;##filename src/hello.c&gt;.
+</code></pre>
+
+<p>When I compile this document using GPP (and the <code>-U</code> options specified
+above), I get</p>
+
+<pre><code>The source is included in `filename src/hello.c`
+</code></pre>
+
+<p>Sure, this requires more typing that simply using <code>`...`</code>, but that is
+the price that one has to pay for getting more structure. More importantly, I
+can define the <code>#filename</code> macro based on the output format:</p>
+
+<pre><code>&lt;##define filename|`#1`&gt;
+&lt;##ifdef HTML&gt;
+     &lt;##define filename|&lt;code class=&quot;filename&quot;&gt;#1&lt;/code&gt;&gt; 
+&lt;##endif&gt;
+&lt;##ifdef TEX&gt; 
+     &lt;##define filename|\filename{#1}&gt; 
+&lt;##endif&gt; 
+The source is included in &lt;##filename src/hello.c&gt;
+</code></pre>
+
+<p>Now, if I compile the document using (note the <code>-DHTML=1</code> at the end)</p>
+
+<pre><code>gpp  -U &quot;&lt;##&quot; &quot;&gt;&quot; &quot;\\B&quot; &quot;|&quot; &quot;&gt;&quot; &quot;&lt;&quot; &quot;&gt;&quot; &quot;#&quot; &quot;&quot; -DHTML=1
+</code></pre>
+
+<p>I get</p>
+
+<pre><code>The source is included in &lt;code class=&quot;filename&quot;&gt;src/hello.c&lt;/code&gt;.
+</code></pre>
+
+<p>and if I change the <code>-DHTML=1</code> to <code>-DTEX=1</code>, I get</p>
+
+<pre><code>The source is included in \filename{src/hello.c}
+</code></pre>
+
+<p>This ensures that the document structure is passed to the output as well.</p>
+
+<p>To make it easy to manage macros, create three files: <code>macros.gpp</code> containing
+all macros, <code>html.gpp</code> overwriting some of the macros with HTML equivalents,
+and <code>tex.gpp</code> overwriting some of the macros with TeX equivalents. End
+<code>macros.gpp</code> file with</p>
+
+<pre><code>....
+&lt;##ifdef HTML&gt; 
+    &lt;##include html.gpp&gt; 
+&lt;##endif&gt; 
+&lt;##ifdef TEX&gt; 
+     &lt;##include tex.gpp&gt; 
+&lt;##endif&gt;
+</code></pre>
+
+<p>and then preprocess the document using gpp <code>-DTEX=1 --include macors.gpp
+&lt;filename&gt;</code> (or <code>-DHTML=1</code> for HTML output).</p>
+
+<h2 id="conditional-compilation-1">Conditional compilation</h2>
+
+<p>Actually, the previous example already shows how to get conditional
+compilation: use the <code>-D</code> command line switch and check the variable
+definition using #ifdef. Thus, the above example translates to:</p>
+
+<pre><code>Feature of the solution
+
+1. Feature 1 
+
+   &lt;##ifdef HANDOUT&gt; 
+   Explanation of the feature ... 
+   &lt;##endif&gt; 
+
+2. Feature 2 
+
+    &lt;##ifdef HANDOUT&gt; 
+    Explanation of the feature ... 
+    &lt;##endif&gt;
+</code></pre>
+
+<p>When I compile without <code>-DHANDOUT=1</code>, I get the slides version; when I
+compile with <code>-DHANDOUT=1</code>, I get the handout version.</p>
+
+<h2 id="including-extenal-documents">Including extenal documents</h2>
+
+<p>External documents can be included using the <code>#include</code> directive. So, I can
+include an external file using</p>
+
+<pre><code>~~~{.java}
+&lt;##include src/Factory.java
+~~~
+</code></pre>
+
+<h1 id="putting-it-all-together">Putting it all together</h1>
+
+<p>All that is needed is to run the gpp preprocessor and then pass the output to
+pandoc.</p>
+
+<pre><code>gpp -U &quot;&lt;##&quot; &quot;&gt;&quot; &quot;\\B&quot; &quot;|&quot; &quot;&gt;&quot; &quot;&lt;&quot; &quot;&gt;&quot; &quot;#&quot; &quot;&quot; &lt;options&gt; &lt;filename&gt; \
+  | pandoc -f markdown -t &lt;format&gt; -o &lt;outfile&gt;
+</code></pre>
+
+<p>Hide this in a wrapper script or a shell function or a Makefile, and you have a markdown processor with the important features of TeX!</p>
+
 
 <p class="nav">
 <a href="/context-blog/post/lower-learning-curve/">&lt;&nbsp;Lowering the learning curve for TeX</a>
@@ -194,7 +381,7 @@ ability of conditional compilation.</p>
       <script type="text/javascript">
       
             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-6887174-3']);
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
             _gaq.push(['_trackPageview']);
             (function() {
                 var ga   = document.createElement('script');
