@@ -165,7 +165,9 @@ using the determinant <span class="Statement">\m</span><span class="Delimiter">{
 
 {{< img class="center" src="test-4.png" alt="Typeset example" >}}
 
-I'll fix this bug in the next release of `t-vim`.
+This bug has been fixed in `t-vim` version [2017.07.29][release]
+
+[release]: https://github.com/adityam/filter/tree/vim-2017.07.29
 
 [post]: https://randomdeterminism.wordpress.com/2011/06/06/clean-tex-output/
 [documentation]: https://github.com/adityam/filter/blob/master/vim-README.md#wrapping-lines

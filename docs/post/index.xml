@@ -129,5 +129,14 @@ details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we shou
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://adityam.github.io/context-blog/post/markdown-with-gpp.md/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/markdown-with-gpp.md/</guid>
+      <description>Features of the solution \startitemize[n]  \item Feature 1 \startmode[handout]  Explanation of the feature ... \stopmode  \item Feature 2 \startmode[handout] Explanation of the feature ... \stopmode \stopitemize  </description>
+    </item>
+    
   </channel>
 </rss>
