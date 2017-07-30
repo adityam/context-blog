@@ -18,6 +18,8 @@ that, I use [pandoc] to convert markdown to [ConTeXt]. At the same time, I
 have the peace of mind that if I need HTML or DOC output, I’ll be able to get
 that easily.
 
+<!--more-->
+
 [pandoc]: http://johnmacfarlane.net/pandoc/
 [ConTeXt]: http://contextgarden.net/
 
