@@ -150,7 +150,7 @@ using the determinant <span class="Statement">\m</span><span class="Delimiter">{
 Now, that we know what is going on, it is an easy fix (suggested by Henri
 Menke). Define `\obeyedspace` to
 
-<pre><code><span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\hskip\interwordspace\relax</span><span class="Delimiter">}</span>
+<pre><code><span class="Character">\def</span><span class="Statement">\obeyedspace</span><span class="Delimiter">{</span><span class="Statement">\mathortext\normalspace</span><span class="Delimiter">{</span><span class="Statement">\hskip\interwordspace\relax</span><span class="Delimiter">}}</span>
 </code></pre>
 
 Let's test this.
