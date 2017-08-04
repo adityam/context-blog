@@ -9,10 +9,10 @@
 
 <p class="nav">
 {{ with .Next }}
-<a href="{{ .RelPermalink }}">&nbsp;{{ .LinkTitle }}</a>
+<a href="{{ .RelPermalink }}">&nbsp;<{{ .LinkTitle }}</a>
 {{ end }}
 {{ with .Prev }}
- | <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+| <a href="{{ .RelPermalink }}">{{ .LinkTitle }}></a>
 {{ end }}
 </p>
 
