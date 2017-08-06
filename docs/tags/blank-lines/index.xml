@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blank Lines on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/tags/blank-lines/</link>
+    <description>Recent content in Blank Lines on Random Determinism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Sep 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adityam.github.io/context-blog/tags/blank-lines/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Removing multiple blank lines when typesetting code listings</title>
+      <link>https://adityam.github.io/context-blog/post/removing-blank-lines-t-vim/</link>
+      <pubDate>Sat, 29 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/removing-blank-lines-t-vim/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;listings&lt;/code&gt; package in LaTeX has an option to collapse multiple empty lines
+into a single empty line when typesetting code lists. Today, there was a
+question on &lt;a href=&#34;https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted&#34;&gt;TeX.SE&lt;/a&gt; how to do something similar when using the &lt;code&gt;minted&lt;/code&gt;
+package. The &lt;code&gt;t-vim&lt;/code&gt; module uses the same principle as the &lt;code&gt;minted&lt;/code&gt; package.
+So, I wondered how one could collapse multiple empty lines into a single
+line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,10 +1,12 @@
 ---
 categories:
-- backgrounds
+- visualization
 date: 2017-08-06T01:34:19-04:00
 tags:
 - metapost
-- framed
+- backgrounds
+- shadows
+- module
 
 title: "Drop shadows with lifted corners"
 

@@ -4,6 +4,9 @@ categories:
 date: 2012-09-29
 tags:
   - t-vim
+  - code formatting
+  - blank lines
+
 title: "Removing multiple blank lines when typesetting code listings"
 linktitle: "Removing blank lines from code listings"
 
