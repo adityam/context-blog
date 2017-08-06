@@ -109,9 +109,55 @@ These may be used like any other overlay. Let&rsquo;s see an example:</p>
 
 
 <p>Apart from these two overlays, there are very little configuration options.
-The module defines a ConTeXt color, <code>shadowcolor</code>, that determines the color
-of the shadow. By default, it is <code>0.5(white)</code>. Redefining it will change the
-color of <strong>all</strong> shadows.</p>
+The module provides a <code>MPgraphic</code> <code>backgrounds::liftedshadow</code>, which accepts
+two otions: <code>shadowcolor</code> and <code>shadow</code>.</p>
+
+<ul>
+<li><p><code>shadowcolor</code> determines the color of the shadow. It has to be a predefined
+ConTeXt color. By default it is <code>shadowcolor</code> which is defined as
+<code>0.5(white)</code>.</p></li>
+
+<li><p><code>shadow</code> determines the shape of the shadow. It is a 3-tuple <code>(x,y,o)</code>,
+where <code>x</code> specifies the horizontal distance between the lower corner of the
+overlay box and the start of the shadow; <code>y</code> specifies the depth of the
+shadow at the corners, and <code>o</code> roughly specifies the depth of the shadow
+in the middle. For <code>liftedshadow:big</code>, the shadow is <code>(2mm, 3mm, 0.16mm)</code>
+and for <code>liftedshadow:medium</code>, the shadow is <code>(1.5mm, 1.5mm, 0.12mm)</code>.</p></li>
+</ul>
+
+<p>Here is an example that shows how to change the shadow color and shadow size:</p>
+
+<pre><code><span class="Identifier">\defineoverlay</span>
+<span class="Identifier">    </span><span class="Delimiter">[</span><span class="Type">hugeshadow</span><span class="Delimiter">]</span>
+<span class="Delimiter">    [</span><span class="Type">\useMPgraphic</span><span class="Delimiter">{</span>backgrounds::liftedshadow<span class="Delimiter">}{</span>shadowcolor=blue, shadow={(4mm, 6mm, 0.3mm)<span class="Delimiter">}</span><span class="Type">}</span><span class="Delimiter">]</span>
+</code></pre>
+
+<p>using which gives</p>
+
+<img class="center"
+  alt="{map[src:example2.png class:center alt:Changing shadow color and size]  Page(&#34;Drop shadows with lifted corners&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="example2.png" />
+
+
+<p>Note that, the <code>backgrounds::liftedshadow</code> graphic just draws the shadow.
+<strong>It does not fill the overlay box with background color</strong>. So, while using
+the background, we must specify:</p>
+
+<pre><code><span class="Identifier">\defineframedtext</span>
+<span class="Identifier">  </span><span class="Delimiter">[</span><span class="Type">shadowedtext</span><span class="Delimiter">]</span>
+<span class="Delimiter">  [</span>
+<span class="Type">    ...,</span>
+<span class="Type">    background=</span><span class="Delimiter">{</span>liftedshadow:big,color<span class="Delimiter">}</span><span class="Type">,</span>
+<span class="Type">    backgroundcolor=...,</span>
+<span class="Type">    ...,</span>
+<span class="Type">  </span><span class="Delimiter">]</span>
+</code></pre>
+
+<p>The options <code>background={liftedshadow:big, color}</code> means that the
+<code>liftedshadow:big</code> overlay is drawn first and then the <code>color</code> overlay
+is drawn. The color overlay fills the frame with <code>backgroundcolor</code>. If you
+wish, you can replace the <code>color</code> overlay with another overlay that does a
+fancier fill (say shading or hatching).</p>
 
 <hr />
 

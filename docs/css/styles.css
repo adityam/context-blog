@@ -185,11 +185,11 @@ blockquote {
 }
 
 ol li {
-  padding-bottom: 1em;
+  padding-bottom: 0.25em;
 }
 
 ul li {
-  padding-bottom: 1.5em;
+  padding-bottom: 0.25em;
 }
 
 .tight ul li {
