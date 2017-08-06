@@ -25,6 +25,11 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 &lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
+&lt;img class=&#34;center&#34;
+  alt=&#34;{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
+
+
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
@@ -83,9 +88,32 @@ attempt to restart that blog.&lt;/p&gt;
       <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</guid>
-      <description>Default Metapost has the concept of two types of labels, postscript labels and TeX labels. Postscript labels are created using
-label(&amp;quot;text&amp;quot;, location);  while TeX labels are created using
-label(btextext etex, location);  In the latter case, Metapost collects everything between btex and etex in a separate file, processes that file through TeX, and includes the resulting postscript code at an appropriate location. Such a Rube Golberg-esque mechanism is needed to propertly typeset mathematics, get proper kerning, etc.</description>
+      <description>&lt;p&gt;Default Metapost has the concept of two types of labels, postscript labels and
+TeX labels. Postscript labels are created using&lt;/p&gt;
+
+&lt;!--
+label(&#34;text&#34;, location);
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;String&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, location);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;while TeX labels are created using&lt;/p&gt;
+
+&lt;!-- 
+label(btex text etex, location);
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;Statement&#34;&gt;btex&lt;/span&gt;&lt;span class=&#34;String&#34;&gt; text &lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;etex&lt;/span&gt;, location);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the latter case,  Metapost collects everything between &lt;code&gt;btex&lt;/code&gt; and &lt;code&gt;etex&lt;/code&gt;
+in a separate file, processes that file through TeX, and includes the
+resulting postscript code at an appropriate location. Such a Rube
+Golberg-esque mechanism is needed to propertly typeset mathematics, get
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -106,6 +134,19 @@ The idea of the tutorial is to start with an empty document, and add features on
       
       <guid>https://adityam.github.io/context-blog/post/formatting-tables/</guid>
       <description>&lt;p&gt;Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from &lt;a href=&#34;http://css.paperplaza.net/conferences/support/files/sample.tex&#34;&gt;sample tex file&lt;/a&gt; for the &lt;a href=&#34;http://control.disp.uniroma2.it/cdc2012/author_info.php&#34;&gt;IEEE Conference on Decision and Control&lt;/a&gt;:&lt;/p&gt;
+
+&lt;!--
+\title{\LARGE \bf
+Preparation of Papers for IEEE CSS Sponsored Conferences \&amp; Symposia
+}
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;PreCondit&#34;&gt;\title{&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;\LARGE&lt;/span&gt; &lt;span class=&#34;Type&#34;&gt;\bf&lt;/span&gt;
+Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;SpecialChar&#34;&gt;\&amp;amp;&lt;/span&gt; Symposia
+&lt;span class=&#34;PreCondit&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

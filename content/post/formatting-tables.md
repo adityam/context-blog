@@ -13,8 +13,6 @@ title: "Separation of content and presentation in tables"
 
 Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from [sample tex file][sample] for the [IEEE Conference on Decision and Control][CDC]:
 
-<!--more-->
-
 [sample]: http://css.paperplaza.net/conferences/support/files/sample.tex
 [CDC]: http://control.disp.uniroma2.it/cdc2012/author_info.php
 
@@ -28,7 +26,11 @@ Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialCha
 <span class="PreCondit">}</span>
 </code></pre>
 
-(Seriously, how can anyone **recommend** writing TeX code like that!) In
+(Seriously, how can anyone **recommend** writing TeX code like that!) 
+
+<!--more-->
+
+In
 spite of the falseness of the argument, the general sentiment is true. It is
 much easier to write structured code (that separates content and
 presentation) in TeX than in word-processors. A testament to this is the ease

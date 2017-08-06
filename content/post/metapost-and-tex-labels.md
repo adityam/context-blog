@@ -26,11 +26,13 @@ label(btex text etex, location);
 <pre><code><span class="Macro">label</span>(<span class="Statement">btex</span><span class="String"> text </span><span class="Statement">etex</span>, location);
 </code></pre>
 
-In the latter case,  Metapost collects everything between `btex` and `etex` in a
-separate file, processes that file through TeX, and includes the resulting
-postscript code at an appropriate location. Such a Rube Golberg-esque mechanism is
-needed to propertly typeset mathematics, get proper kerning, etc.; tasks that
-TeX can do but Postscript cannot.
+In the latter case,  Metapost collects everything between `btex` and `etex`
+in a separate file, processes that file through TeX, and includes the
+resulting postscript code at an appropriate location. Such a Rube
+Golberg-esque mechanism is needed to propertly typeset mathematics, get
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.
+
+<!--more-->
 
 ConTeXt has always been tightly integrated with Metapost, but in the pdftex
 days typesetting labels was slow. ConTeXt (i.e. pdftex) calls Metapost (to

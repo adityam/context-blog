@@ -81,6 +81,11 @@ other backgrounds to the module in the near future.</p>
 <p>The module provides two overlays <code>liftedshadow:big</code> and <code>liftedshadow:medium</code>.
 These may be used like any other overlay. Let&rsquo;s see an example:</p>
 
+<img class="center"
+  alt="{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(&#34;Drop shadows with lifted corners&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="/context-blog/post/drop-shadow-with-lifted-corners/example.png" />
+
+
 <p></p></p>
             <a class="btn btn-default" href="/context-blog/post/drop-shadow-with-lifted-corners/" id="read-more-button">
                 Read more >
@@ -191,9 +196,32 @@ attempt to restart that blog.</p>
         </p>
 
         <div class="post-content">
-            <p>Default Metapost has the concept of two types of labels, postscript labels and TeX labels. Postscript labels are created using
-label(&quot;text&quot;, location);  while TeX labels are created using
-label(btextext etex, location);  In the latter case, Metapost collects everything between btex and etex in a separate file, processes that file through TeX, and includes the resulting postscript code at an appropriate location. Such a Rube Golberg-esque mechanism is needed to propertly typeset mathematics, get proper kerning, etc.</p>
+            <p><p>Default Metapost has the concept of two types of labels, postscript labels and
+TeX labels. Postscript labels are created using</p>
+
+<!--
+label("text", location);
+-->
+
+<pre><code><span class="Macro">label</span>(<span class="String">&quot;text&quot;</span>, location);
+</code></pre>
+
+<p>while TeX labels are created using</p>
+
+<!-- 
+label(btex text etex, location);
+-->
+
+<pre><code><span class="Macro">label</span>(<span class="Statement">btex</span><span class="String"> text </span><span class="Statement">etex</span>, location);
+</code></pre>
+
+<p>In the latter case,  Metapost collects everything between <code>btex</code> and <code>etex</code>
+in a separate file, processes that file through TeX, and includes the
+resulting postscript code at an appropriate location. Such a Rube
+Golberg-esque mechanism is needed to propertly typeset mathematics, get
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.</p>
+
+<p></p></p>
             <a class="btn btn-default" href="/context-blog/post/metapost-and-tex-labels/" id="read-more-button">
                 Read more >
             </a>
@@ -249,6 +277,19 @@ The idea of the tutorial is to start with an empty document, and add features on
 
         <div class="post-content">
             <p><p>Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from <a href="http://css.paperplaza.net/conferences/support/files/sample.tex">sample tex file</a> for the <a href="http://control.disp.uniroma2.it/cdc2012/author_info.php">IEEE Conference on Decision and Control</a>:</p>
+
+<!--
+\title{\LARGE \bf
+Preparation of Papers for IEEE CSS Sponsored Conferences \& Symposia
+}
+-->
+
+<pre><code><span class="PreCondit">\title{</span><span class="Type">\LARGE</span> <span class="Type">\bf</span>
+Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialChar">\&amp;</span> Symposia
+<span class="PreCondit">}</span>
+</code></pre>
+
+<p>(Seriously, how can anyone <strong>recommend</strong> writing TeX code like that!)</p>
 
 <p></p></p>
             <a class="btn btn-default" href="/context-blog/post/formatting-tables/" id="read-more-button">

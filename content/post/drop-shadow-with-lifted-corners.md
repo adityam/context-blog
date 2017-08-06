@@ -12,6 +12,7 @@ title: "Drop shadows with lifted corners"
 
 ---
 
+
 There is an old question on [TeX.SE] asking how to draw drop shadows with a
 _lifted_ corner. For fun, I decided to translate the code to Metapost and
 release it as a module: [`t-backgrounds`][t-backgrounds]. I hope to add a few
@@ -20,7 +21,11 @@ other backgrounds to the module in the near future.
 The module provides two overlays `liftedshadow:big` and `liftedshadow:medium`.
 These may be used like any other overlay. Let's see an example:
 
+{{< img src="/context-blog/post/drop-shadow-with-lifted-corners/example.png" class="center" alt="Simple example" >}}
+
 <!--more-->
+
+which is achieved using:
 
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">backgrounds</span><span class="Delimiter">]</span>
 
@@ -60,10 +65,6 @@ These may be used like any other overlay. Let's see an example:
 <span class="PreProc">\stoptext</span>
 
 </code></pre>
-
-which gives:
-
-{{< img src="example.png" class="center" alt="Simple example" >}}
 
 Apart from these two overlays, there are very little configuration options.
 The module provides a `MPgraphic` `backgrounds::liftedshadow`, which accepts
