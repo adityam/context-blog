@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Metapost on Random Determinism</title>
-    <link>https://adityam.github.io/context-blog/tags/metapost/</link>
-    <description>Recent content in Metapost on Random Determinism</description>
+    <title>Framed on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/tags/framed/</link>
+    <description>Recent content in Framed on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 06 Aug 2017 01:34:19 -0400</lastBuildDate>
     
-	<atom:link href="https://adityam.github.io/context-blog/tags/metapost/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://adityam.github.io/context-blog/tags/framed/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -26,17 +26,6 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Metapost and TeX labels</title>
-      <link>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</link>
-      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</guid>
-      <description>Default Metapost has the concept of two types of labels, postscript labels and TeX labels. Postscript labels are created using
-label(&amp;quot;text&amp;quot;, location);  while TeX labels are created using
-label(btextext etex, location);  In the latter case, Metapost collects everything between btex and etex in a separate file, processes that file through TeX, and includes the resulting postscript code at an appropriate location. Such a Rube Golberg-esque mechanism is needed to propertly typeset mathematics, get proper kerning, etc.</description>
     </item>
     
   </channel>

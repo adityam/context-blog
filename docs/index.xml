@@ -6,10 +6,27 @@
     <description>Recent content on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jul 2017 21:53:37 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 06 Aug 2017 01:34:19 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Drop shadows with lifted corners</title>
+      <link>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</link>
+      <pubDate>Sun, 06 Aug 2017 01:34:19 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</guid>
+      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a
+&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and
+release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few
+other backgrounds to the module in the near future.&lt;/p&gt;
+
+&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.
+These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Correct math escape in t-vim</title>
