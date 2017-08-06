@@ -162,8 +162,8 @@ Compiling this through `gpp` gives
 ```
 
 This was perfect! I can define GPP macros and use them in the markdown
-document. Then simply preprocess the markdown file with GPP and then pass the
-parsed output to pandoc. 
+document. Then simply preprocess the markdown file with `gpp` and then pass
+the parsed output to `pandoc`. 
 
 However, I find the default, C-like, style of defining macros to be very
 fragile. For example, in the above example, I need to run through hoops if I
@@ -279,7 +279,7 @@ and then preprocess the document using gpp `-DTEX=1 --include macors.gpp
 
 Actually, the previous example already shows how to get conditional
 compilation: use the `-D` command line switch and check the variable
-definition using #ifdef. Thus, the above example translates to:
+definition using `#ifdef`. Thus, the above example translates to:
 
 
 ```
@@ -301,7 +301,7 @@ Feature of the solution
 When I compile without `-DHANDOUT=1`, I get the slides version; when I
 compile with `-DHANDOUT=1`, I get the handout version.
 
-## Including extenal documents
+## Including external documents
 
 External documents can be included using the `#include` directive. So, I can
 include an external file using
@@ -314,8 +314,7 @@ include an external file using
 
 # Putting it all together
 
-All that is needed is to run the gpp preprocessor and then pass the output to
-pandoc.
+All that is needed is to run the `gpp` preprocessor and then pass the output to `pandoc`.
 
 ```
 gpp -U "<##" ">" "\\B" "|" ">" "<" ">" "#" "" <options> <filename> \

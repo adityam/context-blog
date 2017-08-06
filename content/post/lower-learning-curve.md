@@ -131,5 +131,5 @@ with a slight twist. `%` is also a normal letter and you need to type `%%` to ge
 a line comment (and `%{}%` if you really need the output `%%`). This macro is not
 enabled by default. I think that making it default will simplify understanding
 TeX for the first time. As an added advantage, it will also make the job of
-sanitizing the input simpler for converters (such as pandoc) that convert some
+sanitizing the input simpler for converters (such as `pandoc`) that convert some
 other markup language to TeX.

@@ -195,8 +195,8 @@ filename(src/hello.c)
 </code></pre>
 
 <p>This was perfect! I can define GPP macros and use them in the markdown
-document. Then simply preprocess the markdown file with GPP and then pass the
-parsed output to pandoc.</p>
+document. Then simply preprocess the markdown file with <code>gpp</code> and then pass
+the parsed output to <code>pandoc</code>.</p>
 
 <p>However, I find the default, C-like, style of defining macros to be very
 fragile. For example, in the above example, I need to run through hoops if I
@@ -299,7 +299,7 @@ and <code>tex.gpp</code> overwriting some of the macros with TeX equivalents. En
 
 <p>Actually, the previous example already shows how to get conditional
 compilation: use the <code>-D</code> command line switch and check the variable
-definition using #ifdef. Thus, the above example translates to:</p>
+definition using <code>#ifdef</code>. Thus, the above example translates to:</p>
 
 <pre><code>Feature of the solution
 
@@ -319,7 +319,7 @@ definition using #ifdef. Thus, the above example translates to:</p>
 <p>When I compile without <code>-DHANDOUT=1</code>, I get the slides version; when I
 compile with <code>-DHANDOUT=1</code>, I get the handout version.</p>
 
-<h2 id="including-extenal-documents">Including extenal documents</h2>
+<h2 id="including-external-documents-1">Including external documents</h2>
 
 <p>External documents can be included using the <code>#include</code> directive. So, I can
 include an external file using</p>
@@ -331,8 +331,7 @@ include an external file using</p>
 
 <h1 id="putting-it-all-together">Putting it all together</h1>
 
-<p>All that is needed is to run the gpp preprocessor and then pass the output to
-pandoc.</p>
+<p>All that is needed is to run the <code>gpp</code> preprocessor and then pass the output to <code>pandoc</code>.</p>
 
 <pre><code>gpp -U &quot;&lt;##&quot; &quot;&gt;&quot; &quot;\\B&quot; &quot;|&quot; &quot;&gt;&quot; &quot;&lt;&quot; &quot;&gt;&quot; &quot;#&quot; &quot;&quot; &lt;options&gt; &lt;filename&gt; \
   | pandoc -f markdown -t &lt;format&gt; -o &lt;outfile&gt;

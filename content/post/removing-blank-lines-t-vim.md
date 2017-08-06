@@ -25,7 +25,7 @@ line in `t-vim`?
 
 In the `vim` module, it is possible to specify a `vimrc` file that is sourced
 when the code snippet is loaded in the editor. I included this option to
-pass options to syntax highlighting (e.g., for laguages like `sh` and `tex`,
+pass options to syntax highlighting (e.g., for languages like `sh` and `tex`,
 one can specify the _flavor_ using keywords set in the `.vimrc` file). 
 
 One can use this feature to pre-process the file using `vim` macros. The

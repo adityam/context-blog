@@ -6,7 +6,6 @@ tags:
 - metapost
 - backgrounds
 - shadows
-- module
 
 title: "Drop shadows with lifted corners"
 
@@ -68,7 +67,7 @@ which is achieved using:
 
 Apart from these two overlays, there are very little configuration options.
 The module provides a `MPgraphic` `backgrounds::liftedshadow`, which accepts
-two otions: `shadowcolor` and `shadow`. 
+two options: `shadowcolor` and `shadow`. 
 
 * `shadowcolor` determines the color of the shadow. It has to be a predefined
   ConTeXt color. By default it is `shadowcolor` which is defined as
