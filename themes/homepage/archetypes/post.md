@@ -1,6 +1,7 @@
 ---
-title : ""
+title     : ""
 linktitle : ""
+# date  : {{ .Date }}
 tags  :
   - tag1
   - tag2

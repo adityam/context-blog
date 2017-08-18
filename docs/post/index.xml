@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Aug 2017 01:34:19 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Frame with solid left line</title>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
+      <description>&lt;p&gt;Adding a solid line of the left side of a frame, block quote, etc. creates a
+simple, clean, and attractive visual effect that I like.&lt;/p&gt;
+
+&lt;img class=&#34;center&#34;
+  alt=&#34;{map[src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png class:center alt:Simple example]  Page(&amp;#34;Frame with solid left line&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
+
+
+&lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on
+the Internet to show blockquotes. So, how do we get this style with ConTeXT?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Drop shadows with lifted corners</title>

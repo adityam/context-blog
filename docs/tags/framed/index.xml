@@ -6,24 +6,27 @@
     <description>Recent content in Framed on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Aug 2017 01:34:19 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/framed/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Drop shadows with lifted corners</title>
-      <link>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</link>
-      <pubDate>Sun, 06 Aug 2017 01:34:19 -0400</pubDate>
+      <title>Frame with solid left line</title>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</guid>
-      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a
-&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and
-release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few
-other backgrounds to the module in the near future.&lt;/p&gt;
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
+      <description>&lt;p&gt;Adding a solid line of the left side of a frame, block quote, etc. creates a
+simple, clean, and attractive visual effect that I like.&lt;/p&gt;
 
-&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.
-These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
+&lt;img class=&#34;center&#34;
+  alt=&#34;{map[src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png class:center alt:Simple example]  Page(&amp;#34;Frame with solid left line&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
+
+
+&lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on
+the Internet to show blockquotes. So, how do we get this style with ConTeXT?&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

@@ -231,3 +231,17 @@ code {
 	text-align: left;
 	color: #555;
 }
+
+table {
+  border: thin solid #b0c4de;
+  border-collapse: collapse;
+}
+
+table thead tr th, table tbody tr td {
+	margin:0;
+	padding:6px 13px;
+}
+
+tr:nth-child(6n+4), tr:nth-child(6n+5), tr:nth-child(6n) {
+  background-color: #f0f0ff;
+}
