@@ -1,6 +1,6 @@
 ---
 title: "Frame with solid left line"
-date: 2017-08-18
+date: 2017-08-18T00:40:19-04:00
 categories:
 - visualization
 tags:

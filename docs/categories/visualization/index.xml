@@ -6,7 +6,7 @@
     <description>Recent content in Visualization on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 00:40:19 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/visualization/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Frame with solid left line</title>
       <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
-      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Aug 2017 00:40:19 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
       <description>&lt;p&gt;Adding a solid line of the left side of a frame, block quote, etc. creates a
@@ -34,7 +34,7 @@ the Internet to show blockquotes. So, how do we get this style with ConTeXT?&lt;
     <item>
       <title>Drop shadows with lifted corners</title>
       <link>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</link>
-      <pubDate>Sun, 06 Aug 2017 01:34:19 -0400</pubDate>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</guid>
       <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a

@@ -6,7 +6,7 @@
     <description>Recent content in Framed on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 00:40:19 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/framed/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Frame with solid left line</title>
       <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
-      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Aug 2017 00:40:19 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
       <description>&lt;p&gt;Adding a solid line of the left side of a frame, block quote, etc. creates a

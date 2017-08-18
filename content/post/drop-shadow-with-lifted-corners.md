@@ -1,7 +1,7 @@
 ---
 categories:
 - visualization
-date: 2017-08-06T01:34:19-04:00
+date: 2017-08-06
 tags:
 - metapost
 - backgrounds
