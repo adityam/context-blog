@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href=/context-blog/post/typesetting-differential-equations/>Typesetting differential equations</a></li>
+            
+            <li><a href=/context-blog/post/frame-with-solid-left-line/>Frame with solid left line</a></li>
+            
+            <li><a href=/context-blog/post/drop-shadow-with-lifted-corners/>Drop shadows with lifted corners</a></li>
+            
+            <li><a href=/context-blog/post/correct-math-escape-in-t-vim/>Correct math escape in t-vim</a></li>
+            
+            <li><a href=/context-blog/post/moving-from-wordpress/>Rising from the ashes</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Typesetting differential equations</h1>
+<p class="post-time">Posted on September 18, 2017</p>
+
+<p>This semester I am teaching a course involving linear differential equations,
+so I have typeset many differential equations that look like this:</p>
+
+<img class="center"
+  alt="{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="/context-blog/post/typesetting-differential-equations/LDE.png" />
+
+
+<p>Believe me, writing such equations by hand gets tedious very quickly. So, I
+wanted a macro <code>\LDE</code> (for Linear Differential Equation), so that I
+could just type</p>
+
+<!--
+\LDE{1, -3, 2}{2, 1}
+-->
+
+<pre><code><span class="Statement">\LDE</span><span class="Delimiter">{</span>1, -3, 2<span class="Delimiter">}{</span>2, 1<span class="Delimiter">}</span>
+</code></pre>
+
+<p>and get the above result. This post describes how to write such a macro using
+LuaTeX + ConTeXt.</p>
+
+<p></p>
+
+<p>I&rsquo;ll explain the implementation using a top-down approach. Writing macros in
+TeX is tough, so let&rsquo;s delegate all the high lifting to Lua. So, we define a
+ConTeXt command that simply invokes a Lua function with the appropriate
+arguments. This can be done using:</p>
+
+<!--
+\startluacode
+-- ... lua function LDE to be added ...
+interfaces.definecommand {
+    name      = "LDE",
+    macro     = LDE,
+    arguments = {
+        {"content", "list" },
+        {"content", "list" },
+    }
+}
+\stopluacode
+-->
+
+<pre><code><span class="Identifier">\startluacode</span>
+<span class="Comment">-- ... lua function LDE to be added ...</span>
+interfaces.definecommand <span class="Structure">{</span>
+    name      = <span class="String">&quot;LDE&quot;</span>,
+    macro     = LDE,
+    arguments = <span class="Structure">{</span>
+        <span class="Structure">{</span><span class="String">&quot;content&quot;</span>, <span class="String">&quot;list&quot;</span> <span class="Structure">}</span>,
+        <span class="Structure">{</span><span class="String">&quot;content&quot;</span>, <span class="String">&quot;list&quot;</span> <span class="Structure">}</span>,
+    <span class="Structure">}</span>
+<span class="Structure">}</span>
+<span class="Identifier">\stopluacode</span>
+</code></pre>
+
+<p>The <code>name</code> argument specifies the name of the TeX command (<code>\LDE</code> in this case); the <code>macro</code> argument specifies the name of the Lua function (<code>LDE</code> in this case) which gets called when the TeX macro is invoked; the <code>arguments</code> tables specifies the list of arguments of the TeX macros. We specify that the macro has two arguments, both of them are <code>content</code> arguemnts (that is, the macro is invoked as <code>\LDE{...}{...}</code>) and each arguement should be passed on to the Lua function as a <code>list</code> (i.e., a Lua table of strings; other options include <code>hash</code> (for key-value list), <code>number</code>, and <code>string</code>).</p>
+
+<p>Now all we need to do is define the function <code>LDE</code>, which takes two comma
+separated lists as arguments and typesets the resulting differential equation.
+The basic logic is straight forward. Suppose we have defined a function
+<code>derivative</code> that typesets a derivative (taking care of adding a <code>+</code> sign if
+the coefficient of an intermediate term is positive; not showing the
+coefficient if the coefficient is <code>+1</code> or <code>-1</code>; and not showing the term if
+the coefficient is <code>0</code>). Then, the <code>LDE</code> function is:</p>
+
+<!--
+\startluacode
+-- Lua function derivative to be added
+
+local LDE = function(LHS, RHS)
+  for i = 1, #LHS do
+    context(derivative(LHS[i], "y(t)", #LHS - i, i == 1))
+  end
+
+  context("=")
+  for i = 1, #RHS do
+    context(derivative(RHS[i], "u(t)", #RHS - i, i == 1))
+  end
+end
+
+interfaces.definecommand { ... } 
+\stopluacode
+-->
+
+<pre><code><span class="Identifier">\startluacode</span>
+<span class="Comment">-- Lua function derivative to be added</span>
+
+<span class="Statement">local</span> LDE = <span class="Function">function</span>(LHS, RHS)
+  <span class="Repeat">for</span> i = 1, #LHS <span class="Statement">do</span>
+    context(derivative(LHS[i], <span class="String">&quot;y(t)&quot;</span>, #LHS - i, i == 1))
+  <span class="Statement">end</span>
+
+  context(<span class="String">&quot;=&quot;</span>)
+  <span class="Repeat">for</span> i = 1, #RHS <span class="Statement">do</span>
+    context(derivative(RHS[i], <span class="String">&quot;u(t)&quot;</span>, #RHS - i, i == 1))
+  <span class="Statement">end</span>
+<span class="Function">end</span>
+
+interfaces.definecommand <span class="Structure">{</span> ... <span class="Structure">}</span>
+<span class="Identifier">\stopluacode</span>
+</code></pre>
+
+<p>The last term in the call to the <code>derivative</code> function passes a flag that
+indicates whether or not the term is the first term.</p>
+
+<p>I&rsquo;ll not go into the details of the <code>derivative</code> function because it is
+straight forward. So, here is the complete macro with a usage example:</p>
+
+<!--
+\startluacode
+  local find, format = string.find, string.format
+
+  local derivative = function(coefficient, var, order, first)
+    -- If the coefficient is zero or empty, don't typeset anything
+    if coefficient == nil or coefficient == "" or coefficient == "0" then
+       return
+    end
+
+    -- If the coefficient is 1 or -1, we do not want to print the 1.
+    if coefficient == "1" then 
+        coefficient = "" 
+    elseif coefficient == "-1" then
+        coefficient = "-"
+    end
+
+    -- If this is not the first coefficient by is a positive coefficient, 
+    -- then add a "+" sign
+    if not first then
+      if find(coefficient, "-") ~= 1 then
+         coefficient = "+" .. coefficient
+      end   
+    end
+
+    -- Format the return value depending on the order of the derivative
+    local str 
+    if order == 0 then
+       str = format("%s %s", coefficient, var)
+    elseif order == 1 then
+       str = format("%s \\dfrac{ d %s } { dt }", coefficient, var)
+    else
+       str = format("%s \\dfrac{ d^{%s} %s } { dt^{%s} }", coefficient, order, var, order)
+    end
+    return str
+  end
+
+  local LDE = function(LHS, RHS)
+    LHS = settings_to_array(LHS)
+    RHS = settings_to_array(RHS)
+
+    for i = 1, #LHS do
+      context(derivative(LHS[i], "y(t)", #LHS - i, i == 1))
+    end
+    context("=")
+    for i = 1, #RHS do
+      context(derivative(RHS[i], "u(t)", #RHS - i, i == 1))
+    end
+  end
+
+
+interfaces.definecommand {
+    name      = "LDE",
+    macro     = LDE,
+    arguments = {
+        {"content", "string" },
+        {"content", "string" },
+    }
+}
+
+\stopluacode
+
+\starttext
+\startformula
+  \LDE{2,1,-3}{4,0,6}
+\stopformula
+\startformula
+  \LDE{a_2, -a_1,a_0}{b_1,b_0}
+\stopformula
+\stoptext
+-->
+
+<pre><code><span class="Identifier">\startluacode</span>
+  <span class="Statement">local</span> find, format = <span class="Identifier">string.find</span>, <span class="Identifier">string.format</span>
+
+  <span class="Statement">local</span> derivative = <span class="Function">function</span>(coefficient, var, order, first)
+    <span class="Comment">-- If the coefficient is zero or empty, don't typeset anything</span>
+    <span class="Conditional">if</span> coefficient == <span class="Constant">nil</span> <span class="Operator">or</span> coefficient == <span class="String">&quot;&quot;</span> <span class="Operator">or</span> coefficient == <span class="String">&quot;0&quot;</span> <span class="Conditional">then</span>
+       <span class="Statement">return</span>
+    <span class="Conditional">end</span>
+
+    <span class="Comment">-- If the coefficient is 1 or -1, we do not want to print the 1.</span>
+    <span class="Conditional">if</span> coefficient == <span class="String">&quot;1&quot;</span> <span class="Conditional">then</span>
+        coefficient = <span class="String">&quot;&quot;</span>
+    <span class="Conditional">elseif</span> coefficient == <span class="String">&quot;-1&quot;</span> <span class="Conditional">then</span>
+        coefficient = <span class="String">&quot;-&quot;</span>
+    <span class="Conditional">end</span>
+
+    <span class="Comment">-- If this is not the first coefficient by is a positive coefficient, </span>
+    <span class="Comment">-- then add a &quot;+&quot; sign</span>
+    <span class="Conditional">if</span> <span class="Operator">not</span> first <span class="Conditional">then</span>
+      <span class="Conditional">if</span> find(coefficient, <span class="String">&quot;-&quot;</span>) ~= 1 <span class="Conditional">then</span>
+         coefficient = <span class="String">&quot;+&quot;</span> .. coefficient
+      <span class="Conditional">end</span>
+    <span class="Conditional">end</span>
+
+    <span class="Comment">-- Format the return value depending on the order of the derivative</span>
+    <span class="Statement">local</span> str
+    <span class="Conditional">if</span> order == 0 <span class="Conditional">then</span>
+       str = format(<span class="String">&quot;%s %s&quot;</span>, coefficient, var)
+    <span class="Conditional">elseif</span> order == 1 <span class="Conditional">then</span>
+       str = format(<span class="String">&quot;%s </span><span class="SpecialChar">\\</span><span class="String">dfrac{ d %s } { dt }&quot;</span>, coefficient, var)
+    <span class="Conditional">else</span>
+       str = format(<span class="String">&quot;%s </span><span class="SpecialChar">\\</span><span class="String">dfrac{ d^{%s} %s } { dt^{%s} }&quot;</span>, coefficient, order, var, order)
+    <span class="Conditional">end</span>
+    <span class="Statement">return</span> str
+  <span class="Function">end</span>
+
+  <span class="Statement">local</span> LDE = <span class="Function">function</span>(LHS, RHS)
+    LHS = settings_to_array(LHS)
+    RHS = settings_to_array(RHS)
+
+    <span class="Repeat">for</span> i = 1, #LHS <span class="Statement">do</span>
+      context(derivative(LHS[i], <span class="String">&quot;y(t)&quot;</span>, #LHS - i, i == 1))
+    <span class="Statement">end</span>
+    context(<span class="String">&quot;=&quot;</span>)
+    <span class="Repeat">for</span> i = 1, #RHS <span class="Statement">do</span>
+      context(derivative(RHS[i], <span class="String">&quot;u(t)&quot;</span>, #RHS - i, i == 1))
+    <span class="Statement">end</span>
+  <span class="Function">end</span>
+
+
+interfaces.definecommand <span class="Structure">{</span>
+    name      = <span class="String">&quot;LDE&quot;</span>,
+    macro     = LDE,
+    arguments = <span class="Structure">{</span>
+        <span class="Structure">{</span><span class="String">&quot;content&quot;</span>, <span class="String">&quot;list&quot;</span> <span class="Structure">}</span>,
+        <span class="Structure">{</span><span class="String">&quot;content&quot;</span>, <span class="String">&quot;list&quot;</span> <span class="Structure">}</span>,
+    <span class="Structure">}</span>
+<span class="Structure">}</span>
+
+<span class="Identifier">\stopluacode</span>
+
+<span class="PreProc">\starttext</span>
+<span class="Identifier">\startformula</span>
+<span class="String">  </span><span class="Statement">\LDE</span><span class="String">{2,1,-3}{4,0,6}</span>
+<span class="Identifier">\stopformula</span>
+<span class="Identifier">\startformula</span>
+<span class="String">  </span><span class="Statement">\LDE</span><span class="String">{a_2, -a_1,a_0}{b_1,b_0}</span>
+<span class="Identifier">\stopformula</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/frame-with-solid-left-line/">&nbsp;&lt;Frame with solid left line</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/macros">
+  Macros</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+<a href="https://adityam.github.io/context-blog/tags/programming">programming</a>,
+<a href="https://adityam.github.io/context-blog/tags/separating-content-and-presentation">separating content and presentation</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+
