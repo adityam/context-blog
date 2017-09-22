@@ -11,8 +11,10 @@ tags:
 
 ---
 
-There is a feature in `t-vim` module that allows the use of TeX code in
+There is a feature in `[t-vim]` module that allows the use of TeX code in
 comments, which is useful when typeset math in comments. For example: 
+
+[t-vim]: https://github.com/adityam/filter/vim-README.md
 
 <!--
 \definevimtyping[C][syntax=c, escape=on]

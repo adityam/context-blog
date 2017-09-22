@@ -21,7 +21,7 @@
 so I have typeset many differential equations that look like this:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png class:center]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
 
@@ -90,7 +90,7 @@ These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&
       <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</guid>
-      <description>&lt;p&gt;There is a feature in &lt;code&gt;t-vim&lt;/code&gt; module that allows the use of TeX code in
+      <description>&lt;p&gt;There is a feature in &lt;code&gt;[t-vim]&lt;/code&gt; module that allows the use of TeX code in
 comments, which is useful when typeset math in comments. For example:&lt;/p&gt;
 
 &lt;!--
