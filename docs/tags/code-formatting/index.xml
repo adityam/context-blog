@@ -17,8 +17,8 @@
       <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</guid>
-      <description>&lt;p&gt;There is a feature in &lt;code&gt;[t-vim]&lt;/code&gt; module that allows the use of TeX code in
-comments, which is useful when typeset math in comments. For example:&lt;/p&gt;
+      <description>&lt;p&gt;There is a feature in &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;&lt;code&gt;t-vim&lt;/code&gt;&lt;/a&gt; module that allows the use of TeX code
+in comments, which is useful when typeset math in comments. For example:&lt;/p&gt;
 
 &lt;!--
 \definevimtyping[C][syntax=c, escape=on]
