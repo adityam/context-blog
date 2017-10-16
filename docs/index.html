@@ -32,6 +32,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href=/context-blog/post/math-combined-characters/>Comibined characters in Math</a></li>
+            
             <li><a href=/context-blog/post/typesetting-differential-equations/>Typesetting differential equations</a></li>
             
             <li><a href=/context-blog/post/frame-with-solid-left-line/>Frame with solid left line</a></li>
@@ -39,8 +41,6 @@
             <li><a href=/context-blog/post/drop-shadow-with-lifted-corners/>Drop shadows with lifted corners</a></li>
             
             <li><a href=/context-blog/post/correct-math-escape-in-t-vim/>Correct math escape in t-vim</a></li>
-            
-            <li><a href=/context-blog/post/moving-from-wordpress/>Rising from the ashes</a></li>
             
           </ul>
         </li>
@@ -52,6 +52,49 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/math-combined-characters/">Comibined characters in Math</a></h1>
+        <p class="post-time">15 October, 2017
+        (3 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/mathematics">
+          Mathematics</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/asciimath">asciimath</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>There is a new feature in ConTeXt that replaces some <em>ascii math</em> (I am using
+this term informally. The symbols do not match the <a href="http://asciimath.org">asciimath</a> symbol list).
+It is enabled by default and replaces a combination of characters by a glyph.
+For example,</p>
+
+<pre><code>A function <span class="String">$f$</span> is an increasing function
+  <span class="Identifier">\startformula</span>
+<span class="String">    x &lt;= y  ===&gt; f(x) &lt;= f(y)</span>
+<span class="String">  </span><span class="Identifier">\stopformula</span>
+</code></pre>
+
+<p>gives</p>
+
+<img class="center"
+  alt="{map[src:/context-blog/post/math-combined-characters/ex-1.png class:center alt:Example of combined characters]  Page(&#34;Comibined characters in Math&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="/context-blog/post/math-combined-characters/ex-1.png" />
+
+
+<p></p></p>
+            <a class="btn btn-default" href="/context-blog/post/math-combined-characters/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -76,7 +119,7 @@
 so I have typeset many differential equations that look like this:</p>
 
 <img class="center"
-  alt="{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[class:center alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/typesetting-differential-equations/LDE.png" />
 
 
@@ -124,7 +167,7 @@ LuaTeX + ConTeXt.</p>
 simple, clean, and attractive visual effect that I like.</p>
 
 <img class="center"
-  alt="{map[src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png class:center alt:Simple example]  Page(&#34;Frame with solid left line&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[alt:Simple example src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png class:center]  Page(&#34;Frame with solid left line&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
 
 
@@ -412,41 +455,6 @@ line in <code>t-vim</code>?</p>
 
 <p></p></p>
             <a class="btn btn-default" href="/context-blog/post/removing-blank-lines-t-vim/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/markdown-with-gpp/">Preprocessing Markdown with GPP: Or how I stopped worrying and started using Markdown like TeX</a></h1>
-        <p class="post-time">1 June, 2012
-        (7 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/markdown">
-          Markdown</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/gpp">gpp</a>,
-        <a href="https://adityam.github.io/context-blog/tags/pandoc">pandoc</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>These days I type most of simple documents (short articles, blog entries,
-course notes) in markdown. Markdown provides only the basic structured
-elements (sections, emphasis, urls, lists, footnotes, syntax highlighting,
-simple tables and figures) which makes it easy to transform the input into
-multiple output formats. Most of the time, I still want PDF output and for
-that, I use <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> to convert markdown to <a href="http://contextgarden.net/">ConTeXt</a>. At the same time, I
-have the peace of mind that if I need HTML or DOC output, I’ll be able to get
-that easily.</p>
-
-<p></p></p>
-            <a class="btn btn-default" href="/context-blog/post/markdown-with-gpp/" id="read-more-button">
                 Read more >
             </a>
         </div>

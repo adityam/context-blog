@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asciimath on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/tags/asciimath/</link>
+    <description>Recent content in Asciimath on Random Determinism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adityam.github.io/context-blog/tags/asciimath/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Comibined characters in Math</title>
+      <link>https://adityam.github.io/context-blog/post/math-combined-characters/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/math-combined-characters/</guid>
+      <description>&lt;p&gt;There is a new feature in ConTeXt that replaces some &lt;em&gt;ascii math&lt;/em&gt; (I am using
+this term informally. The symbols do not match the &lt;a href=&#34;http://asciimath.org&#34;&gt;asciimath&lt;/a&gt; symbol list).
+It is enabled by default and replaces a combination of characters by a glyph.
+For example,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;A function &lt;span class=&#34;String&#34;&gt;$f$&lt;/span&gt; is an increasing function
+  &lt;span class=&#34;Identifier&#34;&gt;\startformula&lt;/span&gt;
+&lt;span class=&#34;String&#34;&gt;    x &amp;lt;= y  ===&amp;gt; f(x) &amp;lt;= f(y)&lt;/span&gt;
+&lt;span class=&#34;String&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;Identifier&#34;&gt;\stopformula&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;gives&lt;/p&gt;
+
+&lt;img class=&#34;center&#34;
+  alt=&#34;{map[src:/context-blog/post/math-combined-characters/ex-1.png class:center alt:Example of combined characters]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;
+
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
