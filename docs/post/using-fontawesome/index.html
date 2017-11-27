@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href=/context-blog/post/using-fontawesome/>Using Font Awesome</a></li>
+            
+            <li><a href=/context-blog/post/math-combined-characters/>Comibined characters in Math</a></li>
+            
+            <li><a href=/context-blog/post/typesetting-differential-equations/>Typesetting differential equations</a></li>
+            
+            <li><a href=/context-blog/post/frame-with-solid-left-line/>Frame with solid left line</a></li>
+            
+            <li><a href=/context-blog/post/drop-shadow-with-lifted-corners/>Drop shadows with lifted corners</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Using Font Awesome</h1>
+<p class="post-time">Posted on November 26, 2017</p>
+
+<p><a href="http://fontawesome.io/icons/">Font Awesome</a> provides various pictographic icons and is commonly used in
+various websites. The font is shipped with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt Standalone</a> and ConTeXt
+includes a <code>symbolset</code> to easily access the glyphs. Here is an example showing
+how to access these symbols:</p>
+
+<!--
+\usesymbols[fontawesome]
+\starttext
+Checked box \symbol[fontawesome][check-square-o] 
+Unchecked box \symbol[fontawesome][square-o]
+\stoptext
+-->
+
+<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
+<span class="PreProc">\starttext</span>
+Checked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>check-square-o<span class="Delimiter">]</span>
+Unchecked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>square-o<span class="Delimiter">]</span>
+<span class="PreProc">\stoptext</span>
+
+</code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="{map[src:/context-blog/post/using-fontawesome/fontawesome-1.png class:center alt:Output showing Font Awesome]  Page(&#34;Using Font Awesome&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="/context-blog/post/using-fontawesome/fontawesome-1.png" />
+
+
+<p></p>
+
+<p>Recently, I wanted to use Font Awesome symbols in a document that was typeset
+with <a href="https://software.sil.org/charis/">CharisSIL</a> at 11pt and there was a size mismatch between the text
+font and font awesome symbols. It took me some time to figure out how to scale
+the glyphs so that the result looks good, so I am writing this blog post as a
+reference for my future self.</p>
+
+<p>Almost all Font Awesome symbols are fixed width, so I decided to simply scale
+the height of the font to be equal to <code>1em</code>. This can be done using</p>
+
+<pre><code><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span>...<span class="Delimiter">}</span>
+</code></pre>
+
+<p>The tricky part was to ensure that the symbol sits at the right location on
+the baseline. After a bit of trial and error—and skimming through
+[supp-box.mkiv]—the best solution was to use:</p>
+
+<pre><code><span class="Statement">\inlinedbox</span><span class="Delimiter">{</span><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span>...<span class="Delimiter">}}</span>
+</code></pre>
+
+<p>Here is a complete example:</p>
+
+<!--
+\definetypeface[mainfont][rm][specserif][CharisSil][default]
+\definetypeface[mainfont][mm][math] [pagellaovereuler][default]
+\definetypeface[mainfont][tt][mono] [dejavu][default] [rscale=0.8, features=none]
+\setupbodyfont[mainfont,11pt]
+\usesymbols[fontawesome]
+
+\define\FA{\dosingleargument\doFA}
+\def\doFA[#1]{\inlinedbox
+    {\scale[height=1em]{\symbol[fontawesome][#1]}}}
+
+\starttext
+Checked box \FA[check-square-o] 
+Unchecked box \FA[square-o]
+\stoptext
+-->
+
+<pre><code><span class="Identifier">\definetypeface</span><span class="Delimiter">[</span><span class="Type">mainfont</span><span class="Delimiter">][</span><span class="Type">rm</span><span class="Delimiter">][</span><span class="Type">specserif</span><span class="Delimiter">][</span><span class="Type">CharisSil</span><span class="Delimiter">][</span><span class="Type">default</span><span class="Delimiter">]</span>
+<span class="Identifier">\definetypeface</span><span class="Delimiter">[</span><span class="Type">mainfont</span><span class="Delimiter">][</span><span class="Type">mm</span><span class="Delimiter">][</span><span class="Type">math</span><span class="Delimiter">] [</span><span class="Type">pagellaovereuler</span><span class="Delimiter">][</span><span class="Type">default</span><span class="Delimiter">]</span>
+<span class="Identifier">\definetypeface</span><span class="Delimiter">[</span><span class="Type">mainfont</span><span class="Delimiter">][</span><span class="Type">tt</span><span class="Delimiter">][</span><span class="Type">mono</span><span class="Delimiter">] [</span><span class="Type">dejavu</span><span class="Delimiter">][</span><span class="Type">default</span><span class="Delimiter">] [</span><span class="Type">rscale=0.8, features=none</span><span class="Delimiter">]</span>
+<span class="Identifier">\setupbodyfont</span><span class="Delimiter">[</span><span class="Type">mainfont,11pt</span><span class="Delimiter">]</span>
+<span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
+
+<span class="Identifier">\define</span><span class="Statement">\FA</span><span class="Delimiter">{</span><span class="Statement">\dosingleargument\doFA</span><span class="Delimiter">}</span>
+<span class="Character">\def</span><span class="Statement">\doFA</span><span class="Delimiter">[</span>#1<span class="Delimiter">]{</span><span class="Statement">\inlinedbox</span>
+    <span class="Delimiter">{</span><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>#1<span class="Delimiter">]}}}</span>
+
+<span class="PreProc">\starttext</span>
+Checked box <span class="Statement">\FA</span><span class="Delimiter">[</span>check-square-o<span class="Delimiter">]</span>
+Unchecked box <span class="Statement">\FA</span><span class="Delimiter">[</span>square-o<span class="Delimiter">]</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="{map[class:center alt:Output showing Font Awesome src:fontawesome-2.png]  Page(&#34;Using Font Awesome&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="fontawesome-2.png" />
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/math-combined-characters/">&nbsp;&lt;Comibined characters in Math</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/fonts">
+  Fonts</a>,
+<a href="https://adityam.github.io/context-blog/categories/macros">
+  Macros</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/font-awesome">font awesome</a>,
+<a href="https://adityam.github.io/context-blog/tags/symbols">symbols</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

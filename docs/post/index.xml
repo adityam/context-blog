@@ -6,10 +6,47 @@
     <description>Recent content in Posts on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Nov 2017 20:09:19 -0500</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Font Awesome</title>
+      <link>https://adityam.github.io/context-blog/post/using-fontawesome/</link>
+      <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/using-fontawesome/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://fontawesome.io/icons/&#34;&gt;Font Awesome&lt;/a&gt; provides various pictographic icons and is commonly used in
+various websites. The font is shipped with &lt;a href=&#34;http://wiki.contextgarden.net/ConTeXt_Standalone&#34;&gt;ConTeXt Standalone&lt;/a&gt; and ConTeXt
+includes a &lt;code&gt;symbolset&lt;/code&gt; to easily access the glyphs. Here is an example showing
+how to access these symbols:&lt;/p&gt;
+
+&lt;!--
+\usesymbols[fontawesome]
+\starttext
+Checked box \symbol[fontawesome][check-square-o] 
+Unchecked box \symbol[fontawesome][square-o]
+\stoptext
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\usesymbols&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;fontawesome&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;PreProc&#34;&gt;\starttext&lt;/span&gt;
+Checked box &lt;span class=&#34;Statement&#34;&gt;\symbol&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;fontawesome&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;check-square-o&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+Unchecked box &lt;span class=&#34;Statement&#34;&gt;\symbol&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;fontawesome&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;square-o&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;PreProc&#34;&gt;\stoptext&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which gives&lt;/p&gt;
+
+&lt;img class=&#34;center&#34;
+  alt=&#34;{map[src:/context-blog/post/using-fontawesome/fontawesome-1.png class:center alt:Output showing Font Awesome]  Page(&amp;#34;Using Font Awesome&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/using-fontawesome/fontawesome-1.png&#34; /&gt;
+
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Comibined characters in Math</title>
@@ -48,7 +85,7 @@ For example,&lt;/p&gt;
 so I have typeset many differential equations that look like this:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
 

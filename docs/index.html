@@ -32,6 +32,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href=/context-blog/post/using-fontawesome/>Using Font Awesome</a></li>
+            
             <li><a href=/context-blog/post/math-combined-characters/>Comibined characters in Math</a></li>
             
             <li><a href=/context-blog/post/typesetting-differential-equations/>Typesetting differential equations</a></li>
@@ -39,8 +41,6 @@
             <li><a href=/context-blog/post/frame-with-solid-left-line/>Frame with solid left line</a></li>
             
             <li><a href=/context-blog/post/drop-shadow-with-lifted-corners/>Drop shadows with lifted corners</a></li>
-            
-            <li><a href=/context-blog/post/correct-math-escape-in-t-vim/>Correct math escape in t-vim</a></li>
             
           </ul>
         </li>
@@ -52,6 +52,62 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/using-fontawesome/">Using Font Awesome</a></h1>
+        <p class="post-time">26 November, 2017
+        (1 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/fonts">
+          Fonts</a>,
+        <a href="https://adityam.github.io/context-blog/categories/macros">
+          Macros</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/font-awesome">font awesome</a>,
+        <a href="https://adityam.github.io/context-blog/tags/symbols">symbols</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p><a href="http://fontawesome.io/icons/">Font Awesome</a> provides various pictographic icons and is commonly used in
+various websites. The font is shipped with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt Standalone</a> and ConTeXt
+includes a <code>symbolset</code> to easily access the glyphs. Here is an example showing
+how to access these symbols:</p>
+
+<!--
+\usesymbols[fontawesome]
+\starttext
+Checked box \symbol[fontawesome][check-square-o] 
+Unchecked box \symbol[fontawesome][square-o]
+\stoptext
+-->
+
+<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
+<span class="PreProc">\starttext</span>
+Checked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>check-square-o<span class="Delimiter">]</span>
+Unchecked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>square-o<span class="Delimiter">]</span>
+<span class="PreProc">\stoptext</span>
+
+</code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="{map[src:/context-blog/post/using-fontawesome/fontawesome-1.png class:center alt:Output showing Font Awesome]  Page(&#34;Using Font Awesome&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="/context-blog/post/using-fontawesome/fontawesome-1.png" />
+
+
+<p></p></p>
+            <a class="btn btn-default" href="/context-blog/post/using-fontawesome/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -119,7 +175,7 @@ For example,</p>
 so I have typeset many differential equations that look like this:</p>
 
 <img class="center"
-  alt="{map[class:center alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/typesetting-differential-equations/LDE.png" />
 
 
@@ -421,40 +477,6 @@ Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialCha
 
 <p></p></p>
             <a class="btn btn-default" href="/context-blog/post/formatting-tables/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/removing-blank-lines-t-vim/">Removing multiple blank lines when typesetting code listings</a></h1>
-        <p class="post-time">29 September, 2012
-        (2 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/formatting">
-          Formatting</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/t-vim">t-vim</a>,
-        <a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>,
-        <a href="https://adityam.github.io/context-blog/tags/blank-lines">blank lines</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>The <code>listings</code> package in LaTeX has an option to collapse multiple empty lines
-into a single empty line when typesetting code lists. Today, there was a
-question on <a href="https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted">TeX.SE</a> how to do something similar when using the <code>minted</code>
-package. The <code>t-vim</code> module uses the same principle as the <code>minted</code> package.
-So, I wondered how one could collapse multiple empty lines into a single
-line in <code>t-vim</code>?</p>
-
-<p></p></p>
-            <a class="btn btn-default" href="/context-blog/post/removing-blank-lines-t-vim/" id="read-more-button">
                 Read more >
             </a>
         </div>
