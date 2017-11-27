@@ -65,20 +65,20 @@ using</p>
 
 <p>and then any icon is accessible using</p>
 
-<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span>
+<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span></code></pre>
 
-where `...` is the name of the icon is listed in [the Font Awesome icon list][Font Awesome].
+<p>where <code>...</code> is the name of the icon is listed in <a href="http://fontawesome.io/icons/">the Font Awesome icon list</a>.</p>
 
+<p></p>
 
-
-Recently, I wanted to use Font Awesome icons in a document that was typeset
-with [CharisSIL] at 11pt and there was a size mismatch between the text
+<p>Recently, I wanted to use Font Awesome icons in a document that was typeset
+with <a href="https://software.sil.org/charis/">CharisSIL</a> at 11pt and there was a size mismatch between the text
 font and font awesome icons. It took me some time to figure out how to scale
 the icons so that the result looks good, so I am writing this blog post as a
-reference for my future self. 
+reference for my future self.</p>
 
-Almost all Font Awesome symbols are fixed width, so I decided to simply scale
-the height of the font to be equal to `1em`. This can be done using
+<p>Almost all Font Awesome symbols are fixed width, so I decided to simply scale
+the height of the font to be equal to <code>1em</code>. This can be done using</p>
 
 <pre><code><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span>...<span class="Delimiter">}</span>
 </code></pre>

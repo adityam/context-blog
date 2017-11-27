@@ -22,7 +22,7 @@ using
 
 and then any icon is accessible using
 
-<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span>
+<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span></code></pre>
 
 where `...` is the name of the icon is listed in [the Font Awesome icon list][Font Awesome].
 
