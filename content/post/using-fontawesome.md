@@ -9,38 +9,29 @@ tags:
 - symbols
 ---
 
-[Font Awesome] provides various pictographic icons and is commonly used in
-various websites. The font is shipped with [ConTeXt Standalone] and ConTeXt
-includes a `symbolset` to easily access the glyphs. Here is an example showing
-how to access these symbols:
+[Font Awesome] is a font that provides pictographic icons and is commonly used
+to display icons for email, editing tasks, popular social media website, etc.
+It is easy to use Font Awesome in ConTeXt: the font ships with [ConTeXt
+Standalone] and ConTeXt includes a `symbolset` to easily access the icons
+using names rather than icon numbers. 
 
-<!--
-\usesymbols[fontawesome]
-\starttext
-Checked box \symbol[fontawesome][check-square-o] 
-Unchecked box \symbol[fontawesome][square-o]
-\stoptext
--->
+To use FontAwesome icons in ConTeXt, simply load the symbolset `fontawesome`
+using
 
-<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
-<span class="PreProc">\starttext</span>
-Checked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>check-square-o<span class="Delimiter">]</span>
-Unchecked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>square-o<span class="Delimiter">]</span>
-<span class="PreProc">\stoptext</span>
+<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span></code></pre>
 
-</code></pre>
+and then any icon is accessible using
 
-which gives
+<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span>
 
-{{< img src="/context-blog/post/using-fontawesome/fontawesome-1.png"
-    class="center" alt="Output showing Font Awesome" >}}
+where `...` is the name of the icon is listed in [the Font Awesome icon list][Font Awesome].
 
 <!--more-->
 
-Recently, I wanted to use Font Awesome symbols in a document that was typeset
+Recently, I wanted to use Font Awesome icons in a document that was typeset
 with [CharisSIL] at 11pt and there was a size mismatch between the text
-font and font awesome symbols. It took me some time to figure out how to scale
-the glyphs so that the result looks good, so I am writing this blog post as a
+font and font awesome icons. It took me some time to figure out how to scale
+the icons so that the result looks good, so I am writing this blog post as a
 reference for my future self. 
 
 Almost all Font Awesome symbols are fixed width, so I decided to simply scale

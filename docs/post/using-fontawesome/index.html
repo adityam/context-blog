@@ -52,44 +52,33 @@
 <h1>Using Font Awesome</h1>
 <p class="post-time">Posted on November 26, 2017</p>
 
-<p><a href="http://fontawesome.io/icons/">Font Awesome</a> provides various pictographic icons and is commonly used in
-various websites. The font is shipped with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt Standalone</a> and ConTeXt
-includes a <code>symbolset</code> to easily access the glyphs. Here is an example showing
-how to access these symbols:</p>
+<p><a href="http://fontawesome.io/icons/">Font Awesome</a> is a font that provides pictographic icons and is commonly used
+to display icons for email, editing tasks, popular social media website, etc.
+It is easy to use Font Awesome in ConTeXt: the font ships with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt
+Standalone</a> and ConTeXt includes a <code>symbolset</code> to easily access the icons
+using names rather than icon numbers.</p>
 
-<!--
-\usesymbols[fontawesome]
-\starttext
-Checked box \symbol[fontawesome][check-square-o] 
-Unchecked box \symbol[fontawesome][square-o]
-\stoptext
--->
+<p>To use FontAwesome icons in ConTeXt, simply load the symbolset <code>fontawesome</code>
+using</p>
 
-<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
-<span class="PreProc">\starttext</span>
-Checked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>check-square-o<span class="Delimiter">]</span>
-Unchecked box <span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>square-o<span class="Delimiter">]</span>
-<span class="PreProc">\stoptext</span>
+<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span></code></pre>
 
-</code></pre>
+<p>and then any icon is accessible using</p>
 
-<p>which gives</p>
+<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span>
 
-<img class="center"
-  alt="{map[src:/context-blog/post/using-fontawesome/fontawesome-1.png class:center alt:Output showing Font Awesome]  Page(&#34;Using Font Awesome&#34;) &lt;nil&gt; true &lt;nil&gt;}"
-  src="/context-blog/post/using-fontawesome/fontawesome-1.png" />
+where `...` is the name of the icon is listed in [the Font Awesome icon list][Font Awesome].
 
 
-<p></p>
 
-<p>Recently, I wanted to use Font Awesome symbols in a document that was typeset
-with <a href="https://software.sil.org/charis/">CharisSIL</a> at 11pt and there was a size mismatch between the text
-font and font awesome symbols. It took me some time to figure out how to scale
-the glyphs so that the result looks good, so I am writing this blog post as a
-reference for my future self.</p>
+Recently, I wanted to use Font Awesome icons in a document that was typeset
+with [CharisSIL] at 11pt and there was a size mismatch between the text
+font and font awesome icons. It took me some time to figure out how to scale
+the icons so that the result looks good, so I am writing this blog post as a
+reference for my future self. 
 
-<p>Almost all Font Awesome symbols are fixed width, so I decided to simply scale
-the height of the font to be equal to <code>1em</code>. This can be done using</p>
+Almost all Font Awesome symbols are fixed width, so I decided to simply scale
+the height of the font to be equal to `1em`. This can be done using
 
 <pre><code><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span>...<span class="Delimiter">}</span>
 </code></pre>
@@ -139,7 +128,7 @@ Unchecked box <span class="Statement">\FA</span><span class="Delimiter">[</span>
 <p>which gives</p>
 
 <img class="center"
-  alt="{map[class:center alt:Output showing Font Awesome src:fontawesome-2.png]  Page(&#34;Using Font Awesome&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:fontawesome-2.png class:center alt:Output showing Font Awesome]  Page(&#34;Using Font Awesome&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="fontawesome-2.png" />
 
 <hr />
