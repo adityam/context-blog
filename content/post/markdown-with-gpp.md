@@ -308,7 +308,7 @@ include an external file using
 
 ```
 ~~~{.java}
-<##include src/Factory.java
+<##include src/Factory.java>
 ~~~
 ```
 
