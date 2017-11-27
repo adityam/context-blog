@@ -100,3 +100,5 @@ which gives
 
 [Font Awesome]: http://fontawesome.io/icons/
 [ConTeXt Standalone]: http://wiki.contextgarden.net/ConTeXt_Standalone
+[supp-box.mkiv]:
+https://github.com/contextgarden/context-mirror/blob/beta/tex/context/base/mkiv/supp-box.mkiv#L1515
