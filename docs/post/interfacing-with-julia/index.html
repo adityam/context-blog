@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href=/context-blog/post/interfacing-with-julia/>Interfacing LuaTeX with Julia</a></li>
+            
+            <li><a href=/context-blog/post/using-fontawesome/>Using Font Awesome</a></li>
+            
+            <li><a href=/context-blog/post/math-combined-characters/>Comibined characters in Math</a></li>
+            
+            <li><a href=/context-blog/post/typesetting-differential-equations/>Typesetting differential equations</a></li>
+            
+            <li><a href=/context-blog/post/frame-with-solid-left-line/>Frame with solid left line</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Interfacing LuaTeX with Julia</h1>
+<p class="post-time">Posted on December 27, 2017</p>
+
+<p>One cool feature of LuaTeX is ability to interface with external
+libraries using Lua&rsquo;s <a href="http://luajit.org/ext_ffi.html">Foreign Function Interface (FFI)</a>. An
+extreme example of this is Luigi Scarso&rsquo;s <a href="https://www.tug.org/TUGboat/tb30-3/tb96scarso.pdf">LuaTeX lunatic</a>,
+which provides a two way bridge between Python and LuaTeX. Not being a Python
+fan, I never looked into the implementation details, in spite of Luigi&rsquo;s
+impressive examples.</p>
+
+<p>Recently, Henri Menke <a href="https://tex.stackexchange.com/a/403794/323">posted an interesting
+example</a> that shows how to use a
+function from <a href="https://www.gnu.org/software/gsl/">GNU Scientific Library
+(GSL)</a> to inteface with <a href="http://pgfplots.sourceforge.net">pgfplots</a>. This
+got me interested in looking into Lua&rsquo;s FFI in detail. After a bit of trial
+and error, I finally figured out how to interface LuaTeX with my current
+favorite programming language: <a href="https://julialang.org">Julia</a>.</p>
+
+<p></p>
+
+<h2 id="calling-julia-from-lua">Calling Julia from Lua</h2>
+
+<p>The basic idea of calling julia (or any other C library for that matter) from
+Lua is the following:</p>
+
+<!--
+```
+local ffi = require("ffi")
+local JULIA = ffi.load("julia", true)
+
+ffi.cdef [[
+  void jl_init(void);
+  typedef struct _jl_value_t jl_value_t;
+  jl_value_t *jl_eval_string(const char*);
+]]
+
+JULIA.jl_init()
+
+code = [[
+  x = [1 2 3]'
+  A = [1 0 1; 0 1 1; 1 1 0]
+
+  y = x'*A*x
+
+  print(y[1])
+]]
+
+JULIA.jl_eval_string(code)
+```
+-->
+
+<pre><code><span class="Statement">local</span> ffi = <span class="Identifier">require</span>(<span class="Constant">&quot;ffi&quot;</span>)
+<span class="Statement">local</span> JULIA = ffi.<span class="Identifier">load</span>(<span class="Constant">&quot;julia&quot;</span>, <span class="Constant" style="font-weight: bold;">true</span>)
+
+ffi.cdef <span class="Constant">[[</span>
+<span class="Constant">  void jl_init(void);</span>
+<span class="Constant">  typedef struct _jl_value_t jl_value_t;</span>
+<span class="Constant">  jl_value_t *jl_eval_string(const char*);</span>
+<span class="Constant">]]</span>
+
+JULIA.jl_init()
+
+code = <span class="Constant">[[</span>
+<span class="Constant">  x = [1 2 3]'</span>
+<span class="Constant">  A = [1 0 1; 0 1 1; 1 1 0]</span>
+
+<span class="Constant">  y = x'*A*x</span>
+
+<span class="Constant">  print(y[1])</span>
+<span class="Constant">]]</span>
+
+JULIA.jl_eval_string(code)
+</code></pre>
+
+<p>Save this as, say <code>test-1.lua</code> and run:</p>
+
+<pre><code>luatex test-1.lua
+</code></pre>
+
+<p>You should see <code>23</code> as output.</p>
+
+<p>Phew! That wasn&rsquo;t difficult. A couple of points to note:</p>
+
+<ol>
+<li><p>It took me quite some time to figure out that I need <code>ffi.load(&quot;julia&quot;,
+true)</code> rather than <code>ffi.load(&quot;julia&quot;)</code>. Lua&rsquo;s <a href="http://luajit.org/ext_ffi_api.html">FFI API</a>
+documentation says that when the second argument is <code>true</code>, <em>he library
+symbols are loaded into the global namespace, too.</em>. I don&rsquo;t completely
+understand that statement. The only hint that this is needed is a  note on
+<a href="https://docs.julialang.org/en/release-0.6/manual/embedding/">Embedding Julia</a> page that says <em>Currently, dynamically linking
+with the libjulia shared library requires passing the <code>RTLD_GLOBAL</code>
+option.</em>  Since I was not familiar with working with FFI, I could not put
+two and two together.</p></li>
+
+<li><p>I don&rsquo;t quite understand why one needs to include the function signatures
+in <code>ffi.cdef</code>. It would be much simpler if I could simply ask <code>ffi</code> to
+include a C header file. Otherwise, I need to hunt for all the
+needed function signatures from <code>julia.h</code> file. Some of these functions are
+defined using <code>#define</code> and I don&rsquo;t know how to include them in <code>ffi.cdef</code>.</p></li>
+</ol>
+
+<h2 id="creating-a-tex-inteface">Creating a TeX inteface</h2>
+
+<p>Now that we know how to call Julia from Lua, the rest is just adding some
+scafolding to create a TeX inteface. Lua&rsquo;s FFI interface allows one to call
+any function defined in a  C library and convert return values to Lua objects
+(strings, numbers, or tables). As a proof of concept, I decided to only pass
+and receive strings. This is limited (and you need to ensure that the Julia
+code returns a string), but easier to implement.</p>
+
+<p>To do so, I defined a Lua function <code>julia.eval(str, flag)</code>, which takes a
+string <code>str</code> and evals it using julia. If <code>flag</code> is set to <code>true</code>, then it
+converts the return value to a lua string and typesets it using ConTeXt.</p>
+
+<!---
+```
+\startluacode
+local ffi = require("ffi")
+local JULIA = ffi.load("/usr/lib/libjulia.so", true)
+local format = string.format
+
+ffi.cdef [[
+  void jl_init(void);
+
+  typedef struct _jl_value_t jl_value_t;
+  jl_value_t *jl_eval_string(const char*);
+  char *jl_string_ptr(jl_value_t *);
+]]
+
+JULIA.jl_init()
+
+julia = julia or {}
+
+function julia.eval(str, flag)
+  local jval  = JULIA.jl_eval_string(str)
+  if flag then
+    local lval = ffi.string(JULIA.jl_string_ptr(jval))
+    context(lval)
+  end
+end
+
+\stopluacode
+
+\define[1]\ctxjulia{\ctxlua{julia.eval([===[#1]===], true) }}
+\define[1]\julia   {\ctxlua{julia.eval([===[#1]===], false)}}
+
+\starttext
+\julia{a = 10}
+\julia{b = 5}
+\ctxjulia{string(a*b)}
+\stoptext
+```
+-->
+
+<pre><code><span class="Identifier">\startluacode</span>
+<span class="Statement">local</span> ffi = <span class="Identifier">require</span>(<span class="Constant">&quot;ffi&quot;</span>)
+<span class="Statement">local</span> JULIA = ffi.<span class="Identifier">load</span>(<span class="Constant">&quot;/usr/lib/libjulia.so&quot;</span>, <span class="Constant">true</span>)
+<span class="Statement">local</span> format = <span class="Identifier">string.format</span>
+
+ffi.cdef <span class="Constant">[[</span>
+<span class="Constant">  void jl_init(void);</span>
+
+<span class="Constant">  typedef struct _jl_value_t jl_value_t;</span>
+<span class="Constant">  jl_value_t *jl_eval_string(const char*);</span>
+<span class="Constant">  char *jl_string_ptr(jl_value_t *);</span>
+<span class="Constant">]]</span>
+
+JULIA.jl_init()
+
+julia = julia <span class="Statement">or</span> <span class="Type">{}</span>
+
+<span class="Identifier">function</span> julia.eval(str, flag)
+  <span class="Statement">local</span> jval  = JULIA.jl_eval_string(str)
+  <span class="Statement">if</span> flag <span class="Statement">then</span>
+    <span class="Statement">local</span> lval = ffi.string(JULIA.jl_string_ptr(jval))
+    context(lval)
+  <span class="Statement">end</span>
+<span class="Identifier">end</span>
+
+<span class="Identifier">\stopluacode</span>
+</pre></code>
+
+Then, at the TeX end, I define two macros: `\julia` which simply evaluates its
+argument using julia and `\ctxjulia` which evaluates its argument using julia
+and typesets the result. 
+
+<pre><code><span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\ctxjulia</span><span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, true) <span class="Special">}}</span>
+<span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\julia</span>   <span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, false)<span class="Special">}}</span>
+</code></pre>
+
+<p>Here is a simple usage example.</p>
+
+<pre><code><span class="PreProc">\starttext</span>
+<span class="Statement">\julia</span><span class="Special">{</span>a = 10<span class="Special">}</span>
+<span class="Statement">\julia</span><span class="Special">{</span>b = 5<span class="Special">}</span>
+<span class="Statement">\ctxjulia</span><span class="Special">{</span>string(a*b)<span class="Special">}</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>which, as expected, prints <em>50</em>. Sure, for something as simple as this, I
+could have simply used Lua as well. In a future post, I&rsquo;ll show how to create
+a nicer user-interface and do show some more interesting examples.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/using-fontawesome/">&nbsp;&lt;Using Font Awesome</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/ffi">
+  FFI</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/julia">julia</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+
