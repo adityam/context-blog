@@ -135,7 +135,7 @@ JULIA.jl_eval_string(code)
 <ol>
 <li><p>It took me quite some time to figure out that I need <code>ffi.load(&quot;julia&quot;,
 true)</code> rather than <code>ffi.load(&quot;julia&quot;)</code>. Lua&rsquo;s <a href="http://luajit.org/ext_ffi_api.html">FFI API</a>
-documentation says that when the second argument is <code>true</code>, <em>he library
+documentation says that when the second argument is <code>true</code>, <em>the library
 symbols are loaded into the global namespace, too.</em>. I don&rsquo;t completely
 understand that statement. The only hint that this is needed is a  note on
 <a href="https://docs.julialang.org/en/release-0.6/manual/embedding/">Embedding Julia</a> page that says <em>Currently, dynamically linking
@@ -147,7 +147,11 @@ two and two together.</p></li>
 in <code>ffi.cdef</code>. It would be much simpler if I could simply ask <code>ffi</code> to
 include a C header file. Otherwise, I need to hunt for all the
 needed function signatures from <code>julia.h</code> file. Some of these functions are
-defined using <code>#define</code> and I don&rsquo;t know how to include them in <code>ffi.cdef</code>.</p></li>
+defined using <code>#define</code> and I don&rsquo;t know how to include them in <code>ffi.cdef</code>.</p>
+
+<p>[<strong>Edit</strong>: After browsing through some of the old threads in the Lua
+  mailing list, the main concern is that parsing <code>.h</code> files requires the C
+  pre-processor and writing that in pure Lua is a lot of effort. ]</p></li>
 </ol>
 
 <h2 id="creating-a-tex-inteface">Creating a TeX inteface</h2>
@@ -162,6 +166,11 @@ code returns a string), but easier to implement.</p>
 <p>To do so, I defined a Lua function <code>julia.eval(str, flag)</code>, which takes a
 string <code>str</code> and evals it using julia. If <code>flag</code> is set to <code>true</code>, then it
 converts the return value to a lua string and typesets it using ConTeXt.</p>
+
+<p>Note that in the example below, I use <code>ffi.load(&quot;/usr/lib/libjulia.so&quot;, true)</code>
+rather than <code>ffi.load(&quot;julia&quot;, true)</code>. For some reason, the latter does not
+work when compiling a file through <code>context</code> (although, running <code>context
+test-1.lua</code> on the above example runs fine).</p>
 
 <!---
 ```

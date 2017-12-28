@@ -89,7 +89,7 @@ Phew! That wasn't difficult. A couple of points to note:
 
 1. It took me quite some time to figure out that I need `ffi.load("julia",
    true)` rather than `ffi.load("julia")`. Lua's [FFI API][FFI-API]
-   documentation says that when the second argument is `true`, _he library
+   documentation says that when the second argument is `true`, _the library
    symbols are loaded into the global namespace, too._. I don't completely
    understand that statement. The only hint that this is needed is a  note on
    [Embedding Julia][embedding] page that says _Currently, dynamically linking
@@ -103,6 +103,10 @@ Phew! That wasn't difficult. A couple of points to note:
    needed function signatures from `julia.h` file. Some of these functions are
    defined using `#define` and I don't know how to include them in `ffi.cdef`. 
 
+      [**Edit**: After browsing through some of the old threads in the Lua
+      mailing list, the main concern is that parsing `.h` files requires the C
+      pre-processor and writing that in pure Lua is a lot of effort. ]
+
 ## Creating a TeX inteface
 
 Now that we know how to call Julia from Lua, the rest is just adding some
@@ -115,6 +119,11 @@ code returns a string), but easier to implement.
 To do so, I defined a Lua function `julia.eval(str, flag)`, which takes a
 string `str` and evals it using julia. If `flag` is set to `true`, then it
 converts the return value to a lua string and typesets it using ConTeXt. 
+
+Note that in the example below, I use `ffi.load("/usr/lib/libjulia.so", true)`
+rather than `ffi.load("julia", true)`. For some reason, the latter does not
+work when compiling a file through `context` (although, running `context
+test-1.lua` on the above example runs fine). 
 
 <!---
 ```
@@ -184,8 +193,8 @@ julia = julia <span class="Statement">or</span> <span class="Type">{}</span>
 <span class="Identifier">\stopluacode</span>
 </code></pre>
 
-Then, at the TeX end, I define two macros: `\julia` which simply evaluates its
-argument using julia and `\ctxjulia` which evaluates its argument using julia
+Then, at the TeX end, I define two macros: <code>\julia</code> which simply evaluates its
+argument using julia and <code>\ctxjulia</code> which evaluates its argument using julia
 and typesets the result. 
 
 <pre><code><span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\ctxjulia</span><span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, true) <span class="Special">}}</span>
