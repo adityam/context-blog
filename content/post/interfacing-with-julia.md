@@ -182,7 +182,7 @@ julia = julia <span class="Statement">or</span> <span class="Type">{}</span>
 <span class="Identifier">end</span>
 
 <span class="Identifier">\stopluacode</span>
-</pre></code>
+</code></pre>
 
 Then, at the TeX end, I define two macros: `\julia` which simply evaluates its
 argument using julia and `\ctxjulia` which evaluates its argument using julia

@@ -229,11 +229,11 @@ julia = julia <span class="Statement">or</span> <span class="Type">{}</span>
 <span class="Identifier">end</span>
 
 <span class="Identifier">\stopluacode</span>
-</pre></code>
+</code></pre>
 
-Then, at the TeX end, I define two macros: `\julia` which simply evaluates its
-argument using julia and `\ctxjulia` which evaluates its argument using julia
-and typesets the result. 
+<p>Then, at the TeX end, I define two macros: <code>\julia</code> which simply evaluates its
+argument using julia and <code>\ctxjulia</code> which evaluates its argument using julia
+and typesets the result.</p>
 
 <pre><code><span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\ctxjulia</span><span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, true) <span class="Special">}}</span>
 <span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\julia</span>   <span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, false)<span class="Special">}}</span>
