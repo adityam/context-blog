@@ -1,0 +1,53 @@
+\usemodule[animation]
+\setupinteraction[state=start]
+
+\unprotect
+
+\installnamespace{MPanimationvariables}
+
+\unexpanded\def\startMPanimation
+    {\dodoublegroupempty\meta_start_animation}
+
+\def\meta_start_animation#1%
+    {\normalexpanded{\meta_start_animation_indeed{#1}}}
+
+\unexpanded\def\meta_start_animation_indeed#1#2#3\stopMPanimation
+    {\doifsomething{#2}{\getparameters[\????MPanimationvariables#1:][#2]}%
+     \setgvalue{\??mpgraphic animation:#1}{\meta_handle_use_graphic{#1}{n,t}{#3}}}
+
+\let\stopMPanimation\relax
+
+\unexpanded\def\useMPanimation%
+    {\dosingleargument\use_meta_animation}
+
+\def\use_meta_animation[#1]#2%
+    {\edef\c_MP_animation_frames{\getvalue{\????MPanimationvariables#2:n}}%
+     \startanimation[#1]
+        \dorecurse{\c_MP_animation_frames}
+            {\expanded{\frame{\useMPgraphic{animation:#2}{n=\c_MP_animation_frames,t=\recurselevel}}}}
+     \stopanimation}
+
+\protect
+
+
+\startMPanimation{circle}{n=100}
+    path p, q;
+
+    p := fullcircle scaled 2cm;
+    draw p withcolor 0.7white;
+
+    n := \MPvar{n};
+    t := \MPvar{t};
+
+    drawdot point (t/n) along p
+        withpen pencircle scaled 3bp withcolor red;
+
+    setbounds currentpicture to fullsquare scaled 2.2cm;
+\stopMPanimation
+
+
+\starttext
+\startTEXpage[offset=5mm]
+\useMPanimation[menu=yes,framerate=50]{circle}
+\stopTEXpage
+\stoptext

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></li>
+            
+            <li><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></li>
+            
+            <li><a href="/context-blog/post/using-fontawesome/">Using Font Awesome</a></li>
+            
+            <li><a href="/context-blog/post/math-combined-characters/">Comibined characters in Math</a></li>
+            
+            <li><a href="/context-blog/post/typesetting-differential-equations/">Typesetting differential equations</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Drawing Metapost animations</h1>
+<p class="post-time">Posted on July 15, 2018</p>
+
+<p>The <a href="http://wiki.contextgarden.net/Animation#Using_the_animation_module">animation</a> module provides a nice interface for using
+<a href="http://www.pragma-ade.com/general/manuals/mwidget-s.pdf">FieldStacks</a> to create a JavaScript controlled animations in
+ConTeXt.<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> For example, the following code will show <code>step-1.pdf</code>,
+<code>step-2.pdf</code>, <code>step-3.pdf</code>, and <code>step-4.pdf</code> files one by one:</p>
+
+<!--
+\usemodule[animation]
+
+\startanimation[menu=yes]
+  {\useexternalfigure[step-1]}
+  {\useexternalfigure[step-2]}
+  {\useexternalfigure[step-3]}
+  {\useexternalfigure[step-4]}
+\stopanimation
+-->
+
+<pre><code><span class="Statement">\usemodule</span><span class="Delimiter">[</span>animation<span class="Delimiter">]</span>
+
+<span class="Statement">\startanimation</span><span class="Delimiter">[</span>menu=yes<span class="Delimiter">]</span>
+  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-1.pdf<span class="Delimiter">]}</span>
+  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-2.pdf<span class="Delimiter">]}</span>
+  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-3.pdf<span class="Delimiter">]}</span>
+  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-4.pdf<span class="Delimiter">]}</span>
+<span class="Statement">\stopanimation</span>
+</code></pre>
+
+<p>Sometimes, I use animation to give the illusion of motion. For example, to
+show a particle moving along a trajectory (drawn using Metapost). In
+principle, it is possible to use the <code>animation</code> module to draw such
+animations (e.g., see Wolfgang&rsquo;s reply in <a href="https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html">on ntg-context mailing list</a>), but the
+interface gets a bit cumbersome. In this post, I show a helper macro to
+simplify drawing such animations.</p>
+
+<p></p>
+
+<p>As an example, I&rsquo;ll consider the use case of drawing a particle moving in a
+circle. With the helper macros given below, we can use the following code:</p>
+
+<!--
+\startMPanimation{circle}{n=100}
+    path p, q;
+
+    p := fullcircle scaled 2cm;
+    draw p withcolor 0.7white;
+
+    n := \MPvar{n};
+    t := \MPvar{t};
+
+    drawdot point along p
+        withpen pencircle scaled 3bp withcolor red;
+
+    setbounds currentpicture to fullsquare scaled 2.2cm;
+\stopMPanimation
+
+\starttext
+\useMPanimation[menu=yes,framerate=20]{circle}
+\stoptext
+-->
+
+<pre><code><span class="Identifier">\startMPanimation</span>{circle}{n=<span class="Number">100</span>}
+    <span class="Type">path</span> p, q;
+
+    p := <span class="Constant">fullcircle</span> <span class="Statement">scaled</span> <span class="Number">2cm</span>;
+    <span class="Function">draw</span> p <span class="Statement">withcolor</span> <span class="Number">0.7</span><span class="Constant">white</span>;
+
+    n := \MPvar{n};
+    t := \MPvar{t};
+
+    <span class="Function">drawdot</span> <span class="Statement">point</span> (t/n) along p
+        <span class="Statement">withpen</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">3bp</span> <span class="Statement">withcolor</span> <span class="Constant">red</span>;
+
+    <span class="Statement">setbounds</span> <span class="Identifier">currentpicture</span> <span class="Statement">to</span> fullsquare <span class="Statement">scaled</span> <span class="Number">2.2cm</span>;
+<span class="Identifier">\stopMPanimation</span>
+
+
+<span class="PreProc">\starttext</span>
+<span class="Identifier">\useMPanimation</span><span class="Delimiter">[</span><span class="Type">menu=yes,framerate=50</span><span class="Delimiter">]{</span>circle<span class="Delimiter">}</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>to generate this animation</p>
+
+<img class="center"
+  alt="{map[alt:Simple animation src:test-animation.gif class:center]  Page(&#34;Drawing Metapost animations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="test-animation.gif" />
+
+
+<p>Thus, an animation is defined using <code>\startMPanimation ... \stopMPanimation</code>.
+The macro takes one argument <code>n=...</code>, which specifies the total number of
+frames. To use the animation, use</p>
+
+<pre><code><span class="Identifier">\useMPanimation</span><span class="Delimiter">[</span><span class="Type">menu=yes,framerate=50</span><span class="Delimiter">]{</span>circle<span class="Delimiter">}</span>
+</code></pre>
+
+<p>where the options (in square brackets) are options to the <code>\startanimation</code>
+macro from <code>animation</code> module. That&rsquo;s it.</p>
+
+<p>Behind the scenes, the <code>\startMPanimation</code> amcro creates a <code>useMPgraphic</code> with
+the name <code>animation:circle</code>, which takes two arguments <code>n</code> (which is the same
+as before) and <code>t</code> (which specifies the current <em>time</em> or the current frame
+number). The body of the environment is the metapost code which draws a figure
+depending on the values of <code>t</code> and <code>n</code>. In the example above, I draw a circle
+and a point <code>t/n</code> along the circle.</p>
+
+<p>The macros <code>\startMPanimation</code> and <code>\useMPanimation</code> are a wrapper around the
+<a href="https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html">code by Wolfgang</a>:</p>
+
+<pre><code><span class="Character">\unprotect</span>
+
+<span class="Statement">\installnamespace</span><span class="Delimiter">{</span>MPanimationvariables<span class="Delimiter">}</span>
+
+<span class="Character">\unexpanded\def</span><span class="Identifier">\startMPanimation</span>
+    {\dodoublegroupempty\meta_start_animation}
+
+\<span class="Statement">def</span>\meta_start_animation#<span class="Number">1</span><span class="Comment">%</span>
+    {\normalexpanded{\meta_start_animation_indeed{#<span class="Number">1</span>}}}
+
+\unexpanded\<span class="Statement">def</span>\meta_start_animation_indeed#<span class="Number">1</span>#<span class="Number">2</span>#<span class="Number">3</span><span class="Identifier">\stopMPanimation</span>
+    <span class="Delimiter">{</span><span class="Statement">\doifsomething</span><span class="Delimiter">{</span>#2<span class="Delimiter">}{</span><span class="Statement">\getparameters</span><span class="Delimiter">[</span>\????MPanimationvariables#1:<span class="Delimiter">][</span>#2<span class="Delimiter">]}</span><span class="Comment">%</span>
+     <span class="Statement">\setgvalue</span><span class="Delimiter">{</span>\??mpgraphic animation:#1<span class="Delimiter">}{</span><span class="Statement">\meta_handle_use_graphic</span><span class="Delimiter">{</span>#1<span class="Delimiter">}{</span>n,t<span class="Delimiter">}{</span>#3<span class="Delimiter">}}}</span>
+
+<span class="Character">\let</span><span class="Keyword">\stopMPanimation</span><span class="Statement">\relax</span>
+
+<span class="Character">\unexpanded\def</span><span class="Identifier">\useMPanimation</span><span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Statement">\dosingleargument</span><span class="Identifier">\use</span>_meta_animation<span class="Delimiter">}</span>
+
+<span class="Character">\def</span><span class="Identifier">\use</span>_meta_animation<span class="Delimiter">[</span>#1<span class="Delimiter">]</span>#2<span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Statement">\edef\c_MP_animation_frames</span><span class="Delimiter">{</span><span class="Statement">\getvalue</span><span class="Delimiter">{</span>\????MPanimationvariables#2:n<span class="Delimiter">}}</span><span class="Comment">%</span>
+     <span class="Keyword">\startanimation</span><span class="Delimiter">[</span><span class="Type">#1</span><span class="Delimiter">]</span>
+<span class="Delimiter">        </span><span class="Statement">\dorecurse</span><span class="Delimiter">{</span><span class="Statement">\c_MP_animation_frames</span><span class="Delimiter">}</span>
+            <span class="Delimiter">{</span><span class="Statement">\expanded</span><span class="Delimiter">{</span><span class="Statement">\frame</span><span class="Delimiter">{</span><span class="Identifier">\useMPgraphic</span><span class="Delimiter">{</span>animation:#2<span class="Delimiter">}{</span>n=<span class="Statement">\c_MP_animation_frames</span>,t=<span class="Statement">\recurselevel</span><span class="Delimiter">}}}}</span>
+     <span class="Keyword">\stopanimation</span><span class="Delimiter">}</span>
+
+<span class="Character">\protect</span>
+
+</code></pre>
+
+<p>A test file and sample pdf output are below. The pdf file needs to be open in
+Adobe Acrobat to work:</p>
+
+<ul>
+<li><a href="test-animation.tex">test-animation.tex</a></li>
+<li><a href="test-animation.pdf">test-animation.pdf</a></li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><strong>Warning</strong>: Such animations only work with Adobe Acrobat.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/interfacing-with-julia/">&nbsp;&lt;Interfacing LuaTeX with Julia</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/metapost">
+  Metapost</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
+<a href="https://adityam.github.io/context-blog/tags/animation">animation</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -6,10 +6,52 @@
     <description>Recent content on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Drawing Metapost animations</title>
+      <link>https://adityam.github.io/context-blog/post/metapost-animation/</link>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/metapost-animation/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://wiki.contextgarden.net/Animation#Using_the_animation_module&#34;&gt;animation&lt;/a&gt; module provides a nice interface for using
+&lt;a href=&#34;http://www.pragma-ade.com/general/manuals/mwidget-s.pdf&#34;&gt;FieldStacks&lt;/a&gt; to create a JavaScript controlled animations in
+ConTeXt.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; For example, the following code will show &lt;code&gt;step-1.pdf&lt;/code&gt;,
+&lt;code&gt;step-2.pdf&lt;/code&gt;, &lt;code&gt;step-3.pdf&lt;/code&gt;, and &lt;code&gt;step-4.pdf&lt;/code&gt; files one by one:&lt;/p&gt;
+
+&lt;!--
+\usemodule[animation]
+
+\startanimation[menu=yes]
+  {\useexternalfigure[step-1]}
+  {\useexternalfigure[step-2]}
+  {\useexternalfigure[step-3]}
+  {\useexternalfigure[step-4]}
+\stopanimation
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\usemodule&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;animation&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;Statement&#34;&gt;\startanimation&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;menu=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-1.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
+  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-2.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
+  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-3.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
+  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-4.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
+&lt;span class=&#34;Statement&#34;&gt;\stopanimation&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sometimes, I use animation to give the illusion of motion. For example, to
+show a particle moving along a trajectory (drawn using Metapost). In
+principle, it is possible to use the &lt;code&gt;animation&lt;/code&gt; module to draw such
+animations (e.g., see Wolfgang&amp;rsquo;s reply in &lt;a href=&#34;https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html&#34;&gt;on ntg-context mailing list&lt;/a&gt;), but the
+interface gets a bit cumbersome. In this post, I show a helper macro to
+simplify drawing such animations.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Interfacing LuaTeX with Julia</title>
@@ -81,7 +123,7 @@ For example,&lt;/p&gt;
 &lt;p&gt;gives&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/math-combined-characters/ex-1.png class:center alt:Example of combined characters]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[class:center alt:Example of combined characters src:/context-blog/post/math-combined-characters/ex-1.png]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;
 
 
