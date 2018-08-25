@@ -32,6 +32,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
+            
             <li><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></li>
             
             <li><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></li>
@@ -39,8 +41,6 @@
             <li><a href="/context-blog/post/using-fontawesome/">Using Font Awesome</a></li>
             
             <li><a href="/context-blog/post/math-combined-characters/">Comibined characters in Math</a></li>
-            
-            <li><a href="/context-blog/post/typesetting-differential-equations/">Typesetting differential equations</a></li>
             
           </ul>
         </li>
@@ -52,6 +52,57 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/metapost-and-tex-labels/">Metapost and TeX labels</a></h1>
+        <p class="post-time">22 January, 2014
+        (3 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/metapost">
+          Metapost</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/label">label</a>,
+        <a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>Default Metapost has the concept of two types of labels, postscript labels and
+TeX labels. Postscript labels are created using</p>
+
+<!--
+label("text", location);
+-->
+
+<pre><code><span class="Macro">label</span>(<span class="String">&quot;text&quot;</span>, location);
+</code></pre>
+
+<p>while TeX labels are created using</p>
+
+<!-- 
+label(btex text etex, location);
+-->
+
+<pre><code><span class="Macro">label</span>(<span class="Statement">btex</span><span class="String"> text </span><span class="Statement">etex</span>, location);
+</code></pre>
+
+<p>In the latter case,  Metapost collects everything between <code>btex</code> and <code>etex</code>
+in a separate file, processes that file through TeX, and includes the
+resulting postscript code at an appropriate location. Such a Rube
+Golberg-esque mechanism is needed to propertly typeset mathematics, get
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.</p>
+
+<p></p></p>
+            <a class="btn btn-default" href="/context-blog/post/metapost-and-tex-labels/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 

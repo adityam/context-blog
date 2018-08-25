@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://adityam.github.io/context-blog/post/poster-in-context/</loc>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/post/metapost-animation/</loc>
     <lastmod>2018-07-15T00:00:00+00:00</lastmod>
   </url>
@@ -103,7 +108,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/tags/backgrounds/</loc>
-    <lastmod>2017-08-18T00:40:19-04:00</lastmod>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -235,7 +240,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/tags/metapost/</loc>
-    <lastmod>2018-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -252,8 +257,14 @@
   </url>
   
   <url>
+    <loc>https://adityam.github.io/context-blog/tags/poster/</loc>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/post/</loc>
-    <lastmod>2018-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -271,7 +282,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/</loc>
-    <lastmod>2018-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -319,7 +330,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/categories/visualization/</loc>
-    <lastmod>2017-08-18T00:40:19-04:00</lastmod>
+    <lastmod>2018-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
