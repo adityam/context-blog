@@ -109,7 +109,7 @@ frames. To use the animation, use
 where the options (in square brackets) are options to the `\startanimation`
 macro from `animation` module. That's it.
 
-Behind the scenes, the `\startMPanimation` amcro creates a `useMPgraphic` with
+Behind the scenes, the `\startMPanimation` macro creates a `useMPgraphic` with
 the name `animation:circle`, which takes two arguments `n` (which is the same
 as before) and `t` (which specifies the current _time_ or the current frame
 number). The body of the environment is the metapost code which draws a figure

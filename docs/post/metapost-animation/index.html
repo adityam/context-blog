@@ -135,7 +135,7 @@ circle. With the helper macros given below, we can use the following code:</p>
 <p>to generate this animation</p>
 
 <img class="center"
-  alt="{map[class:center alt:Simple animation src:test-animation.gif]  Page(&#34;Drawing Metapost animations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:test-animation.gif class:center alt:Simple animation]  Page(&#34;Drawing Metapost animations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="test-animation.gif" />
 
 
@@ -149,7 +149,7 @@ frames. To use the animation, use</p>
 <p>where the options (in square brackets) are options to the <code>\startanimation</code>
 macro from <code>animation</code> module. That&rsquo;s it.</p>
 
-<p>Behind the scenes, the <code>\startMPanimation</code> amcro creates a <code>useMPgraphic</code> with
+<p>Behind the scenes, the <code>\startMPanimation</code> macro creates a <code>useMPgraphic</code> with
 the name <code>animation:circle</code>, which takes two arguments <code>n</code> (which is the same
 as before) and <code>t</code> (which specifies the current <em>time</em> or the current frame
 number). The body of the environment is the metapost code which draws a figure
