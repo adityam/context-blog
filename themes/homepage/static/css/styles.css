@@ -180,8 +180,8 @@ h1 {
 
 blockquote {
   background-color:#fefefe;
-  border-left:0.125em solid #2A4776;
-  padding:0.2em;
+  border-left:0.2em solid #2A4776;
+  padding: 0em 0.6em 0em 0.2em;
 }
 
 ol li {
