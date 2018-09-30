@@ -13,7 +13,7 @@ tags:
 
 There was an interesting thread on the ConTeXt [mailing list][thread], which I
 am summarizing in this post. To make the post interesting, I changed the
-problem slighty. So, the solutions posted here were not part of the thread,
+problem slightly. So, the solutions posted here were not part of the thread,
 but are in the same spirit.
 
 Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:
@@ -381,11 +381,11 @@ tprint('<span class="Special">\\</span>eTABLE')
 
 
 Finally, with LuaTeX, we can implement simple algorithms in a simple way
-inside TeX. In this case, the pure TeX solution using \dorecurse wasn’t too
+inside TeX. In this case, the pure TeX solution using `\dorecurse` wasn’t too
 difficult. But try to come up with a pure TeX solution that prints the
 **average** of the numbers.
 
-Here is a hint. Convert the numbers to dimensions by multiplying by 1pt, do averaging using `\dimexpr`, then get rid of the point using `\withoutpt` and hope that the fixed precision mathematics in TeX did not mess things up.
+Here is a hint. Convert the numbers to dimensions by multiplying by `1pt`, do averaging using `\dimexpr`, then get rid of the point using `\withoutpt` and hope that the fixed precision mathematics in TeX did not mess things up.
 
 #### Addendum: 
 

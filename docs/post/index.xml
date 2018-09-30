@@ -149,7 +149,7 @@ For example,&lt;/p&gt;
 so I have typeset many differential equations that look like this:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
 
@@ -180,7 +180,7 @@ LuaTeX + ConTeXt.&lt;/p&gt;
 simple, clean, and attractive visual effect that I like.&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Simple example src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png]  Page(&amp;#34;Frame with solid left line&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png class:center alt:Simple example]  Page(&amp;#34;Frame with solid left line&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
 
 
@@ -390,7 +390,7 @@ details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we shou
       <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
-      <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slighty. So, the solutions posted here were not part of the thread, but are in the same spirit.
+      <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slightly. So, the solutions posted here were not part of the thread, but are in the same spirit.
 Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:
 One way to do this will be to type the whole thing by hand:</description>
     </item>

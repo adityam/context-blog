@@ -57,13 +57,13 @@
 
 <p>There was an interesting thread on the ConTeXt <a href="https://mailman.ntg.nl/pipermail/ntg-context/2009/038576.html">mailing list</a>, which I
 am summarizing in this post. To make the post interesting, I changed the
-problem slighty. So, the solutions posted here were not part of the thread,
+problem slightly. So, the solutions posted here were not part of the thread,
 but are in the same spirit.</p>
 
 <p>Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:</p>
 
 <img class="center"
-  alt="{map[src:table.png class:center alt:Multiplication table]  Page(&#34;TeX Programming: The past, the present, and the future&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[alt:Multiplication table src:table.png class:center]  Page(&#34;TeX Programming: The past, the present, and the future&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="table.png" />
 
 
@@ -435,11 +435,11 @@ tprint('<span class="Special">\\</span>eTABLE')
 </code></pre>
 
 <p>Finally, with LuaTeX, we can implement simple algorithms in a simple way
-inside TeX. In this case, the pure TeX solution using \dorecurse wasn’t too
+inside TeX. In this case, the pure TeX solution using <code>\dorecurse</code> wasn’t too
 difficult. But try to come up with a pure TeX solution that prints the
 <strong>average</strong> of the numbers.</p>
 
-<p>Here is a hint. Convert the numbers to dimensions by multiplying by 1pt, do averaging using <code>\dimexpr</code>, then get rid of the point using <code>\withoutpt</code> and hope that the fixed precision mathematics in TeX did not mess things up.</p>
+<p>Here is a hint. Convert the numbers to dimensions by multiplying by <code>1pt</code>, do averaging using <code>\dimexpr</code>, then get rid of the point using <code>\withoutpt</code> and hope that the fixed precision mathematics in TeX did not mess things up.</p>
 
 <h4 id="addendum">Addendum:</h4>
 
