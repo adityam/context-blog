@@ -66,5 +66,16 @@ Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;Spe
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>TeX Programming: The past, the present, and the future</title>
+      <link>https://adityam.github.io/context-blog/post/tex-programming/</link>
+      <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
+      <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slighty. So, the solutions posted here were not part of the thread, but are in the same spirit.
+Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:
+One way to do this will be to type the whole thing by hand:</description>
+    </item>
+    
   </channel>
 </rss>

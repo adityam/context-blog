@@ -205,7 +205,7 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
 
 
@@ -382,6 +382,17 @@ important; sometimes dropping a hint about category codes. I feel that these
 details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we should get rid of them.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>TeX Programming: The past, the present, and the future</title>
+      <link>https://adityam.github.io/context-blog/post/tex-programming/</link>
+      <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
+      <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slighty. So, the solutions posted here were not part of the thread, but are in the same spirit.
+Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:
+One way to do this will be to type the whole thing by hand:</description>
     </item>
     
   </channel>

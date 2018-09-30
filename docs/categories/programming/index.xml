@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/categories/programming/</link>
+    <description>Recent content in Programming on Random Determinism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Mar 2009 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adityam.github.io/context-blog/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TeX Programming: The past, the present, and the future</title>
+      <link>https://adityam.github.io/context-blog/post/tex-programming/</link>
+      <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
+      <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slighty. So, the solutions posted here were not part of the thread, but are in the same spirit.
+Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:
+One way to do this will be to type the whole thing by hand:</description>
+    </item>
+    
+  </channel>
+</rss>

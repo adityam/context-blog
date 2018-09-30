@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
+            
+            <li><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></li>
+            
+            <li><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></li>
+            
+            <li><a href="/context-blog/post/using-fontawesome/">Using Font Awesome</a></li>
+            
+            <li><a href="/context-blog/post/math-combined-characters/">Comibined characters in Math</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>TeX Programming: The past, the present, and the future</h1>
+<p class="post-time">Posted on March 5, 2009</p>
+
+
+
+<p>There was an interesting thread on the ConTeXt <a href="https://mailman.ntg.nl/pipermail/ntg-context/2009/038576.html">mailing list</a>, which I
+am summarizing in this post. To make the post interesting, I changed the
+problem slighty. So, the solutions posted here were not part of the thread,
+but are in the same spirit.</p>
+
+<p>Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:</p>
+
+<img class="center"
+  alt="{map[src:table.png class:center alt:Multiplication table]  Page(&#34;TeX Programming: The past, the present, and the future&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="table.png" />
+
+
+<p>One way to do this will be to type the whole thing by hand:</p>
+
+<!--
+\bTABLE
+    \bTR \bTD $(+)$ \eTD \bTD 1 \eTD \bTD 2 \eTD \bTD 3 \eTD \bTD 4  \eTD \bTD 5  \eTD \bTD 6  \eTD \eTR
+    \bTR \bTD 1     \eTD \bTD 2 \eTD \bTD 3 \eTD \bTD 4 \eTD \bTD 5  \eTD \bTD 6  \eTD \bTD 7  \eTD \eTR
+    \bTR \bTD 2     \eTD \bTD 3 \eTD \bTD 4 \eTD \bTD 5 \eTD \bTD 6  \eTD \bTD 7  \eTD \bTD 8  \eTD \eTR
+    \bTR \bTD 3     \eTD \bTD 4 \eTD \bTD 5 \eTD \bTD 6 \eTD \bTD 7  \eTD \bTD 8  \eTD \bTD 9  \eTD \eTR
+    \bTR \bTD 4     \eTD \bTD 5 \eTD \bTD 6 \eTD \bTD 7 \eTD \bTD 8  \eTD \bTD 9  \eTD \bTD 10 \eTD \eTR
+    \bTR \bTD 5     \eTD \bTD 6 \eTD \bTD 7 \eTD \bTD 8 \eTD \bTD 9  \eTD \bTD 10 \eTD \bTD 11 \eTD \eTR
+    \bTR \bTD 6     \eTD \bTD 7 \eTD \bTD 8 \eTD \bTD 9 \eTD \bTD 10 \eTD \bTD 11 \eTD \bTD 12 \eTD \eTR
+\eTABLE
+-->
+
+<pre><code><span class="Statement">\bTABLE</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 1 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 2 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 3 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 4  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6  <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 1     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 2 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 3 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 4 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7  <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 2     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 3 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 4 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 8  <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 3     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 4 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 8  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 9  <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 4     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 8  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 9  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 10 <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 5     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 8 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 9  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 10 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 11 <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+    <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 6     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 8 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 9 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 10 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 11 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 12 <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
+<span class="Statement">\eTABLE</span>
+</code></pre>
+
+<p>I am using <a href="http://www.pragma-ade.com/general/manuals/enattab.pdf">Natural Tables</a> since it is very easy to change their output. For example, to get the effect shown in the above figure, I can just add</p>
+
+<!--
+\setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+-->
+
+<pre><code><span class="Statement">\setupTABLE</span><span class="Delimiter">[</span>each<span class="Delimiter">][</span>each<span class="Delimiter">][</span>width=<span class="Number">2em</span>,height=<span class="Number">2em</span>,align=<span class="Delimiter">{</span>middle,middle<span class="Delimiter">}]</span>
+<span class="Statement">\setupTABLE</span><span class="Delimiter">[</span>r<span class="Delimiter">][</span>1<span class="Delimiter">][</span>background=color,backgroundcolor=gray<span class="Delimiter">]</span>
+<span class="Statement">\setupTABLE</span><span class="Delimiter">[</span>c<span class="Delimiter">][</span>1<span class="Delimiter">][</span>background=color,backgroundcolor=gray<span class="Delimiter">]</span>
+</code></pre>
+
+<p>But that is not the point of this post. Typing everything by hand is error prone, and non-reusable. I want to show how to automate the above task. In any ordinary programming language we would do this as (pseudo code)</p>
+
+<!--
+"start table"
+  "start table row"
+      "table element: (+)"
+      for y in [1..6] do
+          "table element: #{y}"}
+  "stop table row"
+  for x in [1..6] do
+      "start table row"
+          "table element: #{x}"
+          for y in [1..6] do
+              "table element #{x+y}"
+          end
+      "stop table row"
+  end
+"stop table"
+-->
+
+<pre><code><span class="String">&quot;</span><span class="String">start table</span><span class="String">&quot;</span>
+  <span class="String">&quot;</span><span class="String">start table row</span><span class="String">&quot;</span>
+      <span class="String">&quot;</span><span class="String">table element: (+)</span><span class="String">&quot;</span>
+      <span class="Repeat">for</span> y <span class="Keyword">in</span> [<span class="Float">1..6</span>] <span class="Keyword">do</span>
+          <span class="String">&quot;</span><span class="String">table element: #{y}</span><span class="String">&quot;</span><span class="Error">}</span>
+  <span class="String">&quot;</span><span class="String">stop table row</span><span class="String">&quot;</span>
+  <span class="Repeat">for</span> x <span class="Keyword">in</span> [<span class="Float">1..6</span>] <span class="Keyword">do</span>
+      <span class="String">&quot;</span><span class="String">start table row</span><span class="String">&quot;</span>
+          <span class="String">&quot;</span><span class="String">table element: #{x}</span><span class="String">&quot;</span>
+          <span class="Repeat">for</span> y <span class="Keyword">in</span> [<span class="Float">1..6</span>] <span class="Keyword">do</span>
+              <span class="String">&quot;</span><span class="String">table element #{x+y}</span><span class="String">&quot;</span>
+          <span class="Keyword">end</span>
+      <span class="String">&quot;</span><span class="String">stop table row</span><span class="String">&quot;</span>
+  <span class="Repeat">end</span>
+<span class="String">&quot;</span><span class="String">stop table</span><span class="String">&quot;</span>
+</code></pre>
+
+<p>Unfortunately, TeX is no ordinary programming language. The first thing that comes to mind is to use ConTeXt’s equivalent of a for loop&mdash;<code>\dorecurse</code></p>
+
+<!--
+\bTABLE
+    \bTR
+    \bTD $(+)$ \eTD
+    \dorecurse{6}
+        {\bTD \recurselevel \eTD}
+    \eTR
+    \dorecurse{6}
+      {\bTR
+          \bTD \recurselevel \eTD
+          \edef\firstrecurselevel{\recurselevel}
+          \dorecurse{6}
+            {\bTD \the\numexpr\firstrecurselevel+\recurselevel \eTD}
+      \eTR}
+\eTABLE
+-->
+
+<pre><code><span class="Statement">\bTABLE</span>
+    <span class="Statement">\bTR</span>
+    <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
+    <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+        <span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+    <span class="Statement">\eTR</span>
+    <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+      <span class="Delimiter">{</span><span class="Statement">\bTR</span>
+          <span class="Statement">\bTD</span> <span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span>
+          <span class="Statement">\edef\firstrecurselevel</span><span class="Delimiter">{</span><span class="Statement">\recurselevel</span><span class="Delimiter">}</span>
+          <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+            <span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\the\numexpr\firstrecurselevel</span>+<span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+      <span class="Statement">\eTR</span><span class="Delimiter">}</span>
+<span class="Statement">\eTABLE</span>
+</code></pre>
+
+<p>This however does not work as expected because <code>\dorecurse</code> is not fully expandable. One way to get around this problem is to expand the appropriate parts of the body of <code>\dorecurse</code></p>
+
+<!--
+\bTABLE
+  \bTR
+  \bTD $(+)$ \eTD
+  \dorecurse{6}
+    {\expandafter \bTD \recurselevel \eTD}
+  \eTR
+  \dorecurse{6}
+    {\bTR
+        \edef\firstrecurselevel{\recurselevel}
+        \expandafter\bTD \recurselevel \eTD
+        \dorecurse{6}
+        {\expandafter\expandafter\expandafter
+         \bTD
+            \expandafter\expandafter\expandafter
+            \the\expandafter\expandafter\expandafter
+            \numexpr\expandafter\firstrecurselevel\expandafter
+            +%
+            \recurselevel
+        \eTD}
+      \eTR}
+\eTABLE
+-->
+
+<pre><code><span class="Statement">\bTABLE</span>
+  <span class="Statement">\bTR</span>
+  <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
+  <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+    <span class="Delimiter">{</span><span class="Statement">\expandafter</span> <span class="Statement">\bTD</span> <span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+  <span class="Statement">\eTR</span>
+  <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+    <span class="Delimiter">{</span><span class="Statement">\bTR</span>
+        <span class="Statement">\edef\firstrecurselevel</span><span class="Delimiter">{</span><span class="Statement">\recurselevel</span><span class="Delimiter">}</span>
+        <span class="Statement">\expandafter\bTD</span> <span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span>
+        <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+        <span class="Delimiter">{</span><span class="Statement">\expandafter\expandafter\expandafter</span>
+         <span class="Statement">\bTD</span>
+            <span class="Statement">\expandafter\expandafter\expandafter</span>
+            <span class="Statement">\the\expandafter\expandafter\expandafter</span>
+            <span class="Statement">\numexpr\expandafter\firstrecurselevel\expandafter</span>
+            +<span class="Comment">%</span>
+            <span class="Statement">\recurselevel</span>
+        <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+      <span class="Statement">\eTR</span><span class="Delimiter">}</span>
+<span class="Statement">\eTABLE</span>
+</code></pre>
+
+<p>Behold! All those <code>\expandafter</code>s. The reason they are needed was succinctly explained by David Kastrup in <a href="http://tug.org/interviews/kastrup.html">his TeX interview</a></p>
+
+<blockquote>
+<p>Instead, macros are used as a substitute for programming. TeX’s macro
+expansion language is the only way to implement conditionals and loops, but
+the corresponding control variables can’t be influenced by macro expansion
+(TeX’s “mouth” in Knuth’s terminology). Instead assignments must be executed
+by the back end (TeX’s “stomach”). Stomach and mouth execute at different
+times and independently from one another. But it is not possible to solve
+nontrivial programming tasks with either: only the unholy chimera made from
+both can solve serious problems. eTeX gives the mouth a few more teeth and
+changes some of that, but the changes are not really fundamental: expansion
+still makes no assignments.</p>
+</blockquote>
+
+<p>Once you get the hang of it, adding all those <code>\expandafter</code>s is “simple” (Taco Hoekwater in a <a href="https://mailman.ntg.nl/pipermail/ntg-context/2006/019649.html">post</a>):</p>
+
+<blockquote>
+<p>The trick to \expandafter is that you (normally) write it backwards
+until reaching a moment in time where TeX is not scanning an argument.</p>
+
+<p>Say you have a macro that contains some stuff in it to be typeset by
+<code>\type</code>:</p>
+
+<pre><code>\def\mystuff{Some literal stuff}
+</code></pre>
+
+<p>Then you begin with</p>
+
+<pre><code>\type{\mystuff}
+</code></pre>
+
+<p>but that obviously doesn&rsquo;t work, you want the final input to look like</p>
+
+<pre><code>\type{Some literal stuff}
+</code></pre>
+
+<p>Since <code>\expandafter</code> expands the token that follows the after next token
+&ndash; whatever the next token is &ndash; you have to insert it backwards across the
+opening brace of the argument, like so:</p>
+
+<pre><code>\type\expandafter{\mystuff}
+</code></pre>
+
+<p>But this wouldn&rsquo;t work, yet: you are still in the middle of an
+expression (the <code>\type</code> expects an argument, and it gets <code>\expandafter</code>
+as it stands).</p>
+
+<p>Luckily, <code>\expandafter</code> <em>itself</em> is an expandable command, so you
+jump back once more and insert another one:</p>
+
+<pre><code>\expandafter\type\expandafter{\mystuff}
+</code></pre>
+
+<p>Now you are on &lsquo;neutral ground&rsquo;, and can stop backtracking.
+Easy, once you get the hang of it.</p>
+</blockquote>
+
+<p>Fortunately, in ConTeXt you do not need to do all this mental arithmetic. ConTeXt provides a command <code>\expanded</code> which expands its argument. It only works if the expanded code does not try to scan the next character. In this case, <code>\bTD</code>—<code>\eTD</code> can be included in <code>\expanded</code>, while <code>\bTR</code>—<code>\eTR</code> cannot. So we end up with:</p>
+
+<!--
+\bTABLE
+  \bTR
+    \bTD $(+)$ \eTD
+    \dorecurse{6}
+        {\expanded{\bTD \recurselevel \eTD}}
+  \eTR
+  \dorecurse{6}
+      {\bTR
+          \expanded{\bTD \recurselevel \eTD}
+          \edef\firstrecurselevel{\recurselevel}
+          \dorecurse{6}
+          {\expanded{\bTD \the\numexpr\firstrecurselevel+\recurselevel\relax \eTD}}
+      \eTR}
+\eTABLE
+-->
+
+<pre><code><span class="Statement">\bTABLE</span>
+  <span class="Statement">\bTR</span>
+    <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
+    <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+        <span class="Delimiter">{</span><span class="Statement">\expanded</span><span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span><span class="Delimiter">}}</span>
+  <span class="Statement">\eTR</span>
+  <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+      <span class="Delimiter">{</span><span class="Statement">\bTR</span>
+          <span class="Statement">\expanded</span><span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\recurselevel</span> <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+          <span class="Statement">\edef\firstrecurselevel</span><span class="Delimiter">{</span><span class="Statement">\recurselevel</span><span class="Delimiter">}</span>
+          <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+          <span class="Delimiter">{</span><span class="Statement">\expanded</span><span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\the\numexpr\firstrecurselevel</span>+<span class="Statement">\recurselevel\relax</span> <span class="Statement">\eTD</span><span class="Delimiter">}}</span>
+      <span class="Statement">\eTR</span><span class="Delimiter">}</span>
+<span class="Statement">\eTABLE</span>
+</code></pre>
+
+<p>Wolfgang Schuster posted a much neater solution.</p>
+
+<!--
+\bTABLE
+  \bTR
+  \bTD $(+)$ \eTD
+  \dorecurse{6}
+      {\bTD #1 \eTD}
+  \eTR
+  \dorecurse{6}
+      {\bTR
+      \bTD #1 \eTD
+      \dorecurse{6}
+          {\bTD \the\numexpr#1+##1 \eTD}
+      \eTR}
+\eTABLE
+-->
+
+<pre><code><span class="Statement">\bTABLE</span>
+  <span class="Statement">\bTR</span>
+  <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
+  <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+      <span class="Delimiter">{</span><span class="Statement">\bTD</span> #1 <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+  <span class="Statement">\eTR</span>
+  <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+      <span class="Delimiter">{</span><span class="Statement">\bTR</span>
+      <span class="Statement">\bTD</span> #1 <span class="Statement">\eTD</span>
+      <span class="Statement">\dorecurse</span><span class="Delimiter">{</span>6<span class="Delimiter">}</span>
+          <span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\the\numexpr</span>#1+##1 <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+      <span class="Statement">\eTR</span><span class="Delimiter">}</span>
+<span class="Statement">\eTABLE</span>
+</code></pre>
+
+<p>This makes TeX appear like a <strong>normal</strong> programming language. But only TeX
+wizards like Wolfgang can discover such solutions. You need to know the TeX
+digestive system inside out to even attempt something like this. Inspired by
+Wolfgang’s solution, I tried the same thing with ConTeXt’s lesser known for
+loops.</p>
+
+<!--
+\bTABLE
+  \bTR
+      \bTD $(+)$ \eTD
+      \for \y=1 \to 6 \step 1 \do
+          {\bTD #1 \eTD}
+  \eTR
+  \for \x=1 \to 6 \step 1 \do
+    {\bTR
+        \bTD #1 \eTD
+        \for \y=1 \to 6 \step 1 \do
+            {\bTD \the\numexpr#1+##1 \eTD}
+     \eTR}
+\eTABLE
+-->
+
+<pre><code><span class="Statement">\bTABLE</span>
+  <span class="Statement">\bTR</span>
+      <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
+      <span class="Statement">\for</span> <span class="Statement">\y</span>=1 <span class="Statement">\to</span> 6 <span class="Statement">\step</span> 1 <span class="Statement">\do</span>
+          <span class="Delimiter">{</span><span class="Statement">\bTD</span> #1 <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+  <span class="Statement">\eTR</span>
+  <span class="Statement">\for</span> <span class="Statement">\x</span>=1 <span class="Statement">\to</span> 6 <span class="Statement">\step</span> 1 <span class="Statement">\do</span>
+    <span class="Delimiter">{</span><span class="Statement">\bTR</span>
+        <span class="Statement">\bTD</span> #1 <span class="Statement">\eTD</span>
+        <span class="Statement">\for</span> <span class="Statement">\y</span>=1 <span class="Statement">\to</span> 6 <span class="Statement">\step</span> 1 <span class="Statement">\do</span>
+            <span class="Delimiter">{</span><span class="Statement">\bTD</span> <span class="Statement">\the\numexpr</span>#1+##1 <span class="Statement">\eTD</span><span class="Delimiter">}</span>
+     <span class="Statement">\eTR</span><span class="Delimiter">}</span>
+<span class="Statement">\eTABLE</span>
+</code></pre>
+
+<p>Don’t worry if you don’t understand how the above works. With LuaTeX, even normal users have hope. Luigi Scarso posted the following code:</p>
+
+<!--
+\startluacode
+tprint = function(s) tex.sprint(tex.ctxcatcodes,s) end
+tprint('\\bTABLE')
+  tprint('\\bTR')
+    tprint('\\bTD $(+)$ \\eTD')
+    for y = 1,6 do
+        tprint('\\bTD ' .. y .. '\\eTD')
+    end
+  tprint('\\eTR')
+  for x = 1,6 do
+      tprint('\\bTR')
+      tprint('\\bTD ' .. x .. '\\eTD')
+      for y = 1,6 do
+          tprint('\\bTD' .. x+y .. '\\eTD')
+      end
+      tprint('\\eTR')
+  end
+tprint('\\eTABLE')
+\stopluacode
+-->
+
+<pre><code><span class="Statement">\startluacode</span>
+tprint = function(s) tex.sprint(tex.ctxcatcodes,s) end
+tprint('<span class="Special">\\</span>bTABLE')
+  tprint('<span class="Special">\\</span>bTR')
+    tprint('<span class="Special">\\</span>bTD <span class="String">$(+)$</span> <span class="Special">\\</span>eTD')
+    for y = 1,6 do
+        tprint('<span class="Special">\\</span>bTD ' .. y .. '<span class="Special">\\</span>eTD')
+    end
+  tprint('<span class="Special">\\</span>eTR')
+  for x = 1,6 do
+      tprint('<span class="Special">\\</span>bTR')
+      tprint('<span class="Special">\\</span>bTD ' .. x .. '<span class="Special">\\</span>eTD')
+      for y = 1,6 do
+          tprint('<span class="Special">\\</span>bTD' .. x+y .. '<span class="Special">\\</span>eTD')
+      end
+      tprint('<span class="Special">\\</span>eTR')
+  end
+tprint('<span class="Special">\\</span>eTABLE')
+<span class="Statement">\stopluacode</span>
+</code></pre>
+
+<p>Finally, with LuaTeX, we can implement simple algorithms in a simple way
+inside TeX. In this case, the pure TeX solution using \dorecurse wasn’t too
+difficult. But try to come up with a pure TeX solution that prints the
+<strong>average</strong> of the numbers.</p>
+
+<p>Here is a hint. Convert the numbers to dimensions by multiplying by 1pt, do averaging using <code>\dimexpr</code>, then get rid of the point using <code>\withoutpt</code> and hope that the fixed precision mathematics in TeX did not mess things up.</p>
+
+<h4 id="addendum">Addendum:</h4>
+
+<p>With current ConTeXt, I would use:</p>
+
+<!--
+\startluacode
+context.bTABLE()
+  context.bTR()
+    context.bTD() context("(+)") context.eTD()
+    for y = 1,6 do
+        context.bTD() context(y) context.eTD()
+    end
+  context.eTR()
+  for x = 1,6 do 
+      context.bTR()
+          for y = 1,6 do
+            context.bTD() context(x+y) context.eTD()
+          end
+      context.eTR()
+  end
+context.eTABLE()
+\stopluacode
+-->
+
+<pre><code><span class="Statement">\startluacode</span>
+context.bTABLE()
+  context.bTR()
+    context.bTD() context(&quot;(+)&quot;) context.eTD()
+    for y = 1,6 do
+        context.bTD() context(y) context.eTD()
+    end
+  context.eTR()
+  for x = 1,6 do
+      context.bTR()
+          for y = 1,6 do
+            context.bTD() context(x+y) context.eTD()
+          end
+      context.eTR()
+  end
+context.eTABLE()
+<span class="Statement">\stopluacode</span>
+</code></pre>
+
+
+<hr />
+
+<p class="nav">
+
+
+| <a href="/context-blog/post/lower-learning-curve/">Lowering the learning curve for TeX></a>
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/programming">
+  Programming</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/tables">tables</a>,
+<a href="https://adityam.github.io/context-blog/tags/separating-content-and-presentation">separating content and presentation</a>,
+<a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+
