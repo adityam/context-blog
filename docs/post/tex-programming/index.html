@@ -475,6 +475,7 @@ context.bTABLE()
   context.eTR()
   for x = 1,6 do
       context.bTR()
+      context.bTD() context(x) context.eTD()
           for y = 1,6 do
             context.bTD() context(x+y) context.eTD()
           end
