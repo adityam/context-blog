@@ -63,7 +63,7 @@ but are in the same spirit.</p>
 <p>Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:</p>
 
 <img class="center"
-  alt="{map[alt:Multiplication table src:table.png class:center]  Page(&#34;TeX Programming: The past, the present, and the future&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:table.png class:center alt:Multiplication table]  Page(&#34;TeX Programming: The past, the present, and the future&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="table.png" />
 
 
@@ -468,7 +468,7 @@ context.eTABLE()
 <pre><code><span class="Statement">\startluacode</span>
 context.bTABLE()
   context.bTR()
-    context.bTD() context(&quot;(+)&quot;) context.eTD()
+    context.bTD() context(&quot;$(+)$&quot;) context.eTD()
     for y = 1,6 do
         context.bTD() context(y) context.eTD()
     end

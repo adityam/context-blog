@@ -77,7 +77,7 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[class:center alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
 
 

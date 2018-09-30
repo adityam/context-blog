@@ -414,7 +414,7 @@ context.eTABLE()
 <pre><code><span class="Statement">\startluacode</span>
 context.bTABLE()
   context.bTR()
-    context.bTD() context(&quot;(+)&quot;) context.eTD()
+    context.bTD() context(&quot;$(+)$&quot;) context.eTD()
     for y = 1,6 do
         context.bTD() context(y) context.eTD()
     end
