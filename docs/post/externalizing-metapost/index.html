@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/externalizing-metapost/">Externalizing Metapost graphics</a></li>
+            
+            <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
+            
+            <li><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></li>
+            
+            <li><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></li>
+            
+            <li><a href="/context-blog/post/using-fontawesome/">Using Font Awesome</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Externalizing Metapost graphics</h1>
+<p class="post-time">Posted on October 8, 2018</p>
+
+<p>TikZ has a library <code>external</code> that converts a TikZ picture to a separate PDF.
+The TikZ documentation provides three reasons of why external images are
+useful:</p>
+
+<ol>
+<li>Compiling large images takes a lot of time. However, most images do not
+change from run to run. So, it can save time to export finished images and
+include them as external figures.</li>
+<li>Sometimes, it is desirable to have separate graphics, for example to
+include them in third party programs (think XHTML export).</li>
+<li>It may be necessary to typeset a file in an environment where PGF or TikZ
+are not available.</li>
+</ol>
+
+<p>The third and to a large extent the first point are moot for Metapost+ConTeXt.
+Metapost is integrated with LuaTeX, so there is no issue of Metapost not being
+available. Moreover, Metapost is extremely fast so compiling Metapost figures
+has very little overhead.</p>
+
+<p>There was a recent question on the ConTeXt mailing list by Mikael
+Sundqvist about <a href="https://mailman.ntg.nl/pipermail/ntg-context/2018/092946.html">plotting an implicit function</a>. He wanted to plot
+something equivalent to the following Mathematica code</p>
+
+<pre><code><span class="Function">ContourPlot</span>[<span class="Type">2</span> x<span class="Operator">^</span><span class="Type">5</span> <span class="Operator">+</span> x y <span class="Operator">+</span> y<span class="Operator">^</span><span class="Type">5</span> <span class="Operator">==</span> <span class="Type">0</span>, {x, <span class="Type">0</span>, <span class="Type">2</span>}, {y, <span class="Operator">-</span><span class="Type">2</span>, <span class="Type">1</span><span class="Operator">/</span><span class="Type">2</span>}]
+</code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="{map[src:https://mailman.ntg.nl/pipermail/ntg-context/attachments/20181007/a5f31fae/attachment.png class:center alt:Contour Plot]  Page(&#34;Externalizing Metapost graphics&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="https://mailman.ntg.nl/pipermail/ntg-context/attachments/20181007/a5f31fae/attachment.png" />
+
+
+<p>There is no inbuilt function in Metapost to draw such a curve. Alan Braslau
+suggested a brute force solution:</p>
+
+<!--
+\startMPpage {doublefun}
+pen savedpen ; savedpen := currentpen ;
+pickup pencircle scaled .01 ;
+path p ;
+p := for i=0 upto 1000 :
+       for j=0 upto 1000 :
+         hide(x := 2i/1000 ; y := 2.5j/1000 - 2 ;)
+         if abs(2*(x**5)+x*y+y**5) < .002i/1000 : (x,y) .. fi
+       endfor
+     endfor cycle ;
+draw subpath (0,length p - 1) of p ;
+setbounds currentpicture to (0,-2)--(2,-2)--(2,.5)--(0,.5)--cycle ;
+currentpicture := currentpicture xsized 5cm ;
+pickup savedpen ;
+
+picture pic ; pic := currentpicture ;
+drawarrow llcorner pic--lrcorner pic ;
+drawarrow llcorner pic--ulcorner pic ;
+label.rt ("$x$", lrcorner pic) ;
+label.top("$y$", ulcorner pic) ;
+for x=0 step .5 until 2 :
+    label.bot(decimal x,(x/2)[llcorner pic,lrcorner pic]) ;
+endfor
+for y=0 step .5 until 2.5 :
+    label.lft(decimal (y-2),(y/2.5)[llcorner pic,ulcorner pic]) ;
+endfor
+\stopMPpage
+-->
+
+<pre><code><span class="Identifier">\startMPpage</span>[instance=doublefun]
+     <span class="Type">pen</span> savedpen ; savedpen := <span class="Identifier">currentpen</span> ;
+     <span class="Function">pickup</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">.01</span> ;
+     <span class="Type">numeric</span> stp ; stp := <span class="Number">1</span> ;
+     <span class="Type">path</span> p ;
+     p := <span class="Conditional">for</span> i=<span class="Number">0</span> <span class="Conditional">step</span> stp <span class="Conditional">until</span> <span class="Number">1000</span> :
+         <span class="Conditional">for</span> j=<span class="Number">0</span> <span class="Conditional">step</span> stp <span class="Conditional">until</span> <span class="Number">1000</span> :
+             <span class="Function">hide</span>(<span class="Identifier">x</span> := <span class="Number">2</span>i/<span class="Number">1000</span> ; <span class="Identifier">y</span> := <span class="Number">2.5</span>j/<span class="Number">1000</span> - <span class="Number">2</span> ;)
+             <span class="Conditional">if</span> <span class="Statement">abs</span>(<span class="Number">2</span>*(<span class="Identifier">x</span>**<span class="Number">5</span>)+<span class="Identifier">x</span>*<span class="Identifier">y</span>+<span class="Identifier">y</span>**<span class="Number">5</span>) &lt; <span class="Number">.002</span>i/<span class="Number">1000</span> : (<span class="Identifier">x</span>,<span class="Identifier">y</span>) .. <span class="Conditional">fi</span>
+         <span class="Conditional">endfor</span>
+     <span class="Conditional">endfor</span> <span class="Statement">cycle</span> ;
+     <span class="Function">draw</span> <span class="Statement">subpath</span> (<span class="Number">0</span>,<span class="Statement">length</span> p - <span class="Number">1</span>) <span class="Statement">of</span> p ;
+     <span class="Statement">setbounds</span> <span class="Identifier">currentpicture</span> <span class="Statement">to</span> (<span class="Number">0</span>,<span class="Number">-2</span>)--(<span class="Number">2</span>,<span class="Number">-2</span>)--(<span class="Number">2</span>,<span class="Number">.5</span>)--(<span class="Number">0</span>,<span class="Number">.5</span>)--<span class="Statement">cycle</span> ;
+     <span class="Identifier">currentpicture</span> := <span class="Identifier">currentpicture</span> xsized <span class="Number">5cm</span> ;
+     <span class="Function">pickup</span> savedpen ;
+     <span class="Type">picture</span> <span class="Function">pic</span> ; <span class="Function">pic</span> := <span class="Identifier">currentpicture</span> ;
+     <span class="Function">drawarrow</span> <span class="Statement">llcorner</span> <span class="Function">pic</span>--<span class="Statement">lrcorner</span> <span class="Function">pic</span> ;
+     <span class="Function">drawarrow</span> <span class="Statement">llcorner</span> <span class="Function">pic</span>--<span class="Statement">ulcorner</span> <span class="Function">pic</span> ;
+     <span class="Function">label</span>.<span class="Function">rt</span> (<span class="String">&quot;$x$&quot;</span>, <span class="Statement">lrcorner</span> <span class="Function">pic</span>) ;
+     <span class="Function">label</span>.<span class="Function">top</span>(<span class="String">&quot;$y$&quot;</span>, <span class="Statement">ulcorner</span> <span class="Function">pic</span>) ;
+     <span class="Conditional">for</span> <span class="Identifier">x</span>=<span class="Number">0</span> <span class="Conditional">step</span> <span class="Number">.5</span> <span class="Conditional">until</span> <span class="Number">2</span> :
+         <span class="Function">label</span>.<span class="Function">bot</span>(<span class="Statement">decimal</span> <span class="Identifier">x</span>,(<span class="Identifier">x</span>/<span class="Number">2</span>)[<span class="Statement">llcorner</span> <span class="Function">pic</span>,<span class="Statement">lrcorner</span> <span class="Function">pic</span>]) ;
+     <span class="Conditional">endfor</span> ;
+     <span class="Conditional">for</span> <span class="Identifier">y</span>=<span class="Number">0</span> <span class="Conditional">step</span> <span class="Number">.5</span> <span class="Conditional">until</span> <span class="Number">2.5</span> :
+         <span class="Function">label</span>.<span class="Function">lft</span>(<span class="Statement">decimal</span> (<span class="Identifier">y</span><span class="Number">-2</span>),(<span class="Identifier">y</span>/<span class="Number">2.5</span>)[<span class="Statement">llcorner</span> <span class="Function">pic</span>,<span class="Statement">ulcorner</span> <span class="Function">pic</span>]) ;
+     <span class="Conditional">endfor</span> ;
+<span class="Identifier">\stopMPpage</span>
+</code></pre>
+
+<p>This code takes about 12sec to compile on my 2012 MacBook Pro and gives the
+following:</p>
+
+<img class="center"
+  alt="{map[class:center alt:Contour plot in Metapost src:plot.png]  Page(&#34;Externalizing Metapost graphics&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  src="plot.png" />
+
+
+<p>It would be nice to have something like TikZ&rsquo;s external library here. TikZ&rsquo;s
+external library does not work with ConTeXt but as Hans Hagen showed on the
+mailing list, <em>of course</em>, ConTeXt has an inbuilt solution for this!</p>
+
+<p>Simply wrap the above code in a buffer</p>
+
+<!--
+\startbuffer[plot]
+\startMPpage[instance=doublefun]
+...
+\stopMPpage
+\stopbuffer
+-->
+
+<pre><code><span class="Statement">\startbuffer</span><span class="Delimiter">[</span>plot<span class="Delimiter">]</span>
+<span class="Statement">\startMPpage</span><span class="Delimiter">[</span>instance=doublefun<span class="Delimiter">]</span>
+...
+<span class="Statement">\stopMPpage</span>
+<span class="Statement">\stopbuffer</span>
+</code></pre>
+
+<p>and then use:
+<pre><code><span class="Statement">\typesetbuffer</span><span class="Delimiter">[</span>plot<span class="Delimiter">]</span>
+</code></pre></p>
+
+<p>Behind the scenes, this writes the content of the buffer to an external file
+and compiles the file to create an external PDF. On subsequent runs, ConTeXt
+checks if the contents of the buffer has changed; if not, then the previously
+compiled file is used.</p>
+
+<p>It is worth highlighting that this trick works with <strong>any buffer</strong> not just
+Metapost. So, if you have a complicated TikZ graphic, you can simply use</p>
+
+<pre><code><span class="Statement">\startbuffer</span><span class="Delimiter">[</span>TikZplot<span class="Delimiter">]</span>
+<span class="Statement">\startTEXpage</span>
+<span class="Statement">\starttikzpicture</span>
+....
+<span class="Statement">\stoptikzpicture</span>
+<span class="Statement">\stopTEXpage</span>
+<span class="Statement">\stopbuffer</span>
+</code></pre>
+
+<p>followed by:
+<pre><code><span class="Statement">\typesetbuffer</span><span class="Delimiter">[</span>TikZplot<span class="Delimiter">]</span>
+</code></pre></p>
+
+<hr />
+
+<p>On a final note, one should keep in mind that the <code>\typesetbuffer</code> macro
+simply wraps its content inside <code>\starttext ... \stoptext</code>. Unlike TikZ
+external library, the preamble from the original document is not copied. So,
+to use the fonts and styles from the original document, one needs to use:</p>
+
+<pre><code><span class="Statement">\startbuffer</span><span class="Delimiter">[</span>...<span class="Delimiter">]</span>
+<span class="Statement">\environment</span> style
+...
+<span class="Statement">\stopbuffer</span>
+</code></pre>
+
+<p>where I am assuming that the style of the document is set in the <code>style.tex</code>
+environment.</p>
+
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/poster-in-context/">&nbsp;&lt;Posters in ConTeXt</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/metapost">
+  Metapost</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/externalizing-graphics">externalizing graphics</a>,
+<a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
+<a href="https://adityam.github.io/context-blog/tags/efficiency">efficiency</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

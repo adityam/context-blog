@@ -6,10 +6,20 @@
     <description>Recent content in Metapost on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/metapost/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Externalizing Metapost graphics</title>
+      <link>https://adityam.github.io/context-blog/post/externalizing-metapost/</link>
+      <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
+      <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
+ Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
+    </item>
     
     <item>
       <title>Making visaully attractive posters in ConTeXt</title>
@@ -77,7 +87,7 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
 
 
