@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Comparing the speed of Metapost and TikZ</title>
+      <link>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
+      <description>As a frequent user of both Metapost and TikZ, I often observe that TikZ is considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed? Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.
+\usemodule[tikz] \starttext \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw (0,0) -- (1cm, 1cm); \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) -- (1cm, 1cm); \stoptikzpicture}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw fullcircle scaled 1cm; \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) circle (1cm); \stoptikzpicture}} \elapsedtime \stoptext  The function \testfeatureonce{n}{.</description>
+    </item>
     
     <item>
       <title>Externalizing Metapost graphics</title>
@@ -142,7 +152,7 @@ For example,&lt;/p&gt;
 &lt;p&gt;gives&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Example of combined characters src:/context-blog/post/math-combined-characters/ex-1.png]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[src:/context-blog/post/math-combined-characters/ex-1.png class:center alt:Example of combined characters]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;
 
 
@@ -215,7 +225,7 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[class:center alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png]  Page(&amp;#34;Drop shadows with lifted corners&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
 
 

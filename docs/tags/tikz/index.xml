@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Efficiency on Random Determinism</title>
-    <link>https://adityam.github.io/context-blog/tags/efficiency/</link>
-    <description>Recent content in Efficiency on Random Determinism</description>
+    <title>Tikz on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/tags/tikz/</link>
+    <description>Recent content in Tikz on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://adityam.github.io/context-blog/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://adityam.github.io/context-blog/tags/tikz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
       <description>As a frequent user of both Metapost and TikZ, I often observe that TikZ is considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed? Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.
 \usemodule[tikz] \starttext \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw (0,0) -- (1cm, 1cm); \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) -- (1cm, 1cm); \stoptikzpicture}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw fullcircle scaled 1cm; \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) circle (1cm); \stoptikzpicture}} \elapsedtime \stoptext  The function \testfeatureonce{n}{.</description>
-    </item>
-    
-    <item>
-      <title>Externalizing Metapost graphics</title>
-      <link>https://adityam.github.io/context-blog/post/externalizing-metapost/</link>
-      <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
-      <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
- Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
     </item>
     
   </channel>
