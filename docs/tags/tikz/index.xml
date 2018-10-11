@@ -17,8 +17,11 @@
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
-      <description>As a frequent user of both Metapost and TikZ, I often observe that TikZ is considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed? Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.
-\usemodule[tikz] \starttext \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw (0,0) -- (1cm, 1cm); \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) -- (1cm, 1cm); \stoptikzpicture}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw fullcircle scaled 1cm; \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) circle (1cm); \stoptikzpicture}} \elapsedtime \stoptext  The function \testfeatureonce{n}{.</description>
+      <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is
+considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?
+Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

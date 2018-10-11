@@ -14,6 +14,8 @@ As a frequent user of both Metapost and TikZ, I often observe that TikZ is
 considerably slower than Metapost. But what's the actual difference in speed?
 Let's consider basic operations: drawing straight lines and drawing circles. 
 
+<!--more-->
+
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">tikz</span><span class="Delimiter">]</span>
 
 <span class="PreProc">\starttext</span>

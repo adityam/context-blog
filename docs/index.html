@@ -73,8 +73,11 @@
         </p>
 
         <div class="post-content">
-            <p>As a frequent user of both Metapost and TikZ, I often observe that TikZ is considerably slower than Metapost. But what&rsquo;s the actual difference in speed? Let&rsquo;s consider basic operations: drawing straight lines and drawing circles.
-\usemodule[tikz] \starttext \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw (0,0) -- (1cm, 1cm); \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) -- (1cm, 1cm); \stoptikzpicture}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\startMPcode draw fullcircle scaled 1cm; \stopMPcode}} \elapsedtime \testfeatureonce{1000} {\setbox0\hbox {\starttikzpicture \draw (0,0) circle (1cm); \stoptikzpicture}} \elapsedtime \stoptext  The function \testfeatureonce{n}{.</p>
+            <p><p>As a frequent user of both Metapost and TikZ, I often observe that TikZ is
+considerably slower than Metapost. But what&rsquo;s the actual difference in speed?
+Let&rsquo;s consider basic operations: drawing straight lines and drawing circles.</p>
+
+<p></p></p>
             <a class="btn btn-default" href="/context-blog/post/metapost-vs-tikz-speed/" id="read-more-button">
                 Read more >
             </a>
@@ -347,7 +350,7 @@ For example,</p>
 so I have typeset many differential equations that look like this:</p>
 
 <img class="center"
-  alt="{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png class:center]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/typesetting-differential-equations/LDE.png" />
 
 
@@ -438,7 +441,7 @@ other backgrounds to the module in the near future.</p>
 These may be used like any other overlay. Let&rsquo;s see an example:</p>
 
 <img class="center"
-  alt="{map[class:center alt:Simple example src:/context-blog/post/drop-shadow-with-lifted-corners/example.png]  Page(&#34;Drop shadows with lifted corners&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(&#34;Drop shadows with lifted corners&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/drop-shadow-with-lifted-corners/example.png" />
 
 

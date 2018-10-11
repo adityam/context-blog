@@ -57,6 +57,8 @@
 considerably slower than Metapost. But what&rsquo;s the actual difference in speed?
 Let&rsquo;s consider basic operations: drawing straight lines and drawing circles.</p>
 
+<p></p>
+
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">tikz</span><span class="Delimiter">]</span>
 
 <span class="PreProc">\starttext</span>
@@ -152,7 +154,7 @@ easy. Here is the code for drawing such a chain in TikZ:</p>
 </code></pre>
 
 <img class="center"
-  alt="{map[src:tikz.png class:center alt:Two state Markov chain in TikZ]  Page(&#34;Comparing the speed of Metapost and TikZ&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[class:center alt:Two state Markov chain in TikZ src:tikz.png]  Page(&#34;Comparing the speed of Metapost and TikZ&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="tikz.png" />
 
 
@@ -233,7 +235,6 @@ more popular than Metapost. But the speed advantage makes me wonder: would
 there be significant speedup in TikZ code if Lua is used for parsing the input
 and metapost is used for drawing. In other words, <strong>is it worthwhile to
 rewrite the PGF backend for LuaTeX?</strong></p>
-
 
 <hr />
 
