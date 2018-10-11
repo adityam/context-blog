@@ -124,11 +124,13 @@ Here is one way to draw the same figure in Metapost:
    <span class="Type">newpath</span> p, q;
    p := Off.c {<span class="Function">dir</span> <span class="Number">-40</span>} .. On.c
         <span class="Function">cutbefore</span> <span class="Function">bpath</span> Off
-        <span class="Function">cutafter</span>  <span class="Function">bpath</span> On;
+        <span class="Function">cutafter</span>  <span class="Function">bpath</span> On
+        cutends   (<span class="Number">0</span>,<span class="Number">1mm</span>);
 
    q:= On.c {<span class="Function">dir</span> <span class="Number">140</span>} .. Off.c
         <span class="Function">cutbefore</span> <span class="Function">bpath</span> On
-        <span class="Function">cutafter</span>  <span class="Function">bpath</span> Off;
+        <span class="Function">cutafter</span>  <span class="Function">bpath</span> Off
+        cutends   (<span class="Number">0</span>,<span class="Number">1mm</span>);
 
    <span class="Function">drawarrow</span> p;
    <span class="Function">drawarrow</span> q;
@@ -138,14 +140,16 @@ Here is one way to draw the same figure in Metapost:
 
    p := Off.c {<span class="Function">dir</span> <span class="Number">150</span>} .. (Off.w - (<span class="Number">0.75cm</span>, <span class="Number">0</span>))  .. {<span class="Function">dir</span> <span class="Number">30</span>} Off.c
         <span class="Function">cutbefore</span> <span class="Function">bpath</span> Off
-        <span class="Function">cutafter</span>  <span class="Function">bpath</span> Off;
+        <span class="Function">cutafter</span>  <span class="Function">bpath</span> Off
+        cutends   (<span class="Number">0</span>,<span class="Number">1mm</span>);
 
    q := On.c {<span class="Function">dir</span> <span class="Number">-30</span>} .. (On.e + (<span class="Number">0.75cm</span>, <span class="Number">0</span>)) .. {<span class="Function">dir</span> <span class="Number">-150</span>} On.c
-         <span class="Function">cutbefore</span> <span class="Function">bpath</span> On
-         <span class="Function">cutafter</span>  <span class="Function">bpath</span> On;
+        <span class="Function">cutbefore</span> <span class="Function">bpath</span> On
+        <span class="Function">cutafter</span>  <span class="Function">bpath</span> On
+        cutends   (<span class="Number">0</span>,<span class="Number">1mm</span>);
 
-   <span class="Function">drawarrow</span> p;
-   <span class="Function">drawarrow</span> q;
+   <span class="Function">drawarrow</span> p cutends (<span class="Number">0</span>,<span class="Number">1mm</span>);
+   <span class="Function">drawarrow</span> q cutends (<span class="Number">0</span>,<span class="Number">1mm</span>);
 
    <span class="Function">label</span>.<span class="Function">lft</span>(<span class="String">&quot;$1-p$&quot;</span>, <span class="Statement">point</span> <span class="Number">0.5</span> along p);
    <span class="Function">label</span>.<span class="Function">rt</span> (<span class="String">&quot;$1-q$&quot;</span>, <span class="Statement">point</span> <span class="Number">0.5</span> along q);
