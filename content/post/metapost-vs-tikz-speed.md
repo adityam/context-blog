@@ -148,8 +148,8 @@ Here is one way to draw the same figure in Metapost:
         <span class="Function">cutafter</span>  <span class="Function">bpath</span> On
         cutends   (<span class="Number">0</span>,<span class="Number">1mm</span>);
 
-   <span class="Function">drawarrow</span> p cutends (<span class="Number">0</span>,<span class="Number">1mm</span>);
-   <span class="Function">drawarrow</span> q cutends (<span class="Number">0</span>,<span class="Number">1mm</span>);
+   <span class="Function">drawarrow</span>;
+   <span class="Function">drawarrow</span>;
 
    <span class="Function">label</span>.<span class="Function">lft</span>(<span class="String">&quot;$1-p$&quot;</span>, <span class="Statement">point</span> <span class="Number">0.5</span> along p);
    <span class="Function">label</span>.<span class="Function">rt</span> (<span class="String">&quot;$1-q$&quot;</span>, <span class="Statement">point</span> <span class="Number">0.5</span> along q);
