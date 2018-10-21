@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tikz on Random Determinism</title>
-    <link>https://adityam.github.io/context-blog/tags/tikz/</link>
+    <link>https://adityam.github.io/context-blog/categories/tikz/</link>
     <description>Recent content in Tikz on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://adityam.github.io/context-blog/tags/tikz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://adityam.github.io/context-blog/categories/tikz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,19 +27,6 @@ take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than 
 interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
 for drawing
 graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Comparing the speed of Metapost and TikZ</title>
-      <link>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</link>
-      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
-      <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is
-considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?
-Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

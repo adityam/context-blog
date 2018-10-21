@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
+            
+            <li><a href="/context-blog/post/metapost-vs-tikz-speed/">Speed of Metapost vs TikZ</a></li>
+            
+            <li><a href="/context-blog/post/externalizing-metapost/">Externalizing Metapost graphics</a></li>
+            
+            <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
+            
+            <li><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Speeding up PGFPlots using LuaTeX</h1>
+<p class="post-time">Posted on October 21, 2018</p>
+
+<p>In the <a href="../metapost-vs-tikz-speed">previous post</a>, I compared the speed of
+Metapost and TikZ for drawing similar graphics and found that <strong>TikZ is three
+to five times slower than Metapost</strong>. Although TikZ is slower, it does provide
+a much higher level interface to drawing graphics and shifting to Metapost can
+take a lot of <em>user time</em>, which is often more valuable than <em>computer time</em>.</p>
+
+<p>As an example, consider the <a href="https://ctan.org/pkg/pgfplots">PGFPlots</a> package, which provides a high-level
+interface for drawing function plots. Although there is a <a href="https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv">Metapost package
+for drawing
+graphs</a>, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.</p>
+
+<p></p>
+
+<p>As an example, consider the plot of the following function</p>
+
+<pre><code>0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))
+</code></pre>
+
+<p>which is the step response of a second order dynamical system (the exact
+details are not relevant for this post). PGFPlots makes it very simple to plot
+such functions:</p>
+
+<pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">pgfplots</span><span class="Delimiter">]</span>
+<span class="PreProc">\starttext</span>
+<span class="Identifier">\starttikzpicture</span>
+    <span class="Statement">\startaxis</span>
+        [
+          width=6cm,
+          trig format plots=rad,
+          xmin=0, xmax=4,
+        ]
+
+    <span class="Statement">\addplot</span>[domain=0:4, samples=500]
+        {0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x)) };
+    <span class="Statement">\stopaxis</span>
+<span class="Identifier">\stoptikzpicture</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>On my laptop, the above code takes <strong>1.341s</strong> (measured using the
+<code>\testfeatureonce</code> macro explained in the previous post). Most of the time is
+spent in calculating the algebric expression. We can speed this up by defining
+a Lua function that does the calculation.</p>
+
+<pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">pgfplots</span><span class="Delimiter">]</span>
+<span class="PreProc">\starttext</span>
+<span class="Identifier">\startluacode</span>
+  <span class="Statement">local</span> exp = <span class="Identifier">math.exp</span>
+  <span class="Statement">local</span> cos = <span class="Identifier">math.cos</span>
+  <span class="Statement">local</span> sin = <span class="Identifier">math.sin</span>
+  <span class="Statement">local</span> step = <span class="Function">function</span>(x)
+      <span class="Statement">return</span> 0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))
+  <span class="Function">end</span>
+
+  thirddata = thirddata <span class="Operator">or</span> <span class="Structure">{}</span>
+  thirddata.step = <span class="Function">function</span>(x)
+      <span class="Statement">return</span> context(step(x))
+  <span class="Function">end</span>
+<span class="Identifier">\stopluacode</span>
+
+<span class="Identifier">\starttikzpicture</span>
+    [declare function={
+        step(<span class="Statement">\x</span>) = <span class="Statement">\ctxlua</span>{thirddata.step(<span class="Statement">\x</span>)};
+    }]
+
+    <span class="Statement">\startaxis</span>
+        [
+          use fpu=false,
+          width=6cm,
+          xmin=0, xmax=4,
+        ]
+
+    <span class="Statement">\addplot</span>[domain=0:4, samples=500] {step(x)};
+    <span class="Statement">\stopaxis</span>
+<span class="Identifier">\stoptikzpicture</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>On my laptop, this takes <strong>0.333s</strong>. So, plotting in PGFPlots is <strong>four times
+faster</strong> if we use Lua to do more complicated calculations.</p>
+
+<p>I don&rsquo;t know the internals of PGFPlot well, but recent versions of PGFPlot do
+use Lua for some of the calcuations. So, I don&rsquo;t completely understand why I
+get such a big speedup by doing the calculations in Lua.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/metapost-vs-tikz-speed/">&nbsp;&lt;Speed of Metapost vs TikZ</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/tikz">
+  Tikz</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/tikz">tikz</a>,
+<a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+<a href="https://adityam.github.io/context-blog/tags/efficiency">efficiency</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

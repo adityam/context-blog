@@ -32,6 +32,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
+            
             <li><a href="/context-blog/post/metapost-vs-tikz-speed/">Speed of Metapost vs TikZ</a></li>
             
             <li><a href="/context-blog/post/externalizing-metapost/">Externalizing Metapost graphics</a></li>
@@ -39,8 +41,6 @@
             <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
             
             <li><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></li>
-            
-            <li><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></li>
             
           </ul>
         </li>
@@ -53,6 +53,44 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></h1>
+        <p class="post-time">21 October, 2018
+        (2 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/tikz">
+          Tikz</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/tikz">tikz</a>,
+        <a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+        <a href="https://adityam.github.io/context-blog/tags/efficiency">efficiency</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>In the <a href="../metapost-vs-tikz-speed">previous post</a>, I compared the speed of
+Metapost and TikZ for drawing similar graphics and found that <strong>TikZ is three
+to five times slower than Metapost</strong>. Although TikZ is slower, it does provide
+a much higher level interface to drawing graphics and shifting to Metapost can
+take a lot of <em>user time</em>, which is often more valuable than <em>computer time</em>.</p>
+
+<p>As an example, consider the <a href="https://ctan.org/pkg/pgfplots">PGFPlots</a> package, which provides a high-level
+interface for drawing function plots. Although there is a <a href="https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv">Metapost package
+for drawing
+graphs</a>, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.</p>
+
+<p></p></p>
+            <a class="btn btn-default" href="/context-blog/post/speeding-pgfplot-using-luatex/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -315,7 +353,7 @@ For example,</p>
 <p>gives</p>
 
 <img class="center"
-  alt="{map[class:center alt:Example of combined characters src:/context-blog/post/math-combined-characters/ex-1.png]  Page(&#34;Comibined characters in Math&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:/context-blog/post/math-combined-characters/ex-1.png class:center alt:Example of combined characters]  Page(&#34;Comibined characters in Math&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/math-combined-characters/ex-1.png" />
 
 
@@ -350,7 +388,7 @@ For example,</p>
 so I have typeset many differential equations that look like this:</p>
 
 <img class="center"
-  alt="{map[alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png class:center]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
+  alt="{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&#34;Typesetting differential equations&#34;) &lt;nil&gt; true &lt;nil&gt;}"
   src="/context-blog/post/typesetting-differential-equations/LDE.png" />
 
 
@@ -407,46 +445,6 @@ the Internet to show blockquotes. So, how do we get this style with ConTeXT?</p>
 
 <p></p></p>
             <a class="btn btn-default" href="/context-blog/post/frame-with-solid-left-line/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/drop-shadow-with-lifted-corners/">Drop shadows with lifted corners</a></h1>
-        <p class="post-time">6 August, 2017
-        (2 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/visualization">
-          Visualization</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
-        <a href="https://adityam.github.io/context-blog/tags/backgrounds">backgrounds</a>,
-        <a href="https://adityam.github.io/context-blog/tags/shadows">shadows</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>There is an old question on <a href="https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow">TeX.SE</a> asking how to draw drop shadows with a
-<em>lifted</em> corner. For fun, I decided to translate the code to Metapost and
-release it as a module: <a href="https://github.com/adityam/context-backgrounds"><code>t-backgrounds</code></a>. I hope to add a few
-other backgrounds to the module in the near future.</p>
-
-<p>The module provides two overlays <code>liftedshadow:big</code> and <code>liftedshadow:medium</code>.
-These may be used like any other overlay. Let&rsquo;s see an example:</p>
-
-<img class="center"
-  alt="{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(&#34;Drop shadows with lifted corners&#34;) &lt;nil&gt; true &lt;nil&gt;}"
-  src="/context-blog/post/drop-shadow-with-lifted-corners/example.png" />
-
-
-<p></p></p>
-            <a class="btn btn-default" href="/context-blog/post/drop-shadow-with-lifted-corners/" id="read-more-button">
                 Read more >
             </a>
         </div>

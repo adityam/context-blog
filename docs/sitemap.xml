@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</loc>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</loc>
     <lastmod>2018-10-10T00:00:00+00:00</lastmod>
   </url>
@@ -159,7 +164,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/tags/efficiency/</loc>
-    <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -237,7 +242,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/tags/luatex/</loc>
-    <lastmod>2017-09-18T00:10:55-04:00</lastmod>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -291,7 +296,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/post/</loc>
-    <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -315,7 +320,7 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/</loc>
-    <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -357,7 +362,13 @@
   
   <url>
     <loc>https://adityam.github.io/context-blog/tags/tikz/</loc>
-    <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/categories/tikz/</loc>
+    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,30 @@
     <description>Recent content on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Speeding up PGFPlots using LuaTeX</title>
+      <link>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</guid>
+      <description>&lt;p&gt;In the &lt;a href=&#34;../metapost-vs-tikz-speed&#34;&gt;previous post&lt;/a&gt;, I compared the speed of
+Metapost and TikZ for drawing similar graphics and found that &lt;strong&gt;TikZ is three
+to five times slower than Metapost&lt;/strong&gt;. Although TikZ is slower, it does provide
+a much higher level interface to drawing graphics and shifting to Metapost can
+take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than &lt;em&gt;computer time&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level
+interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
+for drawing
+graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Comparing the speed of Metapost and TikZ</title>
@@ -155,7 +175,7 @@ For example,&lt;/p&gt;
 &lt;p&gt;gives&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Example of combined characters src:/context-blog/post/math-combined-characters/ex-1.png]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[src:/context-blog/post/math-combined-characters/ex-1.png class:center alt:Example of combined characters]  Page(&amp;#34;Comibined characters in Math&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;
 
 
@@ -172,7 +192,7 @@ For example,&lt;/p&gt;
 so I have typeset many differential equations that look like this:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[alt:Simple example src:/context-blog/post/typesetting-differential-equations/LDE.png class:center]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(&amp;#34;Typesetting differential equations&amp;#34;) &amp;lt;nil&amp;gt; true &amp;lt;nil&amp;gt;}&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
 
