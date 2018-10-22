@@ -175,7 +175,7 @@ For example,&lt;/p&gt;
 &lt;p&gt;gives&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[class:center alt:Example of combined characters src:/context-blog/post/math-combined-characters/ex-1.png]  Page(/post/math-combined-characters.md) &amp;lt;nil&amp;gt; true 0 &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;Example of combined characters&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;
 
 
@@ -192,7 +192,7 @@ For example,&lt;/p&gt;
 so I have typeset many differential equations that look like this:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/typesetting-differential-equations/LDE.png class:center alt:Simple example]  Page(/post/typesetting-differential-equations.md) &amp;lt;nil&amp;gt; true 0 &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
 
@@ -223,7 +223,7 @@ LuaTeX + ConTeXt.&lt;/p&gt;
 simple, clean, and attractive visual effect that I like.&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/frame-with-solid-left-line/leftframe-0.png class:center alt:Simple example]  Page(/post/frame-with-solid-left-line.md) &amp;lt;nil&amp;gt; true 0 &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
 
 
@@ -248,7 +248,7 @@ other backgrounds to the module in the near future.&lt;/p&gt;
 These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
-  alt=&#34;{map[src:/context-blog/post/drop-shadow-with-lifted-corners/example.png class:center alt:Simple example]  Page(/post/drop-shadow-with-lifted-corners.md) &amp;lt;nil&amp;gt; true 0 &amp;lt;nil&amp;gt;}&#34;
+  alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
 
 
