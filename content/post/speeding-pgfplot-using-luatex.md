@@ -95,5 +95,55 @@ I don't know the internals of PGFPlot well, but recent versions of PGFPlot do
 use Lua for some of the calcuations. So, I don't completely understand why I
 get such a big speedup by doing the calculations in Lua. 
 
+## Addendum
+
+Henri Menke pointed out in the comments that using `fpu=false` only works for
+simple plots and fails for plots with log scale. As explained in his excellent
+article on [using LuaTeX
+FFI](https://tug.org/TUGboat/tb39-1/tb121menke-ffi.pdf), a more robust
+solution is to convert back and forth between `fpu` float and `lua` float. The
+code below does that:
+
+<pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">pgfplots</span><span class="Delimiter">]</span>
+<span class="PreProc">\starttext</span>
+<span class="Identifier">\startluacode</span>
+  <span class="Statement">local</span> exp = <span class="Identifier">math.exp</span>
+  <span class="Statement">local</span> cos = <span class="Identifier">math.cos</span>
+  <span class="Statement">local</span> sin = <span class="Identifier">math.sin</span>
+
+  <span class="Statement">local</span> step = <span class="Function">function</span>(x)
+      <span class="Statement">return</span> 0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))
+  <span class="Function">end</span>
+
+  thirddata = thirddata <span class="Operator">or</span> <span class="Structure">{}</span>
+  thirddata.step = <span class="Function">function</span>(x)
+      <span class="Statement">return</span> context(step(x))
+  <span class="Function">end</span>
+<span class="Identifier">\stopluacode</span>
+
+<span class="Statement">\pgfmathdeclarefunction</span><span class="Delimiter">{</span>step<span class="Delimiter">}{</span>1<span class="Delimiter">}</span>
+    <span class="Delimiter">{</span><span class="Statement">\pgfmathfloatparsenumber</span>
+        <span class="Delimiter">{</span><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>thirddata.step(<span class="Statement">\pgfmathfloatvalueof</span><span class="Delimiter">{</span>##1<span class="Delimiter">}</span>)<span class="Delimiter">}}}</span>
+
+<span class="Identifier">\starttikzpicture</span>
+
+    <span class="Statement">\startaxis</span>
+        [
+          width=6cm,
+          xmin=0, xmax=4,
+        ]
+
+    <span class="Statement">\addplot</span>[domain=0:4, samples=500] {step(x)};
+    <span class="Statement">\stopaxis</span>
+<span class="Identifier">\stoptikzpicture</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+In his article, Henri mentions in PGF version 3, one can use Lua functions to
+convert between `fpu` float and `lua` float, but that version is not available
+in current texlive or context standalone. Running the above code on my laptop
+takes **0.377s**; slightly slower than the previous code but still in the
+ballpark of a factor of four improvement.
+
 
 [PGFPlots]: https://ctan.org/pkg/pgfplots
