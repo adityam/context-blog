@@ -123,7 +123,7 @@ code below does that:
 
 <span class="Statement">\pgfmathdeclarefunction</span><span class="Delimiter">{</span>step<span class="Delimiter">}{</span>1<span class="Delimiter">}</span>
     <span class="Delimiter">{</span><span class="Statement">\pgfmathfloatparsenumber</span>
-        <span class="Delimiter">{</span><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>thirddata.step(<span class="Statement">\pgfmathfloatvalueof</span><span class="Delimiter">{</span>##1<span class="Delimiter">}</span>)<span class="Delimiter">}}}</span>
+        <span class="Delimiter">{</span><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>thirddata.step(<span class="Statement">\pgfmathfloatvalueof</span><span class="Delimiter">{</span>#1<span class="Delimiter">}</span>)<span class="Delimiter">}}}</span>
 
 <span class="Identifier">\starttikzpicture</span>
 
