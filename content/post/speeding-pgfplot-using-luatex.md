@@ -145,5 +145,26 @@ in current texlive or context standalone. Running the above code on my laptop
 takes **0.377s**; slightly slower than the previous code but still in the
 ballpark of a factor of four improvement.
 
+## Addendum 2
+
+Henri Menke pointed on in the comments that we ned to add
+
+<pre><code><span class="Statement">\pgfplotsset</span><span class="Delimiter">{</span>compat=1.12<span class="Delimiter">}</span></code></pre>
+
+or higher to activate the `lua` backend in pgfplots. Being a ConTeXt user, I
+always assumed that pgfplot always uses the latest version and I needed to add
+`compat=something` only if I wanted to use old syntax. It is actually the
+other way round! Like most LaTeX package, pgfplots errs on the side of being
+more conservative and uses newer features if they are explicitly activated.
+Adding:
+
+<pre><code><span class="Statement">\pgfplotsset</span><span class="Delimiter">{</span>compat=newest<span class="Delimiter">}</span></code></pre>
+
+reduces the runtime of the vanilla version to **0.144s**, which is a **factor
+of three** faster than my handwritten lua code, and thus almost a **factor of
+ten** faster than the old code. **So, the simple way to speed up pgfplots is
+to add `\pgfplotsset{compat=1.12}` or higher in your code!**
+
+I'll leave this post here as a reminder to RTFM.
 
 [PGFPlots]: https://ctan.org/pkg/pgfplots

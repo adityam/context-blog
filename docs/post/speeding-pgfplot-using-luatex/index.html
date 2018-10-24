@@ -166,7 +166,7 @@ code below does that:</p>
 
 <span class="Statement">\pgfmathdeclarefunction</span><span class="Delimiter">{</span>step<span class="Delimiter">}{</span>1<span class="Delimiter">}</span>
     <span class="Delimiter">{</span><span class="Statement">\pgfmathfloatparsenumber</span>
-        <span class="Delimiter">{</span><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>thirddata.step(<span class="Statement">\pgfmathfloatvalueof</span><span class="Delimiter">{</span>##1<span class="Delimiter">}</span>)<span class="Delimiter">}}}</span>
+        <span class="Delimiter">{</span><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>thirddata.step(<span class="Statement">\pgfmathfloatvalueof</span><span class="Delimiter">{</span>#1<span class="Delimiter">}</span>)<span class="Delimiter">}}}</span>
 
 <span class="Identifier">\starttikzpicture</span>
 
@@ -187,6 +187,28 @@ convert between <code>fpu</code> float and <code>lua</code> float, but that vers
 in current texlive or context standalone. Running the above code on my laptop
 takes <strong>0.377s</strong>; slightly slower than the previous code but still in the
 ballpark of a factor of four improvement.</p>
+
+<h2 id="addendum-2">Addendum 2</h2>
+
+<p>Henri Menke pointed on in the comments that we ned to add</p>
+
+<pre><code><span class="Statement">\pgfplotsset</span><span class="Delimiter">{</span>compat=1.12<span class="Delimiter">}</span></code></pre>
+
+<p>or higher to activate the <code>lua</code> backend in pgfplots. Being a ConTeXt user, I
+always assumed that pgfplot always uses the latest version and I needed to add
+<code>compat=something</code> only if I wanted to use old syntax. It is actually the
+other way round! Like most LaTeX package, pgfplots errs on the side of being
+more conservative and uses newer features if they are explicitly activated.
+Adding:</p>
+
+<pre><code><span class="Statement">\pgfplotsset</span><span class="Delimiter">{</span>compat=newest<span class="Delimiter">}</span></code></pre>
+
+<p>reduces the runtime of the vanilla version to <strong>0.144s</strong>, which is a <strong>factor
+of three</strong> faster than my handwritten lua code, and thus almost a <strong>factor of
+ten</strong> faster than the old code. <strong>So, the simple way to speed up pgfplots is
+to add <code>\pgfplotsset{compat=1.12}</code> or higher in your code!</strong></p>
+
+<p>I&rsquo;ll leave this post here as a reminder to RTFM.</p>
 
 <hr />
 
