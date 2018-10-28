@@ -60,6 +60,8 @@ ability to define custom macros.
 
 TeX also makes it trivial to generate multiple versions of the document from the same source. Again, lets take an example. Suppose I am writing notes for a class. Normally, I like to include a short bullet list on my lecture slides, but include a detailed description in the lecture handout. In ConTeXt I can use [modes] as follows (In LaTeX, I could use the `comments` package):
 
+[modes]: https://wiki.contextgarden.net/Modes
+
 <!--
 Features of the solution
 \startitemize[n] 
@@ -218,7 +220,7 @@ When I compile this document using GPP (and the `-U` options specified
 above), I get
 
 ```
-The source is included in `filename src/hello.c`
+The source is included in `src/hello.c`
 ```
 
 Sure, this requires more typing that simply using `` `...` ``, but that is
