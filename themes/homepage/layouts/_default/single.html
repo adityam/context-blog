@@ -8,10 +8,10 @@
 <hr />
 
 <p class="nav">
-{{ with .Next }}
+{{ with .PrevPage }}
 <a href="{{ .RelPermalink }}">&nbsp;<{{ .LinkTitle }}</a>
 {{ end }}
-{{ with .Prev }}
+{{ with .NextPage }}
 | <a href="{{ .RelPermalink }}">{{ .LinkTitle }}></a>
 {{ end }}
 </p>
