@@ -41,9 +41,7 @@ double root (double a, double b, double c) {....}
 
 &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; root (&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; a, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; b, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; c) {....}
 &lt;span class=&#34;Keyword&#34;&gt;\stopC&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

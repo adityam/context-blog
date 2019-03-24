@@ -6,10 +6,32 @@
     <description>Recent content in Posts on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2019 12:07:55 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Frame With Solid Left Line Redux</title>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</link>
+      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</guid>
+      <description>&lt;p&gt;As I had &lt;a href=&#34;../frame-with-solid-left-line&#34;&gt;posted earlier&lt;/a&gt;, I like the visual
+effect of placing a solid line on the left side of a block:&lt;/p&gt;
+
+&lt;img class=&#34;center&#34;
+  alt=&#34;Simple example&#34;
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
+
+
+&lt;p&gt;I use this for displaying short code snippets in the lecture notes of a course
+that I teach. Typically these are a few lines of Matlab code but recently I
+needed to post a bigger code snippet where the frame should break across the
+page. In principle, this should have been a simple change—replace the &lt;code&gt;framed&lt;/code&gt;
+with a &lt;code&gt;textbackground&lt;/code&gt;—but that did not work out of the box. This blog post
+explains a simple solution.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Speeding up PGFPlots using LuaTeX</title>
@@ -26,9 +48,7 @@ take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than 
 &lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level
 interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
 for drawing
-graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -39,9 +59,7 @@ graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this p
       <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
       <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is
 considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?
-Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -100,9 +118,7 @@ show a particle moving along a trajectory (drawn using Metapost). In
 principle, it is possible to use the &lt;code&gt;animation&lt;/code&gt; module to draw such
 animations (e.g., see Wolfgang&amp;rsquo;s reply in &lt;a href=&#34;https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html&#34;&gt;on ntg-context mailing list&lt;/a&gt;), but the
 interface gets a bit cumbersome. In this post, I show a helper macro to
-simplify drawing such animations.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+simplify drawing such animations.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -124,9 +140,7 @@ function from &lt;a href=&#34;https://www.gnu.org/software/gsl/&#34;&gt;GNU Scie
 (GSL)&lt;/a&gt; to inteface with &lt;a href=&#34;http://pgfplots.sourceforge.net&#34;&gt;pgfplots&lt;/a&gt;. This
 got me interested in looking into Lua&amp;rsquo;s FFI in detail. After a bit of trial
 and error, I finally figured out how to interface LuaTeX with my current
-favorite programming language: &lt;a href=&#34;https://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+favorite programming language: &lt;a href=&#34;https://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -150,9 +164,7 @@ using&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\symbol&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;fontawesome&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;...&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;where &lt;code&gt;...&lt;/code&gt; is the name of the icon is listed in &lt;a href=&#34;http://fontawesome.io/icons/&#34;&gt;the Font Awesome icon list&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;where &lt;code&gt;...&lt;/code&gt; is the name of the icon is listed in &lt;a href=&#34;http://fontawesome.io/icons/&#34;&gt;the Font Awesome icon list&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -176,10 +188,7 @@ For example,&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
   alt=&#34;Example of combined characters&#34;
-  src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;
-
-
-&lt;p&gt;&lt;/p&gt;</description>
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/math-combined-characters/ex-1.png&#34; /&gt;</description>
     </item>
     
     <item>
@@ -208,9 +217,7 @@ could just type&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and get the above result. This post describes how to write such a macro using
-LuaTeX + ConTeXt.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+LuaTeX + ConTeXt.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -219,7 +226,7 @@ LuaTeX + ConTeXt.&lt;/p&gt;
       <pubDate>Fri, 18 Aug 2017 00:40:19 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
-      <description>&lt;p&gt;Adding a solid line of the left side of a frame, block quote, etc. creates a
+      <description>&lt;p&gt;Adding a solid line on the left side of a frame, block quote, etc. creates a
 simple, clean, and attractive visual effect that I like.&lt;/p&gt;
 
 &lt;img class=&#34;center&#34;
@@ -228,9 +235,7 @@ simple, clean, and attractive visual effect that I like.&lt;/p&gt;
 
 
 &lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on
-the Internet to show blockquotes. So, how do we get this style with ConTeXT?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+the Internet to show blockquotes. So, how do we get this style with ConTeXt?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -249,10 +254,7 @@ These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&
 
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
-  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
-
-
-&lt;p&gt;&lt;/p&gt;</description>
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
     </item>
     
     <item>
@@ -285,9 +287,7 @@ double root (double a, double b, double c) {....}
 
 &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; root (&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; a, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; b, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; c) {....}
 &lt;span class=&#34;Keyword&#34;&gt;\stopC&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -299,9 +299,7 @@ double root (double a, double b, double c) {....}
       <description>&lt;p&gt;I used to blog on &lt;a href=&#34;https://randomdeterminism.wordpress.com&#34;&gt;Wordpress&lt;/a&gt;, mainly about ConTeXt, but occasionally about
 other stuff as well. It has been almost three years since I last posted
 there. I got busy. Both in my personal and professional life. This is an
-attempt to restart that blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+attempt to restart that blog.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -333,9 +331,7 @@ label(btex text etex, location);
 in a separate file, processes that file through TeX, and includes the
 resulting postscript code at an appropriate location. Such a Rube
 Golberg-esque mechanism is needed to propertly typeset mathematics, get
-proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -368,9 +364,7 @@ Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;Spe
 &lt;span class=&#34;PreCondit&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -384,9 +378,7 @@ into a single empty line when typesetting code lists. Today, there was a
 question on &lt;a href=&#34;https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted&#34;&gt;TeX.SE&lt;/a&gt; how to do something similar when using the &lt;code&gt;minted&lt;/code&gt;
 package. The &lt;code&gt;t-vim&lt;/code&gt; module uses the same principle as the &lt;code&gt;minted&lt;/code&gt; package.
 So, I wondered how one could collapse multiple empty lines into a single
-line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -402,9 +394,7 @@ simple tables and figures) which makes it easy to transform the input into
 multiple output formats. Most of the time, I still want PDF output and for
 that, I use &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt; to convert markdown to &lt;a href=&#34;http://contextgarden.net/&#34;&gt;ConTeXt&lt;/a&gt;. At the same time, I
 have the peace of mind that if I need HTML or DOC output, I’ll be able to get
-that easily.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+that easily.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -422,9 +412,7 @@ plain TeX, eplain, LaTeX, or ConTeXt has a section on these special characters&l
 
 &lt;p&gt;A good introduction then goes on to explain why these special characters are
 important; sometimes dropping a hint about category codes. I feel that these
-details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we should get rid of them.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we should get rid of them.&lt;/p&gt;</description>
     </item>
     
     <item>

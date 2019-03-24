@@ -37,9 +37,7 @@ could just type&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and get the above result. This post describes how to write such a macro using
-LuaTeX + ConTeXt.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+LuaTeX + ConTeXt.&lt;/p&gt;</description>
     </item>
     
   </channel>

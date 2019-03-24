@@ -19,9 +19,7 @@
       <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
       <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is
 considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?
-Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -80,9 +78,7 @@ show a particle moving along a trajectory (drawn using Metapost). In
 principle, it is possible to use the &lt;code&gt;animation&lt;/code&gt; module to draw such
 animations (e.g., see Wolfgang&amp;rsquo;s reply in &lt;a href=&#34;https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html&#34;&gt;on ntg-context mailing list&lt;/a&gt;), but the
 interface gets a bit cumbersome. In this post, I show a helper macro to
-simplify drawing such animations.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+simplify drawing such animations.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,10 +97,7 @@ These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&
 
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
-  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;
-
-
-&lt;p&gt;&lt;/p&gt;</description>
+  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
     </item>
     
     <item>
@@ -136,9 +129,7 @@ label(btex text etex, location);
 in a separate file, processes that file through TeX, and includes the
 resulting postscript code at an appropriate location. Such a Rube
 Golberg-esque mechanism is needed to propertly typeset mathematics, get
-proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;</description>
     </item>
     
   </channel>

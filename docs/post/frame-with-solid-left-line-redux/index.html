@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
+            
+            <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
+            
+            <li><a href="/context-blog/post/metapost-vs-tikz-speed/">Speed of Metapost vs TikZ</a></li>
+            
+            <li><a href="/context-blog/post/externalizing-metapost/">Externalizing Metapost graphics</a></li>
+            
+            <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Frame With Solid Left Line Redux</h1>
+<p class="post-time">Posted on March 24, 2019</p>
+
+<p>As I had <a href="../frame-with-solid-left-line">posted earlier</a>, I like the visual
+effect of placing a solid line on the left side of a block:</p>
+
+<img class="center"
+  alt="Simple example"
+  src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
+
+
+<p>I use this for displaying short code snippets in the lecture notes of a course
+that I teach. Typically these are a few lines of Matlab code but recently I
+needed to post a bigger code snippet where the frame should break across the
+page. In principle, this should have been a simple change—replace the <code>framed</code>
+with a <code>textbackground</code>—but that did not work out of the box. This blog post
+explains a simple solution.</p>
+
+<p>First, let&rsquo;s start with the naive solution:</p>
+
+<!--
+\definecolor[darkgray]  [s=0.5]
+\definecolor[lightgray] [s=0.95]
+
+\definetextbackground
+  [leftbartext]
+  [
+    location=paragraph,
+    frame=on,
+    framecolor=darkgray,
+    rulethickness=2ex,
+    leftoffset=5.25ex,
+    rightoffset=2.25ex,
+    topoffset=2.25ex,
+    bottomoffset=2.25ex,
+    background=color,
+    backgroundcolor=lightgray,
+  ]
+-->
+
+<pre><code><span class="Statement">\definecolor</span><span class="Delimiter">[</span>darkgray<span class="Delimiter">]</span>  <span class="Delimiter">[</span>s=0.5<span class="Delimiter">]</span>
+<span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightgray<span class="Delimiter">]</span> <span class="Delimiter">[</span>s=0.95<span class="Delimiter">]</span>
+
+<span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    location=paragraph,
+    frame=on,
+    framecolor=darkgray,
+    rulethickness=<span class="Number">2ex</span>,
+    leftoffset=<span class="Number">5.25ex</span>,
+    rightoffset=<span class="Number">2.25ex</span>,
+    topoffset=<span class="Number">2.25ex</span>,
+    bottomoffset=<span class="Number">2.25ex</span>,
+    background=color,
+    backgroundcolor=lightgray,
+  <span class="Delimiter">]</span>
+</code></pre>
+
+<p><code>Frame</code> and <code>textbackground</code> handle the offsets differently. Frame adds the
+<code>rulethickness</code> to the offset, while textbackground does not. So, I have
+manually set the offset in each direction. The above code gives the following
+output:</p>
+
+<img class="center"
+  alt="Frame generated using textbackground"
+  src="left-frame-0.png" />
+
+
+<p>So far, so good. So, all that we need is to replace <code>frame=on</code> with
+<code>frame=off, leftframe=on</code>. Unfortunately, that does not work.</p>
+
+<!-- 
+\definetextbackground
+  [leftbartext]
+  [
+    location=paragraph,
+    frame=off,
+    leftframe=on,
+    framecolor=darkgray,
+    rulethickness=2ex,
+    leftoffset=5.25ex,
+    rightoffset=2.25ex,
+    topoffset=2.25ex,
+    bottomoffset=2.25ex,
+    background=color,
+    backgroundcolor=lightgray,
+  ]
+-->
+
+<pre><code><span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    ...
+    frame=off,
+    leftframe=on,
+    ...
+  <span class="Delimiter">]</span>
+</code></pre>
+
+<p>gives</p>
+
+<img class="center"
+  alt="Frame generated using textbackground"
+  src="left-frame-1.png" />
+
+
+<p>Notice that the output has no frame! To understand why this happens, we need
+to dig a bit into how <code>textbackground</code>s work. Most of the heavy lifting for
+drawing the background is done by Metapost. The default setting of
+textbackground has (in
+<a href="https://github.com/contextgarden/context-mirror/blob/5794d8b0c845aad2ab4cf36dc14201b21ef5a784/tex/context/base/mkiv/anch-bck.mkvi#L515"><code>anch-bck.mkvi</code></a></p>
+
+<pre><code><span class="Statement">\setuptextbackground</span>
+  <span class="Delimiter">[</span>
+    ...
+    mp=mpos:region:draw,
+    ...
+  <span class="Delimiter">]</span>
+</code></pre>
+
+<p>where <code>mpos:region:draw</code> is defined as</p>
+
+<!--
+\startuseMPgraphic{mpos:region:draw}
+    draw_multi_pars
+\stopuseMPgraphic
+-->
+
+<pre><code><span class="Statement">\startuseMPgraphic</span><span class="Delimiter">{</span>mpos:region:draw<span class="Delimiter">}</span>
+    draw_multi_pars
+<span class="Statement">\stopuseMPgraphic</span>
+</code></pre>
+
+<p>which simply calls <code>draw_multi_pars</code> defined in
+<a href="https://github.com/contextgarden/context-mirror/blob/052a096e160508ddbbbfcbf1522eb8ddbfc3b1cd/metapost/context/base/mpiv/mp-abck.mpiv#L130"><code>mp-abck.mpiv</code></a>. The reason that we don&rsquo;t get anything when <code>frame=off</code> is because <code>draw_multi_pars</code> does not include the code to selectively draw the boundary. <code>mp-abck.mpiv</code> also includes another macro called <code>draw_multi_side</code> to draw <em>only</em> the left boundary. So, we can define the left-bar textbackground as follows:</p>
+
+<!--
+\definetextbackground
+  [leftbartext]
+  [
+    location=paragraph,
+    mp=mpos:region:leftbar,
+    width=broad,
+    frame=off,
+    framecolor=darkgray,
+    rulethickness=2ex,
+    leftoffset=5ex,
+    rightoffset=2.25ex,
+    topoffset=2.25ex,
+    bottomoffset=2.25ex,
+    background=color,
+    backgroundcolor=lightgray,
+  ]
+
+
+\startuseMPgraphic{mpos:region:leftbar}
+  draw_multi_pars;
+  draw_multi_side;
+\stopuseMPgraphic
+-->
+
+<pre><code><span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    ..
+    mp=mpos:region:leftbar,
+    frame=off,
+    ..
+  <span class="Delimiter">]</span>
+
+
+<span class="Statement">\startuseMPgraphic</span><span class="Delimiter">{</span>mpos:region:leftbar<span class="Delimiter">}</span>
+  draw_multi_pars;
+  draw_multi_side;
+<span class="Statement">\stopuseMPgraphic</span>
+</code></pre>
+
+<p>We don&rsquo;t need to specify <code>leftframe=on</code> because <code>draw_multi_side</code> only draws
+the leftframe. To conclude, here is the complete code:</p>
+
+<pre><code><span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    location=paragraph,
+    mp=mpos:region:leftbar,
+    width=broad,
+    frame=off,
+    framecolor=darkgray,
+    rulethickness=<span class="Number">2ex</span>,
+    leftoffset=<span class="Number">5ex</span>,
+    rightoffset=<span class="Number">2.25ex</span>,
+    topoffset=<span class="Number">2.25ex</span>,
+    bottomoffset=<span class="Number">2.25ex</span>,
+    background=color,
+    backgroundcolor=lightgray,
+  <span class="Delimiter">]</span>
+
+
+<span class="Statement">\startuseMPgraphic</span><span class="Delimiter">{</span>mpos:region:leftbar<span class="Delimiter">}</span>
+  draw_multi_pars;
+  draw_multi_side;
+<span class="Statement">\stopuseMPgraphic</span>
+</code></pre>
+
+<p>As in the case of the definition using <code>framedtext</code>, it is straight forward to
+inherit from <code>leftbartext</code> text background to get backgrounds with different
+color:</p>
+
+<!--
+\definecolor[lightred]   [0.95(red,white)]
+\definecolor[lightgreen] [0.95(green,white)]
+\definecolor[lightblue]  [0.95(blue,white)]
+
+\definetextbackground
+  [exampletext]
+  [leftbartext]
+  [
+    framecolor=darkgreen,
+    backgroundcolor=lightgreen,
+  ]
+
+\definetextbackground
+  [alerttext]
+  [leftbartext]
+  [
+    framecolor=darkred,
+    backgroundcolor=lightred,
+  ]
+
+\definetextbackground
+  [blocktext]
+  [leftbartext]
+  [
+    framecolor=darkblue,
+    backgroundcolor=lightblue,
+  ]
+-->
+
+<pre><code><span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightred<span class="Delimiter">]</span>   <span class="Delimiter">[</span>0.95(red,white)<span class="Delimiter">]</span>
+<span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightgreen<span class="Delimiter">]</span> <span class="Delimiter">[</span>0.95(green,white)<span class="Delimiter">]</span>
+<span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightblue<span class="Delimiter">]</span>  <span class="Delimiter">[</span>0.95(blue,white)<span class="Delimiter">]</span>
+
+<span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>exampletext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    framecolor=darkgreen,
+    backgroundcolor=lightgreen,
+  <span class="Delimiter">]</span>
+
+<span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>alerttext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    framecolor=darkred,
+    backgroundcolor=lightred,
+  <span class="Delimiter">]</span>
+
+<span class="Statement">\definetextbackground</span>
+  <span class="Delimiter">[</span>blocktext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
+  <span class="Delimiter">[</span>
+    framecolor=darkblue,
+    backgroundcolor=lightblue,
+  <span class="Delimiter">]</span>
+</code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="text backgrounds with different colors"
+  src="left-frame-2.png" />
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/speeding-pgfplot-using-luatex/">&nbsp;&lt;Speeding up PGFPlots using LuaTeX</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/visualization">
+  Visualization</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/backgrounds">backgrounds</a>,
+<a href="https://adityam.github.io/context-blog/tags/framed">framed</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+

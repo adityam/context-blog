@@ -24,9 +24,7 @@ simple tables and figures) which makes it easy to transform the input into
 multiple output formats. Most of the time, I still want PDF output and for
 that, I use &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt; to convert markdown to &lt;a href=&#34;http://contextgarden.net/&#34;&gt;ConTeXt&lt;/a&gt;. At the same time, I
 have the peace of mind that if I need HTML or DOC output, I’ll be able to get
-that easily.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+that easily.&lt;/p&gt;</description>
     </item>
     
   </channel>

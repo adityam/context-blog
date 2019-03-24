@@ -22,9 +22,7 @@ into a single empty line when typesetting code lists. Today, there was a
 question on &lt;a href=&#34;https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted&#34;&gt;TeX.SE&lt;/a&gt; how to do something similar when using the &lt;code&gt;minted&lt;/code&gt;
 package. The &lt;code&gt;t-vim&lt;/code&gt; module uses the same principle as the &lt;code&gt;minted&lt;/code&gt; package.
 So, I wondered how one could collapse multiple empty lines into a single
-line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;</description>
     </item>
     
   </channel>

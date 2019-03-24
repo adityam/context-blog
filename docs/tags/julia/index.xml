@@ -30,9 +30,7 @@ function from &lt;a href=&#34;https://www.gnu.org/software/gsl/&#34;&gt;GNU Scie
 (GSL)&lt;/a&gt; to inteface with &lt;a href=&#34;http://pgfplots.sourceforge.net&#34;&gt;pgfplots&lt;/a&gt;. This
 got me interested in looking into Lua&amp;rsquo;s FFI in detail. After a bit of trial
 and error, I finally figured out how to interface LuaTeX with my current
-favorite programming language: &lt;a href=&#34;https://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+favorite programming language: &lt;a href=&#34;https://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

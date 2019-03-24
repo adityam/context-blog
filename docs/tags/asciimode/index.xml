@@ -26,9 +26,7 @@ plain TeX, eplain, LaTeX, or ConTeXt has a section on these special characters&l
 
 &lt;p&gt;A good introduction then goes on to explain why these special characters are
 important; sometimes dropping a hint about category codes. I feel that these
-details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we should get rid of them.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+details are useless and, &lt;strong&gt;at the user level&lt;/strong&gt;, we should get rid of them.&lt;/p&gt;</description>
     </item>
     
   </channel>

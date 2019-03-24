@@ -40,9 +40,7 @@ label(btex text etex, location);
 in a separate file, processes that file through TeX, and includes the
 resulting postscript code at an appropriate location. Such a Rube
 Golberg-esque mechanism is needed to propertly typeset mathematics, get
-proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;</description>
     </item>
     
   </channel>

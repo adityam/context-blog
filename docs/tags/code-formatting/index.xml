@@ -41,9 +41,7 @@ double root (double a, double b, double c) {....}
 
 &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; root (&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; a, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; b, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; c) {....}
 &lt;span class=&#34;Keyword&#34;&gt;\stopC&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -57,9 +55,7 @@ into a single empty line when typesetting code lists. Today, there was a
 question on &lt;a href=&#34;https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted&#34;&gt;TeX.SE&lt;/a&gt; how to do something similar when using the &lt;code&gt;minted&lt;/code&gt;
 package. The &lt;code&gt;t-vim&lt;/code&gt; module uses the same principle as the &lt;code&gt;minted&lt;/code&gt; package.
 So, I wondered how one could collapse multiple empty lines into a single
-line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;</description>
     </item>
     
   </channel>
