@@ -9,13 +9,13 @@ tags:
 
 ---
 
-Adding a solid line of the left side of a frame, block quote, etc. creates a
+Adding a solid line on the left side of a frame, block quote, etc. creates a
 simple, clean, and attractive visual effect that I like. 
 
 {{< img src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" class="center" alt="Simple example" >}}
 
 I don't know when I first came across this style, but it is used commonly on
-the Internet to show blockquotes. So, how do we get this style with ConTeXT?
+the Internet to show blockquotes. So, how do we get this style with ConTeXt?
 
 <!--more-->
 
