@@ -32,6 +32,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
+            
             <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
             
             <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
@@ -39,8 +41,6 @@
             <li><a href="/context-blog/post/metapost-vs-tikz-speed/">Speed of Metapost vs TikZ</a></li>
             
             <li><a href="/context-blog/post/externalizing-metapost/">Externalizing Metapost graphics</a></li>
-            
-            <li><a href="/context-blog/post/poster-in-context/">Posters in ConTeXt</a></li>
             
           </ul>
         </li>
@@ -53,6 +53,53 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/typesetting-differential-equations/">Typesetting differential equations</a></h1>
+        <p class="post-time">18 September, 2017
+        (4 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/macros">
+          Macros</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+        <a href="https://adityam.github.io/context-blog/tags/programming">programming</a>,
+        <a href="https://adityam.github.io/context-blog/tags/separating-content-and-presentation">separating content and presentation</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>This semester I am teaching a course involving linear differential equations,
+so I have typeset many differential equations that look like this:</p>
+
+<img class="center"
+  alt="Simple example"
+  src="/context-blog/post/typesetting-differential-equations/LDE.png" />
+
+
+<p>Believe me, writing such equations by hand gets tedious very quickly. So, I
+wanted a macro <code>\LDE</code> (for Linear Differential Equation), so that I
+could just type</p>
+
+<!--
+\LDE{1, -3, 2}{2, 1}
+-->
+
+<pre><code><span class="Statement">\LDE</span><span class="Delimiter">{</span>1, -3, 2<span class="Delimiter">}{</span>2, 1<span class="Delimiter">}</span>
+</code></pre>
+
+<p>and get the above result. This post describes how to write such a macro using
+LuaTeX + ConTeXt.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/typesetting-differential-equations/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -382,41 +429,6 @@ that, I use <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> to convert ma
 have the peace of mind that if I need HTML or DOC output, I’ll be able to get
 that easily.</p></p>
             <a class="btn btn-default" href="/context-blog/post/markdown-with-gpp/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/lower-learning-curve/">Some thoughts on lowering the learning curve for using TeX</a></h1>
-        <p class="post-time">4 September, 2011
-        (6 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/learning">
-          Learning</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/asciimode">asciimode</a>,
-        <a href="https://adityam.github.io/context-blog/tags/catcodes">catcodes</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>TeX has a steep learning curve. Often times, steeper than it needs to be.
-Take, for example, the special characters in TeX. Almost every introduction to
-plain TeX, eplain, LaTeX, or ConTeXt has a section on these special characters</p>
-
-<pre><code>\ { } $ &amp; # ^ _ &amp; ~
-</code></pre>
-
-<p>A good introduction then goes on to explain why these special characters are
-important; sometimes dropping a hint about category codes. I feel that these
-details are useless and, <strong>at the user level</strong>, we should get rid of them.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/lower-learning-curve/" id="read-more-button">
                 Read more >
             </a>
         </div>

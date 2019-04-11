@@ -6,10 +6,38 @@
     <description>Recent content on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2019 12:07:55 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Seamlessly switching between different context versions</title>
+      <link>https://adityam.github.io/context-blog/post/setuptex/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/setuptex/</guid>
+      <description>&lt;p&gt;Recently, Hans
+&lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90783.html&#34;&gt;announced&lt;/a&gt; the
+prerelease of a new version of ConTeXt called LuaMetaTeX or LMTX for short.
+LMTX is supposed to a streamlined and stripped down version of LuaTeX where
+most of the backend code for writing PDF and images has been removed from the
+engine and is handled by macro package using Lua code. Some of the rationale
+for the change in discussed &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90917.html&#34;&gt;in this
+post&lt;/a&gt; and more
+details including the source code and documentation will be available when
+LMTX will be formally released in this year&amp;rsquo;s ConTeXt meeting. Currently just
+the binary is available for testing from &lt;a href=&#34;http://www.pragma-ade.nl/install.htm&#34;&gt;Pragma Ade&amp;rsquo;s
+website&lt;/a&gt;. There is no change in
+user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
+LMTX without making any change in the tex file.&lt;/p&gt;
+
+&lt;p&gt;In my tests so far, I could compile all my documents using LMTX without any
+noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
+some critical projects like typesetting material for courses that I teach.
+In this post, I&amp;rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in
+parallel.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Frame With Solid Left Line Redux</title>
