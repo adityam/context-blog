@@ -116,3 +116,5 @@ packages automatically create the above setuptex file.
 
 <script src="/context-blog/js/asciinema-player.js"></script>
 
+[lmtx]: https://aur.archlinux.org/packages/luametatex/
+[context]: https://aur.archlinux.org/packages/context-minimals-git/
