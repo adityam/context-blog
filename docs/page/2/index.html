@@ -32,6 +32,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
+            
             <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
             
             <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
@@ -39,8 +41,6 @@
             <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
             
             <li><a href="/context-blog/post/metapost-vs-tikz-speed/">Speed of Metapost vs TikZ</a></li>
-            
-            <li><a href="/context-blog/post/externalizing-metapost/">Externalizing Metapost graphics</a></li>
             
           </ul>
         </li>
@@ -53,6 +53,46 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/math-combined-characters/">Comibined characters in Math</a></h1>
+        <p class="post-time">15 October, 2017
+        (3 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/mathematics">
+          Mathematics</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/asciimath">asciimath</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>There is a new feature in ConTeXt that replaces some <em>ascii math</em> (I am using
+this term informally. The symbols do not match the <a href="http://asciimath.org">asciimath</a> symbol list).
+It is enabled by default and replaces a combination of characters by a glyph.
+For example,</p>
+
+<pre><code>A function <span class="String">$f$</span> is an increasing function
+  <span class="Identifier">\startformula</span>
+<span class="String">    x &lt;= y  ===&gt; f(x) &lt;= f(y)</span>
+<span class="String">  </span><span class="Identifier">\stopformula</span>
+</code></pre>
+
+<p>gives</p>
+
+<img class="center"
+  alt="Example of combined characters"
+  src="/context-blog/post/math-combined-characters/ex-1.png" /></p>
+            <a class="btn btn-default" href="/context-blog/post/math-combined-characters/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -396,39 +436,6 @@ package. The <code>t-vim</code> module uses the same principle as the <code>mint
 So, I wondered how one could collapse multiple empty lines into a single
 line in <code>t-vim</code>?</p></p>
             <a class="btn btn-default" href="/context-blog/post/removing-blank-lines-t-vim/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/markdown-with-gpp/">Preprocessing Markdown with GPP: Or how I stopped worrying and started using Markdown like TeX</a></h1>
-        <p class="post-time">1 June, 2012
-        (7 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/markdown">
-          Markdown</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/gpp">gpp</a>,
-        <a href="https://adityam.github.io/context-blog/tags/pandoc">pandoc</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>These days I type most of simple documents (short articles, blog entries,
-course notes) in markdown. Markdown provides only the basic structured
-elements (sections, emphasis, urls, lists, footnotes, syntax highlighting,
-simple tables and figures) which makes it easy to transform the input into
-multiple output formats. Most of the time, I still want PDF output and for
-that, I use <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> to convert markdown to <a href="http://contextgarden.net/">ConTeXt</a>. At the same time, I
-have the peace of mind that if I need HTML or DOC output, I’ll be able to get
-that easily.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/markdown-with-gpp/" id="read-more-button">
                 Read more >
             </a>
         </div>

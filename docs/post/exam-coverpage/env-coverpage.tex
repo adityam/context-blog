@@ -1,0 +1,205 @@
+\startenvironment env-coverpage
+
+\setuppapersize[letter]
+
+\setuplayout
+             [     width=middle,
+                  height=middle,
+                location=middle,
+                topspace=.5in,
+             bottomspace=.5in,
+                  bottom=.5in,
+               backspace=.85in,
+                cutspace=.85in,
+              leftmargin=.5in,
+             rightmargin=.5in,
+      leftmargindistance=1ex,
+     rightmargindistance=1ex,
+                  header=0.25in,
+                  footer=0.25in,
+           headerdistance=0.25in,
+          footerdistance=0.25in,
+        ]
+
+\usetypescriptfile[euler]
+\definefontfeature[default][default][expansion=quality,protrusion=quality]
+
+\definetypeface[mainfont][rm][specserif][CharisSil][default]
+\definetypeface[mainfont][mm][math] [pagellaovereuler][default]
+\definetypeface[mainfont][tt][mono] [dejavu][default] [rscale=0.8, features=none]
+\setupbodyfont[mainfont,11pt]
+
+\setuppagenumbering[location=]
+
+\define\placecoverpage
+    {\dosingleargument\doplacecoverpage}
+
+\def\doplacecoverpage[#1]%
+    {\setvariables[exam][#1]%
+     \setups{exam:coverpage}}
+
+\startsetups exam:coverpage
+  \setups{exam:banner}
+  \blank[2*big]
+  \setups{exam:courseinfo}
+  \blank[2*big]
+  \setups{exam:studentinfo}
+  \blank[6*big]
+  \setups{exam:instructions}
+\stopsetups
+
+\defineframedtext
+  [bannertext]
+  [
+    width=broad,
+    height=4\lineheight,
+    align={flushright,lohi},
+    foregroundstyle=\bfa,
+    frame=off,
+    background=bannerlines,
+  ]
+
+\defineoverlay[bannerlines][\useMPgraphic{bannerlines}]
+
+\startuseMPgraphic{bannerlines}
+  begingroup 
+  linecap := butt ;
+  pickup pencircle scaled 2bp ;
+  draw topboundary OverlayBox    shifted (0,-1.5bp);
+  draw bottomboundary OverlayBox shifted (0,-1.5bp);
+
+  pickup pencircle scaled 1bp ;
+  draw topboundary OverlayBox    shifted (0,0.7bp);
+  draw bottomboundary OverlayBox shifted (0,0.7bp);
+
+  label.rt("\externalfigure[mcgill-logo-bw.png][height=2\lineheight]",
+           0.5[llcorner OverlayBox, ulcorner OverlayBox]);
+
+  setbounds currentpicture to boundingbox OverlayBox ;
+  endgroup;
+\stopuseMPgraphic
+
+\startsetups exam:banner
+  \startbannertext
+    \getvariable{exam}{term}
+    \\
+    \getvariable{exam}{exam} Examination
+  \stopbannertext
+\stopsetups
+
+\startsetups exam:courseinfo
+  \startalignment[middle]
+    \bfa\setupinterlinespace
+    \getvariable{exam}{course} 
+    \blank[medium]
+    \getvariable{exam}{time}
+  \stopalignment
+\stopsetups
+
+\startsetups exam:studentinfo
+  \startTABLE
+  \setupTABLE[c][1,3][background=color,backgroundcolor=lightgray,
+                      style=bold,
+                      loffset=0.5em,roffset=1em,
+                      toffset=0.25ex,boffset=0.25ex]
+  \setupTABLE[c][2][width=broad]
+  \setupTABLE[c][4,5,6,7,8,9,10,11,12][width=1.5em]
+    \NC Student Name: \NC 
+    \NC McGill Id:    \NC
+    \NC 
+    \NC 
+    \NC 
+    \NC 
+    \NC 
+    \NC 
+    \NC 
+    \NC 
+    \NC   \NR
+  \stopTABLE
+\stopsetups
+
+\usesymbols[fontawesome]
+\def\FONTAWESOME[#1]{\inlinedbox
+      {\scale[height=1em]{\symbol[fontawesome][#1]}}}
+
+\define\YES{\FONTAWESOME[check]}
+\define\NO {\FONTAWESOME[check_empty]}
+
+\define[2]\CHECKBOX
+    {\doifelse{\getvariable{exam}{#1}}{#2}{\YES}{\NO}}
+
+\startsetups exam:instructions
+  \midaligned{\bfa INSTRUCTIONS:}
+  \blank[halfline]
+  \bTABLE[width=broad]
+    \setupTABLE[each][each][offset=0.5em]
+    \setupTABLE[column][1]
+               [
+                 style=bold, 
+                 align={middle,lohi},
+                 background=color,
+                 backgroundcolor=lightgray,
+                 width=0.2\textwidth,
+               ]
+    \setupTABLE[column][2,4][width=0.3\textwidth]
+    \setupTABLE[column][2,3,4][frame=off,topframe=on,bottomframe=on]
+    \setupTABLE[column][2][leftframe=on]
+    \setupTABLE[column][4][rightframe=on]
+    \bTR
+      \bTD[ny=6] EXAM: \eTD
+      \bTD CLOSED BOOK \CHECKBOX{book}{closed} \eTD
+      \bTD OPEN BOOK   \CHECKBOX{book}{open}   \eTD
+      \bTD             \eTD
+    \eTR
+   \bTR 
+     \bTD SINGLE SIDED \CHECKBOX{print}{singlesided} \eTD
+     \bTD[nx=2,rightframe=on] 
+        PRINTED ON BOTH SIDES OF THE PAGE \CHECKBOX{print}{doublesided}
+     \eTD
+   \eTR
+   \bTR[topframe=off,bottomframe=off]
+     \bTD[nx=2] MULTIPLE CHOICE ANSWER SHEETS \CHECKBOX{type}{multiple} \eTD
+   \eTR
+   \bTR[topframe=off,bottomframe=off]
+     \bTD ANSWER IN BOOKLET \CHECKBOX{type}{booklet} \eTD
+     \bTD[nx=2, rightframe=on] EXTRA BOOKLETS PERMITTED: YES \eTD
+   \eTR
+   \bTR[topframe=off]
+     \bTD ANSWER ON EXAM \CHECKBOX{type}{exam} \eTD
+     \bTD \eTD 
+     \bTD \eTD
+   \eTR
+    \bTR
+      \bTD SHOULD THE EXAM BE: \eTD
+      \bTD RETURNED \CHECKBOX{keepexam}{no} \eTD
+      \bTD KEPT BY STUDENT \CHECKBOX{keepexam}{yes} \eTD
+    \eTR
+    % FIXME: Add instructions for crib sheets
+    \bTR
+      \bTD CRIB SHEETS: \eTD
+      \bTD NOT PERMITTED \CHECKBOX{cribsheet}{no} \eTD
+      \bTD PERMITTED    \CHECKBOX{cribsheet}{yes} \eTD
+    \eTR
+    \bTR
+      \bTD DICTIONARIES: \eTD
+      \bTD TRANSLATION ONLY \CHECKBOX{dictionary}{translation} \eTD
+      \bTD REGULAR \CHECKBOX{dictionary}{regular} \eTD
+      \bTD NONE    \CHECKBOX{dictionary}{no} \eTD
+    \bTR
+      \bTD CALCULATORS: \eTD
+      \bTD NOT PERMITTED \CHECKBOX{calculator}{no} \eTD
+      \bTD[nx=2,rightframe=on]
+        PERMITTED (non-programmable) \CHECKBOX{calculator}{yes}
+      \eTD
+    \eTR
+    \bTR
+      \bTD ANY SPECIAL \\ INSTRUCTIONS \eTD
+      \bTD[nx=3,rightframe=on]
+          \getvariable{exam}{extra}
+      \eTD
+    \eTR
+  \eTABLE
+\stopsetups
+
+
+\stopenvironment

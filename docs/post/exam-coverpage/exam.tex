@@ -1,0 +1,24 @@
+\environment env-coverpage
+% Other environments that I load
+
+\starttext
+
+\placecoverpage
+  [
+    course={ECSE 101: Course title}, 
+    term=Winter 2019, 
+    exam=Final, 
+    time={15 April 2019 (9:00 am)},
+    %
+    book=closed, % open, closed
+    print=doublesided, % singlesided, doublesided
+    type=exam, %multiple, booklet, exam
+    keepexam=no, % yes no
+    cribsheet=no, % yes no
+    dictionary=translation,
+    calculator=yes, % yes no
+    extra={Any extra instructions that need to go with the exam such as if
+           there is a formula sheet in the end.},
+  ]
+
+\stoptext

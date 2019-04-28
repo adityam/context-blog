@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
+            
+            <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
+            
+            <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
+            
+            <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
+            
+            <li><a href="/context-blog/post/metapost-vs-tikz-speed/">Speed of Metapost vs TikZ</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Designing cover page for an exam</h1>
+<p class="post-time">Posted on April 15, 2019</p>
+
+<p>Our university has a specific style that courses need to use as a cover page
+for exams, shown below. They circulate a Word template at the beginning of
+each term. Since I typeset my exams in ConTeXt, I decided to translate this
+cover page template to ConTeXt as well. In this post, I&rsquo;ll explain how I went
+about doing this translation.</p>
+
+<p><a
+href="/context-blog/post/exam-coverpage/exam-v6.png">
+<img src="/context-blog/post/exam-coverpage/exam-v6.png" class="right" alt="Exam Coverpage" width="300px" />
+</a></p>
+
+<h2 id="the-user-interface">The user interface</h2>
+
+<p>The cover page is just a fancy table with certain information filled in. At a
+high-level, I want to hide all the implementation details in an environment
+file (which I&rsquo;ll call <code>env-coverpage</code>), specify all the information using a
+key-value driven interface, and then call a macro (which I&rsquo;ll call
+<code>\placecoverpage</code>) which typesets the cover page. Thus, my main tex file looks
+like this:</p>
+
+<!--
+\environment env-coverpage
+% Other environments that I load
+
+\starttext
+
+\placecoverpage
+  [
+    course={ECSE 101: Course title}, 
+    term=Winter 2019, 
+    exam=Final, 
+    time={15 April 2019 (9:00 am)},
+    %
+    book=closed, % open, closed
+    print=doublesided, % singlesided, doublesided
+    type=exam, %multiple, booklet, exam
+    keepexam=no, % yes no
+    cribsheet=no, % yes no
+    dictionary=translation,
+    calculator=yes, % yes no
+    extra={Any extra instructions that need to go with the exam such as if
+           there is a formula sheet in the end.},
+  ]
+
+
+% Rest of the details of the exam
+
+\stoptext
+-->
+
+<pre><code><span class="Statement">\environment</span> env-coverpage
+<span class="Comment">% Other environments that I load</span>
+
+<span class="Statement">\starttext</span>
+
+<span class="Statement">\placecoverpage</span>
+  <span class="Delimiter">[</span>
+    course=<span class="Delimiter">{</span>ECSE 101: Course title<span class="Delimiter">}</span>,
+    term=Winter 2019,
+    exam=Final,
+    time=<span class="Delimiter">{</span>15 April 2019 (9:00 am)<span class="Delimiter">}</span>,
+    <span class="Comment">%</span>
+    book=closed, <span class="Comment">% open, closed</span>
+    print=doublesided, <span class="Comment">% singlesided, doublesided</span>
+    type=exam, <span class="Comment">%multiple, booklet, exam</span>
+    keepexam=no, <span class="Comment">% yes no</span>
+    cribsheet=no, <span class="Comment">% yes no</span>
+    dictionary=translation,
+    calculator=yes, <span class="Comment">% yes no</span>
+    extra=<span class="Delimiter">{</span>Any extra instructions that need to go with the exam such as if
+           there is a formula sheet in the end.<span class="Delimiter">}</span>,
+  <span class="Delimiter">]</span>
+
+<span class="Comment">% Rest of the details of the exam</span>
+
+<span class="Statement">\stoptext</span>
+</code></pre>
+
+<p>Now, I&rsquo;ll explain how I design the <code>\placecoverpage</code> macro.
+Because this is a one-off macro, I use the simplest mechanism to store the
+key-value options: <code>\setvariables</code>. Thus, the basic skeleton of the
+<code>\placecoverpage</code> macro is as follows:</p>
+
+<!--
+\startenvironment env-coverpage
+\define\placecoverpage
+    {\dosingleargument\doplacecoverpage}
+
+\def\doplacecoverpage[#1]%
+    {\setvariables[exam][#1]%
+    \setups{exam:coverpage}}
+
+\def\dodoplacecoverpage{}
+\stopenvironment
+-->
+
+<pre><code><span class="Identifier">\startenvironment </span>env-coverpage
+<span class="Identifier">\define\placecoverpage</span>
+<span class="Identifier">    </span><span class="Delimiter">{</span><span class="Identifier">\dosingleargument\doplacecoverpage</span><span class="Delimiter">}</span>
+
+<span class="Identifier">\def\doplacecoverpage</span><span class="Delimiter">[</span><span class="Type">#1</span><span class="Delimiter">]</span><span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Identifier">\setvariables</span><span class="Delimiter">[</span><span class="Type">exam</span><span class="Delimiter">][</span><span class="Type">#1</span><span class="Delimiter">]</span><span class="Comment">%</span>
+     <span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:coverpage<span class="Delimiter">}}</span>
+<span class="Identifier">\stopenvironment</span>
+</code></pre>
+
+<p>Now all we need is to write the setup <code>exam:coverpage</code> to typeset the actual
+cover page. I divide that into smaller components, again using the setups
+mechanism.</p>
+
+<!--
+\startsetups exam:coverpage
+  \setups{exam:banner}
+  \blank[2*big]
+  \setups{exam:courseinfo}
+  \blank[2*big]
+  \setups{exam:studentinfo}
+  \blank[6*big]
+  \setups{exam:instructions}
+\stopsetups
+-->
+
+<pre><code><span class="Identifier">\startsetups </span>exam:coverpage
+  <span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:banner<span class="Delimiter">}</span>
+  <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">2*big</span><span class="Delimiter">]</span>
+<span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:courseinfo<span class="Delimiter">}</span>
+  <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">2*big</span><span class="Delimiter">]</span>
+<span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:studentinfo<span class="Delimiter">}</span>
+  <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">6*big</span><span class="Delimiter">]</span>
+<span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:instructions<span class="Delimiter">}</span>
+<span class="Identifier">\stopsetups</span>
+</code></pre>
+
+<h2 id="drawing-the-banner">Drawing the banner</h2>
+
+<img class="right"
+  alt="Exam Banner (barebones)"
+  src="exam-v1.png" />
+
+
+<p>I start by using a simple framedtext to typeset the banner.</p>
+
+<pre><code><span class="Identifier">\defineframedtext</span>
+<span class="Identifier">  </span><span class="Delimiter">[</span><span class="Type">bannertext</span><span class="Delimiter">]</span>
+<span class="Delimiter">  [</span>
+<span class="Type">    width=broad,</span>
+<span class="Type">    height=4\lineheight,</span>
+<span class="Type">    align=</span><span class="Delimiter">{</span>flushright,lohi<span class="Delimiter">}</span><span class="Type">,</span>
+<span class="Type">    foregroundstyle=\bfa,</span>
+<span class="Type">    frame=on,</span>
+<span class="Type">  </span><span class="Delimiter">]</span>
+
+<span class="Identifier">\startsetups </span>exam:banner
+  <span class="Identifier">\startbannertext</span>
+<span class="Identifier">    \getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>term<span class="Delimiter">}</span>
+    <span class="Identifier">\\</span>
+<span class="Identifier">    \getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>exam<span class="Delimiter">}</span> Examination
+  <span class="Identifier">\stopbannertext</span>
+<span class="Identifier">\stopsetups</span>
+</code></pre>
+
+<p>Note that we stored the key-values using <code>\setvariables{exam}{...}</code>. Now, we
+use <code>\getvariable{exam}{key}</code> to access the value of a particular key.</p>
+
+<p>Now, I change the simple border of the frame to the two-lined frame in the
+template. To do so, I set <code>frame=off</code> and use a metapost graphic as
+background.</p>
+
+<pre><code><span class="Identifier">\defineframedtext</span>
+<span class="Identifier">  </span><span class="Delimiter">[</span><span class="Type">bannertext</span><span class="Delimiter">]</span>
+<span class="Delimiter">  [</span>
+<span class="Type">    ...,</span>
+<span class="Type">    frame=off,</span>
+<span class="Type">    background=bannerlines,</span>
+<span class="Type">  </span><span class="Delimiter">]</span>
+
+<span class="Identifier">\defineoverlay</span><span class="Delimiter">[</span><span class="Type">bannerlines</span><span class="Delimiter">][</span><span class="Type">\useMPgraphic</span><span class="Delimiter">{</span>bannerlines<span class="Delimiter">}]</span>
+</code></pre>
+
+<img class="right"
+  alt="Exam Banner (barebones)"
+  src="exam-v2.png" />
+
+
+<p>where</p>
+
+<pre><code><span class="Identifier">\startuseMPgraphic</span>{bannerlines}
+  <span class="Statement">begingroup</span>
+  <span class="Identifier">linecap</span> := <span class="Identifier">butt</span> ;
+  <span class="Function">pickup</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">2bp</span> ;
+  <span class="Function">draw</span> topboundary OverlayBox    <span class="Statement">shifted</span> (<span class="Number">0</span>,<span class="Number">-1.5bp</span>);
+  <span class="Function">draw</span> bottomboundary OverlayBox <span class="Statement">shifted</span> (<span class="Number">0</span>,<span class="Number">-1.5bp</span>);
+
+  <span class="Function">pickup</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">1bp</span> ;
+  <span class="Function">draw</span> topboundary OverlayBox    <span class="Statement">shifted</span> (<span class="Number">0</span>,<span class="Number">0.7bp</span>);
+  <span class="Function">draw</span> bottomboundary OverlayBox <span class="Statement">shifted</span> (<span class="Number">0</span>,<span class="Number">0.7bp</span>);
+
+  <span class="Statement">setbounds</span> <span class="Identifier">currentpicture</span> <span class="Statement">to</span> boundingbox OverlayBox ;
+  <span class="Statement">endgroup</span>;
+<span class="Identifier">\stopuseMPgraphic</span>
+</code></pre>
+
+<p>Now, I all need is to add the university logo. There are different ways to add
+the logo, but I chose the simplest option in this case. Just place the logo at
+the appropriate place using Metapost.</p>
+
+<pre><code><span class="Identifier">\startuseMPgraphic</span>{bannerlines}
+  <span class="Statement">begingroup</span>
+  ...
+  <span class="Function">label</span>.<span class="Function">rt</span>(<span class="String">&quot;\externalfigure[mcgill-logo-bw.png][height=2\lineheight]&quot;</span>,
+           <span class="Number">0.5</span>[<span class="Statement">llcorner</span> OverlayBox, <span class="Statement">ulcorner</span> OverlayBox]);
+  ...
+  <span class="Statement">endgroup</span>;
+<span class="Identifier">\stopuseMPgraphic</span>
+</code></pre>
+
+<p>This completes the banner of the coverpage.</p>
+
+<img class="center"
+  alt="Exam Banner (barebones)"
+  src="exam-v3.png" />
+
+
+<h2 id="adding-the-course-information">Adding the course information</h2>
+
+<p>This is perhaps the simplest part. I simply mid-align the course title and
+time.</p>
+
+<pre><code><span class="Identifier">\startsetups </span>exam:courseinfo
+  <span class="Identifier">\startalignment</span><span class="Delimiter">[</span><span class="Type">middle</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Type">\bfa</span><span class="Identifier">\setupinterlinespace</span>
+<span class="Identifier">    \getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>course<span class="Delimiter">}</span>
+    <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">medium</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>time<span class="Delimiter">}</span>
+  <span class="Identifier">\stopalignment</span>
+<span class="Identifier">\stopsetups</span>
+</code></pre>
+
+<img class="center"
+  alt="Exam Banner (barebones)"
+  src="exam-v4.png" />
+
+
+<h2 id="adding-student-information">Adding student information</h2>
+
+<p>At first I was thinking of using Metapost to draw the boxes for the student
+information but then simply used a table for no other reason than laziness.</p>
+
+<pre><code><span class="Identifier">\startsetups </span>exam:studentinfo
+  <span class="Identifier">\startTABLE</span>
+<span class="Identifier">  \setupTABLE</span><span class="Delimiter">[</span><span class="Type">c</span><span class="Delimiter">][</span><span class="Type">1,3</span><span class="Delimiter">][</span><span class="Type">background=color,backgroundcolor=lightgray,</span>
+<span class="Type">                      style=bold,</span>
+<span class="Type">                      loffset=0.5em,roffset=1em,</span>
+<span class="Type">                      toffset=0.25ex,boffset=0.25ex</span><span class="Delimiter">]</span>
+<span class="Delimiter">  </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">c</span><span class="Delimiter">][</span><span class="Type">2</span><span class="Delimiter">][</span><span class="Type">width=broad</span><span class="Delimiter">]</span>
+<span class="Delimiter">  </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">c</span><span class="Delimiter">][</span><span class="Type">4,5,6,7,8,9,10,11,12</span><span class="Delimiter">][</span><span class="Type">width=1.5em</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Special">\NC</span> Student Name: <span class="Special">\NC</span>
+    <span class="Special">\NC</span> McGill Id:    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>
+    <span class="Special">\NC</span>   <span class="Special">\NR</span>
+  <span class="Identifier">\stopTABLE</span>
+<span class="Identifier">\stopsetups</span>
+</code></pre>
+
+<img class="center"
+  alt="Exam Banner (barebones)"
+  src="exam-v5.png" />
+
+
+<h2 id="adding-exam-instructions">Adding exam instructions</h2>
+
+<p>OK, so all the simple parts of the cover page are done. Now, let&rsquo;s look at the
+fancy table for instructions. The instruction use multiple check boxes. I use
+<a href="https://fontawesome.com">FontAwesome</a> to show these check boxes.</p>
+
+<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
+<span class="Identifier">\def\FONTAWESOME</span><span class="Delimiter">[</span><span class="Type">#1</span><span class="Delimiter">]{</span><span class="Identifier">\inlinedbox</span>
+<span class="Identifier">      </span><span class="Delimiter">{</span><span class="Identifier">\scale</span><span class="Delimiter">[</span><span class="Type">height=1em</span><span class="Delimiter">]{</span><span class="Identifier">\symbol</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">][</span><span class="Type">#1</span><span class="Delimiter">]}}}</span>
+
+<span class="Identifier">\define\YES</span><span class="Delimiter">{</span><span class="Identifier">\FONTAWESOME</span><span class="Delimiter">[</span><span class="Type">check</span><span class="Delimiter">]}</span>
+<span class="Identifier">\define\NO </span><span class="Delimiter">{</span><span class="Identifier">\FONTAWESOME</span><span class="Delimiter">[</span><span class="Type">check_empty</span><span class="Delimiter">]}</span>
+</code></pre>
+
+<p>See my earlier post on <a href="../using-fontawesome">using fontawesome</a> to see why I use <code>\inlinedbox</code>.</p>
+
+<p>Next, I define a helper macro to show a empty or ticked check box depending on
+the option:</p>
+
+<pre><code><span class="Identifier">\define</span><span class="Delimiter">[</span><span class="Type">2</span><span class="Delimiter">]</span><span class="Identifier">\CHECKBOX</span>
+<span class="Identifier">    </span><span class="Delimiter">{</span><span class="Identifier">\doifelse</span><span class="Delimiter">{</span><span class="Identifier">\getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>#1<span class="Delimiter">}}{</span>#2<span class="Delimiter">}{</span><span class="Identifier">\YES</span><span class="Delimiter">}{</span><span class="Identifier">\NO</span><span class="Delimiter">}}</span>
+</code></pre>
+
+<p>Finally, I use a four column table (with carefully chosen spanned cells) to
+show all exam instructions.</p>
+
+<pre><code><span class="Identifier">\startsetups </span>exam:instructions
+  <span class="Identifier">\midaligned</span><span class="Delimiter">{</span><span class="Type">\bfa</span> INSTRUCTIONS:<span class="Delimiter">}</span>
+  <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">halfline</span><span class="Delimiter">]</span>
+<span class="Delimiter">  </span><span class="Identifier">\bTABLE</span><span class="Delimiter">[</span><span class="Type">width=broad</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">each</span><span class="Delimiter">][</span><span class="Type">each</span><span class="Delimiter">][</span><span class="Type">offset=0.5em</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">column</span><span class="Delimiter">][</span><span class="Type">1</span><span class="Delimiter">]</span>
+<span class="Delimiter">               [</span>
+<span class="Type">                 style=bold, </span>
+<span class="Type">                 align=</span><span class="Delimiter">{</span>middle,lohi<span class="Delimiter">}</span><span class="Type">,</span>
+<span class="Type">                 background=color,</span>
+<span class="Type">                 backgroundcolor=lightgray,</span>
+<span class="Type">                 width=0.2\textwidth,</span>
+<span class="Type">               </span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">column</span><span class="Delimiter">][</span><span class="Type">2,4</span><span class="Delimiter">][</span><span class="Type">width=0.3\textwidth</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">column</span><span class="Delimiter">][</span><span class="Type">2,3,4</span><span class="Delimiter">][</span><span class="Type">frame=off,topframe=on,bottomframe=on</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">column</span><span class="Delimiter">][</span><span class="Type">2</span><span class="Delimiter">][</span><span class="Type">leftframe=on</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\setupTABLE</span><span class="Delimiter">[</span><span class="Type">column</span><span class="Delimiter">][</span><span class="Type">4</span><span class="Delimiter">][</span><span class="Type">rightframe=on</span><span class="Delimiter">]</span>
+<span class="Delimiter">    </span><span class="Identifier">\bTR</span>
+<span class="Identifier">      \bTD</span><span class="Delimiter">[</span><span class="Type">ny=6</span><span class="Delimiter">] </span>EXAM: <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>CLOSED BOOK <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>book<span class="Delimiter">}{</span>closed<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>OPEN BOOK   <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>book<span class="Delimiter">}{</span>open<span class="Delimiter">}</span>   <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD             \eTD</span>
+<span class="Identifier">    \eTR</span>
+<span class="Identifier">   \bTR </span>
+<span class="Identifier">     \bTD </span>SINGLE SIDED <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>print<span class="Delimiter">}{</span>singlesided<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">     \bTD</span><span class="Delimiter">[</span><span class="Type">nx=2,rightframe=on</span><span class="Delimiter">] </span>
+<span class="Delimiter">        </span>PRINTED ON BOTH SIDES OF THE PAGE <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>print<span class="Delimiter">}{</span>doublesided<span class="Delimiter">}</span>
+     <span class="Identifier">\eTD</span>
+<span class="Identifier">   \eTR</span>
+<span class="Identifier">   \bTR</span><span class="Delimiter">[</span><span class="Type">topframe=off,bottomframe=off</span><span class="Delimiter">]</span>
+<span class="Delimiter">     </span><span class="Identifier">\bTD</span><span class="Delimiter">[</span><span class="Type">nx=2</span><span class="Delimiter">] </span>MULTIPLE CHOICE ANSWER SHEETS <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>type<span class="Delimiter">}{</span>multiple<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">   \eTR</span>
+<span class="Identifier">   \bTR</span><span class="Delimiter">[</span><span class="Type">topframe=off,bottomframe=off</span><span class="Delimiter">]</span>
+<span class="Delimiter">     </span><span class="Identifier">\bTD </span>ANSWER IN BOOKLET <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>type<span class="Delimiter">}{</span>booklet<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">     \bTD</span><span class="Delimiter">[</span><span class="Type">nx=2, rightframe=on</span><span class="Delimiter">] </span>EXTRA BOOKLETS PERMITTED: YES <span class="Identifier">\eTD</span>
+<span class="Identifier">   \eTR</span>
+<span class="Identifier">   \bTR</span><span class="Delimiter">[</span><span class="Type">topframe=off</span><span class="Delimiter">]</span>
+<span class="Delimiter">     </span><span class="Identifier">\bTD </span>ANSWER ON EXAM <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>type<span class="Delimiter">}{</span>exam<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">     \bTD \eTD </span>
+<span class="Identifier">     \bTD \eTD</span>
+<span class="Identifier">   \eTR</span>
+<span class="Identifier">    \bTR</span>
+<span class="Identifier">      \bTD </span>SHOULD THE EXAM BE: <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>RETURNED <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>keepexam<span class="Delimiter">}{</span>no<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>KEPT BY STUDENT <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>keepexam<span class="Delimiter">}{</span>yes<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">    \eTR</span>
+<span class="Identifier">    </span><span class="Comment">% </span><span class="Todo">FIXME</span><span class="Comment">: Add instructions for crib sheets</span>
+    <span class="Identifier">\bTR</span>
+<span class="Identifier">      \bTD </span>CRIB SHEETS: <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>NOT PERMITTED <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>cribsheet<span class="Delimiter">}{</span>no<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>PERMITTED    <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>cribsheet<span class="Delimiter">}{</span>yes<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">    \eTR</span>
+<span class="Identifier">    \bTR</span>
+<span class="Identifier">      \bTD </span>DICTIONARIES: <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>TRANSLATION ONLY <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>dictionary<span class="Delimiter">}{</span>translation<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>REGULAR <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>dictionary<span class="Delimiter">}{</span>regular<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>NONE    <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>dictionary<span class="Delimiter">}{</span>no<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">    \bTR</span>
+<span class="Identifier">      \bTD </span>CALCULATORS: <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD </span>NOT PERMITTED <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>calculator<span class="Delimiter">}{</span>no<span class="Delimiter">}</span> <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD</span><span class="Delimiter">[</span><span class="Type">nx=2,rightframe=on</span><span class="Delimiter">]</span>
+<span class="Delimiter">        </span>PERMITTED (non-programmable) <span class="Identifier">\CHECKBOX</span><span class="Delimiter">{</span>calculator<span class="Delimiter">}{</span>yes<span class="Delimiter">}</span>
+      <span class="Identifier">\eTD</span>
+<span class="Identifier">    \eTR</span>
+<span class="Identifier">    \bTR</span>
+<span class="Identifier">      \bTD </span>ANY SPECIAL <span class="Identifier">\\ </span>INSTRUCTIONS <span class="Identifier">\eTD</span>
+<span class="Identifier">      \bTD</span><span class="Delimiter">[</span><span class="Type">nx=3,rightframe=on</span><span class="Delimiter">]</span>
+<span class="Delimiter">          </span><span class="Identifier">\getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>extra<span class="Delimiter">}</span>
+      <span class="Identifier">\eTD</span>
+<span class="Identifier">    \eTR</span>
+<span class="Identifier">  \eTABLE</span>
+<span class="Identifier">\stopsetups</span>
+</code></pre>
+
+<img class="center"
+  alt="Exam Banner (barebones)"
+  src="exam-v6.png" />
+
+
+<p>That&rsquo;s it. We can easily get a fancy looking cover page! The complete files are
+below:</p>
+
+<ul>
+<li><a href="env-coverpage.tex">env-coverpage.tex</a></li>
+<li><a href="exam.tex">exam.tex</a></li>
+</ul>
+
+<p>The <code>env-converpage.tex</code> file also contains the layout and font setups.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/setuptex/">&nbsp;&lt;Switching between different context versions</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/design">
+  Design</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/tables">tables</a>,
+<a href="https://adityam.github.io/context-blog/tags/forms">forms</a>,
+<a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
+<a href="https://adityam.github.io/context-blog/tags/fontawesome">fontawesome</a>,
+<a href="https://adityam.github.io/context-blog/tags/coverpage">coverpage</a>,
+<a href="https://adityam.github.io/context-blog/tags/tutorial">tutorial</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+      <script type="text/javascript">
+      
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-103051381-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga   = document.createElement('script');
+                ga.type  = 'text/javascript';
+                ga.async = true;
+                ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+              })();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
+
