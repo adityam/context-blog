@@ -134,7 +134,7 @@ mechanism.
   \setups{exam:courseinfo}
   \blank[2*big]
   \setups{exam:studentinfo}
-  \blank[6*big]
+  \blank[6*line]
   \setups{exam:instructions}
 \stopsetups
 -->
@@ -145,7 +145,7 @@ mechanism.
 <span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:courseinfo<span class="Delimiter">}</span>
   <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">2*big</span><span class="Delimiter">]</span>
 <span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:studentinfo<span class="Delimiter">}</span>
-  <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">6*big</span><span class="Delimiter">]</span>
+  <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">6*line</span><span class="Delimiter">]</span>
 <span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:instructions<span class="Delimiter">}</span>
 <span class="Identifier">\stopsetups</span>
 </code></pre>
