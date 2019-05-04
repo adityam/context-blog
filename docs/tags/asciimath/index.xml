@@ -19,10 +19,20 @@
       <guid>https://adityam.github.io/context-blog/post/math-combined-characters/</guid>
       <description>&lt;p&gt;There is a new feature in ConTeXt that replaces some &lt;em&gt;ascii math&lt;/em&gt; (I am using
 this term informally. The symbols do not match the &lt;a href=&#34;http://asciimath.org&#34;&gt;asciimath&lt;/a&gt; symbol list).
-It is enabled by default and replaces a combination of characters by a glyph.
-For example,&lt;/p&gt;
+It is enabled using&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;A function &lt;span class=&#34;String&#34;&gt;$f$&lt;/span&gt; is an increasing function
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\setupmathematics&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;collapsing=3&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and replaces a combination of characters by a glyph. For example,&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;collapsing=1&lt;/code&gt; uses &lt;code&gt;specials&lt;/code&gt; for collapsing, using &lt;code&gt;collapsing=2&lt;/code&gt; uses
+  &lt;code&gt;specials + mathlist&lt;/code&gt; (i.e., specials get preference over mathlist) and
+  using &lt;code&gt;collapsing=3&lt;/code&gt; uses &lt;code&gt;mathlist + specials&lt;/code&gt;. Here specials and mathlist
+  refer to the internal implementation of the feature in &lt;code&gt;char-def.lua&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\setupmathematics&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;collapsing=3&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+A function &lt;span class=&#34;String&#34;&gt;$f$&lt;/span&gt; is an increasing function
   &lt;span class=&#34;Identifier&#34;&gt;\startformula&lt;/span&gt;
 &lt;span class=&#34;String&#34;&gt;    x &amp;lt;= y  ===&amp;gt; f(x) &amp;lt;= f(y)&lt;/span&gt;
 &lt;span class=&#34;String&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;Identifier&#34;&gt;\stopformula&lt;/span&gt;

@@ -10,12 +10,23 @@ tags:
 
 There is a new feature in ConTeXt that replaces some _ascii math_ (I am using
 this term informally. The symbols do not match the [asciimath] symbol list).
-It is enabled by default and replaces a combination of characters by a glyph.
-For example,
+It is enabled using[^1]
+
+<pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
+</code></pre>
+
+and replaces a combination of characters by a glyph. For example,
 
 [asciimath]: http://asciimath.org
+[^1]: In principle, there are multiple types of collapsing. Using
+  `collapsing=1` uses `specials` for collapsing, using `collapsing=2` uses
+  `specials + mathlist` (i.e., specials get preference over mathlist) and
+  using `collapsing=3` uses `mathlist + specials`. Here specials and mathlist
+  refer to the internal implementation of the feature in `char-def.lua`.
 
-<pre><code>A function <span class="String">$f$</span> is an increasing function
+
+<pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
+A function <span class="String">$f$</span> is an increasing function
   <span class="Identifier">\startformula</span>
 <span class="String">    x &lt;= y  ===&gt; f(x) &lt;= f(y)</span>
 <span class="String">  </span><span class="Identifier">\stopformula</span>
