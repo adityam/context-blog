@@ -18,11 +18,7 @@ It is enabled using[^1]
 and replaces a combination of characters by a glyph. For example,
 
 [asciimath]: http://asciimath.org
-[^1]: In principle, there are multiple types of collapsing. Using
-  `collapsing=1` uses `specials` for collapsing, using `collapsing=2` uses
-  `specials + mathlist` (i.e., specials get preference over mathlist) and
-  using `collapsing=3` uses `mathlist + specials`. Here specials and mathlist
-  refer to the internal implementation of the feature in `char-def.lua`.
+[^1]: In principle, there are multiple types of collapsing. Using `collapsing=1` uses `specials` for collapsing, using `collapsing=2` uses `specials + mathlist` (i.e., specials get preference over mathlist) and using `collapsing=3` uses `mathlist + specials`. Here specials and mathlist refer to the internal implementation of the feature in `char-def.lua`.
 
 
 <pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>

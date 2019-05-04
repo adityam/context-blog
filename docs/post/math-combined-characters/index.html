@@ -62,11 +62,6 @@ It is enabled using<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a><
 
 <p>and replaces a combination of characters by a glyph. For example,</p>
 
-<p><code>collapsing=1</code> uses <code>specials</code> for collapsing, using <code>collapsing=2</code> uses
-  <code>specials + mathlist</code> (i.e., specials get preference over mathlist) and
-  using <code>collapsing=3</code> uses <code>mathlist + specials</code>. Here specials and mathlist
-  refer to the internal implementation of the feature in <code>char-def.lua</code>.</p>
-
 <pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
 A function <span class="String">$f$</span> is an increasing function
   <span class="Identifier">\startformula</span>
@@ -366,7 +361,7 @@ The relevant information is available in <code>char-def.lua</code>. For example,
 <hr />
 
 <ol>
-<li id="fn:1">In principle, there are multiple types of collapsing. Using
+<li id="fn:1">In principle, there are multiple types of collapsing. Using <code>collapsing=1</code> uses <code>specials</code> for collapsing, using <code>collapsing=2</code> uses <code>specials + mathlist</code> (i.e., specials get preference over mathlist) and using <code>collapsing=3</code> uses <code>mathlist + specials</code>. Here specials and mathlist refer to the internal implementation of the feature in <code>char-def.lua</code>.
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
