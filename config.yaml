@@ -8,5 +8,8 @@ theme         : homepage
 metaDataFormat: yaml
 publishDir    : docs
 
+rssLimit      : 10
+
 params:
   disqus : "random-determinism"
+

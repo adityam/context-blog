@@ -9,8 +9,8 @@
   <meta name="author" content="Aditya Mahajan" />
   <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/styles.css" type="text/css" />
   <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/paperclear.css" type="text/css" />
-  {{ if .RSSLink }}
-    <link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{  with .OutputFormats.Get "rss" -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
 </head>
 <body>
