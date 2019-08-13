@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Announcement on Random Determinism</title>
+    <title>announcement on Random Determinism</title>
     <link>https://adityam.github.io/context-blog/categories/announcement/</link>
-    <description>Recent content in Announcement on Random Determinism</description>
+    <description>Recent content in announcement on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Luatex on Random Determinism</title>
+    <title>luatex on Random Determinism</title>
     <link>https://adityam.github.io/context-blog/tags/luatex/</link>
-    <description>Recent content in Luatex on Random Determinism</description>
+    <description>Recent content in luatex on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Oct 2018 00:00:00 +0000</lastBuildDate>

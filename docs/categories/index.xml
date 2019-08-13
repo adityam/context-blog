@@ -6,22 +6,13 @@
     <description>Recent content in Categories on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Announcement</title>
-      <link>https://adityam.github.io/context-blog/categories/announcement/</link>
-      <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/announcement/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Design</title>
+      <title>design</title>
       <link>https://adityam.github.io/context-blog/categories/design/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -30,34 +21,7 @@
     </item>
     
     <item>
-      <title>Ffi</title>
-      <link>https://adityam.github.io/context-blog/categories/ffi/</link>
-      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/ffi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fonts</title>
-      <link>https://adityam.github.io/context-blog/categories/fonts/</link>
-      <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/fonts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Formatting</title>
-      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
-      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Installation</title>
+      <title>installation</title>
       <link>https://adityam.github.io/context-blog/categories/installation/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -66,29 +30,56 @@
     </item>
     
     <item>
-      <title>Learning</title>
-      <link>https://adityam.github.io/context-blog/categories/learning/</link>
-      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
+      <title>visualization</title>
+      <link>https://adityam.github.io/context-blog/categories/visualization/</link>
+      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/categories/learning/</guid>
+      <guid>https://adityam.github.io/context-blog/categories/visualization/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Macros</title>
+      <title>tikz</title>
+      <link>https://adityam.github.io/context-blog/categories/tikz/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/tikz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metapost</title>
+      <link>https://adityam.github.io/context-blog/categories/metapost/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/metapost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FFI</title>
+      <link>https://adityam.github.io/context-blog/categories/ffi/</link>
+      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/ffi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fonts</title>
+      <link>https://adityam.github.io/context-blog/categories/fonts/</link>
+      <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/fonts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macros</title>
       <link>https://adityam.github.io/context-blog/categories/macros/</link>
       <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/macros/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Markdown</title>
-      <link>https://adityam.github.io/context-blog/categories/markdown/</link>
-      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/markdown/</guid>
       <description></description>
     </item>
     
@@ -102,38 +93,47 @@
     </item>
     
     <item>
-      <title>Metapost</title>
-      <link>https://adityam.github.io/context-blog/categories/metapost/</link>
-      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Formatting</title>
+      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/categories/metapost/</guid>
+      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Programming</title>
+      <title>announcement</title>
+      <link>https://adityam.github.io/context-blog/categories/announcement/</link>
+      <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/announcement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://adityam.github.io/context-blog/categories/markdown/</link>
+      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learning</title>
+      <link>https://adityam.github.io/context-blog/categories/learning/</link>
+      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
       <link>https://adityam.github.io/context-blog/categories/programming/</link>
       <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tikz</title>
-      <link>https://adityam.github.io/context-blog/categories/tikz/</link>
-      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/tikz/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Visualization</title>
-      <link>https://adityam.github.io/context-blog/categories/visualization/</link>
-      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/visualization/</guid>
       <description></description>
     </item>
     

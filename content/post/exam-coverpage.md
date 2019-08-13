@@ -213,7 +213,7 @@ where
 <span class="Identifier">\stopuseMPgraphic</span>
 </code></pre>
 
-Now, I all need is to add the university logo. There are different ways to add
+Now, all I need is to do is add the university logo. There are different ways to add
 the logo, but I chose the simplest option in this case. Just place the logo at
 the appropriate place using Metapost.
 
@@ -234,7 +234,7 @@ This completes the banner of the coverpage.
 ## Adding the course information
 
 This is perhaps the simplest part. I simply mid-align the course title and
-time.
+exam time.
 
 <pre><code><span class="Identifier">\startsetups </span>exam:courseinfo
   <span class="Identifier">\startalignment</span><span class="Delimiter">[</span><span class="Type">middle</span><span class="Delimiter">]</span>

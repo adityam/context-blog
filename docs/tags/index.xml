@@ -6,94 +6,13 @@
     <description>Recent content in Tags on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Animation</title>
-      <link>https://adityam.github.io/context-blog/tags/animation/</link>
-      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/animation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Asciimath</title>
-      <link>https://adityam.github.io/context-blog/tags/asciimath/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/asciimath/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Asciimode</title>
-      <link>https://adityam.github.io/context-blog/tags/asciimode/</link>
-      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/asciimode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Backgrounds</title>
-      <link>https://adityam.github.io/context-blog/tags/backgrounds/</link>
-      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/backgrounds/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blank Lines</title>
-      <link>https://adityam.github.io/context-blog/tags/blank-lines/</link>
-      <pubDate>Sat, 29 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/blank-lines/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://adityam.github.io/context-blog/tags/blog/</link>
-      <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Catcodes</title>
-      <link>https://adityam.github.io/context-blog/tags/catcodes/</link>
-      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/catcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Code Formatting</title>
-      <link>https://adityam.github.io/context-blog/tags/code-formatting/</link>
-      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/code-formatting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Context Standalone</title>
-      <link>https://adityam.github.io/context-blog/tags/context-standalone/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/context-standalone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Coverpage</title>
+      <title>coverpage</title>
       <link>https://adityam.github.io/context-blog/tags/coverpage/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -102,7 +21,97 @@
     </item>
     
     <item>
-      <title>Efficiency</title>
+      <title>fontawesome</title>
+      <link>https://adityam.github.io/context-blog/tags/fontawesome/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/fontawesome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>forms</title>
+      <link>https://adityam.github.io/context-blog/tags/forms/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/forms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metapost</title>
+      <link>https://adityam.github.io/context-blog/tags/metapost/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tables</title>
+      <link>https://adityam.github.io/context-blog/tags/tables/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/tables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorial</title>
+      <link>https://adityam.github.io/context-blog/tags/tutorial/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>context standalone</title>
+      <link>https://adityam.github.io/context-blog/tags/context-standalone/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/context-standalone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>luametatex</title>
+      <link>https://adityam.github.io/context-blog/tags/luametatex/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/luametatex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>setuptex</title>
+      <link>https://adityam.github.io/context-blog/tags/setuptex/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/setuptex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backgrounds</title>
+      <link>https://adityam.github.io/context-blog/tags/backgrounds/</link>
+      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/backgrounds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>framed</title>
+      <link>https://adityam.github.io/context-blog/tags/framed/</link>
+      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/framed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>efficiency</title>
       <link>https://adityam.github.io/context-blog/tags/efficiency/</link>
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -111,11 +120,56 @@
     </item>
     
     <item>
-      <title>Externalizing Graphics</title>
+      <title>luatex</title>
+      <link>https://adityam.github.io/context-blog/tags/luatex/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/luatex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tikz</title>
+      <link>https://adityam.github.io/context-blog/tags/tikz/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/tikz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>externalizing graphics</title>
       <link>https://adityam.github.io/context-blog/tags/externalizing-graphics/</link>
       <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/externalizing-graphics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poster</title>
+      <link>https://adityam.github.io/context-blog/tags/poster/</link>
+      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/poster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>animation</title>
+      <link>https://adityam.github.io/context-blog/tags/animation/</link>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>julia</title>
+      <link>https://adityam.github.io/context-blog/tags/julia/</link>
+      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/julia/</guid>
       <description></description>
     </item>
     
@@ -129,178 +183,7 @@
     </item>
     
     <item>
-      <title>Fontawesome</title>
-      <link>https://adityam.github.io/context-blog/tags/fontawesome/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/fontawesome/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Forms</title>
-      <link>https://adityam.github.io/context-blog/tags/forms/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/forms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Framed</title>
-      <link>https://adityam.github.io/context-blog/tags/framed/</link>
-      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/framed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://adityam.github.io/context-blog/tags/git/</link>
-      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gpp</title>
-      <link>https://adityam.github.io/context-blog/tags/gpp/</link>
-      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/gpp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Horizontal Spacing</title>
-      <link>https://adityam.github.io/context-blog/tags/horizontal-spacing/</link>
-      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/horizontal-spacing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Julia</title>
-      <link>https://adityam.github.io/context-blog/tags/julia/</link>
-      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/julia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Label</title>
-      <link>https://adityam.github.io/context-blog/tags/label/</link>
-      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/label/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Luametatex</title>
-      <link>https://adityam.github.io/context-blog/tags/luametatex/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/luametatex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Luatex</title>
-      <link>https://adityam.github.io/context-blog/tags/luatex/</link>
-      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/luatex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Math</title>
-      <link>https://adityam.github.io/context-blog/tags/math/</link>
-      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Metapost</title>
-      <link>https://adityam.github.io/context-blog/tags/metapost/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pandoc</title>
-      <link>https://adityam.github.io/context-blog/tags/pandoc/</link>
-      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Poster</title>
-      <link>https://adityam.github.io/context-blog/tags/poster/</link>
-      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/poster/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Presentation</title>
-      <link>https://adityam.github.io/context-blog/tags/presentation/</link>
-      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/presentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming</title>
-      <link>https://adityam.github.io/context-blog/tags/programming/</link>
-      <pubDate>Mon, 18 Sep 2017 00:10:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Separating Content and Presentation</title>
-      <link>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</link>
-      <pubDate>Mon, 18 Sep 2017 00:10:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Setuptex</title>
-      <link>https://adityam.github.io/context-blog/tags/setuptex/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/setuptex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shadows</title>
-      <link>https://adityam.github.io/context-blog/tags/shadows/</link>
-      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/shadows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Symbols</title>
+      <title>symbols</title>
       <link>https://adityam.github.io/context-blog/tags/symbols/</link>
       <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
       
@@ -309,7 +192,70 @@
     </item>
     
     <item>
-      <title>T Vim</title>
+      <title>asciimath</title>
+      <link>https://adityam.github.io/context-blog/tags/asciimath/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/asciimath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://adityam.github.io/context-blog/tags/programming/</link>
+      <pubDate>Mon, 18 Sep 2017 00:10:55 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>separating content and presentation</title>
+      <link>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</link>
+      <pubDate>Mon, 18 Sep 2017 00:10:55 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shadows</title>
+      <link>https://adityam.github.io/context-blog/tags/shadows/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/shadows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code formatting</title>
+      <link>https://adityam.github.io/context-blog/tags/code-formatting/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/code-formatting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>horizontal spacing</title>
+      <link>https://adityam.github.io/context-blog/tags/horizontal-spacing/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/horizontal-spacing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>https://adityam.github.io/context-blog/tags/math/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>t-vim</title>
       <link>https://adityam.github.io/context-blog/tags/t-vim/</link>
       <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
       
@@ -318,29 +264,83 @@
     </item>
     
     <item>
-      <title>Tables</title>
-      <link>https://adityam.github.io/context-blog/tags/tables/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      <title>blog</title>
+      <link>https://adityam.github.io/context-blog/tags/blog/</link>
+      <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/tags/tables/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tikz</title>
-      <link>https://adityam.github.io/context-blog/tags/tikz/</link>
-      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      <title>label</title>
+      <link>https://adityam.github.io/context-blog/tags/label/</link>
+      <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/tags/tikz/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/label/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tutorial</title>
-      <link>https://adityam.github.io/context-blog/tags/tutorial/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      <title>git</title>
+      <link>https://adityam.github.io/context-blog/tags/git/</link>
+      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
       
-      <guid>https://adityam.github.io/context-blog/tags/tutorial/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>presentation</title>
+      <link>https://adityam.github.io/context-blog/tags/presentation/</link>
+      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/presentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blank lines</title>
+      <link>https://adityam.github.io/context-blog/tags/blank-lines/</link>
+      <pubDate>Sat, 29 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/blank-lines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gpp</title>
+      <link>https://adityam.github.io/context-blog/tags/gpp/</link>
+      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/gpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandoc</title>
+      <link>https://adityam.github.io/context-blog/tags/pandoc/</link>
+      <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/pandoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asciimode</title>
+      <link>https://adityam.github.io/context-blog/tags/asciimode/</link>
+      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/asciimode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>catcodes</title>
+      <link>https://adityam.github.io/context-blog/tags/catcodes/</link>
+      <pubDate>Sun, 04 Sep 2011 20:06:31 -0700</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/catcodes/</guid>
       <description></description>
     </item>
     
