@@ -107,6 +107,10 @@ Phew! That wasn't difficult. A couple of points to note:
       mailing list, the main concern is that parsing `.h` files requires the C
       pre-processor and writing that in pure Lua is a lot of effort. ]
 
+3. If julia has been compiled with threading support, then `jl_init` goes
+   under the name of `jl_init__threading` (note the double underscore). So you
+   have to change `jl_init` to `jl_init__threading` in the above example.
+
 ## Creating a TeX inteface
 
 Now that we know how to call Julia from Lua, the rest is just adding some

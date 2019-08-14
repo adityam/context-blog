@@ -151,6 +151,10 @@ defined using <code>#define</code> and I don&rsquo;t know how to include them in
 <p>[<strong>Edit</strong>: After browsing through some of the old threads in the Lua
   mailing list, the main concern is that parsing <code>.h</code> files requires the C
   pre-processor and writing that in pure Lua is a lot of effort. ]</p></li>
+
+<li><p>If julia has been compiled with threading support, then <code>jl_init</code> goes
+under the name of <code>jl_init__threading</code> (note the double underscore). So you
+have to change <code>jl_init</code> to <code>jl_init__threading</code> in the above example.</p></li>
 </ol>
 
 <h2 id="creating-a-tex-inteface">Creating a TeX inteface</h2>
