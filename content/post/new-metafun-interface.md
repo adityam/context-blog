@@ -126,11 +126,11 @@ For a list (like `poles` and `zeros` in the above macros), there are a few
 other macros:
 
 1. To get the number of elements in the list, use 
-<pre><code><span class="Function">getparametercount</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;ploles&quot;</span>
+<pre><code><span class="Function">getparametercount</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;poles&quot;</span>
 </code></pre>
 
 2. To get the say 2nd element of the list, use
-<pre><code><span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;ploles&quot;</span> <span class="Number">2</span>
+<pre><code><span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;poles&quot;</span> <span class="Number">2</span>
 </code></pre>
 
 That's it. 
