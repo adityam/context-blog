@@ -111,7 +111,7 @@ presetparameters "PZplot" [
 </code></pre>
 
 All values must either be a valid MetaPost type (`numeric`, `pair`, `string`,
-etc.) or a list of value MetaPost types enclosed in brackes (like a Lua
+etc.) or a list of value MetaPost types enclosed in braces (like a Lua
 table). 
 
 Finally, we can retrieve a value as follows:
