@@ -30,7 +30,7 @@
         <li>
         <strong>Recent Posts</strong>
           <ul>
-            {{ range first 5 (where .Site.Pages "Section" "post") }}
+            {{ range first 5 (after 1 (where .Site.Pages.ByDate.Reverse "Section" "post")) }}
             <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
             {{ end }}
           </ul>
