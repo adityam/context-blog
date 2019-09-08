@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>metafun</title>
+      <link>https://adityam.github.io/context-blog/tags/metafun/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/metafun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metapost</title>
+      <link>https://adityam.github.io/context-blog/tags/metapost/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://adityam.github.io/context-blog/tags/programming/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>separating content and presentation</title>
+      <link>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>coverpage</title>
@@ -39,15 +75,6 @@
     </item>
     
     <item>
-      <title>metapost</title>
-      <link>https://adityam.github.io/context-blog/tags/metapost/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tables</title>
       <link>https://adityam.github.io/context-blog/tags/tables/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
@@ -71,33 +98,6 @@
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/context-standalone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>luametatex</title>
-      <link>https://adityam.github.io/context-blog/tags/luametatex/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/luametatex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>setuptex</title>
-      <link>https://adityam.github.io/context-blog/tags/setuptex/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/setuptex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>backgrounds</title>
-      <link>https://adityam.github.io/context-blog/tags/backgrounds/</link>
-      <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/backgrounds/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A new key-value interface for Metapost</title>
+      <link>https://adityam.github.io/context-blog/post/new-metafun-interface/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/new-metafun-interface/</guid>
+      <description>&lt;p&gt;Recently, Hans &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html&#34;&gt;announced&lt;/a&gt; a new key-value driven interface for MetaFun and
+posted a &lt;a href=&#34;http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf&#34;&gt;MyWay document&lt;/a&gt; illustrating its use. In this post, I am going to
+present an example of how to use this interface.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Designing cover page for an exam</title>
@@ -182,30 +193,6 @@ function from &lt;a href=&#34;https://www.gnu.org/software/gsl/&#34;&gt;GNU Scie
 got me interested in looking into Lua&amp;rsquo;s FFI in detail. After a bit of trial
 and error, I finally figured out how to interface LuaTeX with my current
 favorite programming language: &lt;a href=&#34;https://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Using Font Awesome</title>
-      <link>https://adityam.github.io/context-blog/post/using-fontawesome/</link>
-      <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/using-fontawesome/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://fontawesome.io/icons/&#34;&gt;Font Awesome&lt;/a&gt; is a font that provides pictographic icons and is commonly used
-to display icons for email, editing tasks, popular social media website, etc.
-It is easy to use Font Awesome in ConTeXt: the font ships with &lt;a href=&#34;http://wiki.contextgarden.net/ConTeXt_Standalone&#34;&gt;ConTeXt
-Standalone&lt;/a&gt; and ConTeXt includes a &lt;code&gt;symbolset&lt;/code&gt; to easily access the icons
-using names rather than icon numbers.&lt;/p&gt;
-
-&lt;p&gt;To use FontAwesome icons in ConTeXt, simply load the symbolset &lt;code&gt;fontawesome&lt;/code&gt;
-using&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\usesymbols&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;fontawesome&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and then any icon is accessible using&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\symbol&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;fontawesome&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;...&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where &lt;code&gt;...&lt;/code&gt; is the name of the icon is listed in &lt;a href=&#34;http://fontawesome.io/icons/&#34;&gt;the Font Awesome icon list&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

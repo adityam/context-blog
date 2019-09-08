@@ -4,6 +4,7 @@
 .Macro { color: #005faf; }
 .Keyword { color: #005faf; }
 .String { color: #5f8700; }
+.Function { color: #005faf; }
 .Character { color: #5f8700; }
 .Number { color: #d75f00; }
 .luaRepeat { color: #005faf; font-weight: bold; }

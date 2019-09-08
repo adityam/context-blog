@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
+            
+            <li><a href="/context-blog/post/">Posts</a></li>
+            
+            <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
+            
+            <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
+            
+            <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>A new key-value interface for Metapost</h1>
+<p class="post-time">Posted on September 7, 2019</p>
+
+<p>Recently, Hans <a href="https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html">announced</a> a new key-value driven interface for MetaFun and
+posted a <a href="http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf">MyWay document</a> illustrating its use. In this post, I am going to
+present an example of how to use this interface.</p>
+
+<p>I teach a course in Linear Systems and occasionally need to draw what is known
+as a <a href="https://en.wikipedia.org/wiki/Pole–zero_plot">pole zero plot</a>. Here is what it looks like.</p>
+
+<img class="center"
+  alt="Example of a pole zero plot"
+  src="pzplot.png" />
+
+
+<p>The circle denotes the location of zero and the crosses denote the location
+of poles. It is a relatively simple plot to draw, so I thought that this is a
+good candidate to show how the interface works without worrying too much on
+the logic of plotting. Let&rsquo;s start with the bare-bones implementation. I want
+to draw the above plot using the following interface:</p>
+
+<!--
+\startMPcode
+   draw PZplot 
+     [
+        xmin = -3.5, xmax = 3.5,
+        ymin = -3.5, ymax = 3.5,
+        poles = { (-1, 1), (-1, -1) },
+        zeros = { (-2, 0) },
+     ] ;
+\stopMPcode
+-->
+
+<pre><code><span class="Statement">\startMPcode</span>
+   <span class="Function">draw</span> PZplot
+     <span class="Delimiter">[</span>
+        xmin = -3.5, xmax = 3.5,
+        ymin = -3.5, ymax = 3.5,
+        poles = <span class="Delimiter">{</span> (-1, 1), (-1, -1) <span class="Delimiter">}</span>,
+        zeros = <span class="Delimiter">{</span> (-2, 0) <span class="Delimiter">}</span>,
+     <span class="Delimiter">]</span> ;
+<span class="Statement">\stopMPcode</span>
+</code></pre>
+
+<p>So, how do we create such a key-value driven interface. Let&rsquo;s go over it step
+by step. All that follows in Metapost code.</p>
+
+<p>The first step is to define the macro <code>PZplot</code>:</p>
+
+<!--
+def PZplot = applyparameters "PZplot" "do_PZplot" enddef ;
+-->
+
+<pre><code><span class="Statement">def</span> PZplot = <span class="Function">applyparameters</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;do_PZplot&quot;</span> <span class="Statement">enddef</span> ;
+</code></pre>
+
+<p>Here <code><span class="Function">applyparameters</span></code> is the new
+MetaFun macro which takes two string arguments. The first (<code><span
+class="String">&quot;PZplot&quot;</span></code> in this case) is the name of
+the <em>data structure</em> where the key-value pairs are stored. The second
+(<code><span class="String">&quot;do_PZplot&quot;</span></code> in this case)
+is the name of the MetaPost function that is called after all the key-value
+pairs have been stored. This is very similar to the old style for defining
+TeX macros in ConTeXt.</p>
+
+<p>The second (optional) step is to set up the default values of all parameters.</p>
+
+<!-- 
+presetparameters "PZplot" [ 
+  xmin = -2.5,  xmax = 2.5,
+  ymin = -2.5,  ymax = 2.5, 
+  dx   = 1,     dy   = 1,
+  sx   = 5mm,   sy   = 5mm,
+  scale = 0.5,
+
+  poles = { },
+  zeros = { },
+
+  style = "\switchtobodyfont[8pt]",
+];
+-->
+
+<pre><code><span class="Function">presetparameters</span> <span class="String">&quot;PZplot&quot;</span> [
+  xmin = <span class="Number">-2.5</span>,  xmax = <span class="Number">2.5</span>,
+  ymin = <span class="Number">-2.5</span>,  ymax = <span class="Number">2.5</span>,
+  dx   = <span class="Number">1</span>,     dy   = <span class="Number">1</span>,
+  sx   = <span class="Number">5mm</span>,   sy   = <span class="Number">5mm</span>,
+  scale = <span class="Number">0.5</span>,
+
+  <span class="Function">grid</span> = <span class="Statement">false</span>,
+
+  poles = { },
+  zeros = { },
+
+  style = <span class="String">&quot;\switchtobodyfont[8pt]&quot;</span>,
+];
+</code></pre>
+
+<p>All values must either be a valid MetaPost type (<code>numeric</code>, <code>pair</code>, <code>string</code>,
+etc.) or a list of value MetaPost types enclosed in brackes (like a Lua
+table).</p>
+
+<p>Finally, we can retrieve a value as follows:</p>
+
+<pre><code>xmin := <span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;xmin&quot;</span>;
+</code></pre>
+
+<p>The right hand side returns a metapost <code>numeric</code> and one has to be careful to
+ensure that the variable <code>xmin</code> is declared a <code>numeric</code> beforehand.</p>
+
+<p>For a list (like <code>poles</code> and <code>zeros</code> in the above macros), there are a few
+other macros:</p>
+
+<ol>
+<li><p>To get the number of elements in the list, use
+<pre><code><span class="Function">getparametercount</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;ploles&quot;</span>
+</code></pre></p></li>
+
+<li><p>To get the say 2nd element of the list, use
+<pre><code><span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;ploles&quot;</span> <span class="Number">2</span>
+</code></pre></p></li>
+</ol>
+
+<p>That&rsquo;s it.</p>
+
+<p>There are two other convenience macros. Writing the name of the data structure
+<code><span class="String">&quot;PZplot&quot;</span></code> in all the macros
+can get tiring. So, one can set the name of the current data structure using</p>
+
+<pre><code><span class="Function">pushparameters</span> <span class="String">&quot;PZplot&quot;</span>;
+</code></pre>
+
+<p>Then,
+<pre><code>xmin := <span class="Function">getparameter</span> <span class="String">&quot;xmin&quot;</span>;
+</code></pre>
+is equivalent to
+<pre><code>xmin := <span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;xmin&quot;</span>;
+</code></pre></p>
+
+<p>One can then <em>reset</em> the name of the default data structure using</p>
+
+<pre><code><span class="Function">popparameters</span>;
+</code></pre>
+
+<p>The actual mechanism is more complicated than that because <code><span
+class="Function">pushparameters</span></code> can be used in a nested manner,
+but I&rsquo;ll ignore that and stick with the simpler explanation that I used above.</p>
+
+<p>So, without further ado, here is the complete implementation of the <code>PZplot</code>
+macro. As a mater of habit, I define and use this macro in a separate MetaPost
+<em>instance</em>. That way, I don&rsquo;t have to worry about my definitions affecting
+code from other modules.</p>
+
+<pre><code>
+<span class="Identifier">\defineMPinstance</span><span class="Delimiter">[</span><span class="Type">LTI</span><span class="Delimiter">]  </span>
+<span class="Delimiter">                 [</span>
+<span class="Type">                   format=metafun,</span>
+<span class="Type">                   extensions=yes,</span>
+<span class="Type">                   initializations=yes,</span>
+<span class="Type">                   method=double,</span>
+<span class="Type">                  </span><span class="Delimiter">]</span>
+
+<span class="Identifier">\startMPdefinitions</span>{LTI}
+<span class="Statement">def</span> pole =
+    <span class="Function">image</span>(
+        <span class="Function">draw</span> (<span class="Number">1</span>, <span class="Number">1</span>) -- (<span class="Number">-1</span>, <span class="Number">-1</span>);
+        <span class="Function">draw</span> (<span class="Number">1</span>, <span class="Number">-1</span>) -- (<span class="Number">-1</span>, <span class="Number">1</span>);
+    )
+<span class="Statement">enddef</span> ;
+
+<span class="Statement">def</span> zero =
+    <span class="Function">image</span>(
+        <span class="Function">unfill</span> <span class="Constant">fullcircle</span> <span class="Statement">scaled</span> <span class="Number">2</span>;
+        <span class="Function">draw</span>   <span class="Constant">fullcircle</span> <span class="Statement">scaled</span> <span class="Number">2</span>;
+    )
+<span class="Statement">enddef</span>;
+
+<span class="Statement">def</span> PZplot = applyparameters <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;do_PZplot&quot;</span> <span class="Statement">enddef</span> ;
+
+presetparameters <span class="String">&quot;PZplot&quot;</span> [
+  xmin = <span class="Number">-2.5</span>,  xmax = <span class="Number">2.5</span>,
+  ymin = <span class="Number">-2.5</span>,  ymax = <span class="Number">2.5</span>,
+  dx   = <span class="Number">1</span>,     dy   = <span class="Number">1</span>,
+  sx   = <span class="Number">5mm</span>,   sy   = <span class="Number">5mm</span>,
+  scale = <span class="Number">0.5</span>,
+
+  <span class="Function">grid</span> = <span class="Statement">false</span>,
+
+  poles = { },
+  zeros = { },
+
+  style = <span class="String">&quot;\switchtobodyfont[8pt]&quot;</span>,
+
+];
+
+<span class="Statement">vardef</span> do_PZplot =
+  <span class="Function">image</span> (
+    pushparameters <span class="String">&quot;PZplot&quot;</span>;
+
+    <span class="Type">newnumeric</span> xmin, xmax, ymin, ymax;
+    xmin := getparameter <span class="String">&quot;xmin&quot;</span>;
+    xmax := getparameter <span class="String">&quot;xmax&quot;</span>;
+    ymin := getparameter <span class="String">&quot;ymin&quot;</span>;
+    ymax := getparameter <span class="String">&quot;ymax&quot;</span>;
+
+    <span class="Type">newnumeric</span> sx, sy;
+    sx := getparameter <span class="String">&quot;sx&quot;</span>;
+    sy := getparameter <span class="String">&quot;sy&quot;</span>;
+
+    <span class="Type">newnumeric</span> dx, dy;
+    dx := getparameter <span class="String">&quot;dx&quot;</span>;
+    dy := getparameter <span class="String">&quot;dy&quot;</span>;
+
+    <span class="Type">newpath</span> xaxis, yaxis;
+
+    xaxis := (xmin*sx, <span class="Number">0</span>) -- (xmax*sx, <span class="Number">0</span>);
+    yaxis := (<span class="Number">0</span>, ymin*sy) -- (<span class="Number">0</span>, ymax*sy);
+
+    <span class="Type">newpath</span> xtick, ytick;
+    xtick := (<span class="Number">-0.1</span>sx, <span class="Number">0</span>) -- (<span class="Number">0.1</span>sx, <span class="Number">0</span>);
+    ytick := (<span class="Number">0</span>, <span class="Number">-0.1</span>sy) -- (<span class="Number">0</span>, <span class="Number">0.1</span>sy);
+
+    <span class="Type">newstring</span> style;
+    style := getparameter <span class="String">&quot;style&quot;</span>;
+
+    <span class="Type">newboolean</span> <span class="Function">grid</span>;
+    <span class="Function">grid</span>  := getparameter <span class="String">&quot;grid&quot;</span>;
+
+    <span class="Conditional">for</span> <span class="Identifier">x</span> = dx <span class="Conditional">step</span> dx <span class="Conditional">until</span> xmax :
+        <span class="Conditional">if</span> <span class="Function">grid</span> :
+            <span class="Function">draw</span> yaxis <span class="Statement">shifted</span> (<span class="Identifier">x</span>*sx, <span class="Number">0</span>) <span class="Statement">withcolor</span> <span class="Number">0.5</span><span class="Constant">white</span>;
+        <span class="Conditional">fi</span>
+        <span class="Function">draw</span> ytick <span class="Statement">shifted</span> (<span class="Identifier">x</span>*sx, <span class="Number">0</span>);
+        <span class="Function">label</span>.<span class="Function">bot</span>(style &amp; <span class="Statement">decimal</span> <span class="Identifier">x</span>, (<span class="Identifier">x</span>*sx, <span class="Number">0</span>));
+    <span class="Conditional">endfor</span>
+
+    <span class="Function">label</span>.lrt(style &amp; <span class="String">&quot;0&quot;</span>, <span class="Constant">origin</span>);
+
+    <span class="Conditional">for</span> <span class="Identifier">x</span> = -dx <span class="Conditional">step</span> -dx <span class="Conditional">until</span> xmin :
+        <span class="Conditional">if</span> <span class="Function">grid</span> :
+            <span class="Function">draw</span> yaxis <span class="Statement">shifted</span> (<span class="Identifier">x</span>*sx, <span class="Number">0</span>) <span class="Statement">withcolor</span> <span class="Number">0.5</span><span class="Constant">white</span>;
+        <span class="Conditional">fi</span>
+        <span class="Function">draw</span> ytick <span class="Statement">shifted</span> (<span class="Identifier">x</span>*sx, <span class="Number">0</span>);
+        <span class="Function">label</span>.<span class="Function">bot</span>(style &amp; <span class="Statement">decimal</span> <span class="Identifier">x</span>, (<span class="Identifier">x</span>*sx, <span class="Number">0</span>));
+    <span class="Conditional">endfor</span>
+
+    <span class="Conditional">for</span> <span class="Identifier">y</span> = dy <span class="Conditional">step</span> dy <span class="Conditional">until</span> ymax :
+        <span class="Conditional">if</span> <span class="Function">grid</span> :
+            <span class="Function">draw</span> xaxis <span class="Statement">shifted</span> (<span class="Number">0</span>, <span class="Identifier">y</span>*sy) <span class="Statement">withcolor</span> <span class="Number">0.5</span><span class="Constant">white</span>;
+        <span class="Conditional">fi</span>
+        <span class="Function">draw</span> xtick <span class="Statement">shifted</span> (<span class="Number">0</span>, <span class="Identifier">y</span>*sy);
+        <span class="Function">label</span>.<span class="Function">lft</span>(style &amp; <span class="Statement">decimal</span> <span class="Identifier">y</span>, (<span class="Number">0</span>, <span class="Identifier">y</span>*sy));
+    <span class="Conditional">endfor</span>
+
+    <span class="Conditional">for</span> <span class="Identifier">y</span> = -dy <span class="Conditional">step</span> -dy <span class="Conditional">until</span> ymin :
+        <span class="Conditional">if</span> <span class="Function">grid</span> :
+            <span class="Function">draw</span> xaxis <span class="Statement">shifted</span> (<span class="Number">0</span>, <span class="Identifier">y</span>*sy) <span class="Statement">withcolor</span> <span class="Number">0.5</span><span class="Constant">white</span>;
+        <span class="Conditional">fi</span>
+        <span class="Function">draw</span> xtick <span class="Statement">shifted</span> (<span class="Number">0</span>, <span class="Identifier">y</span>*sy);
+        <span class="Function">label</span>.<span class="Function">lft</span>(style &amp; <span class="Statement">decimal</span> <span class="Identifier">y</span>, (<span class="Number">0</span>, <span class="Identifier">y</span>*sy));
+    <span class="Conditional">endfor</span>
+
+
+    <span class="Function">drawarrow</span> xaxis;
+    <span class="Function">drawarrow</span> yaxis;
+
+    <span class="Function">label</span>.<span class="Function">rt</span>( style &amp; <span class="String">&quot;$σ$&quot;</span>,  (xmax*sx, <span class="Number">0</span>));
+    <span class="Function">label</span>.<span class="Function">top</span>(style &amp; <span class="String">&quot;$jω$&quot;</span>, (<span class="Number">0</span>, ymax*sy));
+
+    <span class="Type">newpair</span> p ;
+
+    <span class="Type">newnumeric</span> scale;
+    scale := getparameter <span class="String">&quot;scale&quot;</span>;
+
+    <span class="Conditional">if</span> (getparametercount <span class="String">&quot;zeros&quot;</span>) &gt; <span class="Number">0</span> :
+          <span class="Conditional">for</span> i = <span class="Number">1</span> <span class="Function">upto</span> getparametercount <span class="String">&quot;zeros&quot;</span>:
+            p := getparameter <span class="String">&quot;zeros&quot;</span> i;
+            <span class="Function">draw</span> (zero xysized(scale*sx, scale*sx))
+                 <span class="Statement">shifted</span> (<span class="Statement">xpart</span> p*sx, <span class="Statement">ypart</span> p*sy)
+                 <span class="Statement">withpen</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">1bp</span>;
+            <span class="Conditional">endfor</span>
+    <span class="Conditional">fi</span>
+
+    <span class="Conditional">if</span> (getparametercount <span class="String">&quot;poles&quot;</span>) &gt; <span class="Number">0</span> :
+          <span class="Conditional">for</span> i = <span class="Number">1</span> <span class="Function">upto</span> getparametercount <span class="String">&quot;poles&quot;</span>:
+            p := getparameter <span class="String">&quot;poles&quot;</span> i;
+            <span class="Function">draw</span> (pole xysized(scale*sx, scale*sx))
+                 <span class="Statement">shifted</span> (<span class="Statement">xpart</span> p*sx, <span class="Statement">ypart</span> p*sy)
+                 <span class="Statement">withpen</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">1bp</span>;
+            <span class="Conditional">endfor</span>
+    <span class="Conditional">fi</span>
+
+
+    popparameters;
+
+  )
+<span class="Statement">enddef</span>;
+<span class="Identifier">\stopMPdefinitions</span>
+
+<span class="PreProc">\starttext</span>
+<span class="Identifier">\startTEXpage</span><span class="Delimiter">[</span><span class="Type">offset=2mm</span><span class="Delimiter">]</span>
+<span class="Identifier">\startMPcode</span>{LTI}
+   <span class="Function">draw</span> PZplot
+     [
+        xmin = <span class="Number">-3.5</span>, xmax = <span class="Number">3.5</span>,
+        ymin = <span class="Number">-3.5</span>, ymax = <span class="Number">3.5</span>,
+        poles = { (<span class="Number">-1</span>, <span class="Number">1</span>), (<span class="Number">-1</span>, <span class="Number">-1</span>) },
+        zeros = { (<span class="Number">-2</span>, <span class="Number">0</span>) },
+     ] ;
+<span class="Identifier">\stopMPcode</span>
+<span class="Identifier">\stopTEXpage</span>
+<span class="PreProc">\stoptext</span>
+</code></pre>
+
+<p>Running the code above gives the plot:</p>
+
+<img class="center"
+  alt="Example of a pole zero plot"
+  src="pzplot.png" />
+
+
+<p>As an example of the flexibility of the key-value interface, we can get a
+background grid by using:
+<pre><code><span class="Identifier">\startMPcode</span>{LTI}
+   <span class="Function">draw</span> PZplot
+     [
+        .&nbsp;.&nbsp;.
+        .&nbsp;.&nbsp;.
+        <span class="Function">grid</span> = <span class="Statement">true</span>,
+     ] ;
+<span class="Identifier">\stopMPcode</span>
+</code></pre></p>
+
+<img class="center"
+  alt="Example of a pole zero plot with grid"
+  src="pzplot-grid.png" />
+
+
+<p>I am very excited about this new key-value interface for MetaPost. For my
+course notes, there are many plots that I draw using TikZ because of the
+convenience of the key-value interface of TikZ. Now, I can draw these with
+MetaPost, which has the advantage of being <a href="../metapost-vs-tikz-speed/">3-5 times faster</a>.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/exam-coverpage/">&nbsp;&lt;Designing exam cover page</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/metapost">
+  Metapost</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
+<a href="https://adityam.github.io/context-blog/tags/metafun">metafun</a>,
+<a href="https://adityam.github.io/context-blog/tags/separating-content-and-presentation">separating content and presentation</a>,
+<a href="https://adityam.github.io/context-blog/tags/programming">programming</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+
