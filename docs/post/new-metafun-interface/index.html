@@ -227,9 +227,9 @@ code from other modules.</p>
     )
 <span class="Statement">enddef</span>;
 
-<span class="Statement">def</span> PZplot = applyparameters <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;do_PZplot&quot;</span> <span class="Statement">enddef</span> ;
+<span class="Statement">def</span> PZplot = <span class="Function">applyparameters</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;do_PZplot&quot;</span> <span class="Statement">enddef</span> ;
 
-presetparameters <span class="String">&quot;PZplot&quot;</span> [
+<span class="Function">presetparameters</span> <span class="String">&quot;PZplot&quot;</span> [
   xmin = <span class="Number">-2.5</span>,  xmax = <span class="Number">2.5</span>,
   ymin = <span class="Number">-2.5</span>,  ymax = <span class="Number">2.5</span>,
   dx   = <span class="Number">1</span>,     dy   = <span class="Number">1</span>,
@@ -247,21 +247,21 @@ presetparameters <span class="String">&quot;PZplot&quot;</span> [
 
 <span class="Statement">vardef</span> do_PZplot =
   <span class="Function">image</span> (
-    pushparameters <span class="String">&quot;PZplot&quot;</span>;
+    <span class="Function">pushparameters</span> <span class="String">&quot;PZplot&quot;</span>;
 
     <span class="Type">newnumeric</span> xmin, xmax, ymin, ymax;
-    xmin := getparameter <span class="String">&quot;xmin&quot;</span>;
-    xmax := getparameter <span class="String">&quot;xmax&quot;</span>;
-    ymin := getparameter <span class="String">&quot;ymin&quot;</span>;
-    ymax := getparameter <span class="String">&quot;ymax&quot;</span>;
+    xmin := <span class="Function">getparameter</span> <span class="String">&quot;xmin&quot;</span>;
+    xmax := <span class="Function">getparameter</span> <span class="String">&quot;xmax&quot;</span>;
+    ymin := <span class="Function">getparameter</span> <span class="String">&quot;ymin&quot;</span>;
+    ymax := <span class="Function">getparameter</span> <span class="String">&quot;ymax&quot;</span>;
 
     <span class="Type">newnumeric</span> sx, sy;
-    sx := getparameter <span class="String">&quot;sx&quot;</span>;
-    sy := getparameter <span class="String">&quot;sy&quot;</span>;
+    sx := <span class="Function">getparameter</span> <span class="String">&quot;sx&quot;</span>;
+    sy := <span class="Function">getparameter</span> <span class="String">&quot;sy&quot;</span>;
 
     <span class="Type">newnumeric</span> dx, dy;
-    dx := getparameter <span class="String">&quot;dx&quot;</span>;
-    dy := getparameter <span class="String">&quot;dy&quot;</span>;
+    dx := <span class="Function">getparameter</span> <span class="String">&quot;dx&quot;</span>;
+    dy := <span class="Function">getparameter</span> <span class="String">&quot;dy&quot;</span>;
 
     <span class="Type">newpath</span> xaxis, yaxis;
 
@@ -273,10 +273,10 @@ presetparameters <span class="String">&quot;PZplot&quot;</span> [
     ytick := (<span class="Number">0</span>, <span class="Number">-0.1</span>sy) -- (<span class="Number">0</span>, <span class="Number">0.1</span>sy);
 
     <span class="Type">newstring</span> style;
-    style := getparameter <span class="String">&quot;style&quot;</span>;
+    style := <span class="Function">getparameter</span> <span class="String">&quot;style&quot;</span>;
 
     <span class="Type">newboolean</span> <span class="Function">grid</span>;
-    <span class="Function">grid</span>  := getparameter <span class="String">&quot;grid&quot;</span>;
+    <span class="Function">grid</span>  := <span class="Function">getparameter</span> <span class="String">&quot;grid&quot;</span>;
 
     <span class="Conditional">for</span> <span class="Identifier">x</span> = dx <span class="Conditional">step</span> dx <span class="Conditional">until</span> xmax :
         <span class="Conditional">if</span> <span class="Function">grid</span> :
@@ -322,20 +322,20 @@ presetparameters <span class="String">&quot;PZplot&quot;</span> [
     <span class="Type">newpair</span> p ;
 
     <span class="Type">newnumeric</span> scale;
-    scale := getparameter <span class="String">&quot;scale&quot;</span>;
+    scale := <span class="Function">getparameter</span> <span class="String">&quot;scale&quot;</span>;
 
-    <span class="Conditional">if</span> (getparametercount <span class="String">&quot;zeros&quot;</span>) &gt; <span class="Number">0</span> :
-          <span class="Conditional">for</span> i = <span class="Number">1</span> <span class="Function">upto</span> getparametercount <span class="String">&quot;zeros&quot;</span>:
-            p := getparameter <span class="String">&quot;zeros&quot;</span> i;
+    <span class="Conditional">if</span> (<span class="Function">getparametercount</span> <span class="String">&quot;zeros&quot;</span>) &gt; <span class="Number">0</span> :
+          <span class="Conditional">for</span> i = <span class="Number">1</span> <span class="Function">upto</span> <span class="Function">getparametercount</span> <span class="String">&quot;zeros&quot;</span>:
+            p := <span class="Function">getparameter</span> <span class="String">&quot;zeros&quot;</span> i;
             <span class="Function">draw</span> (zero xysized(scale*sx, scale*sx))
                  <span class="Statement">shifted</span> (<span class="Statement">xpart</span> p*sx, <span class="Statement">ypart</span> p*sy)
                  <span class="Statement">withpen</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">1bp</span>;
             <span class="Conditional">endfor</span>
     <span class="Conditional">fi</span>
 
-    <span class="Conditional">if</span> (getparametercount <span class="String">&quot;poles&quot;</span>) &gt; <span class="Number">0</span> :
-          <span class="Conditional">for</span> i = <span class="Number">1</span> <span class="Function">upto</span> getparametercount <span class="String">&quot;poles&quot;</span>:
-            p := getparameter <span class="String">&quot;poles&quot;</span> i;
+    <span class="Conditional">if</span> (<span class="Function">getparametercount</span> <span class="String">&quot;poles&quot;</span>) &gt; <span class="Number">0</span> :
+          <span class="Conditional">for</span> i = <span class="Number">1</span> <span class="Function">upto</span> <span class="Function">getparametercount</span> <span class="String">&quot;poles&quot;</span>:
+            p := <span class="Function">getparameter</span> <span class="String">&quot;poles&quot;</span> i;
             <span class="Function">draw</span> (pole xysized(scale*sx, scale*sx))
                  <span class="Statement">shifted</span> (<span class="Statement">xpart</span> p*sx, <span class="Statement">ypart</span> p*sy)
                  <span class="Statement">withpen</span> <span class="Statement">pencircle</span> <span class="Statement">scaled</span> <span class="Number">1bp</span>;
@@ -343,7 +343,7 @@ presetparameters <span class="String">&quot;PZplot&quot;</span> [
     <span class="Conditional">fi</span>
 
 
-    popparameters;
+    <span class="Function">popparameters</span>;
 
   )
 <span class="Statement">enddef</span>;
