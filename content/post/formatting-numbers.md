@@ -18,7 +18,13 @@ explain the issue and how I solve it.
 
 To illustrate the formatting issue, let me consider an example of writing the
 solution of how to find roots of a quadratic equation. Let's start with a
-simple example.
+simple example. First let's define
+
+<pre><code><span class="Statement">\defineenumeration</span><span class="Delimiter">[</span>question<span class="Delimiter">]</span>
+<span class="Statement">\defineenumeration</span><span class="Delimiter">[</span>solution<span class="Delimiter">]</span>
+</code></pre>
+
+Then consider the following example.
 
 <!--
 \startquestion
@@ -55,10 +61,10 @@ simple example.
 <span class="Statement">\stopsolution</span>
 </code></pre>
 
-Suppose I want to generate a homework assignment with four or five such
-questions. In order to ensure that I don't make any mistakes, I'd generate the
-question and the answer using Lua. For simplicity, let's assume that both
-roots are real. Then, we could use `string.formatters` to easily generate the
+Now suppose I want to generate a homework assignment with four or five such
+questions. In order to ensure that I don't make any mistakes, I generate the
+questions and the answers using Lua. For simplicity, let's assume that both
+roots are real. Then, I can use `string.formatters` to easily generate the
 assignment and the solution.
 
 <!--
@@ -214,8 +220,8 @@ For the second problem, this will generate:
 <span class="Statement">\stopsolution</span>
 </code></pre>
 
-which is partially acceptable (when typesetting the solution with hand, I'd
-type `Δ = 8` rather than `Δ = 8.000`) but for the first problem, we now get 
+which is partially acceptable (when typesetting the solution by hand, one
+would uses `Δ = 8` rather than `Δ = 8.000`) but for the first problem, we now get 
 
 <pre><code><span class="Statement">\startquestion</span>
   Find the roots of <span class="String">$x^2 + 5x + 6 = 0$</span>.

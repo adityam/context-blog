@@ -60,7 +60,13 @@ explain the issue and how I solve it.</p>
 
 <p>To illustrate the formatting issue, let me consider an example of writing the
 solution of how to find roots of a quadratic equation. Let&rsquo;s start with a
-simple example.</p>
+simple example. First let&rsquo;s define</p>
+
+<pre><code><span class="Statement">\defineenumeration</span><span class="Delimiter">[</span>question<span class="Delimiter">]</span>
+<span class="Statement">\defineenumeration</span><span class="Delimiter">[</span>solution<span class="Delimiter">]</span>
+</code></pre>
+
+<p>Then consider the following example.</p>
 
 <!--
 \startquestion
@@ -97,10 +103,10 @@ simple example.</p>
 <span class="Statement">\stopsolution</span>
 </code></pre>
 
-<p>Suppose I want to generate a homework assignment with four or five such
-questions. In order to ensure that I don&rsquo;t make any mistakes, I&rsquo;d generate the
-question and the answer using Lua. For simplicity, let&rsquo;s assume that both
-roots are real. Then, we could use <code>string.formatters</code> to easily generate the
+<p>Now suppose I want to generate a homework assignment with four or five such
+questions. In order to ensure that I don&rsquo;t make any mistakes, I generate the
+questions and the answers using Lua. For simplicity, let&rsquo;s assume that both
+roots are real. Then, I can use <code>string.formatters</code> to easily generate the
 assignment and the solution.</p>
 
 <!--
@@ -256,8 +262,8 @@ template to <code>%.3f</code> as follows:</p>
 <span class="Statement">\stopsolution</span>
 </code></pre>
 
-<p>which is partially acceptable (when typesetting the solution with hand, I&rsquo;d
-type <code>Δ = 8</code> rather than <code>Δ = 8.000</code>) but for the first problem, we now get</p>
+<p>which is partially acceptable (when typesetting the solution by hand, one
+would uses <code>Δ = 8</code> rather than <code>Δ = 8.000</code>) but for the first problem, we now get</p>
 
 <pre><code><span class="Statement">\startquestion</span>
   Find the roots of <span class="String">$x^2 + 5x + 6 = 0$</span>.
