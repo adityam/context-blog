@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
+            
+            <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
+            
+            <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
+            
+            <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
+            
+            <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Formatting numbers in Lua</h1>
+<p class="post-time">Posted on September 9, 2019</p>
+
+<p>I often use Lua to generate solution for homework assignments. Ideally, I want
+the solution to look exactly how it would look if it were written by hand. But
+this can be tricker than it appears at first glance. In this post, I&rsquo;ll
+explain the issue and how I solve it.</p>
+
+<p>To illustrate the formatting issue, let me consider an example of writing the
+solution of how to find roots of a quadratic equation. Let&rsquo;s start with a
+simple example.</p>
+
+<!--
+\startquestion
+  Find the roots of $x^2 + 5x + 6 = 0$.
+\stopquestion
+
+\startsolution
+  Let's start by computing the determinant.
+  \startformula
+     Δ = b^2 - 4ac = 1.
+  \stopformula
+  Since $Δ > 0$, the roots are given by
+  \startformula
+    r_{1,2} = \dfrac{ -b \pm \sqrt{Δ} }{ 2a }
+            = 3 \text{ and } 2.
+  \stopformula
+\stopsolution
+-->
+
+<pre><code><span class="Statement">\startquestion</span>
+  Find the roots of <span class="String">$x^2 + 5x + 6 = 0$</span>.
+<span class="Statement">\stopquestion</span>
+
+<span class="Statement">\startsolution</span>
+  Let's start by computing the determinant.
+  <span class="Statement">\startformula</span>
+     Δ = b^2 - 4ac = 1
+  <span class="Statement">\stopformula</span>
+  Since <span class="String">$Δ &gt; 0$</span>, the roots are given by
+  <span class="Statement">\startformula</span>
+    r_<span class="Delimiter">{</span>1,2<span class="Delimiter">}</span> = <span class="Statement">\dfrac</span><span class="Delimiter">{</span> -b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>Δ<span class="Delimiter">}</span> <span class="Delimiter">}{</span> 2a <span class="Delimiter">}</span>
+            = -2 <span class="Statement">\text</span><span class="Delimiter">{</span> and <span class="Delimiter">}</span> -3.
+  <span class="Statement">\stopformula</span>
+<span class="Statement">\stopsolution</span>
+</code></pre>
+
+<p>Suppose I want to generate a homework assignment with four or five such
+questions. In order to ensure that I don&rsquo;t make any mistakes, I&rsquo;d generate the
+question and the answer using Lua. For simplicity, let&rsquo;s assume that both
+roots are real. Then, we could use <code>string.formatters</code> to easily generate the
+assignment and the solution.</p>
+
+<!--
+\startluacode
+
+local formatters = string.formatters
+
+local question = formatters[ [[
+\startquestion
+   Find the roots of $%s x^2 + %s x + %s = 0$.
+\stopquestion
+]] ]
+
+local solution = formatters[ [[
+\startsolution
+  Let's start by computing the determinant.
+  \startformula
+     Δ = b^2 - 4ac = %s.
+  \stopformula
+  Since $Δ > 0$, the roots are given by
+  \startformula
+    r_{1,2} = \dfrac{ -b \pm \sqrt{Δ} }{ 2a }
+            = %s \text{ and } %s.
+  \stopformula
+\stopsolution
+]] ]
+
+local sqrt = math.sqrt
+
+assignment = assignment or { }
+
+assignment.roots = function(a, b, c)
+  context(question(a == 1 and "" or a, b, c))
+
+  D = b^2 - 4*a*c
+  r1 = (-b + sqrt(D))/(2*a)
+  r2 = (-b - sqrt(D))/(2*a)
+
+  context(solution(D, r1, r2))
+
+end
+\stopluacode
+-->
+
+<pre><code><span class="Statement">\startluacode</span>
+
+<span class="Statement">local</span> formatters = string.formatters
+
+<span class="Statement">local</span> question = formatters[ <span class="String">[[</span>
+<span class="String">\startquestion</span>
+<span class="String">   Find the roots of $%s x^2 + %s x + %s = 0$.</span>
+<span class="String">\stopquestion</span>
+<span class="String">]]</span> ]
+
+<span class="Statement">local</span> solution = formatters[ <span class="String">[[</span>
+<span class="String">\startsolution</span>
+<span class="String">  Let's start by computing the determinant.</span>
+<span class="String">  \startformula</span>
+<span class="String">     Δ = b^2 - 4ac = %s.</span>
+<span class="String">  \stopformula</span>
+<span class="String">  Since $Δ &gt; 0$, the roots are given by</span>
+<span class="String">  \startformula</span>
+<span class="String">    r_{1,2} = \dfrac{ -b \pm \sqrt{Δ} }{ 2a }</span>
+<span class="String">            = %s \text{ and } %s.</span>
+<span class="String">  \stopformula</span>
+<span class="String">\stopsolution</span>
+<span class="String">]]</span> ]
+
+<span class="Statement">local</span> sqrt = <span class="Identifier">math.sqrt</span>
+
+assignment = assignment <span class="Operator">or</span> <span class="Structure">{</span> <span class="Structure">}</span>
+
+assignment.roots = <span class="Function">function</span>(a, b, c)
+  context(question(a == 1 <span class="Operator">and</span> <span class="String">&quot;&quot;</span> <span class="Operator">or</span> a, b, c))
+
+  D = b^2 - 4*a*c
+  r1 = (-b + sqrt(D))/(2*a)
+  r2 = (-b - sqrt(D))/(2*a)
+
+  context(solution(D, r1, r2))
+
+<span class="Function">end</span>
+<span class="Identifier">\stopluacode</span>
+</code></pre>
+
+<p>Then, in the homework assignment, I can generate the above question and its
+solution using:</p>
+
+<pre><code><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>assignment.roots(1, 5, 6)<span class="Delimiter">}</span>
+</code></pre>
+
+<p>The above generated solution works well when all numbers are integer valued.
+However, the generated solution is not ideal when some of the calculations
+result in floats. For example:</p>
+
+<pre><code><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>assignment.roots(1, 4, 2)<span class="Delimiter">}</span>
+</code></pre>
+
+<p>will generate:</p>
+
+<pre><code><span class="Statement">\startquestion</span>
+  Find the roots of <span class="String">$x^2 + 4x + 2 = 0$</span>.
+<span class="Statement">\stopquestion</span>
+
+<span class="Statement">\startsolution</span>
+  Let's start by computing the determinant.
+  <span class="Statement">\startformula</span>
+     Δ = b^2 - 4ac = <span class="Type">8.0</span>.
+  <span class="Statement">\stopformula</span>
+  Since <span class="String">$Δ &gt; 0$</span>, the roots are given by
+  <span class="Statement">\startformula</span>
+    r_<span class="Delimiter">{</span>1,2<span class="Delimiter">}</span> = <span class="Statement">\dfrac</span><span class="Delimiter">{</span> -b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>Δ<span class="Delimiter">}</span> <span class="Delimiter">}{</span> 2a <span class="Delimiter">}</span>
+            = <span class="Type">-0.5857864376269</span> <span class="Statement">\text</span><span class="Delimiter">{</span> and <span class="Delimiter">}</span> <span class="Type">-3.4142135623731</span>.
+  <span class="Statement">\stopformula</span>
+<span class="Statement">\stopsolution</span>
+</code></pre>
+
+<p>Technically, the solution is correct. But one never types a float with a
+precision of 12 decimal places. Of course, I could change the <code>%s</code> in the
+template to <code>%.3f</code> as follows:</p>
+
+<pre><code><span class="Statement">local</span> solution = formatters[ <span class="String">[[</span>
+<span class="String">\startsolution</span>
+<span class="String">  Let's start by computing the determinant.</span>
+<span class="String">  \startformula</span>
+<span class="String">     Δ = b^2 - 4ac = <span class="Type">%.3f</span>.</span>
+<span class="String">  \stopformula</span>
+<span class="String">  Since $Δ &gt; 0$, the roots are given by</span>
+<span class="String">  \startformula</span>
+<span class="String">    r_{1,2} = \dfrac{ -b \pm \sqrt{Δ} }{ 2a }</span>
+<span class="String">            = <span class="Type">%.3f</span> \text{ and } <span class="Type">%.3f</span>.</span>
+<span class="String">  \stopformula</span>
+<span class="String">\stopsolution</span>
+<span class="String">]]</span> ]
+</code></pre>
+
+<p>For the second problem, this will generate:</p>
+
+<pre><code><span class="Statement">\startquestion</span>
+  Find the roots of <span class="String">$x^2 + 4x + 2 = 0$</span>.
+<span class="Statement">\stopquestion</span>
+
+<span class="Statement">\startsolution</span>
+  Let's start by computing the determinant.
+  <span class="Statement">\startformula</span>
+     Δ = b^2 - 4ac = <span class="Type">8.000</span>.
+  <span class="Statement">\stopformula</span>
+  Since <span class="String">$Δ &gt; 0$</span>, the roots are given by
+  <span class="Statement">\startformula</span>
+    r_<span class="Delimiter">{</span>1,2<span class="Delimiter">}</span> = <span class="Statement">\dfrac</span><span class="Delimiter">{</span> -b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>Δ<span class="Delimiter">}</span> <span class="Delimiter">}{</span> 2a <span class="Delimiter">}</span>
+            = <span class="Type">-0.586</span> <span class="Statement">\text</span><span class="Delimiter">{</span> and <span class="Delimiter">}</span> <span class="Type">-3.414</span>.
+  <span class="Statement">\stopformula</span>
+<span class="Statement">\stopsolution</span>
+</code></pre>
+
+<p>which is partially acceptable (when typesetting the solution with hand, I&rsquo;d
+type <code>Δ = 8</code> rather than <code>Δ = 8.000</code>) but for the first problem, we now get</p>
+
+<pre><code><span class="Statement">\startquestion</span>
+  Find the roots of <span class="String">$x^2 + 5x + 6 = 0$</span>.
+<span class="Statement">\stopquestion</span>
+
+<span class="Statement">\startsolution</span>
+  Let's start by computing the determinant.
+  <span class="Statement">\startformula</span>
+     Δ = b^2 - 4ac = <span class="Type">1.000</span>.
+  <span class="Statement">\stopformula</span>
+  Since <span class="String">$Δ &gt; 0$</span>, the roots are given by
+  <span class="Statement">\startformula</span>
+    r_<span class="Delimiter">{</span>1,2<span class="Delimiter">}</span> = <span class="Statement">\dfrac</span><span class="Delimiter">{</span> -b <span class="Statement">\pm</span> <span class="Statement">\sqrt</span><span class="Delimiter">{</span>Δ<span class="Delimiter">}</span> <span class="Delimiter">}{</span> 2a <span class="Delimiter">}</span>
+            = <span class="Type">-2.000</span> <span class="Statement">\text</span><span class="Delimiter">{</span> and <span class="Delimiter">}</span> <span class="Type">-3.000</span>.
+  <span class="Statement">\stopformula</span>
+<span class="Statement">\stopsolution</span>
+</code></pre>
+
+<p>which is not ideal.</p>
+
+<p>So, to typeset such examples, I need to format numbers as follows:</p>
+
+<ul>
+<li>If the number is an integer, use <code>%d</code>.</li>
+<li>If the number is a float, use <code>%.3f</code>.</li>
+</ul>
+
+<p>However, once you think about it, the above spec is not complete. In addition,
+what we want is that</p>
+
+<ul>
+<li>If <code>%.3f</code> gives <code>&quot;0.000&quot;</code>, using (the tex equivalent of) <code>%.3e</code>.</li>
+</ul>
+
+<p>Who knew simply formatting numbers could be so complicated! Anyways, here is a
+simple function that does this formatting:</p>
+
+<pre><code><span class="Statement">local</span> mathtype, floor  = math.<span class="Identifier">type</span>, <span class="Identifier">math.floor</span>
+<span class="Statement">local</span> format, strlen, match = <span class="Identifier">string.format</span>, <span class="Identifier">string.len</span>, <span class="Identifier">string.match</span>
+
+formatnumber = <span class="Function">function</span>(a)
+    <span class="Conditional">if</span> mathtype(a) == <span class="String">&quot;integer&quot;</span> <span class="Operator">or</span> floor(a) == a <span class="Conditional">then</span>
+        <span class="Statement">return</span> format(<span class="String">&quot;%d&quot;</span>, a)
+    <span class="Conditional">else</span>
+        str = format(<span class="String">&quot;%s&quot;</span>, a)
+        fmt = format(<span class="String">&quot;%.3f&quot;</span>, a)
+        exp = format(<span class="String">&quot;%.3e&quot;</span>, a)
+        <span class="Conditional">if</span> strlen(str) &lt; strlen(fmt) <span class="Conditional">then</span>
+            <span class="Statement">return</span> str
+        <span class="Conditional">elseif</span> fmt == <span class="String">&quot;0.000&quot;</span> <span class="Conditional">then</span>
+             x = match(exp, <span class="String">&quot;(.*)e&quot;</span>)
+             y = match(exp, <span class="String">&quot;e(.*)&quot;</span>)
+             <span class="Statement">return</span> format(<span class="String">&quot;%s </span><span class="SpecialChar">\\</span><span class="String">times 10^{%d}&quot;</span>, x, y)
+        <span class="Conditional">else</span>
+            <span class="Statement">return</span> fmt
+        <span class="Conditional">end</span>
+    <span class="Conditional">end</span>
+<span class="Function">end</span>
+</code></pre>
+
+<p>We first check if the number is an integer (using <code>math.type(a) == &quot;integer&quot;</code>)
+or if the number is a float of the type <code>8.0</code> (using <code>math.floor(a) == a</code>) and
+if so, format the number using <code>%d</code>.</p>
+
+<p>We then next check if casting the number to a string leads to a shorter string than
+formatting it using <code>%.3f</code>. If so, we format it using <code>%s</code>. This ensures that
+a number like <code>8.2</code> is typeset as <code>8.2</code> rather than <code>8.200</code>.</p>
+
+<p>Finally, we check if formatting the number using <code>%.3f</code> gives <code>&quot;0.000&quot;</code>. If
+so, we typeset the tex equvalent of <code>%.3e</code>.</p>
+
+<p>Phew!</p>
+
+<p>To use this code, I use <code>%s</code> in my templates, and then call the template as</p>
+
+<pre><code>context(solution(formatnumber(D), formatnumber(r1), formatnumber(r2)))
+</code></pre>
+
+<p>This gives me correct formatting in all the edge cases.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/new-metafun-interface/">&nbsp;&lt;New Metapost interface</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/formatting">
+  Formatting</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+<a href="https://adityam.github.io/context-blog/tags/programming">programming</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

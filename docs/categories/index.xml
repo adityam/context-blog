@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Formatting</title>
+      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
+      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>metapost</title>
@@ -89,15 +98,6 @@
       <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/mathematics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Formatting</title>
-      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
-      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
       <description></description>
     </item>
     

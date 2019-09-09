@@ -31,6 +31,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
+            
             <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
             
             <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
@@ -38,8 +40,6 @@
             <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
             
             <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
-            
-            <li><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></li>
             
           </ul>
         </li>
@@ -52,6 +52,35 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></h1>
+        <p class="post-time">9 September, 2019
+        (5 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/formatting">
+          Formatting</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+        <a href="https://adityam.github.io/context-blog/tags/programming">programming</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>I often use Lua to generate solution for homework assignments. Ideally, I want
+the solution to look exactly how it would look if it were written by hand. But
+this can be tricker than it appears at first glance. In this post, I&rsquo;ll
+explain the issue and how I solve it.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/formatting-numbers/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -373,44 +402,6 @@ animations (e.g., see Wolfgang&rsquo;s reply in <a href="https://mailman.ntg.nl/
 interface gets a bit cumbersome. In this post, I show a helper macro to
 simplify drawing such animations.</p></p>
             <a class="btn btn-default" href="/context-blog/post/metapost-animation/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></h1>
-        <p class="post-time">27 December, 2017
-        (4 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/ffi">
-          FFI</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/julia">julia</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>One cool feature of LuaTeX is ability to interface with external
-libraries using Lua&rsquo;s <a href="http://luajit.org/ext_ffi.html">Foreign Function Interface (FFI)</a>. An
-extreme example of this is Luigi Scarso&rsquo;s <a href="https://www.tug.org/TUGboat/tb30-3/tb96scarso.pdf">LuaTeX lunatic</a>,
-which provides a two way bridge between Python and LuaTeX. Not being a Python
-fan, I never looked into the implementation details, in spite of Luigi&rsquo;s
-impressive examples.</p>
-
-<p>Recently, Henri Menke <a href="https://tex.stackexchange.com/a/403794/323">posted an interesting
-example</a> that shows how to use a
-function from <a href="https://www.gnu.org/software/gsl/">GNU Scientific Library
-(GSL)</a> to inteface with <a href="http://pgfplots.sourceforge.net">pgfplots</a>. This
-got me interested in looking into Lua&rsquo;s FFI in detail. After a bit of trial
-and error, I finally figured out how to interface LuaTeX with my current
-favorite programming language: <a href="https://julialang.org">Julia</a>.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/interfacing-with-julia/" id="read-more-button">
                 Read more >
             </a>
         </div>

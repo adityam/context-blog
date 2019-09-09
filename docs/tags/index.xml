@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>luatex</title>
+      <link>https://adityam.github.io/context-blog/tags/luatex/</link>
+      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/luatex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://adityam.github.io/context-blog/tags/programming/</link>
+      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>metafun</title>
@@ -26,15 +44,6 @@
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://adityam.github.io/context-blog/tags/programming/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
       <description></description>
     </item>
     
@@ -89,15 +98,6 @@
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>context standalone</title>
-      <link>https://adityam.github.io/context-blog/tags/context-standalone/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/context-standalone/</guid>
       <description></description>
     </item>
     
