@@ -13,3 +13,5 @@ rssLimit      : 10
 params:
   disqus : "random-determinism"
 
+markup:
+  defaultMarkdownHandler: "blackfriday"

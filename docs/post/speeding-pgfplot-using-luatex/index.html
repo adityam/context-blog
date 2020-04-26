@@ -65,10 +65,7 @@ for drawing
 graphs</a>, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.</p>
 
 <p>As an example, consider the plot of the following function</p>
-
-<pre><code>0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))
-</code></pre>
-
+<pre><code>0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))</code></pre>
 <p>which is the step response of a second order dynamical system (the exact
 details are not relevant for this post). PGFPlots makes it very simple to plot
 such functions:</p>

@@ -64,36 +64,26 @@ Use this tutorial as follows:</p>
 
 <ol>
 <li><p>Clone the git repository:</p>
-
 <pre><code>git clone git://github.com/adityam/context-slides-example.git
-cd context-slides-example
-</code></pre></li>
+cd context-slides-example</code></pre></li>
 
 <li><p>Get git-walk (requires ruby)</p>
-
 <pre><code>wget https://raw.github.com/augustl/binbin/master/git-walk
-chmod +x git-walk
-</code></pre></li>
+chmod +x git-walk</code></pre></li>
 
 <li><p>Checkout the first commit</p>
-
-<pre><code>git checkout init
-</code></pre></li>
+<pre><code>git checkout init</code></pre></li>
 
 <li><p>Open the two files, <code>slides.tex</code> and <code>example.tex</code> in the editor.</p></li>
 
 <li><p>Read the log message, compile example.tex and view the result.</p>
-
 <pre><code>git log -n 1
 context example.tex
-evince example.pdf &amp;
-</code></pre></li>
+evince example.pdf &amp;</code></pre></li>
 
 <li><p>Go to next commit and repeat step 5. (This requires <code>git-walk</code> to be in
 your <code>$PATH</code>.</p>
-
-<pre><code>git walk next
-</code></pre></li>
+<pre><code>git walk next</code></pre></li>
 </ol>
 
 <p>(Alternatively, instead of using <code>git-walk</code>, you can use a GUI tool to

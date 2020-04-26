@@ -79,18 +79,12 @@ distribution</a> is a portable
 distribution (i.e., it can be &ldquo;installed&rdquo; in any directory) that works by
 <code>$PATH</code> munging. In particular, if the installation has been downloaded in say
 <code>&lt;install-dir&gt;</code>, then all one needs to do (on linux) is set the <code>$PATH</code> variable to</p>
-
-<pre><code>PATH=&lt;install-dir&gt;/tex/texmf-linux-64/bin:$PATH
-</code></pre>
-
+<pre><code>PATH=&lt;install-dir&gt;/tex/texmf-linux-64/bin:$PATH</code></pre>
 <p>Then simply call <code>context filename</code> to compile a file, and ConTeXt figures out the
 location of rest of the <code>$TEXMF</code> tree based on the locaiton of the <code>luatex</code>
 (or <code>luametatex</code>) binary. ConTeXt comes with a helper script called <code>setuptex</code>
 to help with the PATH munging. So, to use ConTeXt standalone, one simply calls</p>
-
-<pre><code>source &lt;install-dir&gt;/tex/setuptex
-</code></pre>
-
+<pre><code>source &lt;install-dir&gt;/tex/setuptex</code></pre>
 <p>and then just call <code>context filename</code>. Currently LMTX does&rsquo;t come with a
 <code>setuptex</code> file but it is straight forward to simply copy the <code>setuptex</code> file
 that comes with ConTeXt standalone and change the path so that it points at
@@ -100,7 +94,6 @@ the LMTX bin directory.</p>
 was easy to forget which <code>setuptex</code> file I had sourced and which version of
 ConTeXt I was using. To avoid this confusion, I came up with the following
 variation of the <code>setuptex</code> file:</p>
-
 <pre><code>_OLD_PS1=$PS1
 _OLD_PATH=$PATH
 TEXMFOS=/opt/context-minimals/texmf-linux-64
@@ -112,10 +105,10 @@ export TEXMFCACHE
 PATH=$TEXMFOS/bin:$PATH
 export PATH
 
-PS1=&quot;(ctx) $PS1&quot;
+PS1=&#34;(ctx) $PS1&#34;
 export PS1
 
-OSFONTDIR=&quot;$HOME/.fonts;/usr/share/fonts;&quot; 
+OSFONTDIR=&#34;$HOME/.fonts;/usr/share/fonts;&#34; 
 export OSFONTDIR
 resettex () {
     PATH=$_OLD_PATH
@@ -127,9 +120,7 @@ resettex () {
     unset _OLD_PS1
     
     unset -f resettex
-}
-</code></pre>
-
+}</code></pre>
 <p>This has the following additional features.</p>
 
 <ol>
