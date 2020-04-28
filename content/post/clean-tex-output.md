@@ -15,6 +15,8 @@ highlighting engines: `source-highlight`, `pygments`, `HsColor`, etc. Unfortunat
 that is not the case. None of these syntax highlighting engines were written
 with reuse in mind.
 
+<!--more-->
+
 For example, consider a simple tex file:
 
 ```
