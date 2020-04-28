@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 01:08:56 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>code formatting</title>
+      <link>https://adityam.github.io/context-blog/tags/code-formatting/</link>
+      <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/code-formatting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>t-vim</title>
+      <link>https://adityam.github.io/context-blog/tags/t-vim/</link>
+      <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/t-vim/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>luatex</title>
@@ -80,24 +98,6 @@
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/forms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tables</title>
-      <link>https://adityam.github.io/context-blog/tags/tables/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/tables/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorial</title>
-      <link>https://adityam.github.io/context-blog/tags/tutorial/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/tutorial/</guid>
       <description></description>
     </item>
     

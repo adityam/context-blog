@@ -31,6 +31,8 @@
         <strong>Recent Posts</strong>
           <ul>
             
+            <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
+            
             <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
             
             <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
@@ -38,8 +40,6 @@
             <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
             
             <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
-            
-            <li><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></li>
             
           </ul>
         </li>
@@ -52,6 +52,34 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></h1>
+        <p class="post-time">28 April, 2020
+        (4 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/formatting">
+          Formatting</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/t-vim">t-vim</a>,
+        <a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>The <a href="https://github.com/adityam/filter/blob/master/vim-README.md">t-vim</a> module has been on a maintenance only mode for while, so I am
+happy to announce a release which adds a new feature: a new method to escape
+to TeX using <code>/BTEX</code> and <code>/ETEX</code> tags.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/vim-btex-etex-escape/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -345,63 +373,6 @@ Let&rsquo;s consider basic operations: drawing straight lines and drawing circle
         <div class="post-content">
             <p>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</p>
             <a class="btn btn-default" href="/context-blog/post/poster-in-context/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/metapost-animation/">Drawing Metapost animations</a></h1>
-        <p class="post-time">15 July, 2018
-        (2 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/metapost">
-          Metapost</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
-        <a href="https://adityam.github.io/context-blog/tags/animation">animation</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>The <a href="http://wiki.contextgarden.net/Animation#Using_the_animation_module">animation</a> module provides a nice interface for using
-<a href="http://www.pragma-ade.com/general/manuals/mwidget-s.pdf">FieldStacks</a> to create a JavaScript controlled animations in
-ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For example, the following code will show <code>step-1.pdf</code>,
-<code>step-2.pdf</code>, <code>step-3.pdf</code>, and <code>step-4.pdf</code> files one by one:</p>
-
-<!--
-\usemodule[animation]
-
-\startanimation[menu=yes]
-  {\useexternalfigure[step-1]}
-  {\useexternalfigure[step-2]}
-  {\useexternalfigure[step-3]}
-  {\useexternalfigure[step-4]}
-\stopanimation
--->
-
-<pre><code><span class="Statement">\usemodule</span><span class="Delimiter">[</span>animation<span class="Delimiter">]</span>
-
-<span class="Statement">\startanimation</span><span class="Delimiter">[</span>menu=yes<span class="Delimiter">]</span>
-  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-1.pdf<span class="Delimiter">]}</span>
-  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-2.pdf<span class="Delimiter">]}</span>
-  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-3.pdf<span class="Delimiter">]}</span>
-  <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-4.pdf<span class="Delimiter">]}</span>
-<span class="Statement">\stopanimation</span>
-</code></pre>
-
-<p>Sometimes, I use animation to give the illusion of motion. For example, to
-show a particle moving along a trajectory (drawn using Metapost). In
-principle, it is possible to use the <code>animation</code> module to draw such
-animations (e.g., see Wolfgang&rsquo;s reply in <a href="https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html">on ntg-context mailing list</a>), but the
-interface gets a bit cumbersome. In this post, I show a helper macro to
-simplify drawing such animations.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/metapost-animation/" id="read-more-button">
                 Read more >
             </a>
         </div>

@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
+            
+            <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
+            
+            <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
+            
+            <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
+            
+            <li><a href="/context-blog/post/setuptex/">Switching between different context versions</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>New escape mechanism for t-vim</h1>
+<p class="post-time">Posted on April 28, 2020</p>
+
+<p>The <a href="https://github.com/adityam/filter/blob/master/vim-README.md">t-vim</a> module has been on a maintenance only mode for while, so I am
+happy to announce a release which adds a new feature: a new method to escape
+to TeX using <code>/BTEX</code> and <code>/ETEX</code> tags.</p>
+
+<p>The <a href="https://github.com/adityam/filter/blob/master/vim-README.md">t-vim</a> module is a syntax highlighter for ConTeXt which uses <code>vim</code> editor
+to do the actual syntax highlighting. However, sometimes one needs to use a
+ConTeXt macro within the code listing, for example to reference a particular
+line number.</p>
+
+<p><code>\starttyping</code> and other syntax highlighting methods in ConTeXt, provide a
+means to <em>escape</em> to TeX. In the old days of MkII, anything inside <code>/BTEX</code> and
+<code>/ETEX</code> tags was not parsed and passed verbatim to TeX; in MkIV, there is a
+<a href="http://pragma-ade.nl/general/magazines/mag-1102-mkiv.pdf">fancier version</a> of this escape mechanism.</p>
+
+<p>The syntax highlighting in <code>\starttyping</code> is done for a handful of languages
+for which Hans has written a syntax parser. So, relatively speaking, it is
+simply to add such an escape mechanism in the parser. But that is not the
+case for <code>t-vim</code> where the parsing is done by the <code>vim</code> editor according to
+already existing syntax highlighting files for the editor. And, of course,
+these files have no specifications for identifying or ignoring content inside
+<code>/BTEX</code> and <code>/ETEX</code> tags.</p>
+
+<p>I had always been reluctant to add such a feature because I did not see a
+clean way to add it and, more importantly, there is was a partial escape
+mechanism which kind-of works. In particular, it was already possible to allow
+the contents of the <code>Comment</code> region to be passed to TeX. For example, one
+could reference line numbers as follows:</p>
+
+<!--
+\usemodule[vim]
+\definevimtyping[CPP][syntax=cpp, escape=on, numbering=yes]
+\starttext
+\startCPP
+  double root(double a, double b, double c) { //\someline[ln:root]
+    ...
+  }
+\stopCPP
+
+The function \type{root} defined in \inline[ln:root] \unknown
+\stoptext
+-->
+
+<pre><code><span class="Statement">\usemodule</span>[vim]
+<span class="Statement">\definevimtyping</span>[<span class="Underlined">CPP</span>][<span class="Type">syntax=cpp, escape=on, numbering=yes</span>]
+<span class="Statement">\starttext</span>
+<span class="Statement">\startCPP</span>
+  <span class="Type">double</span> root(<span class="Type">double</span> a, <span class="Type">double</span> b, <span class="Type">double</span> c) { //<span class="Statement">\someline</span>[ln:root]
+    ...
+  }
+<span class="Statement">\stopCPP</span>
+
+The function <span class="Statement">\type</span>{root} defined in <span class="Statement">\inline</span>[ln:root] <span class="Statement">\unknown</span>
+<span class="Statement">\stoptext</span></code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="Typeset example"
+  src="root.png" />
+
+
+<p>So, we can reference a line but we are left with an empty comment marker on
+line 1. Internally, the contents of the <code>Comment</code> region is passed on as</p>
+
+<pre><code><span class="Statement">\SYN</span>[Comment]{...}</code></pre>
+
+<p>So, the TeX macros are inside a group, which means that certain macros cannot
+be used here. For example, it is not possible to use this escape mechanism to
+say draw a frame around a function. Enter the new escape mechanism!</p>
+
+<hr />
+
+<p>The new mechanism is enabled by passing <code>escape=command</code> option to a
+<code>&lt;vim&gt;typing</code> environment. When this option is enabled, the content between
+<code>/BTEX</code> and <code>/ETEX</code> is passed directly to ConTeXt. For example, consider the
+following:</p>
+
+<pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">vim</span><span class="Delimiter">]</span>
+<span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">CPP</span><span class="Delimiter">][</span><span class="Type">syntax=cpp, escape=command</span><span class="Delimiter">]</span>
+<span class="PreProc">\starttext</span>
+<span class="Keyword">\startCPP</span>
+  <span class="Type">double</span> ... { ... }
+  /BTEX<span class="Keyword">\startframedtext</span><span class="Delimiter">[</span><span class="Type">width=\localhsize,corner=round</span><span class="Delimiter">]</span>/ETEX
+  <span class="Type">double</span> root(<span class="Type">double</span> a, <span class="Type">double</span> b, <span class="Type">double</span> c) <span class="Delimiter">{</span>
+    ...
+  <span class="Delimiter">}</span>
+  /BTEX<span class="Keyword">\stopframedtext</span>/ETEX
+  <span class="Type">double</span> ... { ... }
+<span class="Keyword">\stopCPP</span>
+<span class="PreProc">\stoptext</span></code></pre>
+
+<p>which gives</p>
+
+<img class="center"
+  alt="Typeset example"
+  src="frame.png" />
+
+
+<p>Internally, when <code>escape=command</code> is enabled, the <code>2context.vim</code> script
+defines a new vim syntax highlighting region:</p>
+
+<pre><code><span class="Statement">syntax</span> <span class="Type">region</span> <span class="Type">vimtypingTEXcomment</span> <span class="Type">start</span>=<span class="String">&quot;/BTEX&quot;</span> <span class="Type">end</span>=<span class="String">&quot;/ETEX&quot;</span> <span class="Special">transparent</span> <span class="Special">oneline</span> <span class="Special">containedin=</span><span class="Special">ALL</span> <span class="Special">contains=</span>NONE</code></pre>
+
+<p>When parsing the file, contents of this region are passed directly to TeX
+(without any wrapping <code>\SYN[...]{...}</code>). A big thanks to Christoph
+Hintermüller, who submitted a pull request which implements this feature.</p>
+
+<p>One needs to be aware that The <code>&lt;vim&gt;typing</code> environment uses a catcode table
+where only <code>\</code>, <code>{</code> and <code>}</code> have their usual meaning, <code>\n</code> is active and
+mapped to <code>\obeyedline</code> and space is active and mapped to <code>\obeyedspace</code>. As a
+consequence:</p>
+
+<ul>
+<li>If you add a space after the comma in <code>\startframedtext[...,...]</code>, it will
+lead to an error:</li>
+<li>There is an extra new line after the start and before the end of the frame.
+In principle, it is possible to get rid of these by doing some catcode
+jugglery when entering and leaving a <code>/BTEX ... /ETEX</code> region, but that
+hasn&rsquo;t been implemented yet.</li>
+</ul>
+
+<p>The old mechanism is now mapped to <code>escape=comment</code>; it can still be activated
+using <code>escape=on</code> for backward compatibility reasons. For now, only one of the
+escape mechanisms can be implemented. If someone can provide a convincing
+argument why both are needed simultaneously, it is not too difficult to
+provide an interface to implement both.</p>
+
+<p>Stay tuned. Christoph also has a pull request which enables proper tagging for
+<code>&lt;vim&gt;typing</code>, which allow these environments to be used in tagged PDF
+documents and will export properly to XML. More on that later.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/formatting-numbers/">&nbsp;&lt;Formatting numbers in Lua</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/formatting">
+  Formatting</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/t-vim">t-vim</a>,
+<a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

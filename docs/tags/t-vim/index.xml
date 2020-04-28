@@ -6,10 +6,21 @@
     <description>Recent content in t-vim on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jul 2017 21:53:37 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 01:08:56 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/t-vim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New escape mechanism for t-vim</title>
+      <link>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</link>
+      <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am
+happy to announce a release which adds a new feature: a new method to escape
+to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Correct math escape in t-vim</title>
