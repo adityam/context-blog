@@ -1,5 +1,5 @@
 +++
-categories = ["visualization"]
+categories = ["design"]
 date = "2013-01-13T19:54:48-07:00"
 description = "Tutorial on creating ConTeXt presentation"
 draft = false

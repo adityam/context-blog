@@ -34,15 +34,6 @@ explains a simple solution.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Making visaully attractive posters in ConTeXt</title>
-      <link>https://adityam.github.io/context-blog/post/poster-in-context/</link>
-      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/poster-in-context/</guid>
-      <description>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</description>
-    </item>
-    
-    <item>
       <title>Frame with solid left line</title>
       <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
       <pubDate>Fri, 18 Aug 2017 00:40:19 -0400</pubDate>
@@ -77,17 +68,6 @@ These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
-    </item>
-    
-    <item>
-      <title>Creating a clean presentation style in 40 commits</title>
-      <link>https://adityam.github.io/context-blog/post/presentation-40-commits/</link>
-      <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/presentation-40-commits/</guid>
-      <description>Did you always want to learn ConTeXt, but did not know where to start? I have written a git-based tutorial that should help you get started.
-The idea of the tutorial is to start with an empty document, and add features one-by-one. Each git commit corresponds to one small change in the document, and includes pointers to the documentation corresponding to that change. Read Use this tutorial as follows:
- Clone the git repository:</description>
     </item>
     
   </channel>

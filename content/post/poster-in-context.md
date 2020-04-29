@@ -7,7 +7,7 @@ tags  :
   - metapost
   - backgrounds
 categories :
-  - visualization
+  - design
 
 ---
 
