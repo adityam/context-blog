@@ -102,5 +102,14 @@ times in msec
 003.784  000.379  000.379: sourcing /usr/share/nvim/runtime/syntax/matlab.vim
 1014.988  1011.055  1011.055: sourcing /opt/luametatex/texmf-modules/tex/context/third/vim/2context.vim
 ```
+The initialization and loading of files until `manual.vim` takes roughly the
+same time for both vim and neovim[^1], but then neovim is significantly faster
+in loading `mathlab.vim` and slightly faster in loading `2context.vim`.
+Overall, this leads to a gain of about 8-10%. For bigger files (a 2000 line
+context file), `nvim` is 13% faster. Thus, using `nvim` as a backend has
+negligible effect for short files but significantly speeds up performance for
+medium and larger files. I am going to be using it as a default for my setup
+from now!
+
 
 [^1]: A notable exception is `init highlight` where nvim is about 4 times slower than vim!
