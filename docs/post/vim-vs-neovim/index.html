@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Random Determinism</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">Random Determinism</a></span><br />
+      <span id="sub-title">A Blog about ConTeXt</span>
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            <li><a href="/context-blog/post/">Posts</a></li>
+            
+            <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
+            
+            <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
+            
+            <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
+            
+            <li><a href="/context-blog/post/exam-coverpage/">Designing exam cover page</a></li>
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>t-vim: A tale of two editors</h1>
+<p class="post-time">Posted on April 29, 2020</p>
+
+<p>Since I am looking at merging a few pull requests for <code>t-vim</code>, I thought that
+this will also be a good time to implement a simple feature that was on hold
+for a while: the ability to use the module with <a href="https://neovim.io/">Neovim</a> instead of <code>vim</code>.</p>
+
+<p>Neovim is the new kid on the block, with the tag line of <em>Rebuilding Vim for
+the 21st century</em>. Neovim modernizes the vim codebase with the objective of
+making it easier to write plugins and customizations at the cost of removing
+support for old platforms and esoteric features of Vim. I will not go into the
+political debate of which philosophy is better.</p>
+
+<p>For the most part, neovim is backward compatible with vim. So, in principle,
+it should be straight forward to use neovim as a backend for <code>t-vim</code>. I just
+released a new version of <code>t-vim</code>, which makes this possible.</p>
+
+<pre><code><span class="Identifier">\setupvimtyping</span><span class="Delimiter">[</span><span class="Type">vimcommand=nvim</span><span class="Delimiter">]</span></code></pre>
+
+<p>As a side effect, it is now also possible to call the module if <code>vim</code> (or
+<code>nvim</code>) are not in <code>$PATH</code>.</p>
+
+<pre><code><span class="Identifier">\setupvimtyping</span><span class="Delimiter">[</span><span class="Type">vimcommand=/path/to/vim</span><span class="Delimiter">]</span></code></pre>
+
+<h2 id="speed-tests">Speed tests</h2>
+
+<p>So, how do vim and neovim compare in running <code>2context.vim</code>. I did a few tests
+and it turns out that the startup time of both of them are similar, but <code>nvim</code>
+is 7-10% faster in processing <code>2context.vim</code> for medium sized files. For
+example, with a 500 line matlab file, this is the amount of time for <code>vim</code> to
+process the file:</p>
+<pre><code>times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.007  000.007: --- VIM STARTING ---
+000.141  000.134: Allocated generic buffers
+000.239  000.098: locale set
+000.269  000.030: GUI prepared
+000.274  000.005: clipboard setup
+000.280  000.006: window checked
+000.777  000.497: inits 1
+000.910  000.133: parsing arguments
+000.912  000.002: expanding arguments
+000.950  000.038: shell init
+001.005  000.055: inits 2
+001.229  000.224: init highlight
+001.231  000.002: sourcing vimrc file(s)
+001.252  000.021: inits 3
+001.254  000.002: setup clipboard
+001.256  000.002: setting raw mode
+001.256  000.000: start termcap
+001.787  000.531: opening buffers
+001.789  000.002: BufEnter autocommands
+001.790  000.001: editing files in windows
+003.192  001.173  001.173: sourcing /usr/share/vim/vim82/syntax/syncolor.vim
+003.362  001.441  000.268: sourcing /usr/share/vim/vim82/syntax/synload.vim
+003.408  001.563  000.122: sourcing /usr/share/vim/vim82/syntax/manual.vim
+013.617  010.022  010.022: sourcing /usr/share/vim/vim82/syntax/matlab.vim
+1184.729  1170.948  1170.948: sourcing /opt/luametatex/texmf-modules/tex/context/third/vim/2context.vim</code></pre>
+<p>Note that most of the time (1.17 sec out of 1.18 sec) is spent in processing
+the <code>2context.vim</code> script. Starting up <code>vim</code> until that point just takes <code>0.13
+sec</code>). Now, let&rsquo;s check <code>nvim</code>:</p>
+
+<p>```
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines</p>
+
+<p>000.010  000.010: &mdash; NVIM STARTING &mdash;
+000.453  000.442: locale set
+000.832  000.380: inits 1
+000.855  000.022: window checked
+000.949  000.094: parsing arguments
+001.011  000.063: expanding arguments
+001.017  000.006: inits 2
+001.855  000.837: init highlight
+001.977  000.123: sourcing vimrc file(s)
+001.999  000.022: inits 3
+002.001  000.002: reading ShaDa
+002.480  000.479: opening buffers
+002.483  000.004: BufEnter autocommands
+002.485  000.002: editing files in windows
+003.040  000.338  000.338: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+003.192  000.590  000.252: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+003.229  000.693  000.103: sourcing /usr/share/nvim/runtime/syntax/manual.vim
+003.784  000.379  000.379: sourcing /usr/share/nvim/runtime/syntax/matlab.vim
+1014.988  1011.055  1011.055: sourcing /opt/luametatex/texmf-modules/tex/context/third/vim/2context.vim</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/vim-btex-etex-escape/">&nbsp;&lt;New escape mechanism for t-vim</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/formatting">
+  Formatting</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/t-vim">t-vim</a>,
+<a href="https://adityam.github.io/context-blog/tags/efficiency">efficiency</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

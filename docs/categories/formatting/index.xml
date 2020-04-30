@@ -6,10 +6,21 @@
     <description>Recent content in Formatting on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2020 01:08:56 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 17:12:21 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/formatting/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>t-vim: A tale of two editors</title>
+      <link>https://adityam.github.io/context-blog/post/vim-vs-neovim/</link>
+      <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/vim-vs-neovim/</guid>
+      <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that
+this will also be a good time to implement a simple feature that was on hold
+for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>New escape mechanism for t-vim</title>

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Random Determinism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2020 01:08:56 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 17:12:21 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>t-vim: A tale of two editors</title>
+      <link>https://adityam.github.io/context-blog/post/vim-vs-neovim/</link>
+      <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/vim-vs-neovim/</guid>
+      <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that
+this will also be a good time to implement a simple feature that was on hold
+for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>New escape mechanism for t-vim</title>
@@ -145,15 +156,6 @@ Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing ci
       <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
       <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
  Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
-    </item>
-    
-    <item>
-      <title>Making visaully attractive posters in ConTeXt</title>
-      <link>https://adityam.github.io/context-blog/post/poster-in-context/</link>
-      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/poster-in-context/</guid>
-      <description>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</description>
     </item>
     
   </channel>
