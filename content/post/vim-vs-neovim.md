@@ -3,11 +3,10 @@ title     : "t-vim: A tale of two editors"
 linktitle : "Vim vs Neovim"
 date  : 2020-04-29T17:12:21-04:00
 tags  :
-  - t-vim
   - efficiency
 
 categories :
-  - Formatting
+  - t-vim
 ---
 
 Since I am looking at merging a few pull requests for `t-vim`, I thought that
@@ -102,5 +101,6 @@ times in msec
 003.229  000.693  000.103: sourcing /usr/share/nvim/runtime/syntax/manual.vim
 003.784  000.379  000.379: sourcing /usr/share/nvim/runtime/syntax/matlab.vim
 1014.988  1011.055  1011.055: sourcing /opt/luametatex/texmf-modules/tex/context/third/vim/2context.vim
+```
 
 [^1]: A notable exception is `init highlight` where nvim is about 4 times slower than vim!

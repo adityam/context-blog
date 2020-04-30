@@ -1,13 +1,12 @@
 ---
-categories:
-- formatting
-date: 2017-07-22T21:53:37-04:00
 title: "Correct math escape in t-vim"
+date: 2017-07-22T21:53:37-04:00
 tags:
-- t-vim
 - math
 - horizontal spacing
 - code formatting
+categories:
+  - t-vim
 
 ---
 

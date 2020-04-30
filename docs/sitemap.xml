@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/categories/formatting/</loc>
-    <lastmod>2020-04-29T17:12:21-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adityam.github.io/context-blog/post/</loc>
     <lastmod>2020-04-29T17:12:21-04:00</lastmod>
   </url>
@@ -28,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://adityam.github.io/context-blog/tags/t-vim/</loc>
+    <loc>https://adityam.github.io/context-blog/categories/t-vim/</loc>
     <lastmod>2020-04-29T17:12:21-04:00</lastmod>
   </url>
   
@@ -50,6 +45,11 @@
   <url>
     <loc>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</loc>
     <lastmod>2020-04-28T01:08:56-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adityam.github.io/context-blog/categories/formatting/</loc>
+    <lastmod>2019-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -3,10 +3,9 @@ title     : "Syntax Highlighting engines: Clean TeX output"
 linktitle : "Clean TeX output"
 date  : 2011-06-06
 tags  :
-  - t-vim 
   - code formatting
 categories :
-  - Formatting
+  - t-vim 
 ---
 
 The vim module uses the vim editor to syntax highlight code snippets in

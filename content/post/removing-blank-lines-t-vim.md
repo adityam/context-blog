@@ -1,9 +1,8 @@
 ---
 categories:
-  - Formatting
+  - t-vim
 date: 2012-09-29
 tags:
-  - t-vim
   - code formatting
   - blank lines
 

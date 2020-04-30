@@ -113,13 +113,11 @@ process the file:</p>
 <p>Note that most of the time (1.17 sec out of 1.18 sec) is spent in processing
 the <code>2context.vim</code> script. Starting up <code>vim</code> until that point just takes <code>0.13
 sec</code>). Now, let&rsquo;s check <code>nvim</code>:</p>
-
-<p>```
-times in msec
+<pre><code>times in msec
  clock   self+sourced   self:  sourced script
- clock   elapsed:              other lines</p>
+ clock   elapsed:              other lines
 
-<p>000.010  000.010: &mdash; NVIM STARTING &mdash;
+000.010  000.010: --- NVIM STARTING ---
 000.453  000.442: locale set
 000.832  000.380: inits 1
 000.855  000.022: window checked
@@ -137,7 +135,7 @@ times in msec
 003.192  000.590  000.252: sourcing /usr/share/nvim/runtime/syntax/synload.vim
 003.229  000.693  000.103: sourcing /usr/share/nvim/runtime/syntax/manual.vim
 003.784  000.379  000.379: sourcing /usr/share/nvim/runtime/syntax/matlab.vim
-1014.988  1011.055  1011.055: sourcing /opt/luametatex/texmf-modules/tex/context/third/vim/2context.vim</p>
+1014.988  1011.055  1011.055: sourcing /opt/luametatex/texmf-modules/tex/context/third/vim/2context.vim</code></pre>
 
 <hr />
 
@@ -151,11 +149,10 @@ times in msec
 <p>
 This entry was posted in 
 
-<a href="https://adityam.github.io/context-blog/categories/formatting">
-  Formatting</a> 
+<a href="https://adityam.github.io/context-blog/categories/t-vim">
+  T-Vim</a> 
 and tagged 
 
-<a href="https://adityam.github.io/context-blog/tags/t-vim">t-vim</a>,
 <a href="https://adityam.github.io/context-blog/tags/efficiency">efficiency</a>.
  
 </p>

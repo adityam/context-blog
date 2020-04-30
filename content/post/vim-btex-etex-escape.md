@@ -3,10 +3,9 @@ title     : "New escape mechanism for t-vim"
 linktitle : "New escape mechanism for t-vim"
 date  : 2020-04-28T01:08:56-04:00
 tags  :
-  - t-vim
   - code formatting
 categories :
-  - Formatting
+  - t-vim
 ---
 
 The [t-vim] module has been on a maintenance only mode for while, so I am

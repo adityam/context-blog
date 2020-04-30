@@ -12,9 +12,18 @@
     
     
     <item>
+      <title>t-vim</title>
+      <link>https://adityam.github.io/context-blog/categories/t-vim/</link>
+      <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/t-vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Formatting</title>
       <link>https://adityam.github.io/context-blog/categories/formatting/</link>
-      <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
+      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
       <description></description>
@@ -89,15 +98,6 @@
       <pubDate>Sun, 26 Nov 2017 20:09:19 -0500</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/macros/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mathematics</title>
-      <link>https://adityam.github.io/context-blog/categories/mathematics/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/mathematics/</guid>
       <description></description>
     </item>
     

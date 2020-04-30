@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>t-vim on Random Determinism</title>
+    <link>https://adityam.github.io/context-blog/categories/t-vim/</link>
+    <description>Recent content in t-vim on Random Determinism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Apr 2020 17:12:21 -0400</lastBuildDate>
+    
+	<atom:link href="https://adityam.github.io/context-blog/categories/t-vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>t-vim: A tale of two editors</title>
+      <link>https://adityam.github.io/context-blog/post/vim-vs-neovim/</link>
+      <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/vim-vs-neovim/</guid>
+      <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that
+this will also be a good time to implement a simple feature that was on hold
+for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New escape mechanism for t-vim</title>
+      <link>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</link>
+      <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am
+happy to announce a release which adds a new feature: a new method to escape
+to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Correct math escape in t-vim</title>
+      <link>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</link>
+      <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</guid>
+      <description>&lt;p&gt;There is a feature in &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;&lt;code&gt;t-vim&lt;/code&gt;&lt;/a&gt; module that allows the use of TeX code
+in comments, which is useful when typeset math in comments. For example:&lt;/p&gt;
+
+&lt;!--
+\definevimtyping[C][syntax=c, escape=on]
+
+\startC
+/* The following function computes the roots of \m{ax^2+bx+c=0}
+ * using the determinant \m{\Delta=\frac{-b\pm\sqrt{b^2-2ac}}{2a}} 
+ */
+
+double root (double a, double b, double c) {....}
+\stopC
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\definevimtyping&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;syntax=c, escape=on&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;Keyword&#34;&gt;\startC&lt;/span&gt;
+&lt;span class=&#34;Comment&#34;&gt;/*&lt;/span&gt;&lt;span class=&#34;Comment&#34;&gt; The following function computes the roots of &lt;span class=&#34;Statement&#34;&gt;\m&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;ax^2+bx+c=0&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;Comment&#34;&gt; * using the determinant &lt;span class=&#34;Statement&#34;&gt;\m&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\Delta&lt;/span&gt;=&lt;span class=&#34;Statement&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;-b&lt;span class=&#34;Statement&#34;&gt;\pm\sqrt&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;b^2-2ac&lt;span class=&#34;Delimiter&#34;&gt;}}{&lt;/span&gt;2a&lt;span class=&#34;Delimiter&#34;&gt;}}&lt;/span&gt;
+&lt;span class=&#34;Comment&#34;&gt; &lt;/span&gt;&lt;span class=&#34;Comment&#34;&gt;*/&lt;/span&gt;
+
+&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; root (&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; a, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; b, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; c) {....}
+&lt;span class=&#34;Keyword&#34;&gt;\stopC&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Removing multiple blank lines when typesetting code listings</title>
+      <link>https://adityam.github.io/context-blog/post/removing-blank-lines-t-vim/</link>
+      <pubDate>Sat, 29 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/removing-blank-lines-t-vim/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;listings&lt;/code&gt; package in LaTeX has an option to collapse multiple empty lines
+into a single empty line when typesetting code lists. Today, there was a
+question on &lt;a href=&#34;https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted&#34;&gt;TeX.SE&lt;/a&gt; how to do something similar when using the &lt;code&gt;minted&lt;/code&gt;
+package. The &lt;code&gt;t-vim&lt;/code&gt; module uses the same principle as the &lt;code&gt;minted&lt;/code&gt; package.
+So, I wondered how one could collapse multiple empty lines into a single
+line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Syntax Highlighting engines: Clean TeX output</title>
+      <link>https://adityam.github.io/context-blog/post/clean-tex-output/</link>
+      <pubDate>Mon, 06 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/clean-tex-output/</guid>
+      <description>&lt;p&gt;The vim module uses the vim editor to syntax highlight code snippets in
+ConTeXt. I thought that it should be straight forward to support other syntax
+highlighting engines: &lt;code&gt;source-highlight&lt;/code&gt;, &lt;code&gt;pygments&lt;/code&gt;, &lt;code&gt;HsColor&lt;/code&gt;, etc. Unfortunately,
+that is not the case. None of these syntax highlighting engines were written
+with reuse in mind.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
