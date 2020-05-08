@@ -30,8 +30,11 @@
         <li>
         <strong>Recent Posts</strong>
           <ul>
-            {{ range first 5 (after 1 (where .Site.Pages.ByDate.Reverse "Section" "post")) }}
+            {{ range first 6 (where .Site.Pages.ByDate.Reverse "Section" "post") }}
+            <!-- The page showing all pages shows up here. Don't show it -->
+            {{if eq .LinkTitle "Posts"}}{{ else }}
             <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
             {{ end }}
           </ul>
         </li>
