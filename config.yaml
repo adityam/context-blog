@@ -1,8 +1,8 @@
 baseURL       : "https://adityam.github.io/context-blog"
 
 languageCode  : "en-us"
-title         : Random Determinism
-author        : A Blog about ConTeXt
+title         : A Blog about ConTeXt
+author        : Aditya Mahajan
 theme         : homepage
 
 metaDataFormat: yaml
