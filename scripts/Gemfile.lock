@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    fileutils (1.4.1)
+    rugged (1.0.0)
+    tmpdir (0.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fileutils (~> 1.4)
+  rugged (~> 1.0)
+  tmpdir (~> 0.1.0)
+
+BUNDLED WITH
+   2.1.4
