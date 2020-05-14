@@ -112,8 +112,8 @@ index 72f97e3..db0a372 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/example.tex)]
 <embed class="center" 
                     src="example-02.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -153,8 +153,8 @@ index 8511590..2909873 100644
  A basic example with some filler text
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/4f578188d685c9f98226d0089d5be01ed5850c32/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/4f578188d685c9f98226d0089d5be01ed5850c32/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/4f578188d685c9f98226d0089d5be01ed5850c32/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/4f578188d685c9f98226d0089d5be01ed5850c32/example.tex)]
 <embed class="center" 
                     src="example-03.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -195,8 +195,8 @@ index db0a372..ba6f590 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/495bcdff800b24c8a69254521074e7e7aacc1021/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/495bcdff800b24c8a69254521074e7e7aacc1021/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/495bcdff800b24c8a69254521074e7e7aacc1021/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/495bcdff800b24c8a69254521074e7e7aacc1021/example.tex)]
 <embed class="center" 
                     src="example-04.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -236,8 +236,8 @@ index ba6f590..53e4755 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/example.tex)]
 <embed class="center" 
                     src="example-05.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -263,8 +263,8 @@ index 2909873..8511590 100644
  A basic example with some filler text
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/example.tex)]
 <embed class="center" 
                     src="example-06.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -317,8 +317,8 @@ index 53e4755..c82f33e 100644
  \setuplayout
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/example.tex)]
 <embed class="center" 
                     src="example-07.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -352,8 +352,8 @@ index c82f33e..7a32fcf 100644
  \definefontfamily [mainface] [tt] [Dejavu Sans Mono] [scale=0.85]
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/example.tex)]
 <embed class="center" 
                     src="example-08.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -396,8 +396,8 @@ index 7a32fcf..e976713 100644
  \setupbodyfont[mainface, 12pt]
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/46dab162c1ba5509f4414708aa800ac402f1da50/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/46dab162c1ba5509f4414708aa800ac402f1da50/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/46dab162c1ba5509f4414708aa800ac402f1da50/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/46dab162c1ba5509f4414708aa800ac402f1da50/example.tex)]
 <embed class="center" 
                     src="example-09.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -437,8 +437,8 @@ index e976713..10829fd 100644
  \setuplayout
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/example.tex)]
 <embed class="center" 
                     src="example-10.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -465,8 +465,8 @@ index 10829fd..b3147e0 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/example.tex)]
 <embed class="center" 
                     src="example-11.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -512,8 +512,8 @@ index b3147e0..223d04c 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/example.tex)]
 <embed class="center" 
                     src="example-12.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -562,8 +562,8 @@ index 223d04c..2342448 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/example.tex)]
 <embed class="center" 
                     src="example-13.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -609,8 +609,8 @@ index 2342448..1f16d72 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/example.tex)]
 <embed class="center" 
                     src="example-14.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -642,8 +642,8 @@ index 1f16d72..36b5f60 100644
      [subject]  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/e6b47f659d7dddb8a00948e5427efd47246499be/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/e6b47f659d7dddb8a00948e5427efd47246499be/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/e6b47f659d7dddb8a00948e5427efd47246499be/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/e6b47f659d7dddb8a00948e5427efd47246499be/example.tex)]
 <embed class="center" 
                     src="example-15.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -675,8 +675,8 @@ index 36b5f60..2bcb31b 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/example.tex)]
 <embed class="center" 
                     src="example-16.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -714,8 +714,8 @@ index 725b860..528a34d 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/example.tex)]
 <embed class="center" 
                     src="example-17.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -759,8 +759,8 @@ index 2bcb31b..7460279 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/5151f9391bc316223227210f943e967b0955462d/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/5151f9391bc316223227210f943e967b0955462d/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/5151f9391bc316223227210f943e967b0955462d/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/5151f9391bc316223227210f943e967b0955462d/example.tex)]
 <embed class="center" 
                     src="example-18.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -804,8 +804,8 @@ index 7460279..98db75f 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/example.tex)]
 <embed class="center" 
                     src="example-19.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -832,8 +832,8 @@ index 98db75f..b2cf8a9 100644
  \startuseMPgraphic{itemize:main}
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/3e654d2293f2893829941ce94464ee0f39641fe2/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/3e654d2293f2893829941ce94464ee0f39641fe2/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/3e654d2293f2893829941ce94464ee0f39641fe2/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/3e654d2293f2893829941ce94464ee0f39641fe2/example.tex)]
 <embed class="center" 
                     src="example-20.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -864,8 +864,8 @@ index 528a34d..10605a0 100644
      \starthead {Second bullet}
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/example.tex)]
 <embed class="center" 
                     src="example-21.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -895,8 +895,8 @@ index b2cf8a9..c3dbc7d 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/example.tex)]
 <embed class="center" 
                     src="example-22.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -931,8 +931,8 @@ index c3dbc7d..21bf9a9 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/example.tex)]
 <embed class="center" 
                     src="example-23.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -969,8 +969,8 @@ index 21bf9a9..ff1ea60 100644
  \unprotect
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/example.tex)]
 <embed class="center" 
                     src="example-24.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1005,8 +1005,8 @@ index 10605a0..d41cab7 100644
  \startitemize
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/example.tex)]
 <embed class="center" 
                     src="example-25.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1046,8 +1046,8 @@ index ff1ea60..d1b764f 100644
      [slide]
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/example.tex)]
 <embed class="center" 
                     src="example-26.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1097,8 +1097,8 @@ index d1b764f..6b45a25 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/76c7305b0edad4138e446b0b9499af325f12d384/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/76c7305b0edad4138e446b0b9499af325f12d384/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/76c7305b0edad4138e446b0b9499af325f12d384/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/76c7305b0edad4138e446b0b9499af325f12d384/example.tex)]
 <embed class="center" 
                     src="example-27.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1145,8 +1145,8 @@ index 6b45a25..cdf1e4b 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/example.tex)]
 <embed class="center" 
                     src="example-28.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1180,8 +1180,8 @@ index d41cab7..52e5125 100644
  \stoptext
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/example.tex)]
 <embed class="center" 
                     src="example-29.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1228,8 +1228,8 @@ index cdf1e4b..60897b3 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/c419e7240d308bda1644a1209d1e900511e483ff/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/c419e7240d308bda1644a1209d1e900511e483ff/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/c419e7240d308bda1644a1209d1e900511e483ff/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/c419e7240d308bda1644a1209d1e900511e483ff/example.tex)]
 <embed class="center" 
                     src="example-30.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1301,8 +1301,8 @@ index 52e5125..ad9efc0 100644
  \stoptext
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/example.tex)]
 <embed class="center" 
                     src="example-31.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1330,8 +1330,8 @@ index 60897b3..c0f829d 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/example.tex)]
 <embed class="center" 
                     src="example-32.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1372,8 +1372,8 @@ index c0f829d..f80270f 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/example.tex)]
 <embed class="center" 
                     src="example-33.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1432,8 +1432,8 @@ index f80270f..de24daa 100644
  \stopenvironment
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/example.tex)]
 <embed class="center" 
                     src="example-34.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1471,8 +1471,8 @@ index de24daa..5f5ec3f 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/f234aff8c4b93b543c1aae535da478a17cd74501/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/f234aff8c4b93b543c1aae535da478a17cd74501/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/f234aff8c4b93b543c1aae535da478a17cd74501/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/f234aff8c4b93b543c1aae535da478a17cd74501/example.tex)]
 <embed class="center" 
                     src="example-35.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1509,8 +1509,8 @@ index 5f5ec3f..b49530b 100644
  \setupfootertexts[\setups{footer:metadata}][\userpagenumber/\lastuserpage]
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/example.tex)]
 <embed class="center" 
                     src="example-36.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1541,8 +1541,8 @@ index b49530b..62d83da 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/861a6730d1d6150715ac7095af174810ae38b679/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/861a6730d1d6150715ac7095af174810ae38b679/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/861a6730d1d6150715ac7095af174810ae38b679/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/861a6730d1d6150715ac7095af174810ae38b679/example.tex)]
 <embed class="center" 
                     src="example-37.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1590,8 +1590,8 @@ index 62d83da..43a533a 100644
    \getvariable{metadata}{title} (\getvariable{metadata}{author})
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/182fae8432ff6af3b8252605124031b7093cfe02/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/182fae8432ff6af3b8252605124031b7093cfe02/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/182fae8432ff6af3b8252605124031b7093cfe02/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/182fae8432ff6af3b8252605124031b7093cfe02/example.tex)]
 <embed class="center" 
                     src="example-38.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1697,8 +1697,8 @@ index 43a533a..4a400e2 100644
  
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/example.tex)]
 <embed class="center" 
                     src="example-39.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"
@@ -1728,8 +1728,8 @@ index 4a400e2..d65622b 100644
      [
 ```
 
-[source.tex](https://github.com/adityam/context-slides-source/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/source.tex) 
-[example.tex](https://github.com/adityam/context-slides-example/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/example.tex) 
+Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/slides.tex)]
+[[example.tex](https://github.com/adityam/context-slides-example/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/example.tex)]
 <embed class="center" 
                     src="example-40.pdf#toolbar=0&navpanes=0"
                     type="application/pdf"

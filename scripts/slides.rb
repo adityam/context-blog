@@ -97,8 +97,8 @@ File.open("#{outdir}/#{post}.md", 'w') do |file|
       file.puts %Q[`example.tex`:\n```\n#{File.read("example.tex")}```\n\n]
     else
       file.puts %Q[```\n#{commit.parents[0].diff(commit).patch}```\n\n]
-      file.puts %Q|[source.tex](https://github.com/adityam/context-slides-example/blob/#{commit.oid}/source.tex) |
-      file.puts %Q|[example.tex](https://github.com/adityam/context-slides-example/blob/#{commit.oid}/example.tex) |
+      file.puts %Q|Full files: [[slides.tex](https://github.com/adityam/context-slides-example/blob/#{commit.oid}/slides.tex)]|
+      file.puts %Q|[[example.tex](https://github.com/adityam/context-slides-example/blob/#{commit.oid}/example.tex)]|
     end
 
     file.puts %Q[<embed class="center" 

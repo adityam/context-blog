@@ -6,10 +6,27 @@
     <description>Recent content in git on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Jan 2013 19:54:48 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2020 02:30:00 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating a clean presentation style in 40 commits (redux)</title>
+      <link>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</link>
+      <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;
+&lt;script src=&#34;../../js/highlight.pack.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;A while back, a had created a &lt;a href=&#34;../presentation-40-commits&#34;&gt;git based tutorial&lt;/a&gt; for learning how to
+create a presentation style in ConTeXt. I chose a git based style so that it
+was easy to see what changed in each commit and what effect did the change
+have on the output. But it is cumbersome to work with, especially if you are new
+to ConTeXt as well as git.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Creating a clean presentation style in 40 commits</title>
@@ -17,9 +34,9 @@
       <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/presentation-40-commits/</guid>
-      <description>Did you always want to learn ConTeXt, but did not know where to start? I have written a git-based tutorial that should help you get started.
-The idea of the tutorial is to start with an empty document, and add features one-by-one. Each git commit corresponds to one small change in the document, and includes pointers to the documentation corresponding to that change. Read Use this tutorial as follows:
- Clone the git repository:</description>
+      <description>&lt;p&gt;Did you always want to learn ConTeXt, but did not know where to start? I have
+written a &lt;a href=&#34;https://github.com/adityam/context-slides-example/commits&#34;&gt;git-based
+tutorial&lt;/a&gt; that should help you get started.&lt;/p&gt;</description>
     </item>
     
   </channel>

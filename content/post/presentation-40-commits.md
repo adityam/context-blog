@@ -12,9 +12,14 @@ Did you always want to learn ConTeXt, but did not know where to start? I have
 written a [git-based
 tutorial](https://github.com/adityam/context-slides-example/commits) that should help you get started.
 
+<!--more-->
+
+**NOTE**: The automatically generated output of this tutorial is now
+[available as a separate post](../presentation-40-commits-redux)
+
 The idea of the tutorial is to start with an empty document, and add features
 one-by-one. Each git commit corresponds to one small change in the document,
-and includes pointers to the documentation corresponding to that change. Read
+and includes pointers to the documentation corresponding to that change. 
 Use this tutorial as follows:
 
 1. Clone the git repository:
