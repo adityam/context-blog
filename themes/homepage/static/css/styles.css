@@ -220,6 +220,14 @@ img.center {
     padding: 0.7em 0;
 }
 
+embed.center {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0.7em 0;
+}
+
+
 pre { 
   border: thin solid #b0c4de;
   background-color: #f8f8ff;
