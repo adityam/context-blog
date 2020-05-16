@@ -36,6 +36,11 @@
             
             
             
+            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
+            
+            
+            
+            
             <li><a href="/context-blog/post/presentation-40-commits-redux/">Clean presentation style (redux)</a></li>
             
             
@@ -54,11 +59,6 @@
             <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/new-metafun-interface/">New Metapost interface</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -70,6 +70,57 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/correct-math-escape-in-t-vim/">Correct math escape in t-vim</a></h1>
+        <p class="post-time">22 July, 2017
+        (3 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/t-vim">
+          T-Vim</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/math">math</a>,
+        <a href="https://adityam.github.io/context-blog/tags/horizontal-spacing">horizontal spacing</a>,
+        <a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>There is a feature in <a href="https://github.com/adityam/filter/blob/master/vim-README.md"><code>t-vim</code></a> module that allows the use of TeX code
+in comments, which is useful when typeset math in comments. For example:</p>
+
+<!--
+\definevimtyping[C][syntax=c, escape=on]
+
+\startC
+/* The following function computes the roots of \m{ax^2+bx+c=0}
+ * using the determinant \m{\Delta=\frac{-b\pm\sqrt{b^2-2ac}}{2a}} 
+ */
+
+double root (double a, double b, double c) {....}
+\stopC
+-->
+
+<pre><code><span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">C</span><span class="Delimiter">][</span><span class="Type">syntax=c, escape=on</span><span class="Delimiter">]</span>
+
+<span class="Keyword">\startC</span>
+<span class="Comment">/*</span><span class="Comment"> The following function computes the roots of <span class="Statement">\m</span><span class="Delimiter">{</span>ax^2+bx+c=0<span class="Delimiter">}</span>
+<span class="Comment"> * using the determinant <span class="Statement">\m</span><span class="Delimiter">{</span><span class="Statement">\Delta</span>=<span class="Statement">\frac</span><span class="Delimiter">{</span>-b<span class="Statement">\pm\sqrt</span><span class="Delimiter">{</span>b^2-2ac<span class="Delimiter">}}{</span>2a<span class="Delimiter">}}</span>
+<span class="Comment"> </span><span class="Comment">*/</span>
+
+<span class="Type">double</span> root (<span class="Type">double</span> a, <span class="Type">double</span> b, <span class="Type">double</span> c) {....}
+<span class="Keyword">\stopC</span>
+</code></pre></p>
+            <a class="btn btn-default" href="/context-blog/post/correct-math-escape-in-t-vim/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 

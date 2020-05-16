@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>A Blog about ConTeXt </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">A Blog about ConTeXt</a></span><br />
+      
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/presentation-40-commits-redux/">Clean presentation style (redux)</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/vim-vs-neovim/">Vim vs Neovim</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
+            
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>PDF with embedded video on linux</h1>
+<p class="post-time">Posted on May 16, 2020</p>
+
+<p>I occassionally give presentations where the presentation must include
+embedded videos. I typically include the movie using</p>
+
+<pre><code><span class="Statement">\externalfigure</span><span class="Delimiter">[</span>movie.mov<span class="Delimiter">][</span>height=..., width=..., preview=yes, repeat=yes<span class="Delimiter">]</span></code></pre>
+
+<p>Unfortunately, I could not find any reliable method to play such movies in
+linux. So, whenever I needed to make a presentation with embedded video, I
+would take out a rusty 9 year old Macbook and lug that around. Not anymore!</p>
+
+<!---more-->
+
+<p>A couple of months ago, I came across <a href="https://pdfpc.github.io/">pdfpc</a>, which is a presenter
+console with multi-monitor PDFs. I used it a few times to show speaker notes
+during a presentation. Basically, you can create a file <code>filename.pdfpc</code> with
+the following format:</p>
+<pre><code>[notes]
+### 1
+Notes for slide 1
+
+### 2
+Notes for slide 2</code></pre>
+<p>These are then displayed on the speaker view (i.e., my laptop screen) when
+showing a PDF presentation.</p>
+
+<p><a href="https://pdfpc.github.io/">pdfpc</a> website claimed that pdfpc can also show videos. There is a
+sample presentation with embedded video on their website. I tried it and it
+didn&rsquo;t work, so I didn&rsquo;t bother investigating thinking that it is another
+broken solution for showing presentations on linux.</p>
+
+<p>Today I tried to dig deeper into what is happening. The <a href="https://github.com/pdfpc/pdfpc/blob/master/FAQ.rst">pdfpc FAQ</a> has a
+hint that says that if video does not work run the following command</p>
+<pre><code>gst-play-1.0 --videosink gtksink &lt;your video&gt;</code></pre>
+<p>I tried that and got an error message</p>
+<pre><code>** (gst-play-1.0:288543): WARNING **: 00:49:51.923: Couldn&#39;t create specified video sink &#39;gtksink&#39;</code></pre>
+<p>So, I did not have <code>gtksink</code>. I dug <a href="https://gstreamer.freedesktop.org/documentation/gtk/gtksink.html?gi-language=c">a little
+deeper</a>
+and found that <code>gtksink</code> is included in GStreamer Good Plug-ins package. I use
+Manjaro Linux (which is a clone of Arch Linux) on my laptop, and had
+<code>gst-plugins-good</code> installed. So, I should be good, right? No.</p>
+<pre><code>$pacman -Ql gst-plugins-good | grep gtk</code></pre>
+<p>gives nothing! <code>gst-plugins-good</code> does not include <code>gstsink</code>. What was going
+on? After a bit of digging, I found that Manjaro (and perhaps Arch) package
+the plugins differently and the <code>gtk</code> plugin is included as a separate package
+<code>gst-plugin-gtk</code>! After installing it, the video in the sample available on
+pdfpc&rsquo;s website played correctly.</p>
+
+<p>I tried with some of my old presentations with <code>\externalfigure[movie.mov]</code>
+and they work (but no preview image is shown). I can fix that (by showing a
+preview on a separate layer). Finally, I have a way to show pdfs with embedded
+videos on linux! And I submitted a <a href="https://github.com/pdfpc/pdfpc/compare/master...adityam:patch-1">pull
+request</a> to
+add this information to <a href="https://github.com/pdfpc/pdfpc/blob/master/FAQ.rst">pdfpc&rsquo;s FAQ</a>.</p>
+
+<p>This whole experience reminds me of this:</p>
+
+<img class="center"
+  alt="XKCD 196"
+  src="https://imgs.xkcd.com/comics/command_line_fu.png" />
+
+
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/presentation-40-commits-redux/">&nbsp;&lt;Clean presentation style (redux)</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/pdf-viewers">
+  Pdf Viewers</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/linux">linux</a>,
+<a href="https://adityam.github.io/context-blog/tags/pdfpc">pdfpc</a>,
+<a href="https://adityam.github.io/context-blog/tags/video">video</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+
