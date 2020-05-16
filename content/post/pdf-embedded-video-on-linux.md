@@ -19,7 +19,7 @@ Unfortunately, I could not find any reliable method to play such movies in
 linux. So, whenever I needed to make a presentation with embedded video, I
 would take out a rusty 9 year old Macbook and lug that around. Not anymore!
 
-<!---more-->
+<!--more-->
 
 A couple of months ago, I came across [pdfpc][pdfpc], which is a presenter
 console with multi-monitor PDFs. I used it a few times to show speaker notes
