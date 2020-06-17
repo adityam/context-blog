@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>A Blog about ConTeXt </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+  <script type="module" defer
+    src="//instant.page/3.0.0"
+    integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1">
+  </script>
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">A Blog about ConTeXt</a></span><br />
+      
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/presentation-40-commits-redux/">Clean presentation style (redux)</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/vim-vs-neovim/">Vim vs Neovim</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
+            
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Finding the meaning of a command</h1>
+<p class="post-time">Posted on June 16, 2020</p>
+
+<p>ConTeXt has a nice command to find a meaning of a command. Sometimes the
+easiest way to find the meaning of a macro is to simply use</p>
+
+<pre><code><span class="Statement">\show\macroname</span></code></pre>
+
+<p>In LMTX, <code>context</code> defaults to running with <code>--batchmode</code>, which means that
+you then have to hunt for the output of <code>\show</code> in the console output.</p>
+
+<p>ConTeXt comes with a nice script to simply get the meaning of a macro on
+console.</p>
+<pre><code>$ mtxrun --script interface --meaning &lt;macroname&gt;</code></pre>
+<p>For example:</p>
+<pre><code>$ mtxrun --script interface --meaning dotfill
+
+meaning         &gt; dotfill
+
+protected macro:-&gt;\cleaders \hbox {\normalstartimath \mathsurround \zeropoint \mkern 1.5mu.\mkern 1.5mu\normalstopimath }\hfill </code></pre>
+<p>Behind the scenes this runs</p>
+<pre><code>mtxrun --silent --script context --extra=meaning --once --noconsole --nostatistics &lt;macroname&gt;</code></pre>
+<p>A side effect of this is that a file <code>context-extra.pdf</code> is generated in the
+current directory. I usually run this command in <code>/tmp</code>. so I don&rsquo;t mind the
+extra file.</p>
+
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/pdf-embedded-video-on-linux/">&nbsp;&lt;PDF with embedded video on linux</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/cli">
+  CLI</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/%5cshow">\show</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

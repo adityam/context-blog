@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.70.0" />
+	<meta name="generator" content="Hugo 0.72.0" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,6 +40,11 @@
             
             
             
+            <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
+            
+            
+            
+            
             <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
@@ -58,11 +63,6 @@
             <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/formatting-numbers/">Formatting numbers in Lua</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -74,6 +74,42 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/speeding-pgfplot-using-luatex/">Speeding up PGFPlots using LuaTeX</a></h1>
+        <p class="post-time">21 October, 2018
+        (4 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/tikz">
+          Tikz</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/tikz">tikz</a>,
+        <a href="https://adityam.github.io/context-blog/tags/luatex">luatex</a>,
+        <a href="https://adityam.github.io/context-blog/tags/efficiency">efficiency</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>In the <a href="../metapost-vs-tikz-speed">previous post</a>, I compared the speed of
+Metapost and TikZ for drawing similar graphics and found that <strong>TikZ is three
+to five times slower than Metapost</strong>. Although TikZ is slower, it does provide
+a much higher level interface to drawing graphics and shifting to Metapost can
+take a lot of <em>user time</em>, which is often more valuable than <em>computer time</em>.</p>
+
+<p>As an example, consider the <a href="https://ctan.org/pkg/pgfplots">PGFPlots</a> package, which provides a high-level
+interface for drawing function plots. Although there is a <a href="https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv">Metapost package
+for drawing
+graphs</a>, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/speeding-pgfplot-using-luatex/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -418,43 +454,6 @@ simple, clean, and attractive visual effect that I like.</p>
 <p>I don&rsquo;t know when I first came across this style, but it is used commonly on
 the Internet to show blockquotes. So, how do we get this style with ConTeXt?</p></p>
             <a class="btn btn-default" href="/context-blog/post/frame-with-solid-left-line/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/drop-shadow-with-lifted-corners/">Drop shadows with lifted corners</a></h1>
-        <p class="post-time">6 August, 2017
-        (2 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/visualization">
-          Visualization</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
-        <a href="https://adityam.github.io/context-blog/tags/backgrounds">backgrounds</a>,
-        <a href="https://adityam.github.io/context-blog/tags/shadows">shadows</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>There is an old question on <a href="https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow">TeX.SE</a> asking how to draw drop shadows with a
-<em>lifted</em> corner. For fun, I decided to translate the code to Metapost and
-release it as a module: <a href="https://github.com/adityam/context-backgrounds"><code>t-backgrounds</code></a>. I hope to add a few
-other backgrounds to the module in the near future.</p>
-
-<p>The module provides two overlays <code>liftedshadow:big</code> and <code>liftedshadow:medium</code>.
-These may be used like any other overlay. Let&rsquo;s see an example:</p>
-
-<img class="center"
-  alt="Simple example"
-  src="/context-blog/post/drop-shadow-with-lifted-corners/example.png" /></p>
-            <a class="btn btn-default" href="/context-blog/post/drop-shadow-with-lifted-corners/" id="read-more-button">
                 Read more >
             </a>
         </div>

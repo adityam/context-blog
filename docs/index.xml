@@ -6,10 +6,22 @@
     <description>Recent content on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 23:44:38 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Finding the meaning of a command</title>
+      <link>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</link>
+      <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</guid>
+      <description>ConTeXt has a nice command to find a meaning of a command. Sometimes the easiest way to find the meaning of a macro is to simply use
+\show\macroname In LMTX, context defaults to running with --batchmode, which means that you then have to hunt for the output of \show in the console output.
+ConTeXt comes with a nice script to simply get the meaning of a macro on console.
+$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt; For example:</description>
+    </item>
     
     <item>
       <title>PDF with embedded video on linux</title>
@@ -17,9 +29,14 @@
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/pdf-embedded-video-on-linux/</guid>
-      <description>I occassionally give presentations where the presentation must include embedded videos. I typically include the movie using
-\externalfigure[movie.mov][height=..., width=..., preview=yes, repeat=yes] Unfortunately, I could not find any reliable method to play such movies in linux. So, whenever I needed to make a presentation with embedded video, I would take out a rusty 9 year old Macbook and lug that around. Not anymore!
- A couple of months ago, I came across pdfpc, which is a presenter console with multi-monitor PDFs.</description>
+      <description>&lt;p&gt;I occassionally give presentations where the presentation must include
+embedded videos. I typically include the movie using&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\externalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;movie.mov&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;height=..., width=..., preview=yes, repeat=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unfortunately, I could not find any reliable method to play such movies in
+linux. So, whenever I needed to make a presentation with embedded video, I
+would take out a rusty 9 year old Macbook and lug that around. Not anymore!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -145,24 +162,6 @@ needed to post a bigger code snippet where the frame should break across the
 page. In principle, this should have been a simple change—replace the &lt;code&gt;framed&lt;/code&gt;
 with a &lt;code&gt;textbackground&lt;/code&gt;—but that did not work out of the box. This blog post
 explains a simple solution.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Speeding up PGFPlots using LuaTeX</title>
-      <link>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</link>
-      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</guid>
-      <description>&lt;p&gt;In the &lt;a href=&#34;../metapost-vs-tikz-speed&#34;&gt;previous post&lt;/a&gt;, I compared the speed of
-Metapost and TikZ for drawing similar graphics and found that &lt;strong&gt;TikZ is three
-to five times slower than Metapost&lt;/strong&gt;. Although TikZ is slower, it does provide
-a much higher level interface to drawing graphics and shifting to Metapost can
-take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than &lt;em&gt;computer time&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level
-interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
-for drawing
-graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.&lt;/p&gt;</description>
     </item>
     
   </channel>

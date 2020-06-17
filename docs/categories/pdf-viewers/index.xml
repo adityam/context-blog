@@ -17,9 +17,14 @@
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/pdf-embedded-video-on-linux/</guid>
-      <description>I occassionally give presentations where the presentation must include embedded videos. I typically include the movie using
-\externalfigure[movie.mov][height=..., width=..., preview=yes, repeat=yes] Unfortunately, I could not find any reliable method to play such movies in linux. So, whenever I needed to make a presentation with embedded video, I would take out a rusty 9 year old Macbook and lug that around. Not anymore!
- A couple of months ago, I came across pdfpc, which is a presenter console with multi-monitor PDFs.</description>
+      <description>&lt;p&gt;I occassionally give presentations where the presentation must include
+embedded videos. I typically include the movie using&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\externalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;movie.mov&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;height=..., width=..., preview=yes, repeat=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unfortunately, I could not find any reliable method to play such movies in
+linux. So, whenever I needed to make a presentation with embedded video, I
+would take out a rusty 9 year old Macbook and lug that around. Not anymore!&lt;/p&gt;</description>
     </item>
     
   </channel>
