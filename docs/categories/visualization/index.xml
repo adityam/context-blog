@@ -6,10 +6,24 @@
     <description>Recent content in visualization on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2019 12:07:55 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2020 23:11:06 -0400</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/categories/visualization/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Full page images</title>
+      <link>https://adityam.github.io/context-blog/post/full-page-images/</link>
+      <pubDate>Wed, 24 Jun 2020 23:11:06 -0400</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/full-page-images/</guid>
+      <description>&lt;p&gt;Henri Menke recently answered a &lt;a href=&#34;https://tex.stackexchange.com/a/550852/323&#34;&gt;question on TeX.SE&lt;/a&gt;, which reminded
+me of a trick that I use in my presentations. In my presentations, sometimes I
+include just an image that occupies the whole slide. So, the image should have
+a maximum width equal to &lt;code&gt;\textwidth&lt;/code&gt;, a maximum height equal to
+&lt;code&gt;\textheight&lt;/code&gt;, and should maintain the original aspect ratio. How to achieve
+this?&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Frame With Solid Left Line Redux</title>

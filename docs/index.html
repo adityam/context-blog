@@ -40,6 +40,16 @@
             
             
             
+            <li><a href="/context-blog/post/spacing-in-itemize/">Spacing in itemize</a></li>
+            
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/full-page-images/">Full page images</a></li>
+            
             
             
             
@@ -56,16 +66,6 @@
             <li><a href="/context-blog/post/presentation-40-commits-redux/">Clean presentation style (redux)</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/vim-vs-neovim/">Vim vs Neovim</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -77,6 +77,70 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/spacing-in-itemize/">Adjust spacing in itemize environments</a></h1>
+        <p class="post-time">25 July, 2020
+        (2 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/formatting">
+          Formatting</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/itemize">itemize</a>,
+        <a href="https://adityam.github.io/context-blog/tags/spacing">spacing</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>Today I was working on a LaTeX doc and needed to adjust spacing around the
+LaTeX itemize environment. I wanted a list of item with no space before the
+list environment and the list of items, no space between the items, but space
+after the environment. The <a href="https://www.texfaq.org/FAQ-complist">TeX FAQ</a> has a summary of how to adapt
+spacing around itemize environment in LaTeX. Reading that made me appreciate
+the control provided by ConTeXt. So, I thought that it is worthwhile to show
+that.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/spacing-in-itemize/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/full-page-images/">Full page images</a></h1>
+        <p class="post-time">24 June, 2020
+        (1 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/visualization">
+          Visualization</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/externalfigures">externalfigures</a>,
+        <a href="https://adityam.github.io/context-blog/tags/full-page">full page</a>,
+        <a href="https://adityam.github.io/context-blog/tags/placekitten">placekitten</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>Henri Menke recently answered a <a href="https://tex.stackexchange.com/a/550852/323">question on TeX.SE</a>, which reminded
+me of a trick that I use in my presentations. In my presentations, sometimes I
+include just an image that occupies the whole slide. So, the image should have
+a maximum width equal to <code>\textwidth</code>, a maximum height equal to
+<code>\textheight</code>, and should maintain the original aspect ratio. How to achieve
+this?</p></p>
+            <a class="btn btn-default" href="/context-blog/post/full-page-images/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -316,91 +380,6 @@ each term. Since I typeset my exams in ConTeXt, I decided to translate this
 cover page template to ConTeXt as well. In this post, I&rsquo;ll explain how I went
 about doing this translation.</p></p>
             <a class="btn btn-default" href="/context-blog/post/exam-coverpage/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/setuptex/">Seamlessly switching between different context versions</a></h1>
-        <p class="post-time">11 April, 2019
-        (3 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/installation">
-          Installation</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/setuptex">setuptex</a>,
-        <a href="https://adityam.github.io/context-blog/tags/context-standalone">context standalone</a>,
-        <a href="https://adityam.github.io/context-blog/tags/luametatex">luametatex</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>Recently, Hans
-<a href="https://www.mail-archive.com/ntg-context@ntg.nl/msg90783.html">announced</a> the
-prerelease of a new version of ConTeXt called LuaMetapostTeX or LMTX for short.
-LMTX is supposed to a streamlined and stripped down version of LuaTeX where
-most of the backend code for writing PDF and images has been removed from the
-engine and is handled by macro package using Lua code. Some of the rationale
-for the change in discussed <a href="https://www.mail-archive.com/ntg-context@ntg.nl/msg90917.html">in this
-post</a> and more
-details including the source code and documentation will be available when
-LMTX will be formally released in this year&rsquo;s ConTeXt meeting. Currently just
-the binary is available for testing from <a href="http://www.pragma-ade.nl/install.htm">Pragma Ade&rsquo;s
-website</a>. There is no change in
-user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
-LMTX without making any change in the tex file.</p>
-
-<p>In my tests so far, I could compile all my documents using LMTX without any
-noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
-some critical projects like typesetting material for courses that I teach.
-In this post, I&rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in
-parallel.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/setuptex/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/frame-with-solid-left-line-redux/">Frame With Solid Left Line Redux</a></h1>
-        <p class="post-time">24 March, 2019
-        (2 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/visualization">
-          Visualization</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/backgrounds">backgrounds</a>,
-        <a href="https://adityam.github.io/context-blog/tags/framed">framed</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>As I had <a href="../frame-with-solid-left-line">posted earlier</a>, I like the visual
-effect of placing a solid line on the left side of a block:</p>
-
-<img class="center"
-  alt="Simple example"
-  src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
-
-
-<p>I use this for displaying short code snippets in the lecture notes of a course
-that I teach. Typically these are a few lines of Matlab code but recently I
-needed to post a bigger code snippet where the frame should break across the
-page. In principle, this should have been a simple change—replace the <code>framed</code>
-with a <code>textbackground</code>—but that did not work out of the box. This blog post
-explains a simple solution.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/frame-with-solid-left-line-redux/" id="read-more-button">
                 Read more >
             </a>
         </div>
