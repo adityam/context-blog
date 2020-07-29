@@ -27,20 +27,6 @@ that.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Full page images</title>
-      <link>https://adityam.github.io/context-blog/post/full-page-images/</link>
-      <pubDate>Wed, 24 Jun 2020 23:11:06 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/full-page-images/</guid>
-      <description>&lt;p&gt;Henri Menke recently answered a &lt;a href=&#34;https://tex.stackexchange.com/a/550852/323&#34;&gt;question on TeX.SE&lt;/a&gt;, which reminded
-me of a trick that I use in my presentations. In my presentations, sometimes I
-include just an image that occupies the whole slide. So, the image should have
-a maximum width equal to &lt;code&gt;\textwidth&lt;/code&gt;, a maximum height equal to
-&lt;code&gt;\textheight&lt;/code&gt;, and should maintain the original aspect ratio. How to achieve
-this?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Finding the meaning of a command</title>
       <link>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</link>
       <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
@@ -141,6 +127,34 @@ for exams, shown below. They circulate a Word template at the beginning of
 each term. Since I typeset my exams in ConTeXt, I decided to translate this
 cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went
 about doing this translation.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Seamlessly switching between different context versions</title>
+      <link>https://adityam.github.io/context-blog/post/setuptex/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/setuptex/</guid>
+      <description>&lt;p&gt;Recently, Hans
+&lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90783.html&#34;&gt;announced&lt;/a&gt; the
+prerelease of a new version of ConTeXt called LuaMetapostTeX or LMTX for short.
+LMTX is supposed to a streamlined and stripped down version of LuaTeX where
+most of the backend code for writing PDF and images has been removed from the
+engine and is handled by macro package using Lua code. Some of the rationale
+for the change in discussed &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90917.html&#34;&gt;in this
+post&lt;/a&gt; and more
+details including the source code and documentation will be available when
+LMTX will be formally released in this year&amp;rsquo;s ConTeXt meeting. Currently just
+the binary is available for testing from &lt;a href=&#34;http://www.pragma-ade.nl/install.htm&#34;&gt;Pragma Ade&amp;rsquo;s
+website&lt;/a&gt;. There is no change in
+user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
+LMTX without making any change in the tex file.&lt;/p&gt;
+
+&lt;p&gt;In my tests so far, I could compile all my documents using LMTX without any
+noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
+some critical projects like typesetting material for courses that I teach.
+In this post, I&amp;rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in
+parallel.&lt;/p&gt;</description>
     </item>
     
   </channel>
