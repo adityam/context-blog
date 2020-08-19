@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>A Blog about ConTeXt </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+  <script type="module" defer
+    src="//instant.page/3.0.0"
+    integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1">
+  </script>
+
+  <script data-goatcounter="https://adityam.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">A Blog about ConTeXt</a></span><br />
+      
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/include-multi-page-pdf/">Include multi-page PDF</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/spacing-in-itemize/">Spacing in itemize</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/presentation-40-commits-redux/">Clean presentation style (redux)</a></li>
+            
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Include multi-page PDF</h1>
+<p class="post-time">Posted on August 19, 2020</p>
+
+<p>As an academic, I often have to write letters and grant applications where I
+need to need to prepare a single PDF which includes the letter or the grant
+application with one of more research papers &ldquo;attached&rdquo; at the end. In
+principle, I could generate the letter/grant separately and use a tool such as
+<code>qpdf</code> to merge multiple files into a single file. But I find it much easier
+to generate everything from a single tex file.</p>
+
+<p>To do so, I need a macro to include all the pages of the PDF.
+ConTeXt provide two commands to include multipage external PDFs:</p>
+
+<ul>
+<li><a href="https://wiki.contextgarden.net/Command/filterpages"><code>\filterpages</code></a></li>
+<li><a href="https://wiki.contextgarden.net/Command/insertpages"><code>\insertpages</code></a></li>
+<li><a href="https://wiki.contextgarden.net/Command/copypages"><code>\copypages</code></a></li>
+</ul>
+
+<p>but none of them really fit my needs. First, they place the content as a layer
+on the current page (so the headers and footer of the current document are
+still shown). Second, I need to know the number of pages in the PDF. In
+principle, I could circumvent these limitation, but in the end it was much
+simpler to just define a new macro <code>\includePDF</code> which simply includes all the
+pages of the PDF:</p>
+
+<pre><code><span class="Identifier">\startluacode</span>
+  includePDF = <span class="Function">function</span>(file)
+  <span class="Statement">local</span> document = lpdf.epdf.<span class="Identifier">load</span>(file)
+  <span class="Statement">local</span> pages = #document.pages
+    <span class="Repeat">for</span> i=1,pages <span class="Statement">do</span>
+      context.startTEXpage()
+      context.externalfigure(<span class="Structure">{</span>file<span class="Structure">}</span>, <span class="Structure">{</span>page=i<span class="Structure">}</span>)
+      context.incrementcounter<span class="Structure">{</span><span class="String">&quot;userpage&quot;</span><span class="Structure">}</span>
+      context.stopTEXpage()
+    <span class="Statement">end</span>
+  <span class="Function">end</span>
+
+
+  interfaces.definecommand <span class="Structure">{</span>
+      name      = <span class="String">&quot;includePDF&quot;</span>,
+      arguments = <span class="Structure">{</span> <span class="String">&quot;string&quot;</span> <span class="Structure">}</span>,
+      macro     = includePDF,
+  <span class="Structure">}</span>
+<span class="Identifier">\stopluacode</span>
+</code></pre>
+
+<p>The code is almost self explanatory. We load the PDF file with the specified
+name, check how many pages it has, and then manually include it page-by-page.</p>
+
+<p>Now I can include a multipage PDF using:</p>
+
+<pre><code><span class="Statement">\includePDF</span><span class="Delimiter">{</span>filename<span class="Delimiter">}</span>
+</code></pre>
+
+<p>That was simple!</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/spacing-in-itemize/">&nbsp;&lt;Spacing in itemize</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/luatex">
+  Luatex</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/externalfigure">externalfigure</a>,
+<a href="https://adityam.github.io/context-blog/tags/include">include</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

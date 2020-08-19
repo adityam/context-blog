@@ -6,10 +6,24 @@
     <description>Recent content on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Include multi-page PDF</title>
+      <link>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</link>
+      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</guid>
+      <description>&lt;p&gt;As an academic, I often have to write letters and grant applications where I
+need to need to prepare a single PDF which includes the letter or the grant
+application with one of more research papers &amp;ldquo;attached&amp;rdquo; at the end. In
+principle, I could generate the letter/grant separately and use a tool such as
+&lt;code&gt;qpdf&lt;/code&gt; to merge multiple files into a single file. But I find it much easier
+to generate everything from a single tex file.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Adjust spacing in itemize environments</title>
@@ -127,34 +141,6 @@ for exams, shown below. They circulate a Word template at the beginning of
 each term. Since I typeset my exams in ConTeXt, I decided to translate this
 cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went
 about doing this translation.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Seamlessly switching between different context versions</title>
-      <link>https://adityam.github.io/context-blog/post/setuptex/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/setuptex/</guid>
-      <description>&lt;p&gt;Recently, Hans
-&lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90783.html&#34;&gt;announced&lt;/a&gt; the
-prerelease of a new version of ConTeXt called LuaMetapostTeX or LMTX for short.
-LMTX is supposed to a streamlined and stripped down version of LuaTeX where
-most of the backend code for writing PDF and images has been removed from the
-engine and is handled by macro package using Lua code. Some of the rationale
-for the change in discussed &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90917.html&#34;&gt;in this
-post&lt;/a&gt; and more
-details including the source code and documentation will be available when
-LMTX will be formally released in this year&amp;rsquo;s ConTeXt meeting. Currently just
-the binary is available for testing from &lt;a href=&#34;http://www.pragma-ade.nl/install.htm&#34;&gt;Pragma Ade&amp;rsquo;s
-website&lt;/a&gt;. There is no change in
-user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
-LMTX without making any change in the tex file.&lt;/p&gt;
-
-&lt;p&gt;In my tests so far, I could compile all my documents using LMTX without any
-noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
-some critical projects like typesetting material for courses that I teach.
-In this post, I&amp;rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in
-parallel.&lt;/p&gt;</description>
     </item>
     
   </channel>

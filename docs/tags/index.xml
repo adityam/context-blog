@@ -6,10 +6,28 @@
     <description>Recent content in Tags on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>externalfigure</title>
+      <link>https://adityam.github.io/context-blog/tags/externalfigure/</link>
+      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/externalfigure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>include</title>
+      <link>https://adityam.github.io/context-blog/tags/include/</link>
+      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/include/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>itemize</title>
@@ -80,24 +98,6 @@
       <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/presentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorial</title>
-      <link>https://adityam.github.io/context-blog/tags/tutorial/</link>
-      <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>efficiency</title>
-      <link>https://adityam.github.io/context-blog/tags/efficiency/</link>
-      <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/efficiency/</guid>
       <description></description>
     </item>
     
