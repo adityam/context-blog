@@ -71,4 +71,16 @@ Now I can include a multipage PDF using:
 
 That was simple!
 
+Henri Menke explained in the comment below that the same macro could have been
+written at the TeX end as well: 
 
+<pre><code><span class="Statement">\unexpanded\def\includePDF</span><span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Statement">\dosingleempty\doincludePDF</span><span class="Delimiter">}</span>
+
+<span class="Statement">\def\doincludePDF</span><span class="Delimiter">[</span>#1<span class="Delimiter">]</span><span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Statement">\getfiguredimensions</span><span class="Delimiter">[</span>talk.pdf<span class="Delimiter">]</span>
+     <span class="Statement">\dorecurse</span><span class="Delimiter">{</span><span class="Statement">\noffigurepages</span><span class="Delimiter">}</span>
+        <span class="Delimiter">{</span><span class="Statement">\startTEXpage</span>
+            <span class="Statement">\externalfigure</span><span class="Delimiter">[</span>talk.pdf<span class="Delimiter">][</span>page=<span class="Statement">\recurselevel</span><span class="Delimiter">]</span>
+         <span class="Statement">\stopTEXpage</span><span class="Delimiter">}}</span>
+</code></pre>
