@@ -53,7 +53,7 @@ pages of the PDF:
 <span class="Identifier">\stopluacode</span>
 
 <span class="Character">\unprotect</span>
-<span class="Character">\def</span><span class="Statement">\includePDF</span><span class="Comment">%</span>
+<span class="Character">\unexpanded\def</span><span class="Statement">\includePDF</span><span class="Comment">%</span>
     <span class="Delimiter">{</span><span class="Statement">\dosingleempty\include_PDF</span><span class="Delimiter">}</span>
 
 <span class="Character">\def</span><span class="Statement">\include_PDF</span><span class="Delimiter">[</span>#1<span class="Delimiter">]</span><span class="Comment">%</span>
