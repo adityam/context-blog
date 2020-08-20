@@ -33,6 +33,7 @@ pages of the PDF:
 
 <pre><code><span class="Identifier">\startluacode</span>
   includePDF = <span class="Function">function</span>(file)
+  <span class="Identifier">print</span>(<span class="String">&quot;&gt;&gt;&gt;&quot;</span>, file)
   <span class="Statement">local</span> document = lpdf.epdf.<span class="Identifier">load</span>(file)
   <span class="Statement">local</span> pages = #document.pages
     <span class="Repeat">for</span> i=1,pages <span class="Statement">do</span>
@@ -44,12 +45,20 @@ pages of the PDF:
   <span class="Function">end</span>
 
 
-  interfaces.definecommand <span class="Structure">{</span>
+  interfaces.implement <span class="Structure">{</span>
       name      = <span class="String">&quot;includePDF&quot;</span>,
       arguments = <span class="Structure">{</span> <span class="String">&quot;string&quot;</span> <span class="Structure">}</span>,
-      macro     = includePDF,
+      actions   = includePDF,
   <span class="Structure">}</span>
 <span class="Identifier">\stopluacode</span>
+
+<span class="Character">\unprotect</span>
+<span class="Character">\def</span><span class="Statement">\includePDF</span><span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Statement">\dosingleempty\include_PDF</span><span class="Delimiter">}</span>
+
+<span class="Character">\def</span><span class="Statement">\include_PDF</span><span class="Delimiter">[</span>#1<span class="Delimiter">]</span><span class="Comment">%</span>
+    <span class="Delimiter">{</span><span class="Statement">\clf_includePDF</span><span class="Delimiter">{</span>#1<span class="Delimiter">}}</span>
+<span class="Character">\protect</span>
 </code></pre>
 
 The code is almost self explanatory. We load the PDF file with the specified
@@ -57,7 +66,7 @@ name, check how many pages it has, and then manually include it page-by-page.
 
 Now I can include a multipage PDF using:
 
-<pre><code><span class="Statement">\includePDF</span><span class="Delimiter">{</span>filename<span class="Delimiter">}</span>
+<pre><code><span class="Statement">\includePDF</span><span class="Delimiter">[</span>filename<span class="Delimiter">]</span>
 </code></pre>
 
 That was simple!
