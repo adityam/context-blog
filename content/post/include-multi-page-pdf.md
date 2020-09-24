@@ -18,7 +18,7 @@ to generate everything from a single tex file.
 <!--more-->
 
 To do so, I need a macro to include all the pages of the PDF. 
-ConTeXt provide two commands to include multipage external PDFs:
+ConTeXt provides three commands to include multipage external PDFs:
 
  * [`\filterpages`](https://wiki.contextgarden.net/Command/filterpages)
  * [`\insertpages`](https://wiki.contextgarden.net/Command/insertpages)
