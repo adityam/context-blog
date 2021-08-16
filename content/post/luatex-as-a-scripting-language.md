@@ -90,11 +90,11 @@ variables.title = data[<span class="Number">1</span>]
 <span class="Statement">local</span> num_authors = <span class="Number">0</span>
 <span class="Repeat">for</span> i=<span class="Number">1</span>,<span class="Number">5</span> <span class="Statement">do</span>
   <span class="Conditional">if</span> data[<span class="Number">2</span>*i] == <span class="String">&quot;&quot;</span> <span class="Conditional">then</span>
-<span class="Statement">break</span>
+<span class="Statement">      break</span>
   <span class="Conditional">else</span>
-num_authors = num_authors + <span class="Number">1</span>
-author[i]  = data[<span class="Number">2</span>*i]
-student[i] = data[<span class="Number">2</span>*i+<span class="Number">1</span>]
+      num_authors = num_authors + <span class="Number">1</span>
+      author[i]  = data[<span class="Number">2</span>*i]
+      student[i] = data[<span class="Number">2</span>*i+<span class="Number">1</span>]
   <span class="Conditional">end</span>
 <span class="Statement">end</span>
 
