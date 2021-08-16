@@ -6,10 +6,23 @@
     <description>Recent content on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LuaTeX as a scripting language</title>
+      <link>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</guid>
+      <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to
+quickly hash out an idea which involved some text processing.&lt;/p&gt;
+
+&lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
+file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and
+then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this
+project, I chose XML as a data format for two reasons. First, XML scema can be
+&lt;a href=&#34;https://en.wikipedia.org/wiki/XML_validation&#34;&gt;validated&lt;/a&gt; using a Schema. Second, I thought that since XML is so popular,
+there must be good tools for authoring XML documents.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Include multi-page PDF</title>
@@ -128,19 +141,6 @@ explain the issue and how I solve it.&lt;/p&gt;</description>
       <description>&lt;p&gt;Recently, Hans &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html&#34;&gt;announced&lt;/a&gt; a new key-value driven interface for MetaFun and
 posted a &lt;a href=&#34;http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf&#34;&gt;MyWay document&lt;/a&gt; illustrating its use. In this post, I am going to
 present an example of how to use this interface.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Designing cover page for an exam</title>
-      <link>https://adityam.github.io/context-blog/post/exam-coverpage/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/exam-coverpage/</guid>
-      <description>&lt;p&gt;Our university has a specific style that courses need to use as a cover page
-for exams, shown below. They circulate a Word template at the beginning of
-each term. Since I typeset my exams in ConTeXt, I decided to translate this
-cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went
-about doing this translation.&lt;/p&gt;</description>
     </item>
     
   </channel>

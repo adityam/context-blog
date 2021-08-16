@@ -6,11 +6,7 @@
     <description>Recent content in julia on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/tags/julia/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/julia/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Interfacing LuaTeX with Julia</title>
       <link>https://adityam.github.io/context-blog/post/interfacing-with-julia/</link>

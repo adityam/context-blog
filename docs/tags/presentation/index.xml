@@ -6,11 +6,7 @@
     <description>Recent content in presentation on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 May 2020 02:30:00 -0400</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/tags/presentation/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 14 May 2020 02:30:00 -0400</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/presentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a clean presentation style in 40 commits (redux)</title>
       <link>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</link>

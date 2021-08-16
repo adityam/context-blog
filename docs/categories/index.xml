@@ -6,10 +6,15 @@
     <description>Recent content in Categories on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLI</title>
+      <link>https://adityam.github.io/context-blog/categories/cli/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/categories/cli/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>luatex</title>
@@ -26,15 +31,6 @@
       <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CLI</title>
-      <link>https://adityam.github.io/context-blog/categories/cli/</link>
-      <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/cli/</guid>
       <description></description>
     </item>
     

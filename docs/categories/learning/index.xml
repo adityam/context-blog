@@ -6,11 +6,7 @@
     <description>Recent content in learning on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Sep 2011 20:06:31 -0700</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/categories/learning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 04 Sep 2011 20:06:31 -0700</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Some thoughts on lowering the learning curve for using TeX</title>
       <link>https://adityam.github.io/context-blog/post/lower-learning-curve/</link>

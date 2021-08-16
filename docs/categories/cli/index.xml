@@ -6,10 +6,23 @@
     <description>Recent content in CLI on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2020 23:44:38 -0400</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/categories/cli/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LuaTeX as a scripting language</title>
+      <link>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</guid>
+      <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to
+quickly hash out an idea which involved some text processing.&lt;/p&gt;
+
+&lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
+file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and
+then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this
+project, I chose XML as a data format for two reasons. First, XML scema can be
+&lt;a href=&#34;https://en.wikipedia.org/wiki/XML_validation&#34;&gt;validated&lt;/a&gt; using a Schema. Second, I thought that since XML is so popular,
+there must be good tools for authoring XML documents.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Finding the meaning of a command</title>

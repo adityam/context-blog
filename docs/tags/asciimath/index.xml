@@ -6,11 +6,7 @@
     <description>Recent content in asciimath on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/tags/asciimath/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/asciimath/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Comibined characters in Math</title>
       <link>https://adityam.github.io/context-blog/post/math-combined-characters/</link>

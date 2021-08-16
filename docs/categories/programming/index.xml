@@ -6,11 +6,7 @@
     <description>Recent content in programming on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Mar 2009 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/categories/programming/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 05 Mar 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TeX Programming: The past, the present, and the future</title>
       <link>https://adityam.github.io/context-blog/post/tex-programming/</link>

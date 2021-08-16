@@ -6,11 +6,7 @@
     <description>Recent content in externalizing graphics on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/tags/externalizing-graphics/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 08 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/externalizing-graphics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Externalizing Metapost graphics</title>
       <link>https://adityam.github.io/context-blog/post/externalizing-metapost/</link>

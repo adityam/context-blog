@@ -6,11 +6,7 @@
     <description>Recent content in efficiency on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2020 17:12:21 -0400</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 29 Apr 2020 17:12:21 -0400</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>t-vim: A tale of two editors</title>
       <link>https://adityam.github.io/context-blog/post/vim-vs-neovim/</link>

@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.74.3" />
+	<meta name="generator" content="Hugo 0.85.0" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,6 +43,11 @@
             
             
             
+            <li><a href="/context-blog/post/luatex-as-a-scripting-language/">LuaTeX as a scripting language</a></li>
+            
+            
+            
+            
             <li><a href="/context-blog/post/include-multi-page-pdf/">Include multi-page PDF</a></li>
             
             
@@ -61,11 +66,6 @@
             <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/presentation-40-commits-redux/">Clean presentation style (redux)</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -77,6 +77,42 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/luatex-as-a-scripting-language/">LuaTeX as a scripting language</a></h1>
+        <p class="post-time">16 August, 2021
+        (5 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/cli">
+          CLI</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/script">script</a>,
+        <a href="https://adityam.github.io/context-blog/tags/mtxrun">mtxrun</a>,
+        <a href="https://adityam.github.io/context-blog/tags/yad">yad</a>,
+        <a href="https://adityam.github.io/context-blog/tags/programming">programming</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>This post is not really about ConTeXt but about how I could use ConTeXt to
+quickly hash out an idea which involved some text processing.</p>
+
+<p>One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
+file using ConTeXt&rsquo;s XML helper&rsquo;s and convert the data to a Lua table, and
+then typeset it using <a href="https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf">ConTeXt Lua Documents</a>. When starting with this
+project, I chose XML as a data format for two reasons. First, XML scema can be
+<a href="https://en.wikipedia.org/wiki/XML_validation">validated</a> using a Schema. Second, I thought that since XML is so popular,
+there must be good tools for authoring XML documents.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/luatex-as-a-scripting-language/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -345,40 +381,6 @@ explain the issue and how I solve it.</p></p>
 posted a <a href="http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf">MyWay document</a> illustrating its use. In this post, I am going to
 present an example of how to use this interface.</p></p>
             <a class="btn btn-default" href="/context-blog/post/new-metafun-interface/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/exam-coverpage/">Designing cover page for an exam</a></h1>
-        <p class="post-time">15 April, 2019
-        (5 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/design">
-          Design</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/tables">tables</a>,
-        <a href="https://adityam.github.io/context-blog/tags/forms">forms</a>,
-        <a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
-        <a href="https://adityam.github.io/context-blog/tags/fontawesome">fontawesome</a>,
-        <a href="https://adityam.github.io/context-blog/tags/coverpage">coverpage</a>,
-        <a href="https://adityam.github.io/context-blog/tags/tutorial">tutorial</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>Our university has a specific style that courses need to use as a cover page
-for exams, shown below. They circulate a Word template at the beginning of
-each term. Since I typeset my exams in ConTeXt, I decided to translate this
-cover page template to ConTeXt as well. In this post, I&rsquo;ll explain how I went
-about doing this translation.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/exam-coverpage/" id="read-more-button">
                 Read more >
             </a>
         </div>

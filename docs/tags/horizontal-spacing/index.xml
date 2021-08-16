@@ -6,11 +6,7 @@
     <description>Recent content in horizontal spacing on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jul 2017 21:53:37 -0400</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/tags/horizontal-spacing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 22 Jul 2017 21:53:37 -0400</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/horizontal-spacing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Correct math escape in t-vim</title>
       <link>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</link>

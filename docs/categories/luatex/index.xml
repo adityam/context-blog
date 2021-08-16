@@ -6,11 +6,7 @@
     <description>Recent content in luatex on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adityam.github.io/context-blog/categories/luatex/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/luatex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Include multi-page PDF</title>
       <link>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</link>
