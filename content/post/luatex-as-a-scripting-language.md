@@ -188,6 +188,6 @@ appropriate location. This was a fun weekend project!
 [jing]: https://relaxng.org/jclark/jing.html
 [neovim]: https://neovim.io
 [xmledit]: http://github.com/sukima/xmledit/
-[YAD]: https://sourceforge.net/projects/yad-dialog/
+[YAD]: https://github.com/v1cont/yad
 [examples]: http://smokey01.com/yad/
 
