@@ -163,23 +163,21 @@ generate the following snippet:
 For the record, the complete code was:
 
 <pre><code><span class="Identifier">data</span>=<span class="PreProc">$(</span><span class="Special">yad ...</span><span class="PreProc">)</span>
-<span class="PreProc">$MTXRUN</span> <span class="Special">--script</span> <span class="PreProc">$SCRIPT</span> <span class="Special">--data</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="PreProc">$data</span><span class="Operator">&quot;</span> \
-        <span class="Operator">|</span> xclip <span class="Special">-selection</span> clipboard
+<span class="PreProc">$MTXRUN</span> <span class="Special">--script</span> <span class="PreProc">$SCRIPT</span> <span class="Special">--data</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="PreProc">$data</span><span class="Operator">&quot;</span> 
 </code></pre>
 
 
 where `$MTXRUN` is the location of the `mtxrun` binary and `$SCRIPT` is the
-location of my lua script. I pass the result to `xclip` to store it in the
-clipboard, so that I can simply paste it in my editor. To complete the circle,
+location of my lua script. To complete the circle,
 I defined the following function in the local `.vimrc` file my project
 directory:
 
-<pre><code><span class="Statement">command</span><span class="Operator">!</span> AddPub <span class="Operator">!</span>$HOME/bin/<span class="Function">add</span><span class="Operator">-</span>publication
+<pre><code><span class="Statement">command</span><span class="Operator">!</span> AddPub <span class="Function">read</span> <span class="Operator">!</span>$HOME/bin/add-publication
 </code></pre>
 
 So, I can just run `:AddPub` in vim to call the GUI and after I fill in all
-the values, the formatted entry is in the clipboard which I can paste at
-appropriate location. This was a fun weekend project!
+the values, the formatted entry is inserted  at
+the current location. This was a fun weekend project!
 
 
 
