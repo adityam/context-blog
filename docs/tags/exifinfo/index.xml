@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>exitinfo on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/exitinfo/</link>
-    <description>Recent content in exitinfo on A Blog about ConTeXt</description>
+    <title>exifinfo on A Blog about ConTeXt</title>
+    <link>https://adityam.github.io/context-blog/tags/exifinfo/</link>
+    <description>Recent content in exifinfo on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/exitinfo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/exifinfo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stripping metadata from PDF files</title>
       <link>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</link>
