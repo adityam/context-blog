@@ -3,13 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://adityam.github.io/context-blog/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://adityam.github.io/context-blog/categories/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://adityam.github.io/context-blog/categories/cli/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/tags/exitinfo/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/tags/metadata/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/tags/pdf/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/post/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/tags/qpdf/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://adityam.github.io/context-blog/tags/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
@@ -17,16 +38,10 @@
     <loc>https://adityam.github.io/context-blog/tags/mtxrun/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://adityam.github.io/context-blog/post/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://adityam.github.io/context-blog/tags/programming/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://adityam.github.io/context-blog/tags/script/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://adityam.github.io/context-blog/tags/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://adityam.github.io/context-blog/tags/yad/</loc>

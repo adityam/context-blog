@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.85.0" />
+	<meta name="generator" content="Hugo 0.88.1" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,6 +40,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -61,11 +66,6 @@
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -77,6 +77,49 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/using-fontawesome/">Using Font Awesome</a></h1>
+        <p class="post-time">26 November, 2017
+        (2 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/fonts">
+          Fonts</a>,
+        <a href="https://adityam.github.io/context-blog/categories/macros">
+          Macros</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/font-awesome">font awesome</a>,
+        <a href="https://adityam.github.io/context-blog/tags/symbols">symbols</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p><a href="http://fontawesome.io/icons/">Font Awesome</a> is a font that provides pictographic icons and is commonly used
+to display icons for email, editing tasks, popular social media website, etc.
+It is easy to use Font Awesome in ConTeXt: the font ships with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt
+Standalone</a> and ConTeXt includes a <code>symbolset</code> to easily access the icons
+using names rather than icon numbers.</p>
+
+<p>To use FontAwesome icons in ConTeXt, simply load the symbolset <code>fontawesome</code>
+using</p>
+
+<pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span></code></pre>
+
+<p>and then any icon is accessible using</p>
+
+<pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span></code></pre>
+
+<p>where <code>...</code> is the name of the icon is listed in <a href="http://fontawesome.io/icons/">the Font Awesome icon list</a>.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/using-fontawesome/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -432,37 +475,6 @@ Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialCha
 
 <p>(Seriously, how can anyone <strong>recommend</strong> writing TeX code like that!)</p></p>
             <a class="btn btn-default" href="/context-blog/post/formatting-tables/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/removing-blank-lines-t-vim/">Removing multiple blank lines when typesetting code listings</a></h1>
-        <p class="post-time">29 September, 2012
-        (2 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/t-vim">
-          T-Vim</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>,
-        <a href="https://adityam.github.io/context-blog/tags/blank-lines">blank lines</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>The <code>listings</code> package in LaTeX has an option to collapse multiple empty lines
-into a single empty line when typesetting code lists. Today, there was a
-question on <a href="https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted">TeX.SE</a> how to do something similar when using the <code>minted</code>
-package. The <code>t-vim</code> module uses the same principle as the <code>minted</code> package.
-So, I wondered how one could collapse multiple empty lines into a single
-line in <code>t-vim</code>?</p></p>
-            <a class="btn btn-default" href="/context-blog/post/removing-blank-lines-t-vim/" id="read-more-button">
                 Read more >
             </a>
         </div>

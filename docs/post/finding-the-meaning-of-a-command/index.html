@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -88,15 +88,15 @@ you then have to hunt for the output of <code>\show</code> in the console output
 
 <p>ConTeXt comes with a nice script to simply get the meaning of a macro on
 console.</p>
-<pre><code>$ mtxrun --script interface --meaning &lt;macroname&gt;</code></pre>
+<pre tabindex="0"><code>$ mtxrun --script interface --meaning &lt;macroname&gt;</code></pre>
 <p>For example:</p>
-<pre><code>$ mtxrun --script interface --meaning dotfill
+<pre tabindex="0"><code>$ mtxrun --script interface --meaning dotfill
 
 meaning         &gt; dotfill
 
 protected macro:-&gt;\cleaders \hbox {\normalstartimath \mathsurround \zeropoint \mkern 1.5mu.\mkern 1.5mu\normalstopimath }\hfill </code></pre>
 <p>Behind the scenes this runs</p>
-<pre><code>mtxrun --silent --script context --extra=meaning --once --noconsole --nostatistics &lt;macroname&gt;</code></pre>
+<pre tabindex="0"><code>mtxrun --silent --script context --extra=meaning --once --noconsole --nostatistics &lt;macroname&gt;</code></pre>
 <p>A side effect of this is that a file <code>context-extra.pdf</code> is generated in the
 current directory. I usually run this command in <code>/tmp</code>. so I don&rsquo;t mind the
 extra file.</p>

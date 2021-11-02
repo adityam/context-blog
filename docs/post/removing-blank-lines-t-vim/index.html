@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -92,7 +92,7 @@ one can specify the <em>flavor</em> using keywords set in the <code>.vimrc</code
 
 <p>One can use this feature to pre-process the file using <code>vim</code> macros. The
 following regular expression collapses multiple lines to a single line:</p>
-<pre><code>%s/\(^\s*\n\)\{2,\}/\r/ge | w</code></pre>
+<pre tabindex="0"><code>%s/\(^\s*\n\)\{2,\}/\r/ge | w</code></pre>
 <p>So, we want this regular expression to be run when the file is loaded. The
 <code>t-vim</code> module writes the file with extension <code>.tmp</code>, so the following
 snippet works:</p>

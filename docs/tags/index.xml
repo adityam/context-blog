@@ -6,7 +6,43 @@
     <description>Recent content in Tags on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>exitinfo</title>
+      <link>https://adityam.github.io/context-blog/tags/exitinfo/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/exitinfo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metadata</title>
+      <link>https://adityam.github.io/context-blog/tags/metadata/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/metadata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf</title>
+      <link>https://adityam.github.io/context-blog/tags/pdf/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qpdf</title>
+      <link>https://adityam.github.io/context-blog/tags/qpdf/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/qpdf/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>mtxrun</title>
       <link>https://adityam.github.io/context-blog/tags/mtxrun/</link>
@@ -58,42 +94,6 @@
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/include/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>itemize</title>
-      <link>https://adityam.github.io/context-blog/tags/itemize/</link>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/itemize/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spacing</title>
-      <link>https://adityam.github.io/context-blog/tags/spacing/</link>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/spacing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>\show</title>
-      <link>https://adityam.github.io/context-blog/tags/%5Cshow/</link>
-      <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/%5Cshow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://adityam.github.io/context-blog/tags/linux/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/linux/</guid>
       <description></description>
     </item>
     

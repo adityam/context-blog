@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -104,7 +104,7 @@ without struggling with navigating git. I will try to update this post whenever 
 </ul>
 
 <p>The first step is to test that everything works. So, we start with skeleton code in both files. Compile the <code>example.tex</code> using:</p>
-<pre><code>context example</code></pre>
+<pre tabindex="0"><code>context example</code></pre>
 <p>This will create the following files</p>
 
 <ul>
@@ -123,12 +123,12 @@ tutorial is to illustrate how to create your own presentation style, I prefer
 an environment file over a module.</p>
 
 <p><code>slides.tex</code>:</p>
-<pre><code>\startenvironment *
+<pre tabindex="0"><code>\startenvironment *
 
 
 \stopenvironment</code></pre>
 <p><code>example.tex</code>:</p>
-<pre><code>\environment slides
+<pre tabindex="0"><code>\environment slides
 
 \starttext
 
@@ -158,7 +158,7 @@ papersize that is 400pt x 300pt.</p>
 </ul>
 
 <p>for details on <code>\setuppapersize</code>.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 72f97e3..db0a372 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -196,7 +196,7 @@ text area and the margins. Read</p>
 </ul>
 
 <p>for details on the <code>\showframe</code> command.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 8511590..2909873 100644
 --- a/example.tex
 +++ b/example.tex
@@ -227,7 +227,7 @@ index 8511590..2909873 100644
 </ul>
 
 <p>for more details on the layout.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index db0a372..ba6f590 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -260,7 +260,7 @@ index db0a372..ba6f590 100644
 
 <p>Disable headers, but keep some small space for footers (to show page number
 etc. in a smaller font size).</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index ba6f590..53e4755 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -293,7 +293,7 @@ index ba6f590..53e4755 100644
 <h2 id="step-6-remove-layout-visualization">Step 6: Remove layout visualization</h2>
 
 <p>Now that the margins are set, remove layout visualization.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 2909873..8511590 100644
 --- a/example.tex
 +++ b/example.tex
@@ -326,7 +326,7 @@ ConTeXt makes it easy to change the font setup. I use:</p>
 
 <p>Dejavu Sana Mono is much taller than Fontin, so I scale it down to 85%
 so that the two fonts have similar height.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 8511590..3b4ca21 100644
 --- a/example.tex
 +++ b/example.tex
@@ -371,7 +371,7 @@ for these missing characters.</p>
 
 <p>A discussion on composed characters is out of the scope of this example. Just
 think of this as a workaround for an incomplete font.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index c82f33e..7a32fcf 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -399,7 +399,7 @@ index c82f33e..7a32fcf 100644
 ligatures are enabled for monotype fonts. I think that this does more harm than
 good (e.g., <code>\type{--enable}</code> will typeset as &ldquo;–enable&rdquo;). So, I disable <strong>all</strong>
 font features for monotype fonts.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 3b4ca21..da1c414 100644
 --- a/example.tex
 +++ b/example.tex
@@ -441,7 +441,7 @@ index 7a32fcf..e976713 100644
 </ul>
 
 <p>for details.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index e976713..10829fd 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -474,7 +474,7 @@ index e976713..10829fd 100644
 
 <p>This is again a personal preference. I think that a large inter-paragraph
 spacing looks good in presentations.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 10829fd..b3147e0 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -498,7 +498,7 @@ index 10829fd..b3147e0 100644
 <p>The basic structural element of a presentation is a slide. Amongst the various
 ways to create a slide environment, I define slides as a <em>section heading</em> and
 make it borrow all the default elements from <code>subject</code> heading.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index da1c414..fd92e4e 100644
 --- a/example.tex
 +++ b/example.tex
@@ -557,7 +557,7 @@ that.</li>
 </ul>
 
 <p>for details on how to configure section heads.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 223d04c..2342448 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -590,7 +590,7 @@ index 223d04c..2342448 100644
 contains more material, it will overflow one page (and no title will appear on
 the next page). So, it is the responsibility of the user to ensure that a slide
 has the right amount of text.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index fd92e4e..725b860 100644
 --- a/example.tex
 +++ b/example.tex
@@ -635,7 +635,7 @@ index 2342448..1f16d72 100644
 </ul>
 
 <p>for details.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 1f16d72..36b5f60 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -666,7 +666,7 @@ change the background color to lightgray. See</p>
 </ul>
 
 <p>for more details.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 36b5f60..2bcb31b 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -691,7 +691,7 @@ index 36b5f60..2bcb31b 100644
 <p>By default, ConTeXt uses <code>$\bullet$</code> as the marker for top level
 itemization. I don&rsquo;t particularly like this marker, and in the next few
 steps, I will show how to change them item marker.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 725b860..528a34d 100644
 --- a/example.tex
 +++ b/example.tex
@@ -737,7 +737,7 @@ some emphasis to the main points.</p>
 </ul>
 
 <p>for more details.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 2bcb31b..7460279 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -778,7 +778,7 @@ symbols for the item marker, I use Metapost to draw the square.</p>
 
 <ul>
 <li><p><a href="http://wiki.contextgarden.net/Symbols">http://wiki.contextgarden.net/Symbols</a></p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 7460279..98db75f 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -810,7 +810,7 @@ index 7460279..98db75f 100644
 <h2 id="step-20-set-spacing-for-itemize">Step 20: Set spacing for itemize</h2>
 
 <p>Tweak the spacing around bullet according to your preference.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 98db75f..b2cf8a9 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -835,7 +835,7 @@ index 98db75f..b2cf8a9 100644
 <p>Sometimes I use nested levels of itemization in presentations. The default
 settings for 2nd level of itemization does not look nice. I will change these
 defaults in the next few edits.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 528a34d..10605a0 100644
 --- a/example.tex
 +++ b/example.tex
@@ -864,7 +864,7 @@ without any additional spacing around the items; hence the <code>nowhite</code> 
 
 <p>This setup is not perfect because of the extra space before the 2nd level
 items. This will be fixed in the next commit</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index b2cf8a9..c3dbc7d 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -894,7 +894,7 @@ alternative for determining spacing around itemize lists.</p>
 
 <p>There might be a better, higher-level way to get the same visual output, but I
 am not aware of it.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index c3dbc7d..21bf9a9 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -918,7 +918,7 @@ index c3dbc7d..21bf9a9 100644
 
 <p>I like to use a small triangle as a marker for 2nd level itemized lists. Rather
 than using a math symbol for the triangle, I use Metapost as before.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 21bf9a9..ff1ea60 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -951,7 +951,7 @@ index 21bf9a9..ff1ea60 100644
 
 <p>Simply set the metadata. The next few commits will show how to use this
 metadata.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 10605a0..d41cab7 100644
 --- a/example.tex
 +++ b/example.tex
@@ -994,7 +994,7 @@ title and the author in the footer of each slide. Read:</p>
 </ul>
 
 <p>for information on variables.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index ff1ea60..d1b764f 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1028,7 +1028,7 @@ makeup page does not increment the userpage number.</p>
 
 <p>The title page is has no style setup. The next few commits will show how to add
 different style elements to the titlepage.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index d1b764f..6b45a25 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1069,7 +1069,7 @@ index d1b764f..6b45a25 100644
 <p>There are different ways to add style to the titlepage. I create different
 style commands: <code>titlestyle</code>, <code>authorstyle</code>, etc for each metadata element and
 then use them to style the corresponding element.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 6b45a25..cdf1e4b 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1111,7 +1111,7 @@ index 6b45a25..cdf1e4b 100644
 
 <p>Notice that by default, ConTeXt uses <code>\blank[big]</code> around displaymath. In the
 next commit, In the next commit, I will correct the spacing.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index d41cab7..52e5125 100644
 --- a/example.tex
 +++ b/example.tex
@@ -1140,14 +1140,14 @@ index d41cab7..52e5125 100644
 <h2 id="step-30-set-spacing-around-display-math">Step 30: Set spacing around display math</h2>
 
 <p>Setting spacing around display math is a bit tricky. The obvious</p>
-<pre><code>\setupformulas[spacebefore=small, spaceafter=small]</code></pre>
+<pre tabindex="0"><code>\setupformulas[spacebefore=small, spaceafter=small]</code></pre>
 <p>does not work. I think that this is because I use</p>
-<pre><code>\setupwhitespace[big]</code></pre>
+<pre tabindex="0"><code>\setupwhitespace[big]</code></pre>
 <p>and ConTeXt vertical spacing model is such that the largest vspace value (big
 in this case) wins.</p>
 
 <p>After a bit of trial and error, I settled on this:</p>
-<pre><code>\setupformula
+<pre tabindex="0"><code>\setupformula
     [spacebefore={nowhite,quarterline}, spaceafter={back,nowhite,quarterline}]</code></pre>
 <p>For <code>spacebefore</code>, the parameter <code>nowhite</code> kills all the whitespace and
 then <code>quarterline</code> sets the space before the formula to be <code>0.25\lineheight</code>.</p>
@@ -1155,7 +1155,7 @@ then <code>quarterline</code> sets the space before the formula to be <code>0.25
 <p>Surprisingly, the same setting <code>{nowhite,quarterline}</code> does not work when used
 for <code>spaceafter</code>. We need an addition <code>back</code> parameter to kill the previous
 vpsace.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index cdf1e4b..60897b3 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1188,7 +1188,7 @@ much vertical space as possible.</p>
 
 <p>For now, we use dummy settings <code>horizontal</code> and <code>vertical</code> for these two types
 of images. The actual settings will be defined in the the next commits.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 52e5125..ad9efc0 100644
 --- a/example.tex
 +++ b/example.tex
@@ -1245,7 +1245,7 @@ index 52e5125..ad9efc0 100644
 <h2 id="step-32-remove-figure-numbers">Step 32: Remove figure numbers</h2>
 
 <p>I don&rsquo;t prefer the figures in presentations to be numbered so I remove them.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 60897b3..c0f829d 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1279,7 +1279,7 @@ index 60897b3..c0f829d 100644
 <p>To determine the amount of vertical space left on the page, we define a measure
 <code>page</code>. The exact value of this measure is taken from a solution by Wolfgang
 Schuster on the ConTeXt mailing list.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index c0f829d..f80270f 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1309,7 +1309,7 @@ index c0f829d..f80270f 100644
 
 <p>The idea for the settings for vertical images is the same as that of horizontal
 images. We add a little bit more vertical space around vertical images.</p>
-<pre><code>diff --git a/example.tex b/example.tex
+<pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index ad9efc0..2ac16d4 100644
 --- a/example.tex
 +++ b/example.tex
@@ -1372,7 +1372,7 @@ to be excessive; so I reduced the space.</p>
 </ul>
 
 <p>for details.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index de24daa..5f5ec3f 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1401,7 +1401,7 @@ index de24daa..5f5ec3f 100644
 <p>I want to add some subtle affects to the background. For that, I will use
 MetaPost. As a first step, I redraw the colored background using MetaPost. See
 the MetaFun manual for details.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 5f5ec3f..b49530b 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1433,7 +1433,7 @@ index 5f5ec3f..b49530b 100644
 
 <p>I like this subtle background, but this example shows that you are free to pick
 any MetaPost graphic that you like as a background.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index b49530b..62d83da 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1462,7 +1462,7 @@ index b49530b..62d83da 100644
 
 <ul>
 <li><p><a href="http://modules.contextgarden.net/dl/t-visualcounter/doc/context/third/visualcounter/visualcounter.pdf">http://modules.contextgarden.net/dl/t-visualcounter/doc/context/third/visualcounter/visualcounter.pdf</a></p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 62d83da..43a533a 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1511,7 +1511,7 @@ foreground:altcontrast and use them in all the setups.</p>
 
 <p>Using named colors makes it easy to change the color scheme by simply changing
 the values for each of the colors.</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 43a533a..4a400e2 100644
 --- a/slides.tex
 +++ b/slides.tex
@@ -1611,7 +1611,7 @@ index 43a533a..4a400e2 100644
 in the PDF. For example, it will indicate what is a section heading,
 what is footnote, etc. This meta-information is useful for accessibility
 (e.g., for screen readers to properly read the PDF file).</p>
-<pre><code>diff --git a/slides.tex b/slides.tex
+<pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 4a400e2..d65622b 100644
 --- a/slides.tex
 +++ b/slides.tex

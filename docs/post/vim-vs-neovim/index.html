@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -106,7 +106,7 @@ and it turns out that the startup time of both of them are similar, but <code>nv
 is 7-10% faster in processing <code>2context.vim</code> for medium sized files. For
 example, with a 500 line matlab file, this is the amount of time for <code>vim</code> to
 process the file:</p>
-<pre><code>times in msec
+<pre tabindex="0"><code>times in msec
  clock   self+sourced   self:  sourced script
  clock   elapsed:              other lines
 
@@ -138,7 +138,7 @@ process the file:</p>
 <p>Note that most of the time (1.17 sec out of 1.18 sec) is spent in processing
 the <code>2context.vim</code> script. Starting up <code>vim</code> until that point just takes <code>0.13
 sec</code>). Now, let&rsquo;s check <code>nvim</code>:</p>
-<pre><code>times in msec
+<pre tabindex="0"><code>times in msec
  clock   self+sourced   self:  sourced script
  clock   elapsed:              other lines
 

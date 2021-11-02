@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.85.0" />
+	<meta name="generator" content="Hugo 0.88.1" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,6 +40,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -61,11 +66,6 @@
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -77,6 +77,37 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/removing-blank-lines-t-vim/">Removing multiple blank lines when typesetting code listings</a></h1>
+        <p class="post-time">29 September, 2012
+        (2 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/t-vim">
+          T-Vim</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>,
+        <a href="https://adityam.github.io/context-blog/tags/blank-lines">blank lines</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>The <code>listings</code> package in LaTeX has an option to collapse multiple empty lines
+into a single empty line when typesetting code lists. Today, there was a
+question on <a href="https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted">TeX.SE</a> how to do something similar when using the <code>minted</code>
+package. The <code>t-vim</code> module uses the same principle as the <code>minted</code> package.
+So, I wondered how one could collapse multiple empty lines into a single
+line in <code>t-vim</code>?</p></p>
+            <a class="btn btn-default" href="/context-blog/post/removing-blank-lines-t-vim/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -132,7 +163,7 @@ that easily.</p></p>
             <p><p>TeX has a steep learning curve. Often times, steeper than it needs to be.
 Take, for example, the special characters in TeX. Almost every introduction to
 plain TeX, eplain, LaTeX, or ConTeXt has a section on these special characters</p>
-<pre><code>\ { } $ &amp; # ^ _ &amp; ~</code></pre>
+<pre tabindex="0"><code>\ { } $ &amp; # ^ _ &amp; ~</code></pre>
 <p>A good introduction then goes on to explain why these special characters are
 important; sometimes dropping a hint about category codes. I feel that these
 details are useless and, <strong>at the user level</strong>, we should get rid of them.</p></p>

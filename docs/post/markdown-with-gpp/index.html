@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -157,11 +157,11 @@ Features of the solution
 </code></pre>
 
 <p>To generate the slides version of my lecture notes, I compile them using</p>
-<pre><code>context --mode=slides --result=slides &lt;filename&gt;</code></pre>
+<pre tabindex="0"><code>context --mode=slides --result=slides &lt;filename&gt;</code></pre>
 <p>This version just contains the bullet list. Since the handout mode is not set, the content between <code>\startmode[handout] ... \stopmode</code> is omitted.</p>
 
 <p>To generate the handout version of my lecture notes, I compile them using</p>
-<pre><code>context --mode=handout --result=slides &lt;filename&gt;</code></pre>
+<pre tabindex="0"><code>context --mode=handout --result=slides &lt;filename&gt;</code></pre>
 <p>Since the handout mode is set, the content between <code>\startmode[handout] ...
 \stopmode</code> is included.</p>
 
@@ -201,11 +201,11 @@ output if needed. Using TeX macros in the source takes away that advantage.</p>
 pre-processor. It is similar to the C-preprocessor: it allows to define a
 macro (similar to <code>#define</code> in the C-preprocessor) and it allows to <code>#include</code>
 an external file. For example, consider the following file:</p>
-<pre><code>#define filename `#1`
+<pre tabindex="0"><code>#define filename `#1`
 
 filename(src/hello.c)</code></pre>
 <p>Compiling this through <code>gpp</code> gives</p>
-<pre><code>`src/hello.c`</code></pre>
+<pre tabindex="0"><code>`src/hello.c`</code></pre>
 <p>This was perfect! I can define GPP macros and use them in the markdown
 document. Then simply preprocess the markdown file with <code>gpp</code> and then pass
 the parsed output to <code>pandoc</code>.</p>
@@ -215,36 +215,36 @@ fragile. For example, in the above example, I need to run through hoops if I
 wanted to use the string <code>filename</code> in my markdown file. Luckily, GPP makes it
 easy to change the way user macros are defined. One can use TeX-like syntax
 (enabled using <code>gpp -T</code>):</p>
-<pre><code>\define{filename}{`#1`}
+<pre tabindex="0"><code>\define{filename}{`#1`}
 \filename{src/hello.c}</code></pre>
 <p>or HTML like syntax (enabled using <code>gpp -H</code>):</p>
-<pre><code>&lt;#define filename|`#1`&gt;
+<pre tabindex="0"><code>&lt;#define filename|`#1`&gt;
 &lt;#filename src/hello.c&gt;</code></pre>
 <p>I ended up using a slightly modified version of HTML like syntax which is
 enabled using</p>
-<pre><code>gpp  -U &#34;&lt;##&#34; &#34;&gt;&#34; &#34;\\B&#34; &#34;|&#34; &#34;&gt;&#34; &#34;&lt;&#34; &#34;&gt;&#34; &#34;#&#34; &#34;&#34; </code></pre>
+<pre tabindex="0"><code>gpp  -U &#34;&lt;##&#34; &#34;&gt;&#34; &#34;\\B&#34; &#34;|&#34; &#34;&gt;&#34; &#34;&lt;&#34; &#34;&gt;&#34; &#34;#&#34; &#34;&#34; </code></pre>
 <p>This is almost like the HTML syntax, except macros are defined and used using
 <code>&lt;##define ...&gt;</code>. The other subtle difference is that in the HTML syntax <code>\</code>
 is used as a quote character (which is useful for multi-line definitions).
 However, that means that if I use a TeX command in markdown (say
 <code>\filename{src/hello.c}</code>) then the leading backslash is stripped. With this
 modified syntax, I can define and use macros as follows:</p>
-<pre><code>&lt;##define filename | `#1`&gt;
+<pre tabindex="0"><code>&lt;##define filename | `#1`&gt;
 &lt;##filename src/hello.c&gt;</code></pre>
 <p>Now, I&rsquo;ll show how to use GPP to get the three features that I miss from TeX.</p>
 
 <h2 id="separation-of-content-and-presentation-1">Separation of content and presentation</h2>
 
 <p>With GPP, I can define new macros that denote structural elements, e.g.,</p>
-<pre><code>&lt;##define filename | `#1`&gt;
+<pre tabindex="0"><code>&lt;##define filename | `#1`&gt;
 The source is included in &lt;##filename src/hello.c&gt;.</code></pre>
 <p>When I compile this document using GPP (and the <code>-U</code> options specified
 above), I get</p>
-<pre><code>The source is included in `src/hello.c`</code></pre>
+<pre tabindex="0"><code>The source is included in `src/hello.c`</code></pre>
 <p>Sure, this requires more typing that simply using <code>`...`</code>, but that is
 the price that one has to pay for getting more structure. More importantly, I
 can define the <code>#filename</code> macro based on the output format:</p>
-<pre><code>&lt;##define filename|`#1`&gt;
+<pre tabindex="0"><code>&lt;##define filename|`#1`&gt;
 &lt;##ifdef HTML&gt;
      &lt;##define filename|&lt;code class=&#34;filename&#34;&gt;#1&lt;/code&gt;&gt; 
 &lt;##endif&gt;
@@ -253,18 +253,18 @@ can define the <code>#filename</code> macro based on the output format:</p>
 &lt;##endif&gt; 
 The source is included in &lt;##filename src/hello.c&gt;</code></pre>
 <p>Now, if I compile the document using (note the <code>-DHTML=1</code> at the end)</p>
-<pre><code>gpp  -U &#34;&lt;##&#34; &#34;&gt;&#34; &#34;\\B&#34; &#34;|&#34; &#34;&gt;&#34; &#34;&lt;&#34; &#34;&gt;&#34; &#34;#&#34; &#34;&#34; -DHTML=1</code></pre>
+<pre tabindex="0"><code>gpp  -U &#34;&lt;##&#34; &#34;&gt;&#34; &#34;\\B&#34; &#34;|&#34; &#34;&gt;&#34; &#34;&lt;&#34; &#34;&gt;&#34; &#34;#&#34; &#34;&#34; -DHTML=1</code></pre>
 <p>I get</p>
-<pre><code>The source is included in &lt;code class=&#34;filename&#34;&gt;src/hello.c&lt;/code&gt;.</code></pre>
+<pre tabindex="0"><code>The source is included in &lt;code class=&#34;filename&#34;&gt;src/hello.c&lt;/code&gt;.</code></pre>
 <p>and if I change the <code>-DHTML=1</code> to <code>-DTEX=1</code>, I get</p>
-<pre><code>The source is included in \filename{src/hello.c}</code></pre>
+<pre tabindex="0"><code>The source is included in \filename{src/hello.c}</code></pre>
 <p>This ensures that the document structure is passed to the output as well.</p>
 
 <p>To make it easy to manage macros, create three files: <code>macros.gpp</code> containing
 all macros, <code>html.gpp</code> overwriting some of the macros with HTML equivalents,
 and <code>tex.gpp</code> overwriting some of the macros with TeX equivalents. End
 <code>macros.gpp</code> file with</p>
-<pre><code>....
+<pre tabindex="0"><code>....
 &lt;##ifdef HTML&gt; 
     &lt;##include html.gpp&gt; 
 &lt;##endif&gt; 
@@ -279,7 +279,7 @@ and <code>tex.gpp</code> overwriting some of the macros with TeX equivalents. En
 <p>Actually, the previous example already shows how to get conditional
 compilation: use the <code>-D</code> command line switch and check the variable
 definition using <code>#ifdef</code>. Thus, the above example translates to:</p>
-<pre><code>Feature of the solution
+<pre tabindex="0"><code>Feature of the solution
 
 1. Feature 1 
 
@@ -299,13 +299,13 @@ compile with <code>-DHANDOUT=1</code>, I get the handout version.</p>
 
 <p>External documents can be included using the <code>#include</code> directive. So, I can
 include an external file using</p>
-<pre><code>~~~{.java}
+<pre tabindex="0"><code>~~~{.java}
 &lt;##include src/Factory.java&gt;
 ~~~</code></pre>
 <h1 id="putting-it-all-together">Putting it all together</h1>
 
 <p>All that is needed is to run the <code>gpp</code> preprocessor and then pass the output to <code>pandoc</code>.</p>
-<pre><code>gpp -U &#34;&lt;##&#34; &#34;&gt;&#34; &#34;\\B&#34; &#34;|&#34; &#34;&gt;&#34; &#34;&lt;&#34; &#34;&gt;&#34; &#34;#&#34; &#34;&#34; &lt;options&gt; &lt;filename&gt; \
+<pre tabindex="0"><code>gpp -U &#34;&lt;##&#34; &#34;&gt;&#34; &#34;\\B&#34; &#34;|&#34; &#34;&gt;&#34; &#34;&lt;&#34; &#34;&gt;&#34; &#34;#&#34; &#34;&#34; &lt;options&gt; &lt;filename&gt; \
   | pandoc -f markdown -t &lt;format&gt; -o &lt;outfile&gt;</code></pre>
 <p>Hide this in a wrapper script or a shell function or a Makefile, and you have a markdown processor with the important features of TeX!</p>
 

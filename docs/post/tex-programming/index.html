@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -274,22 +274,22 @@ until reaching a moment in time where TeX is not scanning an argument.</p>
 
 <p>Say you have a macro that contains some stuff in it to be typeset by
 <code>\type</code>:</p>
-<pre><code>\def\mystuff{Some literal stuff}</code></pre>
+<pre tabindex="0"><code>\def\mystuff{Some literal stuff}</code></pre>
 <p>Then you begin with</p>
-<pre><code>\type{\mystuff}</code></pre>
+<pre tabindex="0"><code>\type{\mystuff}</code></pre>
 <p>but that obviously doesn&rsquo;t work, you want the final input to look like</p>
-<pre><code>\type{Some literal stuff}</code></pre>
+<pre tabindex="0"><code>\type{Some literal stuff}</code></pre>
 <p>Since <code>\expandafter</code> expands the token that follows the after next token
 &ndash; whatever the next token is &ndash; you have to insert it backwards across the
 opening brace of the argument, like so:</p>
-<pre><code>\type\expandafter{\mystuff}</code></pre>
+<pre tabindex="0"><code>\type\expandafter{\mystuff}</code></pre>
 <p>But this wouldn&rsquo;t work, yet: you are still in the middle of an
 expression (the <code>\type</code> expects an argument, and it gets <code>\expandafter</code>
 as it stands).</p>
 
 <p>Luckily, <code>\expandafter</code> <em>itself</em> is an expandable command, so you
 jump back once more and insert another one:</p>
-<pre><code>\expandafter\type\expandafter{\mystuff}</code></pre>
+<pre tabindex="0"><code>\expandafter\type\expandafter{\mystuff}</code></pre>
 <p>Now you are on &lsquo;neutral ground&rsquo;, and can stop backtracking.
 Easy, once you get the hang of it.</p>
 </blockquote>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>metadata on A Blog about ConTeXt</title>
+    <link>https://adityam.github.io/context-blog/tags/metadata/</link>
+    <description>Recent content in metadata on A Blog about ConTeXt</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/metadata/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stripping metadata from PDF files</title>
+      <link>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</guid>
+      <description>&lt;p&gt;Sometimes, for example when sending a review of a paper, I do not want the pdf file to contain any metadata. Ideally, the editorial process should take care of this, but I do not want to take any chances. In this post&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, I explain a simple method to strip metadata from PDF files.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

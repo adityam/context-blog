@@ -38,6 +38,11 @@
             
             
             
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
             
             
             
@@ -57,11 +62,6 @@
             
             
             <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
-            
-            
-            <li><a href="/context-blog/post/pdf-embedded-video-on-linux/">PDF with embedded video on linux</a></li>
             
             
           </ul>
@@ -91,7 +91,7 @@ would take out a rusty 9 year old Macbook and lug that around. Not anymore!</p>
 console with multi-monitor PDFs. I used it a few times to show speaker notes
 during a presentation. Basically, you can create a file <code>filename.pdfpc</code> with
 the following format:</p>
-<pre><code>[notes]
+<pre tabindex="0"><code>[notes]
 ### 1
 Notes for slide 1
 
@@ -107,15 +107,15 @@ broken solution for showing presentations on linux.</p>
 
 <p>Today I tried to dig deeper into what is happening. The <a href="https://github.com/pdfpc/pdfpc/blob/master/FAQ.rst">pdfpc FAQ</a> has a
 hint that says that if video does not work run the following command</p>
-<pre><code>gst-play-1.0 --videosink gtksink &lt;your video&gt;</code></pre>
+<pre tabindex="0"><code>gst-play-1.0 --videosink gtksink &lt;your video&gt;</code></pre>
 <p>I tried that and got an error message</p>
-<pre><code>** (gst-play-1.0:288543): WARNING **: 00:49:51.923: Couldn&#39;t create specified video sink &#39;gtksink&#39;</code></pre>
+<pre tabindex="0"><code>** (gst-play-1.0:288543): WARNING **: 00:49:51.923: Couldn&#39;t create specified video sink &#39;gtksink&#39;</code></pre>
 <p>So, I did not have <code>gtksink</code>. I dug <a href="https://gstreamer.freedesktop.org/documentation/gtk/gtksink.html?gi-language=c">a little
 deeper</a>
 and found that <code>gtksink</code> is included in GStreamer Good Plug-ins package. I use
 Manjaro Linux (which is a clone of Arch Linux) on my laptop, and had
 <code>gst-plugins-good</code> installed. So, I should be good, right? No.</p>
-<pre><code>$pacman -Ql gst-plugins-good | grep gtk</code></pre>
+<pre tabindex="0"><code>$pacman -Ql gst-plugins-good | grep gtk</code></pre>
 <p>gives nothing! <code>gst-plugins-good</code> does not include <code>gstsink</code>. What was going
 on? After a bit of digging, I found that Manjaro (and perhaps Arch) package
 the plugins differently and the <code>gtk</code> plugin is included as a separate package
