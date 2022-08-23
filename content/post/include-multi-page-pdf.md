@@ -33,7 +33,6 @@ pages of the PDF:
 
 <pre><code><span class="Identifier">\startluacode</span>
   includePDF = <span class="Function">function</span>(file)
-  <span class="Identifier">print</span>(<span class="String">&quot;&gt;&gt;&gt;&quot;</span>, file)
   <span class="Statement">local</span> document = lpdf.epdf.<span class="Identifier">load</span>(file)
   <span class="Statement">local</span> pages = #document.pages
     <span class="Repeat">for</span> i=1,pages <span class="Statement">do</span>
