@@ -137,7 +137,7 @@ written at the TeX end as well:</p>
     <span class="Delimiter">{</span><span class="Statement">\dosingleempty\doincludePDF</span><span class="Delimiter">}</span>
 
 <span class="Statement">\def\doincludePDF</span><span class="Delimiter">[</span>#1<span class="Delimiter">]</span><span class="Comment">%</span>
-    <span class="Delimiter">{</span><span class="Statement">\getfiguredimensions</span><span class="Delimiter">[</span>#1<span class="Delimiter">]</span>
+    <span class="Delimiter">{</span><span class="Statement">\getfiguredimensions</span><span class="Delimiter">[</span>#1<span class="Delimiter">]</span><span class="Comment">%</span>
      <span class="Statement">\dorecurse</span><span class="Delimiter">{</span><span class="Statement">\noffigurepages</span><span class="Delimiter">}</span>
         <span class="Delimiter">{</span><span class="Statement">\startTEXpage</span>
             <span class="Statement">\externalfigure</span><span class="Delimiter">[</span>#1<span class="Delimiter">][</span>page=<span class="Statement">\recurselevel</span><span class="Delimiter">]</span>
