@@ -18,7 +18,6 @@ Metapost and TikZ for drawing similar graphics and found that &lt;strong&gt;TikZ
 to five times slower than Metapost&lt;/strong&gt;. Although TikZ is slower, it does provide
 a much higher level interface to drawing graphics and shifting to Metapost can
 take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than &lt;em&gt;computer time&lt;/em&gt;.&lt;/p&gt;
-
 &lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level
 interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
 for drawing

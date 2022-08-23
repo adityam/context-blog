@@ -84,28 +84,22 @@ question on <a href="https://tex.stackexchange.com/questions/74648/remove-blank-
 package. The <code>t-vim</code> module uses the same principle as the <code>minted</code> package.
 So, I wondered how one could collapse multiple empty lines into a single
 line in <code>t-vim</code>?</p>
-
 <p>In the <code>vim</code> module, it is possible to specify a <code>vimrc</code> file that is sourced
 when the code snippet is loaded in the editor. I included this option to
 pass options to syntax highlighting (e.g., for languages like <code>sh</code> and <code>tex</code>,
 one can specify the <em>flavor</em> using keywords set in the <code>.vimrc</code> file).</p>
-
 <p>One can use this feature to pre-process the file using <code>vim</code> macros. The
 following regular expression collapses multiple lines to a single line:</p>
-<pre tabindex="0"><code>%s/\(^\s*\n\)\{2,\}/\r/ge | w</code></pre>
-<p>So, we want this regular expression to be run when the file is loaded. The
+<pre tabindex="0"><code>%s/\(^\s*\n\)\{2,\}/\r/ge | w
+</code></pre><p>So, we want this regular expression to be run when the file is loaded. The
 <code>t-vim</code> module writes the file with extension <code>.tmp</code>, so the following
 snippet works:</p>
-
 <!--
 au BufEnter *.tmp %s/\(^\s*\n\)\{2,\}/\r/ge | w
 -->
-
 <pre><code><span class="Statement">au</span> <span class="Type">BufEnter</span> *.tmp <span class="Number">%</span><span class="Statement">s</span><span class="Delimiter">/</span><span class="SpecialChar">\(</span>^\s*\n<span class="SpecialChar">\)</span>\{2,\}<span class="Delimiter">/</span>\r<span class="Delimiter">/</span><span class="Special">ge</span> | <span class="Statement">w</span>
 </code></pre>
-
 <p>We may use this from the <code>t-vim</code> module as follows:</p>
-
 <!----
 \usemodule[vim]
  
@@ -132,7 +126,6 @@ au BufEnter *.tmp %s/\(^\s*\n\)\{2,\}/\r/ge | w
 \stopCPPtyping
 \stoptext
 -->
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">vim</span><span class="Delimiter">]</span>
 <span class="Delimiter"> </span>
 <span class="Keyword">\startvimrc</span><span class="Delimiter">[</span><span class="Type">name=collapse</span><span class="Delimiter">]</span>
@@ -158,7 +151,6 @@ au BufEnter *.tmp %s/\(^\s*\n\)\{2,\}/\r/ge | w
 <span class="PreProc">\stopCPPtyping</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>Agreed, this is not as simple as the <code>extralines=1</code> option in the listings
 package. But, it is not too complicated when you consider the fact that I had
 not thought about this feature at all when I wrote the <code>t-vim</code> module.</p>

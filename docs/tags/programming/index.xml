@@ -15,7 +15,6 @@
       <guid>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</guid>
       <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to
 quickly hash out an idea which involved some text processing.&lt;/p&gt;
-
 &lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
 file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and
 then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this
@@ -55,23 +54,18 @@ present an example of how to use this interface.&lt;/p&gt;</description>
       <guid>https://adityam.github.io/context-blog/post/typesetting-differential-equations/</guid>
       <description>&lt;p&gt;This semester I am teaching a course involving linear differential equations,
 so I have typeset many differential equations that look like this:&lt;/p&gt;
-
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
-
 &lt;p&gt;Believe me, writing such equations by hand gets tedious very quickly. So, I
 wanted a macro &lt;code&gt;\LDE&lt;/code&gt; (for Linear Differential Equation), so that I
 could just type&lt;/p&gt;
-
 &lt;!--
 \LDE{1, -3, 2}{2, 1}
 --&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\LDE&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;1, -3, 2&lt;span class=&#34;Delimiter&#34;&gt;}{&lt;/span&gt;2, 1&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;and get the above result. This post describes how to write such a macro using
 LuaTeX + ConTeXt.&lt;/p&gt;</description>
     </item>

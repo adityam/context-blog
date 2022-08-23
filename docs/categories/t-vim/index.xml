@@ -37,7 +37,6 @@ to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; t
       <guid>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</guid>
       <description>&lt;p&gt;There is a feature in &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;&lt;code&gt;t-vim&lt;/code&gt;&lt;/a&gt; module that allows the use of TeX code
 in comments, which is useful when typeset math in comments. For example:&lt;/p&gt;
-
 &lt;!--
 \definevimtyping[C][syntax=c, escape=on]
 
@@ -49,7 +48,6 @@ in comments, which is useful when typeset math in comments. For example:&lt;/p&g
 double root (double a, double b, double c) {....}
 \stopC
 --&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\definevimtyping&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;syntax=c, escape=on&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
 
 &lt;span class=&#34;Keyword&#34;&gt;\startC&lt;/span&gt;

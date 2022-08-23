@@ -15,7 +15,6 @@
       <guid>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</guid>
       <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to
 quickly hash out an idea which involved some text processing.&lt;/p&gt;
-
 &lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
 file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and
 then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this

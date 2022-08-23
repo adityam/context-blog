@@ -27,7 +27,6 @@ the binary is available for testing from &lt;a href=&#34;http://www.pragma-ade.n
 website&lt;/a&gt;. There is no change in
 user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
 LMTX without making any change in the tex file.&lt;/p&gt;
-
 &lt;p&gt;In my tests so far, I could compile all my documents using LMTX without any
 noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
 some critical projects like typesetting material for courses that I teach.

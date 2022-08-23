@@ -80,19 +80,15 @@
 
 <p>Adding a solid line on the left side of a frame, block quote, etc. creates a
 simple, clean, and attractive visual effect that I like.</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
 
-
 <p>I don&rsquo;t know when I first came across this style, but it is used commonly on
 the Internet to show blockquotes. So, how do we get this style with ConTeXt?</p>
-
 <p>It is pretty straight-forward to get this effect. All we need is, well,
 define a frame with a left border. For example, the above image was obtained
 using:</p>
-
 <!--
 \definecolor[darkgray]  [s=0.5]
 \definecolor[lightgray] [s=0.95]
@@ -111,7 +107,6 @@ using:</p>
     backgroundcolor=lightgray,
   ]
 -->
-
 <pre><code><span class="Identifier">\definecolor</span><span class="Delimiter">[</span><span class="Type">darkgray</span><span class="Delimiter">]  [</span><span class="Type">s=0.5</span><span class="Delimiter">]</span>
 <span class="Identifier">\definecolor</span><span class="Delimiter">[</span><span class="Type">lightgray</span><span class="Delimiter">] [</span><span class="Type">s=0.95</span><span class="Delimiter">]</span>
 
@@ -129,23 +124,18 @@ using:</p>
 <span class="Type">    backgroundcolor=lightgray,</span>
 <span class="Type">  </span><span class="Delimiter">]</span>
 </code></pre>
-
 <p>and then use it as</p>
-
 <!--
 \startleftbartext
 ...
 \stopleftbartext
 -->
-
 <pre><code><span class="Keyword">\startleftbartext</span>
 ...
 <span class="Keyword">\stopleftbartext</span>
 </code></pre>
-
 <p>It is also straight forward to inherit from the <code>leftbartext</code> frame defined
 above to get frames with different colors:</p>
-
 <!--
 \definecolor[darkred]   [r=0.8]
 \definecolor[darkgreen] [g=0.8]
@@ -180,7 +170,6 @@ above to get frames with different colors:</p>
   ]
 
 -->
-
 <pre><code><span class="Identifier">\definecolor</span><span class="Delimiter">[</span><span class="Type">darkred</span><span class="Delimiter">]   [</span><span class="Type">r=0.8</span><span class="Delimiter">]</span>
 <span class="Identifier">\definecolor</span><span class="Delimiter">[</span><span class="Type">darkgreen</span><span class="Delimiter">] [</span><span class="Type">g=0.8</span><span class="Delimiter">]</span>
 <span class="Identifier">\definecolor</span><span class="Delimiter">[</span><span class="Type">darkblue</span><span class="Delimiter">]  [</span><span class="Type">b=0.8</span><span class="Delimiter">]</span>
@@ -213,9 +202,7 @@ above to get frames with different colors:</p>
 <span class="Type">    backgroundcolor=lightblue,</span>
 <span class="Type">  </span><span class="Delimiter">]</span>
 </code></pre>
-
 <p>which give the following three frames</p>
-
 <p><img class="center"
   alt="Green colored left frame"
   src="leftframe-2.png" />

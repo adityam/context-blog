@@ -18,16 +18,11 @@ to display icons for email, editing tasks, popular social media website, etc.
 It is easy to use Font Awesome in ConTeXt: the font ships with &lt;a href=&#34;http://wiki.contextgarden.net/ConTeXt_Standalone&#34;&gt;ConTeXt
 Standalone&lt;/a&gt; and ConTeXt includes a &lt;code&gt;symbolset&lt;/code&gt; to easily access the icons
 using names rather than icon numbers.&lt;/p&gt;
-
 &lt;p&gt;To use FontAwesome icons in ConTeXt, simply load the symbolset &lt;code&gt;fontawesome&lt;/code&gt;
 using&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\usesymbols&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;fontawesome&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;and then any icon is accessible using&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\symbol&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;fontawesome&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;...&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;where &lt;code&gt;...&lt;/code&gt; is the name of the icon is listed in &lt;a href=&#34;http://fontawesome.io/icons/&#34;&gt;the Font Awesome icon list&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

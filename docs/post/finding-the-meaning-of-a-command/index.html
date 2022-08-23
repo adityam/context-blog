@@ -80,24 +80,21 @@
 
 <p>ConTeXt has a nice command to find a meaning of a command. Sometimes the
 easiest way to find the meaning of a macro is to simply use</p>
-
 <pre><code><span class="Statement">\show\macroname</span></code></pre>
-
 <p>In LMTX, <code>context</code> defaults to running with <code>--batchmode</code>, which means that
 you then have to hunt for the output of <code>\show</code> in the console output.</p>
-
 <p>ConTeXt comes with a nice script to simply get the meaning of a macro on
 console.</p>
-<pre tabindex="0"><code>$ mtxrun --script interface --meaning &lt;macroname&gt;</code></pre>
-<p>For example:</p>
+<pre tabindex="0"><code>$ mtxrun --script interface --meaning &lt;macroname&gt;
+</code></pre><p>For example:</p>
 <pre tabindex="0"><code>$ mtxrun --script interface --meaning dotfill
 
 meaning         &gt; dotfill
 
-protected macro:-&gt;\cleaders \hbox {\normalstartimath \mathsurround \zeropoint \mkern 1.5mu.\mkern 1.5mu\normalstopimath }\hfill </code></pre>
-<p>Behind the scenes this runs</p>
-<pre tabindex="0"><code>mtxrun --silent --script context --extra=meaning --once --noconsole --nostatistics &lt;macroname&gt;</code></pre>
-<p>A side effect of this is that a file <code>context-extra.pdf</code> is generated in the
+protected macro:-&gt;\cleaders \hbox {\normalstartimath \mathsurround \zeropoint \mkern 1.5mu.\mkern 1.5mu\normalstopimath }\hfill 
+</code></pre><p>Behind the scenes this runs</p>
+<pre tabindex="0"><code>mtxrun --silent --script context --extra=meaning --once --noconsole --nostatistics &lt;macroname&gt;
+</code></pre><p>A side effect of this is that a file <code>context-extra.pdf</code> is generated in the
 current directory. I usually run this command in <code>/tmp</code>. so I don&rsquo;t mind the
 extra file.</p>
 

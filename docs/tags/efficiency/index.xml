@@ -29,7 +29,6 @@ Metapost and TikZ for drawing similar graphics and found that &lt;strong&gt;TikZ
 to five times slower than Metapost&lt;/strong&gt;. Although TikZ is slower, it does provide
 a much higher level interface to drawing graphics and shifting to Metapost can
 take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than &lt;em&gt;computer time&lt;/em&gt;.&lt;/p&gt;
-
 &lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level
 interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
 for drawing
@@ -54,7 +53,7 @@ Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing ci
       
       <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
       <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
- Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
+Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
     </item>
     
   </channel>

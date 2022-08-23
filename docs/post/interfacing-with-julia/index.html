@@ -84,7 +84,6 @@ extreme example of this is Luigi Scarso&rsquo;s <a href="https://www.tug.org/TUG
 which provides a two way bridge between Python and LuaTeX. Not being a Python
 fan, I never looked into the implementation details, in spite of Luigi&rsquo;s
 impressive examples.</p>
-
 <p>Recently, Henri Menke <a href="https://tex.stackexchange.com/a/403794/323">posted an interesting
 example</a> that shows how to use a
 function from <a href="https://www.gnu.org/software/gsl/">GNU Scientific Library
@@ -92,12 +91,9 @@ function from <a href="https://www.gnu.org/software/gsl/">GNU Scientific Library
 got me interested in looking into Lua&rsquo;s FFI in detail. After a bit of trial
 and error, I finally figured out how to interface LuaTeX with my current
 favorite programming language: <a href="https://julialang.org">Julia</a>.</p>
-
 <h2 id="calling-julia-from-lua">Calling Julia from Lua</h2>
-
 <p>The basic idea of calling julia (or any other C library for that matter) from
 Lua is the following:</p>
-
 <!--
 ```
 local ffi = require("ffi")
@@ -123,7 +119,6 @@ code = [[
 JULIA.jl_eval_string(code)
 ```
 -->
-
 <pre><code><span class="Statement">local</span> ffi = <span class="Identifier">require</span>(<span class="Constant">&quot;ffi&quot;</span>)
 <span class="Statement">local</span> JULIA = ffi.<span class="Identifier">load</span>(<span class="Constant">&quot;julia&quot;</span>, <span class="Constant" style="font-weight: bold;">true</span>)
 
@@ -146,57 +141,51 @@ code = <span class="Constant">[[</span>
 
 JULIA.jl_eval_string(code)
 </code></pre>
-
 <p>Save this as, say <code>test-1.lua</code> and run:</p>
-<pre tabindex="0"><code>luatex test-1.lua</code></pre>
+<pre><code>luatex test-1.lua
+</code></pre>
 <p>You should see <code>23</code> as output.</p>
-
 <p>Phew! That wasn&rsquo;t difficult. A couple of points to note:</p>
-
 <ol>
-<li><p>It took me quite some time to figure out that I need <code>ffi.load(&quot;julia&quot;,
-true)</code> rather than <code>ffi.load(&quot;julia&quot;)</code>. Lua&rsquo;s <a href="http://luajit.org/ext_ffi_api.html">FFI API</a>
+<li>
+<p>It took me quite some time to figure out that I need <code>ffi.load(&quot;julia&quot;, true)</code> rather than <code>ffi.load(&quot;julia&quot;)</code>. Lua&rsquo;s <a href="http://luajit.org/ext_ffi_api.html">FFI API</a>
 documentation says that when the second argument is <code>true</code>, <em>the library
 symbols are loaded into the global namespace, too.</em>. I don&rsquo;t completely
 understand that statement. The only hint that this is needed is a  note on
 <a href="https://docs.julialang.org/en/release-0.6/manual/embedding/">Embedding Julia</a> page that says <em>Currently, dynamically linking
 with the libjulia shared library requires passing the <code>RTLD_GLOBAL</code>
 option.</em>  Since I was not familiar with working with FFI, I could not put
-two and two together.</p></li>
-
-<li><p>I don&rsquo;t quite understand why one needs to include the function signatures
+two and two together.</p>
+</li>
+<li>
+<p>I don&rsquo;t quite understand why one needs to include the function signatures
 in <code>ffi.cdef</code>. It would be much simpler if I could simply ask <code>ffi</code> to
 include a C header file. Otherwise, I need to hunt for all the
 needed function signatures from <code>julia.h</code> file. Some of these functions are
 defined using <code>#define</code> and I don&rsquo;t know how to include them in <code>ffi.cdef</code>.</p>
-
 <p>[<strong>Edit</strong>: After browsing through some of the old threads in the Lua
-  mailing list, the main concern is that parsing <code>.h</code> files requires the C
-  pre-processor and writing that in pure Lua is a lot of effort. ]</p></li>
-
-<li><p>If julia has been compiled with threading support, then <code>jl_init</code> goes
+mailing list, the main concern is that parsing <code>.h</code> files requires the C
+pre-processor and writing that in pure Lua is a lot of effort. ]</p>
+</li>
+<li>
+<p>If julia has been compiled with threading support, then <code>jl_init</code> goes
 under the name of <code>jl_init__threading</code> (note the double underscore). So you
-have to change <code>jl_init</code> to <code>jl_init__threading</code> in the above example.</p></li>
+have to change <code>jl_init</code> to <code>jl_init__threading</code> in the above example.</p>
+</li>
 </ol>
-
 <h2 id="creating-a-tex-inteface">Creating a TeX inteface</h2>
-
 <p>Now that we know how to call Julia from Lua, the rest is just adding some
 scafolding to create a TeX inteface. Lua&rsquo;s FFI interface allows one to call
 any function defined in a  C library and convert return values to Lua objects
 (strings, numbers, or tables). As a proof of concept, I decided to only pass
 and receive strings. This is limited (and you need to ensure that the Julia
 code returns a string), but easier to implement.</p>
-
 <p>To do so, I defined a Lua function <code>julia.eval(str, flag)</code>, which takes a
 string <code>str</code> and evals it using julia. If <code>flag</code> is set to <code>true</code>, then it
 converts the return value to a lua string and typesets it using ConTeXt.</p>
-
 <p>Note that in the example below, I use <code>ffi.load(&quot;/usr/lib/libjulia.so&quot;, true)</code>
 rather than <code>ffi.load(&quot;julia&quot;, true)</code>. For some reason, the latter does not
-work when compiling a file through <code>context</code> (although, running <code>context
-test-1.lua</code> on the above example runs fine).</p>
-
+work when compiling a file through <code>context</code> (although, running <code>context test-1.lua</code> on the above example runs fine).</p>
 <!---
 ```
 \startluacode
@@ -236,7 +225,6 @@ end
 \stoptext
 ```
 -->
-
 <pre><code><span class="Identifier">\startluacode</span>
 <span class="Statement">local</span> ffi = <span class="Identifier">require</span>(<span class="Constant">&quot;ffi&quot;</span>)
 <span class="Statement">local</span> JULIA = ffi.<span class="Identifier">load</span>(<span class="Constant">&quot;/usr/lib/libjulia.so&quot;</span>, <span class="Constant">true</span>)
@@ -264,24 +252,19 @@ julia = julia <span class="Statement">or</span> <span class="Type">{}</span>
 
 <span class="Identifier">\stopluacode</span>
 </code></pre>
-
 <p>Then, at the TeX end, I define two macros: <code>\julia</code> which simply evaluates its
 argument using julia and <code>\ctxjulia</code> which evaluates its argument using julia
 and typesets the result.</p>
-
 <pre><code><span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\ctxjulia</span><span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, true) <span class="Special">}}</span>
 <span class="Identifier">\define</span><span class="Special">[</span><span class="Type">1</span><span class="Special">]</span><span class="Statement">\julia</span>   <span class="Special">{</span><span class="Statement">\ctxlua</span><span class="Special">{</span>julia.eval(<span class="Special">[</span>===<span class="Special">[</span>#1<span class="Special">]</span>===<span class="Special">]</span>, false)<span class="Special">}}</span>
 </code></pre>
-
 <p>Here is a simple usage example.</p>
-
 <pre><code><span class="PreProc">\starttext</span>
 <span class="Statement">\julia</span><span class="Special">{</span>a = 10<span class="Special">}</span>
 <span class="Statement">\julia</span><span class="Special">{</span>b = 5<span class="Special">}</span>
 <span class="Statement">\ctxjulia</span><span class="Special">{</span>string(a*b)<span class="Special">}</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>which, as expected, prints <em>50</em>. Sure, for something as simple as this, I
 could have simply used Lua as well. In a future post, I&rsquo;ll show how to create
 a nicer user-interface and do show some more interesting examples.</p>

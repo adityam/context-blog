@@ -80,256 +80,204 @@
 
 <p>There is a new feature in ConTeXt that replaces some <em>ascii math</em> (I am using
 this term informally. The symbols do not match the <a href="http://asciimath.org">asciimath</a> symbol list).
-It is enabled using<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
-
+It is enabled using<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
 </code></pre>
-
 <p>and replaces a combination of characters by a glyph. For example,</p>
-
 <pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
 A function <span class="String">$f$</span> is an increasing function
   <span class="Identifier">\startformula</span>
 <span class="String">    x &lt;= y  ===&gt; f(x) &lt;= f(y)</span>
 <span class="String">  </span><span class="Identifier">\stopformula</span>
 </code></pre>
-
 <p>gives</p>
-
 <img class="center"
   alt="Example of combined characters"
   src="/context-blog/post/math-combined-characters/ex-1.png" />
 
-
 <p>Notice that <code>&lt;=</code> got translated to <code>≤</code> (<code>\le</code>) and <code>===&gt;</code> got translated to
-<code>⟹</code> (<code>\Longrightarrow</code>).</p>
-
+<code>⟹ </code> (<code>\Longrightarrow</code>).</p>
 <p>ConTeXt version <code>2017.08.15</code> or newer is needed for these mappings to work.
 Here is the complete list of comining characters that are available:</p>
-
 <table>
 <thead>
 <tr>
 <th>shortcut</th>
-<th align="left">Mapped to</th>
+<th style="text-align:left">Mapped to</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>''</code></td>
-<td align="left"><code>\doubleprime</code></td>
+<td style="text-align:left"><code>\doubleprime</code></td>
 </tr>
-
 <tr>
 <td><code>'''</code></td>
-<td align="left"><code>\tripleprime</code></td>
+<td style="text-align:left"><code>\tripleprime</code></td>
 </tr>
-
 <tr>
 <td><code>''''</code></td>
-<td align="left"><code>\quadprime</code></td>
+<td style="text-align:left"><code>\quadprime</code></td>
 </tr>
-
 <tr>
 <td><code>::</code></td>
-<td align="left"><code>\squaredots</code></td>
+<td style="text-align:left"><code>\squaredots</code></td>
 </tr>
-
 <tr>
 <td><code>:=</code></td>
-<td align="left"><code>\colonequals</code></td>
+<td style="text-align:left"><code>\colonequals</code></td>
 </tr>
-
 <tr>
 <td><code>=:</code></td>
-<td align="left"><code>\equalscolon</code></td>
+<td style="text-align:left"><code>\equalscolon</code></td>
 </tr>
-
 <tr>
 <td><code>::=</code></td>
-<td align="left"><code>\coloncolonequals</code></td>
+<td style="text-align:left"><code>\coloncolonequals</code></td>
 </tr>
-
 <tr>
 <td><code>-:</code></td>
-<td align="left"><code>\minuscolon</code></td>
+<td style="text-align:left"><code>\minuscolon</code></td>
 </tr>
-
 <tr>
 <td><code>/&lt;</code></td>
-<td align="left"><code>\nless</code></td>
+<td style="text-align:left"><code>\nless</code></td>
 </tr>
-
 <tr>
 <td><code>/&gt;</code></td>
-<td align="left"><code>\ngtr</code></td>
+<td style="text-align:left"><code>\ngtr</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;=</code></td>
-<td align="left"><code>\le</code></td>
+<td style="text-align:left"><code>\le</code></td>
 </tr>
-
 <tr>
 <td><code>/&lt;=</code></td>
-<td align="left"><code>\nleq</code></td>
+<td style="text-align:left"><code>\nleq</code></td>
 </tr>
-
 <tr>
 <td><code>&gt;=</code></td>
-<td align="left"><code>\ge</code></td>
+<td style="text-align:left"><code>\ge</code></td>
 </tr>
-
 <tr>
 <td><code>/&gt;=</code></td>
-<td align="left"><code>\ngeq</code></td>
+<td style="text-align:left"><code>\ngeq</code></td>
 </tr>
-
 <tr>
 <td><code>/=</code></td>
-<td align="left"><code>\neq</code></td>
+<td style="text-align:left"><code>\neq</code></td>
 </tr>
-
 <tr>
 <td><code>=&gt;</code></td>
-<td align="left"><code>\eqgtr</code></td>
+<td style="text-align:left"><code>\eqgtr</code></td>
 </tr>
-
 <tr>
 <td><code>=&lt;</code></td>
-<td align="left"><code>\eqless</code></td>
+<td style="text-align:left"><code>\eqless</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;=&gt;</code></td>
-<td align="left"><code>\lesseqqgtr</code></td>
+<td style="text-align:left"><code>\lesseqqgtr</code></td>
 </tr>
-
 <tr>
 <td><code>&gt;=&lt;</code></td>
-<td align="left"><code>\gtreqqless</code></td>
+<td style="text-align:left"><code>\gtreqqless</code></td>
 </tr>
-
 <tr>
 <td>`</td>
-<td align="left"></td>
+<td></td>
 </tr>
-
 <tr>
 <td><code>&lt;&lt;</code></td>
-<td align="left"><code>\ll</code></td>
+<td style="text-align:left"><code>\ll</code></td>
 </tr>
-
 <tr>
-<td>&rsquo;&gt;&gt;`</td>
-<td align="left"><code>\gg</code></td>
+<td>&lsquo;&raquo;`</td>
+<td style="text-align:left"><code>\gg</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;&lt;&lt;</code></td>
-<td align="left"><code>\lll</code></td>
+<td style="text-align:left"><code>\lll</code></td>
 </tr>
-
 <tr>
 <td><code>&gt;&gt;&gt;</code></td>
-<td align="left"><code>\ggg</code></td>
+<td style="text-align:left"><code>\ggg</code></td>
 </tr>
-
 <tr>
 <td><code>==</code></td>
-<td align="left"><code>\equiv</code></td>
+<td style="text-align:left"><code>\equiv</code></td>
 </tr>
-
 <tr>
 <td><code>/==</code></td>
-<td align="left"><code>\nequiv</code></td>
+<td style="text-align:left"><code>\nequiv</code></td>
 </tr>
-
 <tr>
 <td><code>===</code></td>
-<td align="left"><code>\eqequiv</code> (a virtual character for mapping purposes)</td>
+<td style="text-align:left"><code>\eqequiv</code> (a virtual character for mapping purposes)</td>
 </tr>
-
 <tr>
 <td><code>-&gt;</code></td>
-<td align="left"><code>\rightarrow</code></td>
+<td style="text-align:left"><code>\rightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;-</code></td>
-<td align="left"><code>\leftarrow</code></td>
+<td style="text-align:left"><code>\leftarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;-&gt;</code></td>
-<td align="left"><code>\leftrightarrow</code></td>
+<td style="text-align:left"><code>\leftrightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>--&gt;</code></td>
-<td align="left"><code>\longleftarrow</code></td>
+<td style="text-align:left"><code>\longleftarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;--</code></td>
-<td align="left"><code>\longrightarrow</code></td>
+<td style="text-align:left"><code>\longrightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;--&gt;</code></td>
-<td align="left"><code>\longleftrightarrow</code></td>
+<td style="text-align:left"><code>\longleftrightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>==&gt;</code></td>
-<td align="left"><code>\Rightarrow</code></td>
+<td style="text-align:left"><code>\Rightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;==</code></td>
-<td align="left"><code>\Leftarrow</code></td>
+<td style="text-align:left"><code>\Leftarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;==&gt;</code></td>
-<td align="left"><code>\Leftrightarrow</code></td>
+<td style="text-align:left"><code>\Leftrightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>===&gt;</code></td>
-<td align="left"><code>\Longrightarrow</code></td>
+<td style="text-align:left"><code>\Longrightarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;===</code></td>
-<td align="left"><code>\Longleftarrow</code></td>
+<td style="text-align:left"><code>\Longleftarrow</code></td>
 </tr>
-
 <tr>
 <td><code>&lt;===&gt;</code></td>
-<td align="left"><code>\Longleftrightarrow</code></td>
+<td style="text-align:left"><code>\Longleftrightarrow</code></td>
 </tr>
-
 <tr>
-<td><code>&#124;&#124;</code></td>
-<td align="left"><code>\doubleverticalbar</code></td>
+<td><code>||</code></td>
+<td style="text-align:left"><code>\doubleverticalbar</code></td>
 </tr>
-
 <tr>
-<td><code>&#124;&#124;&#124;</code></td>
-<td align="left"><code>\tripleverticalbar</code></td>
+<td><code>|||</code></td>
+<td style="text-align:left"><code>\tripleverticalbar</code></td>
 </tr>
 </tbody>
 </table>
-
 <p>If the font does not contain the appropriate glyph, then the above
 will silently fail (e.g., Latin Modern Math does not have <code>::=</code>). If something
 goes wrong, partial debug information is available using:</p>
-
 <pre><code><span class="Identifier">\enabletrackers</span><span class="Delimiter">[</span><span class="Type">math.collapsing</span><span class="Delimiter">]</span>
 </code></pre>
-
 <p>This shows the following tracking information on the console (and also
 writes it to the log file)</p>
 <pre tabindex="0"><code>mathematics     &gt; collapsing &gt; enabling math collapsing
@@ -340,13 +288,12 @@ mathematics     &gt; collapsing &gt; creating ligature ∷ (U+02237) from mathli
 mathematics     &gt; collapsing &gt; creating ligature ≔ (U+02254) from mathlist
 mathematics     &gt; collapsing &gt; creating ligature ≕ (U+02255) from mathlist
 mathematics     &gt; collapsing &gt; creating ligature ⩴ (U+02A74) from specials
-...</code></pre>
-<p>Notice that there are two mechanisms for collapsing <code>mathlist</code> and <code>specials</code>
+...
+</code></pre><p>Notice that there are two mechanisms for collapsing <code>mathlist</code> and <code>specials</code>
 (I don&rsquo;t quite understand the difference except that the <code>specials</code> mechanism
 is old and related for some font stuff while the <code>mathlist</code> mechanism is new).
 The relevant information is available in <code>char-def.lua</code>. For example, for
 <code>::=</code> (which is a <code>special</code>), the entry in <code>char-def.lua</code> is</p>
-
 <pre><code>[<span class="Number">0x2A74</span>]=<span class="Structure">{</span>
   category=<span class="String">&quot;sm&quot;</span>,
   description=<span class="String">&quot;DOUBLE COLON EQUAL&quot;</span>,
@@ -358,10 +305,8 @@ The relevant information is available in <code>char-def.lua</code>. For example,
   unicodeslot=<span class="Number">0x2A74</span>,
  <span class="Structure">}</span>,
 </code></pre>
-
 <p>On the other hand, for <code>::</code> (which is a <code>mathlist</code>), the entry in
 <code>char-def.lua</code> is:</p>
-
 <pre><code>[<span class="Number">0x2237</span>]=<span class="Structure">{</span>
   adobename=<span class="String">&quot;proportion&quot;</span>,
   category=<span class="String">&quot;sm&quot;</span>,
@@ -375,16 +320,13 @@ The relevant information is available in <code>char-def.lua</code>. For example,
   unicodeslot=<span class="Number">0x2237</span>,
  <span class="Structure">}</span>,
 </code></pre>
-
-<p>To add additional such shortcuts, simply add the <code>mathlist = { ...
-}</code> line in <code>char-def.lua</code> and regenerate the format file.</p>
-<div class="footnotes">
-
-<hr />
-
+<p>To add additional such shortcuts, simply add the <code>mathlist = { ... }</code> line in <code>char-def.lua</code> and regenerate the format file.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">In principle, there are multiple types of collapsing. Using <code>collapsing=1</code> uses <code>specials</code> for collapsing, using <code>collapsing=2</code> uses <code>specials + mathlist</code> (i.e., specials get preference over mathlist) and using <code>collapsing=3</code> uses <code>mathlist + specials</code>. Here specials and mathlist refer to the internal implementation of the feature in <code>char-def.lua</code>.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1">
+<p>In principle, there are multiple types of collapsing. Using <code>collapsing=1</code> uses <code>specials</code> for collapsing, using <code>collapsing=2</code> uses <code>specials + mathlist</code> (i.e., specials get preference over mathlist) and using <code>collapsing=3</code> uses <code>mathlist + specials</code>. Here specials and mathlist refer to the internal implementation of the feature in <code>char-def.lua</code>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

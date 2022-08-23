@@ -30,7 +30,6 @@ Metapost and TikZ for drawing similar graphics and found that &lt;strong&gt;TikZ
 to five times slower than Metapost&lt;/strong&gt;. Although TikZ is slower, it does provide
 a much higher level interface to drawing graphics and shifting to Metapost can
 take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than &lt;em&gt;computer time&lt;/em&gt;.&lt;/p&gt;
-
 &lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level
 interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package
 for drawing
@@ -45,23 +44,18 @@ graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this p
       <guid>https://adityam.github.io/context-blog/post/typesetting-differential-equations/</guid>
       <description>&lt;p&gt;This semester I am teaching a course involving linear differential equations,
 so I have typeset many differential equations that look like this:&lt;/p&gt;
-
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;
 
-
 &lt;p&gt;Believe me, writing such equations by hand gets tedious very quickly. So, I
 wanted a macro &lt;code&gt;\LDE&lt;/code&gt; (for Linear Differential Equation), so that I
 could just type&lt;/p&gt;
-
 &lt;!--
 \LDE{1, -3, 2}{2, 1}
 --&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\LDE&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;1, -3, 2&lt;span class=&#34;Delimiter&#34;&gt;}{&lt;/span&gt;2, 1&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;and get the above result. This post describes how to write such a macro using
 LuaTeX + ConTeXt.&lt;/p&gt;</description>
     </item>

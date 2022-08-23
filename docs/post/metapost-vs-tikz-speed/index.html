@@ -81,7 +81,6 @@
 <p>As a frequent user of both Metapost and TikZ, I often observe that TikZ is
 considerably slower than Metapost. But what&rsquo;s the actual difference in speed?
 Let&rsquo;s consider basic operations: drawing straight lines and drawing circles.</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">tikz</span><span class="Delimiter">]</span>
 
 <span class="PreProc">\starttext</span>
@@ -112,14 +111,12 @@ Let&rsquo;s consider basic operations: drawing straight lines and drawing circle
 
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>The function <code>\testfeatureonce{n}{...}</code> runs the code inside the second
 argument <code>n</code> times and stores the elapsed time in the macro <code>\elapsedtime</code>.
 So, in the above example, we are drawing a straight line (or a circle) 1000
 times, saving the output to a box (so that we don&rsquo;t include the overhead of
 writing the content to PDF), and measuring the elapsed time. The result is as
 follows (formatted for clarity).</p>
-
 <table>
 <thead>
 <tr>
@@ -128,14 +125,12 @@ follows (formatted for clarity).</p>
 <th>TikZ</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Line</td>
 <td>0.434s</td>
 <td>1.239s</td>
 </tr>
-
 <tr>
 <td>Circle</td>
 <td>0.533s</td>
@@ -143,13 +138,10 @@ follows (formatted for clarity).</p>
 </tr>
 </tbody>
 </table>
-
 <p>So, <strong>TikZ is almost 3 times slower than Metapost</strong> for basic shapes.</p>
-
 <p>Now, let&rsquo;s try something more complicated: drawing a 2 state Markov chain. One
 of the selling features of TikZ is that drawing more &ldquo;complicated&rdquo; graphics is
 easy. Here is the code for drawing such a chain in TikZ:</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">tikz</span><span class="Delimiter">]</span>
 <span class="Identifier">\usetikzlibrary</span><span class="Delimiter">[</span><span class="Type">positioning</span><span class="Delimiter">]</span>
 
@@ -175,18 +167,14 @@ easy. Here is the code for drawing such a chain in TikZ:</p>
 <span class="Identifier">\stoptikzpicture</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <img class="center"
   alt="Two state Markov chain in TikZ"
   src="tikz.png" />
 
-
 <p>Using <code>\testfeatureonce{100}{...}</code> on this code takes <strong>4.278s</strong> on my laptop.
 So, drawing one Markov chain takes about <strong>43ms</strong>.</p>
-
 <p>Metapost is a more declarative language, so Metapost code is more elaborate.
 Here is one way to draw the same figure in Metapost:</p>
-
 <pre><code><span class="Identifier">\startMPinclusions</span>
   <span class="Statement">input</span> boxes;
 <span class="Identifier">\stopMPinclusions</span>
@@ -243,18 +231,15 @@ Here is one way to draw the same figure in Metapost:</p>
 <span class="Identifier">\stopMPcode</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <img class="center"
   alt="Two state Markov chain in TikZ"
   src="metapost.png" />
-
 
 <p>This code could have been made somewhat terser by defining macros <code>Edge</code> and
 <code>Loop</code> but I am not doing so. Running <code>\testfeatureonce{100}{...}</code> on the
 above code takes <strong>0.790s</strong> on my laptop. So drawing one Markov chain takes
 about <strong>8ms</strong>. For a somewhat more complicated drawing, <strong>TikZ is almost 5
 times slower than Metapost</strong>.</p>
-
 <p>But the speed tradeoff comes at a cost. The TikZ code is terser than Metapost
 and hides some of the complexity behind convenience macros. So, it is easier
 to understand (at least for beginners). This also explains why TikZ is so much

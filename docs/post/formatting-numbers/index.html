@@ -82,17 +82,13 @@
 the solution to look exactly how it would look if it were written by hand. But
 this can be tricker than it appears at first glance. In this post, I&rsquo;ll
 explain the issue and how I solve it.</p>
-
 <p>To illustrate the formatting issue, let me consider an example of writing the
 solution of how to find roots of a quadratic equation. Let&rsquo;s start with a
 simple example. First let&rsquo;s define</p>
-
 <pre><code><span class="Statement">\defineenumeration</span><span class="Delimiter">[</span>question<span class="Delimiter">]</span>
 <span class="Statement">\defineenumeration</span><span class="Delimiter">[</span>solution<span class="Delimiter">]</span>
 </code></pre>
-
 <p>Then consider the following example.</p>
-
 <!--
 \startquestion
   Find the roots of $x^2 + 5x + 6 = 0$.
@@ -110,7 +106,6 @@ simple example. First let&rsquo;s define</p>
   \stopformula
 \stopsolution
 -->
-
 <pre><code><span class="Statement">\startquestion</span>
   Find the roots of <span class="String">$x^2 + 5x + 6 = 0$</span>.
 <span class="Statement">\stopquestion</span>
@@ -127,13 +122,11 @@ simple example. First let&rsquo;s define</p>
   <span class="Statement">\stopformula</span>
 <span class="Statement">\stopsolution</span>
 </code></pre>
-
 <p>Now suppose I want to generate a homework assignment with four or five such
 questions. In order to ensure that I don&rsquo;t make any mistakes, I generate the
 questions and the answers using Lua. For simplicity, let&rsquo;s assume that both
 roots are real. Then, I can use <code>string.formatters</code> to easily generate the
 assignment and the solution.</p>
-
 <!--
 \startluacode
 
@@ -175,7 +168,6 @@ assignment.roots = function(a, b, c)
 end
 \stopluacode
 -->
-
 <pre><code><span class="Statement">\startluacode</span>
 
 <span class="Statement">local</span> formatters = string.formatters
@@ -216,22 +208,16 @@ assignment.roots = <span class="Function">function</span>(a, b, c)
 <span class="Function">end</span>
 <span class="Identifier">\stopluacode</span>
 </code></pre>
-
 <p>Then, in the homework assignment, I can generate the above question and its
 solution using:</p>
-
 <pre><code><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>assignment.roots(1, 5, 6)<span class="Delimiter">}</span>
 </code></pre>
-
 <p>The above generated solution works well when all numbers are integer valued.
 However, the generated solution is not ideal when some of the calculations
 result in floats. For example:</p>
-
 <pre><code><span class="Statement">\ctxlua</span><span class="Delimiter">{</span>assignment.roots(1, 4, 2)<span class="Delimiter">}</span>
 </code></pre>
-
 <p>will generate:</p>
-
 <pre><code><span class="Statement">\startquestion</span>
   Find the roots of <span class="String">$x^2 + 4x + 2 = 0$</span>.
 <span class="Statement">\stopquestion</span>
@@ -248,11 +234,9 @@ result in floats. For example:</p>
   <span class="Statement">\stopformula</span>
 <span class="Statement">\stopsolution</span>
 </code></pre>
-
 <p>Technically, the solution is correct. But one never types a float with a
 precision of 12 decimal places. Of course, I could change the <code>%s</code> in the
 template to <code>%.3f</code> as follows:</p>
-
 <pre><code><span class="Statement">local</span> solution = formatters[ <span class="String">[[</span>
 <span class="String">\startsolution</span>
 <span class="String">  Let's start by computing the determinant.</span>
@@ -267,9 +251,7 @@ template to <code>%.3f</code> as follows:</p>
 <span class="String">\stopsolution</span>
 <span class="String">]]</span> ]
 </code></pre>
-
 <p>For the second problem, this will generate:</p>
-
 <pre><code><span class="Statement">\startquestion</span>
   Find the roots of <span class="String">$x^2 + 4x + 2 = 0$</span>.
 <span class="Statement">\stopquestion</span>
@@ -286,10 +268,8 @@ template to <code>%.3f</code> as follows:</p>
   <span class="Statement">\stopformula</span>
 <span class="Statement">\stopsolution</span>
 </code></pre>
-
 <p>which is partially acceptable (when typesetting the solution by hand, one
 would uses <code>Δ = 8</code> rather than <code>Δ = 8.000</code>) but for the first problem, we now get</p>
-
 <pre><code><span class="Statement">\startquestion</span>
   Find the roots of <span class="String">$x^2 + 5x + 6 = 0$</span>.
 <span class="Statement">\stopquestion</span>
@@ -306,26 +286,19 @@ would uses <code>Δ = 8</code> rather than <code>Δ = 8.000</code>) but for the 
   <span class="Statement">\stopformula</span>
 <span class="Statement">\stopsolution</span>
 </code></pre>
-
 <p>which is not ideal.</p>
-
 <p>So, to typeset such examples, I need to format numbers as follows:</p>
-
 <ul>
 <li>If the number is an integer, use <code>%d</code>.</li>
 <li>If the number is a float, use <code>%.3f</code>.</li>
 </ul>
-
 <p>However, once you think about it, the above spec is not complete. In addition,
 what we want is that</p>
-
 <ul>
 <li>If <code>%.3f</code> gives <code>&quot;0.000&quot;</code>, using (the tex equivalent of) <code>%.3e</code>.</li>
 </ul>
-
 <p>Who knew simply formatting numbers could be so complicated! Anyways, here is a
 simple function that does this formatting:</p>
-
 <pre><code><span class="Statement">local</span> mathtype, floor  = math.<span class="Identifier">type</span>, <span class="Identifier">math.floor</span>
 <span class="Statement">local</span> format, strlen, match = <span class="Identifier">string.format</span>, <span class="Identifier">string.len</span>, <span class="Identifier">string.match</span>
 
@@ -348,25 +321,18 @@ formatnumber = <span class="Function">function</span>(a)
     <span class="Conditional">end</span>
 <span class="Function">end</span>
 </code></pre>
-
 <p>We first check if the number is an integer (using <code>math.type(a) == &quot;integer&quot;</code>)
 or if the number is a float of the type <code>8.0</code> (using <code>math.floor(a) == a</code>) and
 if so, format the number using <code>%d</code>.</p>
-
 <p>We then next check if casting the number to a string leads to a shorter string than
 formatting it using <code>%.3f</code>. If so, we format it using <code>%s</code>. This ensures that
 a number like <code>8.2</code> is typeset as <code>8.2</code> rather than <code>8.200</code>.</p>
-
 <p>Finally, we check if formatting the number using <code>%.3f</code> gives <code>&quot;0.000&quot;</code>. If
 so, we typeset the tex equvalent of <code>%.3e</code>.</p>
-
 <p>Phew!</p>
-
 <p>To use this code, I use <code>%s</code> in my templates, and then call the template as</p>
-
 <pre><code>context(solution(formatnumber(D), formatnumber(r1), formatnumber(r2)))
 </code></pre>
-
 <p>This gives me correct formatting in all the edge cases.</p>
 
 <hr />

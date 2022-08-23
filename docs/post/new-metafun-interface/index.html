@@ -81,21 +81,17 @@
 <p>Recently, Hans <a href="https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html">announced</a> a new key-value driven interface for MetaFun and
 posted a <a href="http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf">MyWay document</a> illustrating its use. In this post, I am going to
 present an example of how to use this interface.</p>
-
 <p>I teach a course in Linear Systems and occasionally need to draw what is known
-as a <a href="https://en.wikipedia.org/wiki/Pole–zero_plot">pole zero plot</a>. Here is what it looks like.</p>
-
+as a <a href="https://en.wikipedia.org/wiki/Pole%E2%80%93zero_plot">pole zero plot</a>. Here is what it looks like.</p>
 <img class="center"
   alt="Example of a pole zero plot"
   src="pzplot.png" />
-
 
 <p>The circle denotes the location of zero and the crosses denote the location
 of poles. It is a relatively simple plot to draw, so I thought that this is a
 good candidate to show how the interface works without worrying too much on
 the logic of plotting. Let&rsquo;s start with the bare-bones implementation. I want
 to draw the above plot using the following interface:</p>
-
 <!--
 \startMPcode
    draw PZplot 
@@ -107,7 +103,6 @@ to draw the above plot using the following interface:</p>
      ] ;
 \stopMPcode
 -->
-
 <pre><code><span class="Statement">\startMPcode</span>
    <span class="Function">draw</span> PZplot
      <span class="Delimiter">[</span>
@@ -118,19 +113,14 @@ to draw the above plot using the following interface:</p>
      <span class="Delimiter">]</span> ;
 <span class="Statement">\stopMPcode</span>
 </code></pre>
-
 <p>So, how do we create such a key-value driven interface. Let&rsquo;s go over it step
 by step. All that follows in Metapost code.</p>
-
 <p>The first step is to define the macro <code>PZplot</code>:</p>
-
 <!--
 def PZplot = applyparameters "PZplot" "do_PZplot" enddef ;
 -->
-
 <pre><code><span class="Statement">def</span> PZplot = <span class="Function">applyparameters</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;do_PZplot&quot;</span> <span class="Statement">enddef</span> ;
 </code></pre>
-
 <p>Here <code><span class="Function">applyparameters</span></code> is the new
 MetaFun macro which takes two string arguments. The first (<code><span
 class="String">&quot;PZplot&quot;</span></code> in this case) is the name of
@@ -139,9 +129,7 @@ the <em>data structure</em> where the key-value pairs are stored. The second
 is the name of the MetaPost function that is called after all the key-value
 pairs have been stored. This is very similar to the old style for defining
 TeX macros in ConTeXt.</p>
-
 <p>The second (optional) step is to set up the default values of all parameters.</p>
-
 <!-- 
 presetparameters "PZplot" [ 
   xmin = -2.5,  xmax = 2.5,
@@ -156,7 +144,6 @@ presetparameters "PZplot" [
   style = "\switchtobodyfont[8pt]",
 ];
 -->
-
 <pre><code><span class="Function">presetparameters</span> <span class="String">&quot;PZplot&quot;</span> [
   xmin = <span class="Number">-2.5</span>,  xmax = <span class="Number">2.5</span>,
   ymin = <span class="Number">-2.5</span>,  ymax = <span class="Number">2.5</span>,
@@ -172,62 +159,48 @@ presetparameters "PZplot" [
   style = <span class="String">&quot;\switchtobodyfont[8pt]&quot;</span>,
 ];
 </code></pre>
-
 <p>All values must either be a valid MetaPost type (<code>numeric</code>, <code>pair</code>, <code>string</code>,
 etc.) or a list of value MetaPost types enclosed in braces (like a Lua
 table).</p>
-
 <p>Finally, we can retrieve a value as follows:</p>
-
 <pre><code>xmin := <span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;xmin&quot;</span>;
 </code></pre>
-
 <p>The right hand side returns a metapost <code>numeric</code> and one has to be careful to
 ensure that the variable <code>xmin</code> is declared a <code>numeric</code> beforehand.</p>
-
 <p>For a list (like <code>poles</code> and <code>zeros</code> in the above macros), there are a few
 other macros:</p>
-
 <ol>
-<li><p>To get the number of elements in the list, use
-<pre><code><span class="Function">getparametercount</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;poles&quot;</span>
-</code></pre></p></li>
-
-<li><p>To get the say 2nd element of the list, use
-<pre><code><span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;poles&quot;</span> <span class="Number">2</span>
-</code></pre></p></li>
+<li>To get the number of elements in the list, use</li>
 </ol>
-
+<pre><code><span class="Function">getparametercount</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;poles&quot;</span>
+</code></pre>
+<ol start="2">
+<li>To get the say 2nd element of the list, use</li>
+</ol>
+<pre><code><span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;poles&quot;</span> <span class="Number">2</span>
+</code></pre>
 <p>That&rsquo;s it.</p>
-
 <p>There are two other convenience macros. Writing the name of the data structure
 <code><span class="String">&quot;PZplot&quot;</span></code> in all the macros
 can get tiring. So, one can set the name of the current data structure using</p>
-
 <pre><code><span class="Function">pushparameters</span> <span class="String">&quot;PZplot&quot;</span>;
 </code></pre>
-
-<p>Then,
+<p>Then,</p>
 <pre><code>xmin := <span class="Function">getparameter</span> <span class="String">&quot;xmin&quot;</span>;
 </code></pre>
-is equivalent to
+<p>is equivalent to</p>
 <pre><code>xmin := <span class="Function">getparameter</span> <span class="String">&quot;PZplot&quot;</span> <span class="String">&quot;xmin&quot;</span>;
-</code></pre></p>
-
+</code></pre>
 <p>One can then <em>reset</em> the name of the default data structure using</p>
-
 <pre><code><span class="Function">popparameters</span>;
 </code></pre>
-
 <p>The actual mechanism is more complicated than that because <code><span
 class="Function">pushparameters</span></code> can be used in a nested manner,
 but I&rsquo;ll ignore that and stick with the simpler explanation that I used above.</p>
-
 <p>So, without further ado, here is the complete implementation of the <code>PZplot</code>
 macro. As a mater of habit, I define and use this macro in a separate MetaPost
 <em>instance</em>. That way, I don&rsquo;t have to worry about my definitions affecting
 code from other modules.</p>
-
 <pre><code>
 <span class="Identifier">\defineMPinstance</span><span class="Delimiter">[</span><span class="Type">LTI</span><span class="Delimiter">]  </span>
 <span class="Delimiter">                 [</span>
@@ -388,16 +361,13 @@ code from other modules.</p>
 <span class="Identifier">\stopTEXpage</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>Running the code above gives the plot:</p>
-
 <img class="center"
   alt="Example of a pole zero plot"
   src="pzplot.png" />
 
-
 <p>As an example of the flexibility of the key-value interface, we can get a
-background grid by using:
+background grid by using:</p>
 <pre><code><span class="Identifier">\startMPcode</span>{LTI}
    <span class="Function">draw</span> PZplot
      [
@@ -406,12 +376,10 @@ background grid by using:
         <span class="Function">grid</span> = <span class="Statement">true</span>,
      ] ;
 <span class="Identifier">\stopMPcode</span>
-</code></pre></p>
-
+</code></pre>
 <img class="center"
   alt="Example of a pole zero plot with grid"
   src="pzplot-grid.png" />
-
 
 <p>I am very excited about this new key-value interface for MetaPost. For my
 course notes, there are many plots that I draw using TikZ because of the

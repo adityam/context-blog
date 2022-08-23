@@ -36,7 +36,7 @@ Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing ci
       
       <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
       <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
- Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
+Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
     </item>
     
     <item>
@@ -47,9 +47,8 @@ Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing ci
       <guid>https://adityam.github.io/context-blog/post/metapost-animation/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;http://wiki.contextgarden.net/Animation#Using_the_animation_module&#34;&gt;animation&lt;/a&gt; module provides a nice interface for using
 &lt;a href=&#34;http://www.pragma-ade.com/general/manuals/mwidget-s.pdf&#34;&gt;FieldStacks&lt;/a&gt; to create a JavaScript controlled animations in
-ConTeXt.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; For example, the following code will show &lt;code&gt;step-1.pdf&lt;/code&gt;,
+ConTeXt.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; For example, the following code will show &lt;code&gt;step-1.pdf&lt;/code&gt;,
 &lt;code&gt;step-2.pdf&lt;/code&gt;, &lt;code&gt;step-3.pdf&lt;/code&gt;, and &lt;code&gt;step-4.pdf&lt;/code&gt; files one by one:&lt;/p&gt;
-
 &lt;!--
 \usemodule[animation]
 
@@ -60,7 +59,6 @@ ConTeXt.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=
   {\useexternalfigure[step-4]}
 \stopanimation
 --&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\usemodule&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;animation&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
 
 &lt;span class=&#34;Statement&#34;&gt;\startanimation&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;menu=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
@@ -70,7 +68,6 @@ ConTeXt.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=
   &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-4.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
 &lt;span class=&#34;Statement&#34;&gt;\stopanimation&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Sometimes, I use animation to give the illusion of motion. For example, to
 show a particle moving along a trajectory (drawn using Metapost). In
 principle, it is possible to use the &lt;code&gt;animation&lt;/code&gt; module to draw such
@@ -87,23 +84,17 @@ simplify drawing such animations.&lt;/p&gt;</description>
       <guid>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</guid>
       <description>&lt;p&gt;Default Metapost has the concept of two types of labels, postscript labels and
 TeX labels. Postscript labels are created using&lt;/p&gt;
-
 &lt;!--
 label(&#34;text&#34;, location);
 --&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;String&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, location);
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;while TeX labels are created using&lt;/p&gt;
-
 &lt;!-- 
 label(btex text etex, location);
 --&gt;
-
 &lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;Statement&#34;&gt;btex&lt;/span&gt;&lt;span class=&#34;String&#34;&gt; text &lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;etex&lt;/span&gt;, location);
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;In the latter case,  Metapost collects everything between &lt;code&gt;btex&lt;/code&gt; and &lt;code&gt;etex&lt;/code&gt;
 in a separate file, processes that file through TeX, and includes the
 resulting postscript code at an appropriate location. Such a Rube

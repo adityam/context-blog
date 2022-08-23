@@ -80,24 +80,19 @@
 
 <p>This post is not really about ConTeXt but about how I could use ConTeXt to
 quickly hash out an idea which involved some text processing.</p>
-
 <p>One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
 file using ConTeXt&rsquo;s XML helper&rsquo;s and convert the data to a Lua table, and
 then typeset it using <a href="https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf">ConTeXt Lua Documents</a>. When starting with this
 project, I chose XML as a data format for two reasons. First, XML scema can be
 <a href="https://en.wikipedia.org/wiki/XML_validation">validated</a> using a Schema. Second, I thought that since XML is so popular,
 there must be good tools for authoring XML documents.</p>
-
 <p>The first reason has really paid off. I wrote a <a href="https://en.wikipedia.org/wiki/XML_validation">Relax NG</a> schema for the
 data layout that I had in mind, and I validate the XML files (using <a href="https://relaxng.org/jclark/jing.html">jing</a>) as part of by build process. However, I never got down to exploring authoring tools for XML. I using vim (now <a href="https://neovim.io">neovim</a>) for editing everything, which has a decent <a href="http://github.com/sukima/xmledit/">XML plugin</a>. So, I mostly updated my XML file by hand (often by simply copy-pasting an old entry and changing appropriate values). It works, but is an error prone process.</p>
-
 <p>I recently came across <a href="https://github.com/v1cont/yad">YAD (yet another dialog)</a>, which is a program to
 easily generate GUI dialog boxes and forms. See <a href="http://smokey01.com/yad/">this page</a> for long list of examples. Using <code>yad</code>, I could easily generate a GUI to enter all the information for a publication.</p>
-
 <img class="center"
   alt="A GUI using YAD"
   src="yad.png" />
-
 
 <pre><code><span class="Identifier">data</span>=<span class="PreProc">$(</span><span class="Special">yad </span><span class="Special">--title</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="String">Add publication</span><span class="Operator">&quot;</span><span class="Special"> </span><span class="Special">--form</span><span class="Special"> \</span>
 <span class="Special">           </span><span class="Special">--separator</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="String">|</span><span class="Operator">&quot;</span><span class="Special">  </span><span class="Special">--width</span><span class="Operator">=</span><span class="Number">500</span><span class="Special"> \</span>
@@ -112,15 +107,12 @@ easily generate GUI dialog boxes and forms. See <a href="http://smokey01.com/yad
 <span class="Special">           </span><span class="Special">--field</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="String">Month</span><span class="Operator">&quot;</span><span class="Special"> </span><span class="PreProc">$(</span><span class="Special">date +%b</span><span class="PreProc">)</span><span class="Special"> \</span>
 <span class="Special">           </span><span class="Special">--field</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="String">Year</span><span class="Operator">&quot;</span><span class="Special">  </span><span class="PreProc">$(</span><span class="Special">date +%Y</span><span class="PreProc">)</span><span class="Special"> \</span>
 <span class="Special">           </span><span class="Special">--field</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="String">Note:TXT</span><span class="Operator">&quot;</span><span class="Special"> </span><span class="Operator">&quot;&quot;</span><span class="PreProc">)</span></code></pre>
-
 <p>After clicking &ldquo;OK&rdquo;, the values of all fields are written to <code>STDOUT</code>
 (delimited by <code>|</code> (set via the option <code>--separator</code>). A typical entry looks as
 follows.</p>
-
 <p><code><pre>$ echo $data
 Title of the paper|A. Author|TRUE|B. Author|FALSE||FALSE||FALSE||FALSE|Fancy Journal|1&ndash;10|Aug|2021||
 </pre></code></p>
-
 <p>So, to generate XML entry, all I needed to do was, split the string at <code>|</code> to
 determine the value of each field and put it in an appropriate place in a
 template. The only catch is that most of papers do not have five authors. So,
@@ -128,12 +120,10 @@ I need to make sure that I don&rsquo;t generate entries for empty authors. Such
 conditional processing was too complicated for my shell programming or AWK
 scripts, but is trivial in any proper programming language. The question was,
 which language?</p>
-
 <p>My usual go to language for such tasks is Ruby. But I normally don&rsquo;t do much
 text processing and it has been a while since I wrote any Ruby code. So I
 found myself googing about a lot of basics of the language: how to split a
 string, how to use templates, and so on.</p>
-
 <p>As I was googing, I realized that I actually <em>do</em> write a lot of code for text
 processing &hellip; just that I write it as part of my TeX documents–in Lua!
 So, I could easily write the processing and the formatting code in Lua using
@@ -141,7 +131,6 @@ the helper functions provided by ConTeXt (for example, for templates). These
 helper functions are not available in pure Lua, but they can be accessed if
 the Lua script is called via <code>mtxrun --script</code>. So, I could quickly write out
 the following:</p>
-
 <pre><code><span class="Statement">local</span> replace = utilities.templates.replace
 
 <span class="Statement">local</span> data = string.explode(environment.arguments.data <span class="Operator">or</span> <span class="Constant">nil</span>, <span class="String">&quot;|&quot;</span>)
@@ -202,12 +191,10 @@ variables.authors = <span class="Identifier">table.concat</span>(formatted_autho
 
 <span class="Statement">local</span> entry = replace(template, variables)
 <span class="Identifier">print</span>(entry)</code></pre>
-
 <p>The code in itself is not that interesting. The point that I am trying to make
 is that since I already do a lot of  text processing in ConTeXt-flavored Lua,
 I can simply reuse that knowledge and quickly do the required text manging to
 generate the following snippet:</p>
-
 <pre><code>    <span class="Function">&lt;</span><span class="Function">publication</span><span class="Function"> </span><span class="Type">status</span>=<span class="String">&quot;submitted&quot;</span><span class="Function">&gt;</span>
       <span class="Function">&lt;</span><span class="Function">title</span><span class="Function">&gt;</span>
           Title of the paper
@@ -223,21 +210,16 @@ generate the following snippet:</p>
       <span class="Function">&lt;</span><span class="Function">month</span><span class="Function">&gt;</span>Aug<span class="Function">&lt;/</span><span class="Function">month</span><span class="Function">&gt;</span>
       <span class="Function">&lt;</span><span class="Function">year</span><span class="Function">&gt;</span>2021<span class="Function">&lt;/</span><span class="Function">year</span><span class="Function">&gt;</span>
     <span class="Function">&lt;/</span><span class="Function">publication</span><span class="Function">&gt;</span></code></pre>
-
 <p>For the record, the complete code was:</p>
-
 <pre><code><span class="Identifier">data</span>=<span class="PreProc">$(</span><span class="Special">yad ...</span><span class="PreProc">)</span>
 <span class="PreProc">$MTXRUN</span> <span class="Special">--script</span> <span class="PreProc">$SCRIPT</span> <span class="Special">--data</span><span class="Operator">=</span><span class="Operator">&quot;</span><span class="PreProc">$data</span><span class="Operator">&quot;</span> 
 </code></pre>
-
 <p>where <code>$MTXRUN</code> is the location of the <code>mtxrun</code> binary and <code>$SCRIPT</code> is the
 location of my lua script. To complete the circle,
 I defined the following function in the local <code>.vimrc</code> file my project
 directory:</p>
-
 <pre><code><span class="Statement">command</span><span class="Operator">!</span> AddPub <span class="Function">read</span> <span class="Operator">!</span>$HOME/bin/add-publication
 </code></pre>
-
 <p>So, I can just run <code>:AddPub</code> in vim to call the GUI and after I fill in all
 the values, the formatted entry is inserted  at
 the current location. This was a fun weekend project!</p>

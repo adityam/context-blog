@@ -81,39 +81,47 @@
 <p>Did you always want to learn ConTeXt, but did not know where to start? I have
 written a <a href="https://github.com/adityam/context-slides-example/commits">git-based
 tutorial</a> that should help you get started.</p>
-
 <p><strong>NOTE</strong>: The automatically generated output of this tutorial is now
 <a href="../presentation-40-commits-redux">available as a separate post</a></p>
-
 <p>The idea of the tutorial is to start with an empty document, and add features
 one-by-one. Each git commit corresponds to one small change in the document,
 and includes pointers to the documentation corresponding to that change.
 Use this tutorial as follows:</p>
-
 <ol>
-<li><p>Clone the git repository:</p>
-<pre tabindex="0"><code>git clone git://github.com/adityam/context-slides-example.git
-cd context-slides-example</code></pre></li>
-
-<li><p>Get git-walk (requires ruby)</p>
-<pre tabindex="0"><code>wget https://raw.github.com/augustl/binbin/master/git-walk
-chmod +x git-walk</code></pre></li>
-
-<li><p>Checkout the first commit</p>
-<pre tabindex="0"><code>git checkout init</code></pre></li>
-
-<li><p>Open the two files, <code>slides.tex</code> and <code>example.tex</code> in the editor.</p></li>
-
-<li><p>Read the log message, compile example.tex and view the result.</p>
-<pre tabindex="0"><code>git log -n 1
-context example.tex
-evince example.pdf &amp;</code></pre></li>
-
-<li><p>Go to next commit and repeat step 5. (This requires <code>git-walk</code> to be in
+<li>
+<p>Clone the git repository:</p>
+<pre><code> git clone git://github.com/adityam/context-slides-example.git
+ cd context-slides-example
+</code></pre>
+</li>
+<li>
+<p>Get git-walk (requires ruby)</p>
+<pre><code> wget https://raw.github.com/augustl/binbin/master/git-walk
+ chmod +x git-walk
+</code></pre>
+</li>
+<li>
+<p>Checkout the first commit</p>
+<pre><code> git checkout init
+</code></pre>
+</li>
+<li>
+<p>Open the two files, <code>slides.tex</code> and <code>example.tex</code> in the editor.</p>
+</li>
+<li>
+<p>Read the log message, compile example.tex and view the result.</p>
+<pre><code> git log -n 1
+ context example.tex
+ evince example.pdf &amp;
+</code></pre>
+</li>
+<li>
+<p>Go to next commit and repeat step 5. (This requires <code>git-walk</code> to be in
 your <code>$PATH</code>.</p>
-<pre tabindex="0"><code>git walk next</code></pre></li>
+<pre><code> git walk next
+</code></pre>
+</li>
 </ol>
-
 <p>(Alternatively, instead of using <code>git-walk</code>, you can use a GUI tool to
 incrementally checkout the commits one by one, compile <code>example.tex</code> at each
 step, and view the result).</p>

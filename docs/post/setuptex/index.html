@@ -92,29 +92,26 @@ the binary is available for testing from <a href="http://www.pragma-ade.nl/insta
 website</a>. There is no change in
 user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
 LMTX without making any change in the tex file.</p>
-
 <p>In my tests so far, I could compile all my documents using LMTX without any
 noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
 some critical projects like typesetting material for courses that I teach.
 In this post, I&rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in
 parallel.</p>
-
 <p><a href="https://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt standalone
 distribution</a> is a portable
 distribution (i.e., it can be &ldquo;installed&rdquo; in any directory) that works by
 <code>$PATH</code> munging. In particular, if the installation has been downloaded in say
 <code>&lt;install-dir&gt;</code>, then all one needs to do (on linux) is set the <code>$PATH</code> variable to</p>
-<pre tabindex="0"><code>PATH=&lt;install-dir&gt;/tex/texmf-linux-64/bin:$PATH</code></pre>
-<p>Then simply call <code>context filename</code> to compile a file, and ConTeXt figures out the
+<pre tabindex="0"><code>PATH=&lt;install-dir&gt;/tex/texmf-linux-64/bin:$PATH
+</code></pre><p>Then simply call <code>context filename</code> to compile a file, and ConTeXt figures out the
 location of rest of the <code>$TEXMF</code> tree based on the locaiton of the <code>luatex</code>
 (or <code>luametatex</code>) binary. ConTeXt comes with a helper script called <code>setuptex</code>
 to help with the PATH munging. So, to use ConTeXt standalone, one simply calls</p>
-<pre tabindex="0"><code>source &lt;install-dir&gt;/tex/setuptex</code></pre>
-<p>and then just call <code>context filename</code>. Currently LMTX does&rsquo;t come with a
+<pre tabindex="0"><code>source &lt;install-dir&gt;/tex/setuptex
+</code></pre><p>and then just call <code>context filename</code>. Currently LMTX does&rsquo;t come with a
 <code>setuptex</code> file but it is straight forward to simply copy the <code>setuptex</code> file
 that comes with ConTeXt standalone and change the path so that it points at
 the LMTX bin directory.</p>
-
 <p>So far so good. However, when I started using MKIV and LMTX in parallel, it
 was easy to forget which <code>setuptex</code> file I had sourced and which version of
 ConTeXt I was using. To avoid this confusion, I came up with the following
@@ -145,30 +142,26 @@ resettex () {
     unset _OLD_PS1
     
     unset -f resettex
-}</code></pre>
-<p>This has the following additional features.</p>
-
+}
+</code></pre><p>This has the following additional features.</p>
 <ol>
-<li><p>It adds a tag (I use <code>ctx</code> for MKIV and <code>lmtx</code> for LMTX) before the
+<li>
+<p>It adds a tag (I use <code>ctx</code> for MKIV and <code>lmtx</code> for LMTX) before the
 terminal prompt). So, it is easy to see which which version of ConTeXt I am
-using.</p></li>
-
-<li><p>It defines a function <code>resettex</code> that resets the value of PATH to its
-original value (before <code>setuptex</code> was called).</p></li>
+using.</p>
+</li>
+<li>
+<p>It defines a function <code>resettex</code> that resets the value of PATH to its
+original value (before <code>setuptex</code> was called).</p>
+</li>
 </ol>
-
 <p>Both these features are inspired by the virtualenv setup for Python.</p>
-
 <p>Here is a screencast showing this feature in action.</p>
-
-<p><link rel="stylesheet" type="text/css" href="/context-blog/css/asciinema-player.css" /></p>
-
+<link rel="stylesheet" type="text/css" href="/context-blog/css/asciinema-player.css" />
 <p><asciinema-player src="setuptex-ascii.cast" cols=84 rows=42 speed=2.5 poster="npt:0:1" theme="monokai"></asciinema-player></p>
-
 <p>PS: If you use Archlinux that you can install <a href="https://aur.archlinux.org/packages/context-minimals-git/"><code>context-minimals-git</code></a>
 and <a href="https://aur.archlinux.org/packages/luametatex/"><code>luametatex</code></a> packages (which I maintain) from AUR and these
 packages automatically create the above setuptex file.</p>
-
 <script src="/context-blog/js/asciinema-player.js"></script>
 
 <hr />

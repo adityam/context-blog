@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="generator" content="Hugo 0.101.0" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -175,7 +175,6 @@ the binary is available for testing from <a href="http://www.pragma-ade.nl/insta
 website</a>. There is no change in
 user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
 LMTX without making any change in the tex file.</p>
-
 <p>In my tests so far, I could compile all my documents using LMTX without any
 noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
 some critical projects like typesetting material for courses that I teach.
@@ -208,11 +207,9 @@ parallel.</p></p>
         <div class="post-content">
             <p><p>As I had <a href="../frame-with-solid-left-line">posted earlier</a>, I like the visual
 effect of placing a solid line on the left side of a block:</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
-
 
 <p>I use this for displaying short code snippets in the lecture notes of a course
 that I teach. Typically these are a few lines of Matlab code but recently I
@@ -251,7 +248,6 @@ Metapost and TikZ for drawing similar graphics and found that <strong>TikZ is th
 to five times slower than Metapost</strong>. Although TikZ is slower, it does provide
 a much higher level interface to drawing graphics and shifting to Metapost can
 take a lot of <em>user time</em>, which is often more valuable than <em>computer time</em>.</p>
-
 <p>As an example, consider the <a href="https://ctan.org/pkg/pgfplots">PGFPlots</a> package, which provides a high-level
 interface for drawing function plots. Although there is a <a href="https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv">Metapost package
 for drawing
@@ -312,7 +308,7 @@ Let&rsquo;s consider basic operations: drawing straight lines and drawing circle
 
         <div class="post-content">
             <p>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
- Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</p>
+Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</p>
             <a class="btn btn-default" href="/context-blog/post/externalizing-metapost/" id="read-more-button">
                 Read more >
             </a>
@@ -367,9 +363,8 @@ Let&rsquo;s consider basic operations: drawing straight lines and drawing circle
         <div class="post-content">
             <p><p>The <a href="http://wiki.contextgarden.net/Animation#Using_the_animation_module">animation</a> module provides a nice interface for using
 <a href="http://www.pragma-ade.com/general/manuals/mwidget-s.pdf">FieldStacks</a> to create a JavaScript controlled animations in
-ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For example, the following code will show <code>step-1.pdf</code>,
+ConTeXt.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> For example, the following code will show <code>step-1.pdf</code>,
 <code>step-2.pdf</code>, <code>step-3.pdf</code>, and <code>step-4.pdf</code> files one by one:</p>
-
 <!--
 \usemodule[animation]
 
@@ -380,7 +375,6 @@ ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For e
   {\useexternalfigure[step-4]}
 \stopanimation
 -->
-
 <pre><code><span class="Statement">\usemodule</span><span class="Delimiter">[</span>animation<span class="Delimiter">]</span>
 
 <span class="Statement">\startanimation</span><span class="Delimiter">[</span>menu=yes<span class="Delimiter">]</span>
@@ -390,7 +384,6 @@ ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For e
   <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-4.pdf<span class="Delimiter">]}</span>
 <span class="Statement">\stopanimation</span>
 </code></pre>
-
 <p>Sometimes, I use animation to give the illusion of motion. For example, to
 show a particle moving along a trajectory (drawn using Metapost). In
 principle, it is possible to use the <code>animation</code> module to draw such
@@ -427,7 +420,6 @@ extreme example of this is Luigi Scarso&rsquo;s <a href="https://www.tug.org/TUG
 which provides a two way bridge between Python and LuaTeX. Not being a Python
 fan, I never looked into the implementation details, in spite of Luigi&rsquo;s
 impressive examples.</p>
-
 <p>Recently, Henri Menke <a href="https://tex.stackexchange.com/a/403794/323">posted an interesting
 example</a> that shows how to use a
 function from <a href="https://www.gnu.org/software/gsl/">GNU Scientific Library

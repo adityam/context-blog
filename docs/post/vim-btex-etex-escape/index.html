@@ -81,17 +81,14 @@
 <p>The <a href="https://github.com/adityam/filter/blob/master/vim-README.md">t-vim</a> module has been on a maintenance only mode for while, so I am
 happy to announce a release which adds a new feature: a new method to escape
 to TeX using <code>/BTEX</code> and <code>/ETEX</code> tags.</p>
-
 <p>The <a href="https://github.com/adityam/filter/blob/master/vim-README.md">t-vim</a> module is a syntax highlighter for ConTeXt which uses <code>vim</code> editor
 to do the actual syntax highlighting. However, sometimes one needs to use a
 ConTeXt macro within the code listing, for example to reference a particular
 line number.</p>
-
 <p><code>\starttyping</code> and other syntax highlighting methods in ConTeXt, provide a
 means to <em>escape</em> to TeX. In the old days of MkII, anything inside <code>/BTEX</code> and
 <code>/ETEX</code> tags was not parsed and passed verbatim to TeX; in MkIV, there is a
 <a href="http://pragma-ade.nl/general/magazines/mag-1102-mkiv.pdf">fancier version</a> of this escape mechanism.</p>
-
 <p>The syntax highlighting in <code>\starttyping</code> is done for a handful of languages
 for which Hans has written a syntax parser. So, relatively speaking, it is
 simply to add such an escape mechanism in the parser. But that is not the
@@ -99,13 +96,11 @@ case for <code>t-vim</code> where the parsing is done by the <code>vim</code> ed
 already existing syntax highlighting files for the editor. And, of course,
 these files have no specifications for identifying or ignoring content inside
 <code>/BTEX</code> and <code>/ETEX</code> tags.</p>
-
 <p>I had always been reluctant to add such a feature because I did not see a
 clean way to add it and, more importantly, there is was a partial escape
 mechanism which kind-of works. In particular, it was already possible to allow
 the contents of the <code>Comment</code> region to be passed to TeX. For example, one
 could reference line numbers as follows:</p>
-
 <!--
 \usemodule[vim]
 \definevimtyping[CPP][syntax=cpp, escape=on, numbering=yes]
@@ -119,7 +114,6 @@ could reference line numbers as follows:</p>
 The function \type{root} defined in \inline[ln:root] \unknown
 \stoptext
 -->
-
 <pre><code><span class="Statement">\usemodule</span>[vim]
 <span class="Statement">\definevimtyping</span>[<span class="Underlined">CPP</span>][<span class="Type">syntax=cpp, escape=on, numbering=yes</span>]
 <span class="Statement">\starttext</span>
@@ -131,30 +125,22 @@ The function \type{root} defined in \inline[ln:root] \unknown
 
 The function <span class="Statement">\type</span>{root} defined in <span class="Statement">\inline</span>[ln:root] <span class="Statement">\unknown</span>
 <span class="Statement">\stoptext</span></code></pre>
-
 <p>which gives</p>
-
 <img class="center"
   alt="Typeset example"
   src="root.png" />
 
-
 <p>So, we can reference a line but we are left with an empty comment marker on
 line 1. Internally, the contents of the <code>Comment</code> region is passed on as</p>
-
 <pre><code><span class="Statement">\SYN</span>[Comment]{...}</code></pre>
-
 <p>So, the TeX macros are inside a group, which means that certain macros cannot
 be used here. For example, it is not possible to use this escape mechanism to
 say draw a frame around a function. Enter the new escape mechanism!</p>
-
-<hr />
-
+<hr>
 <p>The new mechanism is enabled by passing <code>escape=command</code> option to a
 <code>&lt;vim&gt;typing</code> environment. When this option is enabled, the content between
 <code>/BTEX</code> and <code>/ETEX</code> is passed directly to ConTeXt. For example, consider the
 following:</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">vim</span><span class="Delimiter">]</span>
 <span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">CPP</span><span class="Delimiter">][</span><span class="Type">syntax=cpp, escape=command</span><span class="Delimiter">]</span>
 <span class="PreProc">\starttext</span>
@@ -168,28 +154,21 @@ following:</p>
   <span class="Type">double</span> ... { ... }
 <span class="Keyword">\stopCPP</span>
 <span class="PreProc">\stoptext</span></code></pre>
-
 <p>which gives</p>
-
 <img class="center"
   alt="Typeset example"
   src="frame.png" />
 
-
 <p>Internally, when <code>escape=command</code> is enabled, the <code>2context.vim</code> script
 defines a new vim syntax highlighting region:</p>
-
 <pre><code><span class="Statement">syntax</span> <span class="Type">region</span> <span class="Type">vimtypingTEXcomment</span> <span class="Type">start</span>=<span class="String">&quot;/BTEX&quot;</span> <span class="Type">end</span>=<span class="String">&quot;/ETEX&quot;</span> <span class="Special">transparent</span> <span class="Special">oneline</span> <span class="Special">containedin=</span><span class="Special">ALL</span> <span class="Special">contains=</span>NONE</code></pre>
-
 <p>When parsing the file, contents of this region are passed directly to TeX
 (without any wrapping <code>\SYN[...]{...}</code>). A big thanks to Christoph
 Hintermüller, who submitted a pull request which implements this feature.</p>
-
 <p>One needs to be aware that The <code>&lt;vim&gt;typing</code> environment uses a catcode table
 where only <code>\</code>, <code>{</code> and <code>}</code> have their usual meaning, <code>\n</code> is active and
 mapped to <code>\obeyedline</code> and space is active and mapped to <code>\obeyedspace</code>. As a
 consequence:</p>
-
 <ul>
 <li>If you add a space after the comma in <code>\startframedtext[...,...]</code>, it will
 lead to an error:</li>
@@ -198,13 +177,11 @@ In principle, it is possible to get rid of these by doing some catcode
 jugglery when entering and leaving a <code>/BTEX ... /ETEX</code> region, but that
 hasn&rsquo;t been implemented yet.</li>
 </ul>
-
 <p>The old mechanism is now mapped to <code>escape=comment</code>; it can still be activated
 using <code>escape=on</code> for backward compatibility reasons. For now, only one of the
 escape mechanisms can be implemented. If someone can provide a convincing
 argument why both are needed simultaneously, it is not too difficult to
 provide an interface to implement both.</p>
-
 <p>Stay tuned. Christoph also has a pull request which enables proper tagging for
 <code>&lt;vim&gt;typing</code>, which allow these environments to be used in tagged PDF
 documents and will export properly to XML. More on that later.</p>

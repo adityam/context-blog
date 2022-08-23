@@ -78,56 +78,46 @@
 <h1>Creating a clean presentation style in 40 commits (redux)</h1>
 <p class="post-time">Posted on May 14, 2020</p>
 
-<p><link rel="stylesheet" href="../../css/atom-one-light.css">
+<link rel="stylesheet" href="../../css/atom-one-light.css">
 <script src="../../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script></p>
-
+<script>hljs.initHighlightingOnLoad();</script>
 <p>A while back, a had created a <a href="../presentation-40-commits">git based tutorial</a> for learning how to
 create a presentation style in ConTeXt. I chose a git based style so that it
 was easy to see what changed in each commit and what effect did the change
 have on the output. But it is cumbersome to work with, especially if you are new
 to ConTeXt as well as git.</p>
-
 <p>So, I thought that it will be a good idea to automatically generate a single
 page from that git repo. This way, a new user can actually see the output
 without struggling with navigating git. I will try to update this post whenever I make any changes in the tutorial.</p>
-
 <p>I am not completely happy with how all the information is displayed on this page, but have run out my HTML coding skills. Any suggestions to improve the output are welcome. And I hope the embedded PDFs work on all modern browsers.</p>
-
 <h2 id="step-1-skeleton-files-for-creating-slides">Step 1: Skeleton files for creating slides</h2>
-
 <p>We start with two files:</p>
-
 <ul>
 <li><code>slides.tex</code>: an <em>environment file</em> for slides</li>
 <li><code>example.tex</code>: an example to illustrate how to use slides</li>
 </ul>
-
 <p>The first step is to test that everything works. So, we start with skeleton code in both files. Compile the <code>example.tex</code> using:</p>
-<pre tabindex="0"><code>context example</code></pre>
+<pre><code>context example
+</code></pre>
 <p>This will create the following files</p>
-
 <ul>
 <li><code>example.pdf</code>: the output PDF file</li>
 <li><code>example.tuc</code>: an auxiliary file containing information that is reused across
 multiple runs</li>
 <li><code>example.log</code>: a log file</li>
 </ul>
-
 <p>For now, ignore the <code>.tuc</code> and <code>.log</code> file.</p>
-
 <p><em>Note</em>: For this example, I use an environment file rather than a module. In
 general, modules are setups that are shared across multiple projects while
 environments are setups for a specific project. Since the purpose of this
 tutorial is to illustrate how to create your own presentation style, I prefer
 an environment file over a module.</p>
-
 <p><code>slides.tex</code>:</p>
 <pre tabindex="0"><code>\startenvironment *
 
 
-\stopenvironment</code></pre>
-<p><code>example.tex</code>:</p>
+\stopenvironment
+</code></pre><p><code>example.tex</code>:</p>
 <pre tabindex="0"><code>\environment slides
 
 \starttext
@@ -136,27 +126,21 @@ A basic example with some filler text
 
 \input knuth
 
-\stoptext</code></pre>
-<p><embed class="center" 
-                    src="example-01.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+\stoptext
+</code></pre><p><embed class="center" 
+src="example-01.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-2-change-papersize-to-s4">Step 2: Change papersize to S4</h2>
-
 <p>By default, ConTeXt uses A4 paper size, which does not look good in
 presentations. So, we change the paper size to S4: a predefined ConTeXt
 papersize that is 400pt x 300pt.</p>
-
 <p>Run: <code>context example</code> and note that the paper size has changed.</p>
-
 <p>See:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/PaperSetup">http://wiki.contextgarden.net/PaperSetup</a></li>
 <li><a href="http://wiki.contextgarden.net/Command/setuppapersize">http://wiki.contextgarden.net/Command/setuppapersize</a></li>
 </ul>
-
 <p>for details on <code>\setuppapersize</code>.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 72f97e3..db0a372 100644
@@ -167,34 +151,27 @@ index 72f97e3..db0a372 100644
  
 +\setuppapersize [S4]
  
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/e44c88df33c73e4c95e7a4c107e1039607dd06e9/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-02.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-02.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-3-visualize-layout">Step 3: Visualize layout</h2>
-
 <p>By default, ConTeXt uses large margins, which make sense for paper documents
 but not for presentations. I will change the margin in multiple steps. The
 first step is just to visualize the margins.</p>
-
 <p>Run: <code>context example</code> and notice the green rectangles that show the
 text area and the margins. Read</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Layout">http://wiki.contextgarden.net/Layout</a></li>
 <li><a href="http://context.aanhet.net/svn/contextman/context-reference/en/co-pagedesign.pdf">http://context.aanhet.net/svn/contextman/context-reference/en/co-pagedesign.pdf</a></li>
 </ul>
-
 <p>for more details on the layout, and</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Command/showframe">http://wiki.contextgarden.net/Command/showframe</a></li>
 </ul>
-
 <p>for details on the <code>\showframe</code> command.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 8511590..2909873 100644
@@ -207,25 +184,20 @@ index 8511590..2909873 100644
 +
  \starttext
  
- A basic example with some filler text</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/4f578188d685c9f98226d0089d5be01ed5850c32/slides.tex">slides.tex</a>]
+ A basic example with some filler text
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/4f578188d685c9f98226d0089d5be01ed5850c32/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/4f578188d685c9f98226d0089d5be01ed5850c32/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-03.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-03.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-4-set-horizontal-margins">Step 4: Set horizontal margins</h2>
-
 <p>Set the horizontal margins to be 3mm.</p>
-
 <p>Read:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Layout">http://wiki.contextgarden.net/Layout</a></li>
 <li><a href="http://context.aanhet.net/svn/contextman/context-reference/en/co-pagedesign.pdf">http://context.aanhet.net/svn/contextman/context-reference/en/co-pagedesign.pdf</a></li>
 </ul>
-
 <p>for more details on the layout.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index db0a372..ba6f590 100644
@@ -246,18 +218,15 @@ index db0a372..ba6f590 100644
 +      backspace=3mm,
 +    ]
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/495bcdff800b24c8a69254521074e7e7aacc1021/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/495bcdff800b24c8a69254521074e7e7aacc1021/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/495bcdff800b24c8a69254521074e7e7aacc1021/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-04.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-04.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-5-set-vertical-margin">Step 5: Set vertical margin</h2>
-
 <p>Set the top margin to be 2mm and the bottom margin to be 1mm.</p>
-
 <p>Disable headers, but keep some small space for footers (to show page number
 etc. in a smaller font size).</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -282,16 +251,14 @@ index ba6f590..53e4755 100644
 +      bottomspace=1mm,
      ]
  
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/a9cb98be7d160f9b1c5867854c6a1aa0e4a11274/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-05.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-05.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-6-remove-layout-visualization">Step 6: Remove layout visualization</h2>
-
 <p>Now that the margins are set, remove layout visualization.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
 index 2909873..8511590 100644
@@ -304,26 +271,22 @@ index 2909873..8511590 100644
 -
  \starttext
  
- A basic example with some filler text</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/slides.tex">slides.tex</a>]
+ A basic example with some filler text
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/f299c15b8bbb015164922f4f2ce429a0211dad85/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-06.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-06.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-7-use-preferred-font-setup">Step 7: Use preferred font setup</h2>
-
 <p>Latin Modern, the default ConTeXt font, does not look good in presentations.
 ConTeXt makes it easy to change the font setup. I use:</p>
-
 <ul>
 <li>Fontin as main font</li>
 <li>Delicious as Sans font (for headings etc)</li>
 <li>Dejavu Sans Mono as Monoface font</li>
 <li>Neo Euler as math font</li>
 </ul>
-
 <p>Dejavu Sana Mono is much taller than Fontin, so I scale it down to 85%
 so that the two fonts have similar height.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
@@ -355,20 +318,17 @@ index 53e4755..c82f33e 100644
 +
  \setuppapersize [S4]
  
- \setuplayout</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/slides.tex">slides.tex</a>]
+ \setuplayout
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/466cadc1e37b9aab6514fbc5c480d7103ffe8aad/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-07.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-07.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-8-enable-composed-characters">Step 8: Enable composed characters</h2>
-
 <p>Fontin does not have all accented characters (e.g, ü or ç). When <code>compose=yes</code>
 is added to default font features, ConTeXt uses fallback <em>composed</em> characters
 for these missing characters.</p>
-
 <p>A discussion on composed characters is out of the scope of this example. Just
 think of this as a workaround for an incomplete font.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -385,16 +345,14 @@ index c82f33e..7a32fcf 100644
 +
  \definefontfamily [mainface] [rm] [Fontin]
  \definefontfamily [mainface] [ss] [Delicious]
- \definefontfamily [mainface] [tt] [Dejavu Sans Mono] [scale=0.85]</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/slides.tex">slides.tex</a>]
+ \definefontfamily [mainface] [tt] [Dejavu Sans Mono] [scale=0.85]
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/dc020d07221ed8577fc8a8afb2f51742e0ec948e/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-08.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-08.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-9-disable-font-features-in-monotype-fonts">Step 9: Disable font features in monotype fonts</h2>
-
 <p>This is also a workaround for a wrong default in ConTeXt. By default, TeX
 ligatures are enabled for monotype fonts. I think that this does more harm than
 good (e.g., <code>\type{--enable}</code> will typeset as &ldquo;–enable&rdquo;). So, I disable <strong>all</strong>
@@ -424,22 +382,18 @@ index 7a32fcf..e976713 100644
 +\definefontfamily [mainface] [tt] [Dejavu Sans Mono] [scale=0.85, features=none]
  \definefontfamily [mainface] [mm] [Neo Euler]
  
- \setupbodyfont[mainface, 12pt]</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/46dab162c1ba5509f4414708aa800ac402f1da50/slides.tex">slides.tex</a>]
+ \setupbodyfont[mainface, 12pt]
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/46dab162c1ba5509f4414708aa800ac402f1da50/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/46dab162c1ba5509f4414708aa800ac402f1da50/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-09.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-09.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-10-enable-hanging-punctuation">Step 10: Enable hanging punctuation</h2>
-
 <p>I think that hanging punctuation is useful for presentation. See</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Protrusion">http://wiki.contextgarden.net/Protrusion</a></li>
 </ul>
-
 <p>for details.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index e976713..10829fd 100644
@@ -462,16 +416,14 @@ index e976713..10829fd 100644
 +
  \setuppapersize [S4]
  
- \setuplayout</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/slides.tex">slides.tex</a>]
+ \setuplayout
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/86b45c2b9c1b6da309158a843539f4f30cdc3fbd/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-10.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-10.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-11-increase-inter-paragraph-spacing">Step 11: Increase inter-paragraph spacing</h2>
-
 <p>This is again a personal preference. I think that a large inter-paragraph
 spacing looks good in presentations.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -485,16 +437,14 @@ index 10829fd..b3147e0 100644
 +\setupwhitespace[big]
  
  \setuppapersize [S4]
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/c14c6bf48d18beda1fd63ba09e004a8e1ec29f70/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-11.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-11.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-12-add-slide-structure">Step 12: Add <code>slide</code> structure</h2>
-
 <p>The basic structural element of a presentation is a slide. Amongst the various
 ways to create a slide environment, I define slides as a <em>section heading</em> and
 make it borrow all the default elements from <code>subject</code> heading.</p>
@@ -527,18 +477,15 @@ index b3147e0..223d04c 100644
 +
 +\definehead[slide][subject]  
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/2ded04ba1f5e63cfe8f6dd171c3b2f82b801a02b/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-12.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-12.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-13-tweak-slide-style">Step 13: Tweak slide style</h2>
-
 <p>Set the slide style according to your preference. I use the following setup:</p>
-
 <ul>
 <li>font: Sans Serif Bold font at 1.72 times the default bodysize (the <code>c</code> at the
 end of <code>\ssbfc</code>)</li>
@@ -548,14 +495,11 @@ alignment tries to match the middle alignment for sections, which
 creates a spurious vertical space. Add <code>hidenumber=yes</code> to get rid of
 that.</li>
 </ul>
-
 <p>Read:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Titles">http://wiki.contextgarden.net/Titles</a></li>
 <li><a href="http://wiki.contextgarden.net/Command/setupheads">http://wiki.contextgarden.net/Command/setupheads</a></li>
 </ul>
-
 <p>for details on how to configure section heads.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 223d04c..2342448 100644
@@ -576,16 +520,14 @@ index 223d04c..2342448 100644
 +      hidenumber=yes,
 +    ]
  
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/5f9ad90fc0f28e6aaac5ad1937c639e329ccea3a/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-13.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-13.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-14-start-a-new-page-for-each-slide">Step 14: Start a new page for each slide</h2>
-
 <p>Adding <code>page=yes</code> ensures that each slide starts a new page. If a slide
 contains more material, it will overflow one page (and no title will appear on
 the next page). So, it is the responsibility of the user to ensure that a slide
@@ -618,22 +560,18 @@ index 2342448..1f16d72 100644
 +      page=yes,
      ]
  
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/c5586336f9fe9a54ff479c327e7282340cb7082b/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-14.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-14.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-15-add-page-numbers-to-footer">Step 15: Add page numbers to footer</h2>
-
 <p>I use a simple pagenumber in footers. See</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Headers_and_Footers">http://wiki.contextgarden.net/Headers_and_Footers</a></li>
 </ul>
-
 <p>for details.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 1f16d72..36b5f60 100644
@@ -648,23 +586,19 @@ index 1f16d72..36b5f60 100644
 +
  \definehead
      [slide]
-     [subject]  </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/e6b47f659d7dddb8a00948e5427efd47246499be/slides.tex">slides.tex</a>]
+     [subject]  
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/e6b47f659d7dddb8a00948e5427efd47246499be/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/e6b47f659d7dddb8a00948e5427efd47246499be/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-15.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-15.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-16-change-background-color">Step 16: Change background color</h2>
-
 <p>I remember reading somewhere that white is not a good color for slides. So, I
 change the background color to lightgray. See</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Command/setupbackgrounds">http://wiki.contextgarden.net/Command/setupbackgrounds</a></li>
 </ul>
-
 <p>for more details.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 36b5f60..2bcb31b 100644
@@ -678,16 +612,14 @@ index 36b5f60..2bcb31b 100644
 +
  \setupfooter[style=small,color=darkblue]
  \setupfootertexts[][\userpagenumber/\lastuserpage]
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/c61f06d5b2140138f8dbc4039e0f1618466b4fe4/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-16.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-16.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-17-an-example-for-itemized-list">Step 17: An example for itemized list</h2>
-
 <p>By default, ConTeXt uses <code>$\bullet$</code> as the marker for top level
 itemization. I don&rsquo;t particularly like this marker, and in the next few
 steps, I will show how to change them item marker.</p>
@@ -712,30 +644,24 @@ index 725b860..528a34d 100644
 +\stopitemize
  
  \stopslide
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/5e8808e0f26253279f5c89455a3d70e9c9e8c2d7/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-17.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-17.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-18-setup-itemize-head-style">Step 18: Setup itemize head style</h2>
-
 <p>The itemize environment in ConTeXt provides two types of items: normal items
 that are created using <code>\item</code> or <code>\startitem ... \stopitem</code> and items with
 heads, created using <code>\head</code> or <code>\starthead ... \stophead</code>.</p>
-
 <p>I like to use the second alternative in presentations. The advantage is that the
 item head can be typeset in a different style than the regular items; so it adds
 some emphasis to the main points.</p>
-
 <p>See:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Command/head">http://wiki.contextgarden.net/Command/head</a></li>
 </ul>
-
 <p>for more details.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 2bcb31b..7460279 100644
@@ -754,37 +680,32 @@ index 2bcb31b..7460279 100644
 +
 +
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/5151f9391bc316223227210f943e967b0955462d/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/5151f9391bc316223227210f943e967b0955462d/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/5151f9391bc316223227210f943e967b0955462d/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-18.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-18.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-19-use-metapost-to-create-a-item-marker">Step 19: Use metapost to create a item marker</h2>
-
 <p>I like to use filled square as the top-level item marker. Rather than using math
 symbols for the item marker, I use Metapost to draw the square.</p>
-
 <p>For more details on using MetaPost, read:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/MetaPost_in_ConTeXt">http://wiki.contextgarden.net/MetaPost_in_ConTeXt</a></li>
 <li><a href="http://www.pragma-ade.com/general/manuals/metafun-s.pdf">http://www.pragma-ade.com/general/manuals/metafun-s.pdf</a></li>
 </ul>
-
 <p>For details on symbols, read:</p>
-
 <ul>
-<li><p><a href="http://wiki.contextgarden.net/Symbols">http://wiki.contextgarden.net/Symbols</a></p>
+<li><a href="http://wiki.contextgarden.net/Symbols">http://wiki.contextgarden.net/Symbols</a></li>
+</ul>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 7460279..98db75f 100644
 --- a/slides.tex
 +++ b/slides.tex
 @@ -60,6 +60,15 @@
-   headcolor=darkred,
- ]
+       headcolor=darkred,
+     ]
  
 +\startuseMPgraphic{itemize:main}
 +  save p; path p;
@@ -797,18 +718,14 @@ index 7460279..98db75f 100644
 +\setupitemize[1][symbol=itemize:main]
  
  
-\stopenvironment</code></pre></li>
-</ul>
-
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/2472791b52a4a08e65e52ba1342d0b452f0dcc96/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-19.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-19.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-20-set-spacing-for-itemize">Step 20: Set spacing for itemize</h2>
-
 <p>Tweak the spacing around bullet according to your preference.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 98db75f..b2cf8a9 100644
@@ -822,16 +739,14 @@ index 98db75f..b2cf8a9 100644
 +      inbetween={\blank[2*big]},
      ]
  
- \startuseMPgraphic{itemize:main}</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/3e654d2293f2893829941ce94464ee0f39641fe2/slides.tex">slides.tex</a>]
+ \startuseMPgraphic{itemize:main}
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/3e654d2293f2893829941ce94464ee0f39641fe2/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/3e654d2293f2893829941ce94464ee0f39641fe2/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-20.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-20.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-21-example-for-nested-bullet-list">Step 21: Example for nested bullet list</h2>
-
 <p>Sometimes I use nested levels of itemization in presentations. The default
 settings for 2nd level of itemization does not look nice. I will change these
 defaults in the next few edits.</p>
@@ -849,19 +764,16 @@ index 528a34d..10605a0 100644
 +      \stopitemize
      \stophead
  
-     \starthead {Second bullet}</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/slides.tex">slides.tex</a>]
+     \starthead {Second bullet}
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/2f756beab73b97e2ad770d06d1f19cb868d250b0/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-21.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-21.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-22-tight-itemized-list-for-level-2">Step 22: Tight itemized list for level 2</h2>
-
 <p>By default, lists in ConTeXt are <code>unpacked</code>. I prefer to use second level lists
 without any additional spacing around the items; hence the <code>nowhite</code> option.</p>
-
 <p>This setup is not perfect because of the extra space before the 2nd level
 items. This will be fixed in the next commit</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -875,23 +787,19 @@ index b2cf8a9..c3dbc7d 100644
 +\setupitemize[2][nowhite]
  
  
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/d192194db03e2aeff7ed6f7b32b015d76ba2c86e/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-22.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-22.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-23-remove-unwanted-spacing-before-2nd-level-list">Step 23: Remove unwanted spacing before 2nd level list</h2>
-
 <p>ConTeXt provides different alternatives for determining the spacing around
 itemized lists, but there is no high level interface around these alternatives.</p>
-
 <p>With the default alternative, I could not set the spacing around itemized lists
 according to my liking; so I change an internal macro to choose a different
 alternative for determining spacing around itemize lists.</p>
-
 <p>There might be a better, higher-level way to get the same visual output, but I
 am not aware of it.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -906,16 +814,14 @@ index c3dbc7d..21bf9a9 100644
 +\c_strc_itemgroups_spacing_mode\plusone
 +\protect
  
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/6b9f4963ef9c6357740c6907e94c62e05cdfc94f/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-23.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-23.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-24-set-2nd-level-itemize-marker">Step 24: Set 2nd level itemize marker</h2>
-
 <p>I like to use a small triangle as a marker for 2nd level itemized lists. Rather
 than using a math symbol for the triangle, I use Metapost as before.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -939,16 +845,14 @@ index 21bf9a9..ff1ea60 100644
 +\setupitemize[2][symbol=itemize:nested, width=1.5ex]
  \setupitemize[2][nowhite]
  
- \unprotect</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/slides.tex">slides.tex</a>]
+ \unprotect
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/c3e4c601282a889d49006894aa097c9bc99b2eea/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-24.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-24.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-25-set-document-metadata">Step 25: Set document metadata</h2>
-
 <p>Simply set the metadata. The next few commits will show how to use this
 metadata.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
@@ -970,29 +874,23 @@ index 10605a0..d41cab7 100644
 +
  \startslide[title={First Slide}]
  
- \startitemize</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/slides.tex">slides.tex</a>]
+ \startitemize
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/9300d7449bc884f3b4effbbd1c56e93d9128068a/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-25.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-25.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-26-add-metadata-to-footer">Step 26: Add metadata to footer</h2>
-
 <p>Again, this is a matter of personal choice. I like to include the presentation
 title and the author in the footer of each slide. Read:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Headers_and_Footers">http://wiki.contextgarden.net/Headers_and_Footers</a></li>
 </ul>
-
 <p>for details on setting the footer and</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Inside_ConTeXt#Using_variables">http://wiki.contextgarden.net/Inside_ConTeXt#Using_variables</a></li>
 </ul>
-
 <p>for information on variables.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index ff1ea60..d1b764f 100644
@@ -1010,22 +908,19 @@ index ff1ea60..d1b764f 100644
 +\stopsetups
  
  \definehead
-     [slide]</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/slides.tex">slides.tex</a>]
+     [slide]
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/dac55c554a6e18b8e90cd0823c667f188ad0ee5f/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-26.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-26.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-27-simple-title-page">Step 27: Simple title page</h2>
-
 <p>This shows how to create a titlepage. The main idea is to use the <code>set</code> key for
 variables to call a setup that uses a <code>makeup</code> page to create the titlepage.
 Notice that the page numbers of the subsequent pages are correct. This is
 because we used <code>\userpage</code> and <code>\lastuserpage</code> to show page numbers, and a
 makeup page does not increment the userpage number.</p>
-
 <p>The title page is has no style setup. The next few commits will show how to add
 different style elements to the titlepage.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -1056,16 +951,14 @@ index d1b764f..6b45a25 100644
 +  \stopstandardmakeup
 +\stopsetups
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/76c7305b0edad4138e446b0b9499af325f12d384/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/76c7305b0edad4138e446b0b9499af325f12d384/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/76c7305b0edad4138e446b0b9499af325f12d384/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-27.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-27.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-28-added-styling-to-titlepage">Step 28: Added styling to titlepage</h2>
-
 <p>There are different ways to add style to the titlepage. I create different
 style commands: <code>titlestyle</code>, <code>authorstyle</code>, etc for each metadata element and
 then use them to style the corresponding element.</p>
@@ -1099,16 +992,14 @@ index 6b45a25..cdf1e4b 100644
 +    \datestyle{\getvariable{metadata}{date}}
    \stopstandardmakeup
  \stopsetups
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/d8192aba926dfefd97fa5c2bb923de53ce2a1eda/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-28.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-28.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-29-sample-text-for-display-math">Step 29: Sample text for display math</h2>
-
 <p>Notice that by default, ConTeXt uses <code>\blank[big]</code> around displaymath. In the
 next commit, In the next commit, I will correct the spacing.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
@@ -1129,29 +1020,28 @@ index d41cab7..52e5125 100644
 +
 +\stopslide
 +
- \stoptext</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/slides.tex">slides.tex</a>]
+ \stoptext
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/c936c31853cf2b52bfc0aa49e7dcbe23d340100c/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-29.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-29.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-30-set-spacing-around-display-math">Step 30: Set spacing around display math</h2>
-
 <p>Setting spacing around display math is a bit tricky. The obvious</p>
-<pre tabindex="0"><code>\setupformulas[spacebefore=small, spaceafter=small]</code></pre>
+<pre><code>\setupformulas[spacebefore=small, spaceafter=small]
+</code></pre>
 <p>does not work. I think that this is because I use</p>
-<pre tabindex="0"><code>\setupwhitespace[big]</code></pre>
+<pre><code>\setupwhitespace[big]
+</code></pre>
 <p>and ConTeXt vertical spacing model is such that the largest vspace value (big
 in this case) wins.</p>
-
 <p>After a bit of trial and error, I settled on this:</p>
-<pre tabindex="0"><code>\setupformula
-    [spacebefore={nowhite,quarterline}, spaceafter={back,nowhite,quarterline}]</code></pre>
+<pre><code>\setupformula
+    [spacebefore={nowhite,quarterline}, spaceafter={back,nowhite,quarterline}]
+</code></pre>
 <p>For <code>spacebefore</code>, the parameter <code>nowhite</code> kills all the whitespace and
 then <code>quarterline</code> sets the space before the formula to be <code>0.25\lineheight</code>.</p>
-
 <p>Surprisingly, the same setting <code>{nowhite,quarterline}</code> does not work when used
 for <code>spaceafter</code>. We need an addition <code>back</code> parameter to kill the previous
 vpsace.</p>
@@ -1166,26 +1056,21 @@ index cdf1e4b..60897b3 100644
 +\setupformula
 +    [spacebefore={nowhite,quarterline}, spaceafter={back,nowhite,quarterline}]
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c419e7240d308bda1644a1209d1e900511e483ff/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/c419e7240d308bda1644a1209d1e900511e483ff/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/c419e7240d308bda1644a1209d1e900511e483ff/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-30.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-30.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-31-example-text-for-images">Step 31: Example text for images</h2>
-
 <p>The simpleslides module provides two ways of including images: a horizontal
 mode and a vertical mode. I like that, and want to provide similar alternatives
 in this case.</p>
-
 <p>A horizontal image should occupy as must horizontal space as possible without
 overflowing the page height.</p>
-
 <p>A vertical image should not be wider than 0.5\textwidth and should occupy as
 much vertical space as possible.</p>
-
 <p>For now, we use dummy settings <code>horizontal</code> and <code>vertical</code> for these two types
 of images. The actual settings will be defined in the the next commits.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
@@ -1234,16 +1119,14 @@ index 52e5125..ad9efc0 100644
 +\stopslide
 +
 +
- \stoptext</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/slides.tex">slides.tex</a>]
+ \stoptext
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/623e128aa819b0fd2a2afc2133c933c3be4760dc/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-31.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-31.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-32-remove-figure-numbers">Step 32: Remove figure numbers</h2>
-
 <p>I don&rsquo;t prefer the figures in presentations to be numbered so I remove them.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 60897b3..c0f829d 100644
@@ -1258,24 +1141,19 @@ index 60897b3..c0f829d 100644
 +      number=no,
 +    ]
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/a7f0708098b8a6d775b77338de60d122ef0acfe4/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-32.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-32.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-33-define-settings-for-horizontal-images">Step 33: Define settings for horizontal images</h2>
-
 <p>Read:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Command/defineexternalfigure">http://wiki.contextgarden.net/Command/defineexternalfigure</a></li>
 </ul>
-
 <p>for details on defining settings for figures.</p>
-
 <p>To determine the amount of vertical space left on the page, we define a measure
 <code>page</code>. The exact value of this measure is taken from a solution by Wolfgang
 Schuster on the ConTeXt mailing list.</p>
@@ -1297,16 +1175,14 @@ index c0f829d..f80270f 100644
 +      factor=max,
 +    ]
 +
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/ed9271ef0610411864cce2696fbe3dfa33936d4b/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-33.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-33.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-34-add-setting-for-vertical-images">Step 34: Add setting for vertical images</h2>
-
 <p>The idea for the settings for vertical images is the same as that of horizontal
 images. We add a little bit more vertical space around vertical images.</p>
 <pre tabindex="0"><code>diff --git a/example.tex b/example.tex
@@ -1352,25 +1228,20 @@ index f80270f..de24daa 100644
 +      height=\measure{shortpage},
 +      factor=max,
 +    ]
- \stopenvironment</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/slides.tex">slides.tex</a>]
+ \stopenvironment
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/d0b465e99aaca76b4d1fb32af5c92250bd8aa1dd/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-34.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-34.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-35-tweak-space-around-figures">Step 35: Tweak space around figures</h2>
-
 <p>By default, ConTeXt includes a big space before and after a float. I find that
 to be excessive; so I reduced the space.</p>
-
 <p>See:</p>
-
 <ul>
 <li><a href="http://wiki.contextgarden.net/Command/setupfloat">http://wiki.contextgarden.net/Command/setupfloat</a></li>
 </ul>
-
 <p>for details.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index de24daa..5f5ec3f 100644
@@ -1388,16 +1259,14 @@ index de24daa..5f5ec3f 100644
 +
  \definemeasure[page][\dimexpr\pagegoal-\pagetotal-\lineheight\relax]
  \definemeasure[shortpage][\dimexpr\pagegoal-\pagetotal-\lineheight-2\bigskipamount\relax]
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/f234aff8c4b93b543c1aae535da478a17cd74501/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/f234aff8c4b93b543c1aae535da478a17cd74501/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/f234aff8c4b93b543c1aae535da478a17cd74501/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-35.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-35.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-36-prelim-to-defining-a-fancy-background">Step 36: Prelim to defining a fancy background</h2>
-
 <p>I want to add some subtle affects to the background. For that, I will use
 MetaPost. As a first step, I redraw the colored background using MetaPost. See
 the MetaFun manual for details.</p>
@@ -1421,16 +1290,14 @@ index 5f5ec3f..b49530b 100644
 +\setupbackgrounds[page][background={page:background}]
  
  \setupfooter[style=small,color=darkblue]
- \setupfootertexts[\setups{footer:metadata}][\userpagenumber/\lastuserpage]</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/slides.tex">slides.tex</a>]
+ \setupfootertexts[\setups{footer:metadata}][\userpagenumber/\lastuserpage]
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/bb623af4a0a85f7a9bf2c3eae6b0f29eece5ac16/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-36.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-36.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-37-create-a-subtle-red-border-around-each-slide">Step 37: Create a subtle red border around each slide</h2>
-
 <p>I like this subtle background, but this example shows that you are free to pick
 any MetaPost graphic that you like as a background.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -1448,27 +1315,25 @@ index b49530b..62d83da 100644
 +    fill p withcolor \MPcolor{lightgray};
    StopPage;
  \stopreusableMPgraphic
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/861a6730d1d6150715ac7095af174810ae38b679/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/861a6730d1d6150715ac7095af174810ae38b679/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/861a6730d1d6150715ac7095af174810ae38b679/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-37.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-37.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-38-add-a-visual-counter-for-page-numbers">Step 38: Add a visual counter for page numbers</h2>
-
 <p>See the documentation of t-visualcounter for details.</p>
-
 <ul>
-<li><p><a href="http://modules.contextgarden.net/dl/t-visualcounter/doc/context/third/visualcounter/visualcounter.pdf">http://modules.contextgarden.net/dl/t-visualcounter/doc/context/third/visualcounter/visualcounter.pdf</a></p>
+<li><a href="http://modules.contextgarden.net/dl/t-visualcounter/doc/context/third/visualcounter/visualcounter.pdf">http://modules.contextgarden.net/dl/t-visualcounter/doc/context/third/visualcounter/visualcounter.pdf</a></li>
+</ul>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
 index 62d83da..43a533a 100644
 --- a/slides.tex
 +++ b/slides.tex
 @@ -50,8 +50,26 @@
  
-\setupbackgrounds[page][background={page:background}]
+ \setupbackgrounds[page][background={page:background}]
  
 +\usemodule[visualcounter]
 +
@@ -1488,27 +1353,22 @@ index 62d83da..43a533a 100644
 +      future=darkgray,
 +    ]
 +
-\setupfooter[style=small,color=darkblue]
+ \setupfooter[style=small,color=darkblue]
 -\setupfootertexts[\setups{footer:metadata}][\userpagenumber/\lastuserpage]
 +\setupfootertexts[\setups{footer:metadata}][\tfx\usevisualcounter{userpage}]
  
-\startsetups footer:metadata
-\getvariable{metadata}{title} (\getvariable{metadata}{author})</code></pre></li>
-</ul>
-
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/182fae8432ff6af3b8252605124031b7093cfe02/slides.tex">slides.tex</a>]
+ \startsetups footer:metadata
+   \getvariable{metadata}{title} (\getvariable{metadata}{author})
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/182fae8432ff6af3b8252605124031b7093cfe02/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/182fae8432ff6af3b8252605124031b7093cfe02/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-38.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-38.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-39-use-named-colors">Step 39: Use named colors</h2>
-
 <p>The present style uses four colors. To make it easy to change the colorscheme,
 I define four colors: background:light, background:dark, foreground:contrast,
 foreground:altcontrast and use them in all the setups.</p>
-
 <p>Using named colors makes it easy to change the color scheme by simply changing
 the values for each of the colors.</p>
 <pre tabindex="0"><code>diff --git a/slides.tex b/slides.tex
@@ -1597,16 +1457,14 @@ index 43a533a..4a400e2 100644
 +\definestyle[authorstyle]  [style=\ssb,   color=foreground:altcontrast]
  \definestyle[datestyle]    [style=\tf,    color=]
  \definestyle[locationstyle][style=\tf,    color=]
- </code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/slides.tex">slides.tex</a>]
+ 
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/9873584be3541d10924ad79e24b33e3d31bdbc63/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-39.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
-
+src="example-39.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 <h2 id="step-40-create-tagged-pdf">Step 40: Create tagged pdf</h2>
-
 <p>Tagged PDFs is a PDF file that contains meta-information around elements
 in the PDF. For example, it will indicate what is a section heading,
 what is footnote, etc. This meta-information is useful for accessibility
@@ -1623,13 +1481,13 @@ index 4a400e2..d65622b 100644
 +
  \setvariables
      [metadata]
-     [</code></pre>
-<p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/slides.tex">slides.tex</a>]
+     [
+</code></pre><p>Full files: [<a href="https://github.com/adityam/context-slides-example/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/slides.tex">slides.tex</a>]
 [<a href="https://github.com/adityam/context-slides-example/blob/8540a185b3c0f0162bf0fda5be240160d2042fe6/example.tex">example.tex</a>]
 <embed class="center" 
-                    src="example-40.pdf#toolbar=0&navpanes=0"
-                    type="application/pdf"
-                    width="600px" height="450px" /></p>
+src="example-40.pdf#toolbar=0&navpanes=0"
+type="application/pdf"
+width="600px" height="450px" /></p>
 
 <hr />
 

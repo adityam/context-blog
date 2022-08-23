@@ -78,22 +78,16 @@
 <h1>TeX Programming: The past, the present, and the future</h1>
 <p class="post-time">Posted on March 5, 2009</p>
 
-
-
 <p>There was an interesting thread on the ConTeXt <a href="https://mailman.ntg.nl/pipermail/ntg-context/2009/038576.html">mailing list</a>, which I
 am summarizing in this post. To make the post interesting, I changed the
 problem slightly. So, the solutions posted here were not part of the thread,
 but are in the same spirit.</p>
-
 <p>Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:</p>
-
 <img class="center"
   alt="Multiplication table"
   src="table.png" />
 
-
 <p>One way to do this will be to type the whole thing by hand:</p>
-
 <!--
 \bTABLE
     \bTR \bTD $(+)$ \eTD \bTD 1 \eTD \bTD 2 \eTD \bTD 3 \eTD \bTD 4  \eTD \bTD 5  \eTD \bTD 6  \eTD \eTR
@@ -105,7 +99,6 @@ but are in the same spirit.</p>
     \bTR \bTD 6     \eTD \bTD 7 \eTD \bTD 8 \eTD \bTD 9 \eTD \bTD 10 \eTD \bTD 11 \eTD \bTD 12 \eTD \eTR
 \eTABLE
 -->
-
 <pre><code><span class="Statement">\bTABLE</span>
     <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 1 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 2 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 3 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 4  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6  <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
     <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 1     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 2 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 3 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 4 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 5  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 6  <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7  <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
@@ -116,22 +109,17 @@ but are in the same spirit.</p>
     <span class="Statement">\bTR</span> <span class="Statement">\bTD</span> 6     <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 7 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 8 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 9 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 10 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 11 <span class="Statement">\eTD</span> <span class="Statement">\bTD</span> 12 <span class="Statement">\eTD</span> <span class="Statement">\eTR</span>
 <span class="Statement">\eTABLE</span>
 </code></pre>
-
 <p>I am using <a href="http://www.pragma-ade.com/general/manuals/enattab.pdf">Natural Tables</a> since it is very easy to change their output. For example, to get the effect shown in the above figure, I can just add</p>
-
 <!--
 \setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]
 \setupTABLE[r][1][background=color,backgroundcolor=gray]
 \setupTABLE[c][1][background=color,backgroundcolor=gray]
 -->
-
 <pre><code><span class="Statement">\setupTABLE</span><span class="Delimiter">[</span>each<span class="Delimiter">][</span>each<span class="Delimiter">][</span>width=<span class="Number">2em</span>,height=<span class="Number">2em</span>,align=<span class="Delimiter">{</span>middle,middle<span class="Delimiter">}]</span>
 <span class="Statement">\setupTABLE</span><span class="Delimiter">[</span>r<span class="Delimiter">][</span>1<span class="Delimiter">][</span>background=color,backgroundcolor=gray<span class="Delimiter">]</span>
 <span class="Statement">\setupTABLE</span><span class="Delimiter">[</span>c<span class="Delimiter">][</span>1<span class="Delimiter">][</span>background=color,backgroundcolor=gray<span class="Delimiter">]</span>
 </code></pre>
-
 <p>But that is not the point of this post. Typing everything by hand is error prone, and non-reusable. I want to show how to automate the above task. In any ordinary programming language we would do this as (pseudo code)</p>
-
 <!--
 "start table"
   "start table row"
@@ -149,7 +137,6 @@ but are in the same spirit.</p>
   end
 "stop table"
 -->
-
 <pre><code><span class="String">&quot;</span><span class="String">start table</span><span class="String">&quot;</span>
   <span class="String">&quot;</span><span class="String">start table row</span><span class="String">&quot;</span>
       <span class="String">&quot;</span><span class="String">table element: (+)</span><span class="String">&quot;</span>
@@ -166,9 +153,7 @@ but are in the same spirit.</p>
   <span class="Repeat">end</span>
 <span class="String">&quot;</span><span class="String">stop table</span><span class="String">&quot;</span>
 </code></pre>
-
 <p>Unfortunately, TeX is no ordinary programming language. The first thing that comes to mind is to use ConTeXt’s equivalent of a for loop&mdash;<code>\dorecurse</code></p>
-
 <!--
 \bTABLE
     \bTR
@@ -185,7 +170,6 @@ but are in the same spirit.</p>
       \eTR}
 \eTABLE
 -->
-
 <pre><code><span class="Statement">\bTABLE</span>
     <span class="Statement">\bTR</span>
     <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
@@ -201,9 +185,7 @@ but are in the same spirit.</p>
       <span class="Statement">\eTR</span><span class="Delimiter">}</span>
 <span class="Statement">\eTABLE</span>
 </code></pre>
-
 <p>This however does not work as expected because <code>\dorecurse</code> is not fully expandable. One way to get around this problem is to expand the appropriate parts of the body of <code>\dorecurse</code></p>
-
 <!--
 \bTABLE
   \bTR
@@ -227,7 +209,6 @@ but are in the same spirit.</p>
       \eTR}
 \eTABLE
 -->
-
 <pre><code><span class="Statement">\bTABLE</span>
   <span class="Statement">\bTR</span>
   <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
@@ -250,9 +231,7 @@ but are in the same spirit.</p>
       <span class="Statement">\eTR</span><span class="Delimiter">}</span>
 <span class="Statement">\eTABLE</span>
 </code></pre>
-
 <p>Behold! All those <code>\expandafter</code>s. The reason they are needed was succinctly explained by David Kastrup in <a href="http://tug.org/interviews/kastrup.html">his TeX interview</a></p>
-
 <blockquote>
 <p>Instead, macros are used as a substitute for programming. TeX’s macro
 expansion language is the only way to implement conditionals and loops, but
@@ -265,37 +244,38 @@ both can solve serious problems. eTeX gives the mouth a few more teeth and
 changes some of that, but the changes are not really fundamental: expansion
 still makes no assignments.</p>
 </blockquote>
-
 <p>Once you get the hang of it, adding all those <code>\expandafter</code>s is “simple” (Taco Hoekwater in a <a href="https://mailman.ntg.nl/pipermail/ntg-context/2006/019649.html">post</a>):</p>
-
 <blockquote>
 <p>The trick to \expandafter is that you (normally) write it backwards
 until reaching a moment in time where TeX is not scanning an argument.</p>
-
+</blockquote>
+<blockquote>
 <p>Say you have a macro that contains some stuff in it to be typeset by
 <code>\type</code>:</p>
-<pre tabindex="0"><code>\def\mystuff{Some literal stuff}</code></pre>
+<pre><code>\def\mystuff{Some literal stuff}
+</code></pre>
 <p>Then you begin with</p>
-<pre tabindex="0"><code>\type{\mystuff}</code></pre>
+<pre><code>\type{\mystuff}
+</code></pre>
 <p>but that obviously doesn&rsquo;t work, you want the final input to look like</p>
-<pre tabindex="0"><code>\type{Some literal stuff}</code></pre>
+<pre><code>\type{Some literal stuff}
+</code></pre>
 <p>Since <code>\expandafter</code> expands the token that follows the after next token
 &ndash; whatever the next token is &ndash; you have to insert it backwards across the
 opening brace of the argument, like so:</p>
-<pre tabindex="0"><code>\type\expandafter{\mystuff}</code></pre>
+<pre><code>\type\expandafter{\mystuff}
+</code></pre>
 <p>But this wouldn&rsquo;t work, yet: you are still in the middle of an
 expression (the <code>\type</code> expects an argument, and it gets <code>\expandafter</code>
 as it stands).</p>
-
 <p>Luckily, <code>\expandafter</code> <em>itself</em> is an expandable command, so you
 jump back once more and insert another one:</p>
-<pre tabindex="0"><code>\expandafter\type\expandafter{\mystuff}</code></pre>
-<p>Now you are on &lsquo;neutral ground&rsquo;, and can stop backtracking.
+<pre><code>\expandafter\type\expandafter{\mystuff}
+</code></pre>
+<p>Now you are on &rsquo;neutral ground&rsquo;, and can stop backtracking.
 Easy, once you get the hang of it.</p>
 </blockquote>
-
 <p>Fortunately, in ConTeXt you do not need to do all this mental arithmetic. ConTeXt provides a command <code>\expanded</code> which expands its argument. It only works if the expanded code does not try to scan the next character. In this case, <code>\bTD</code>—<code>\eTD</code> can be included in <code>\expanded</code>, while <code>\bTR</code>—<code>\eTR</code> cannot. So we end up with:</p>
-
 <!--
 \bTABLE
   \bTR
@@ -312,7 +292,6 @@ Easy, once you get the hang of it.</p>
       \eTR}
 \eTABLE
 -->
-
 <pre><code><span class="Statement">\bTABLE</span>
   <span class="Statement">\bTR</span>
     <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
@@ -328,9 +307,7 @@ Easy, once you get the hang of it.</p>
       <span class="Statement">\eTR</span><span class="Delimiter">}</span>
 <span class="Statement">\eTABLE</span>
 </code></pre>
-
 <p>Wolfgang Schuster posted a much neater solution.</p>
-
 <!--
 \bTABLE
   \bTR
@@ -346,7 +323,6 @@ Easy, once you get the hang of it.</p>
       \eTR}
 \eTABLE
 -->
-
 <pre><code><span class="Statement">\bTABLE</span>
   <span class="Statement">\bTR</span>
   <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
@@ -361,13 +337,11 @@ Easy, once you get the hang of it.</p>
       <span class="Statement">\eTR</span><span class="Delimiter">}</span>
 <span class="Statement">\eTABLE</span>
 </code></pre>
-
 <p>This makes TeX appear like a <strong>normal</strong> programming language. But only TeX
 wizards like Wolfgang can discover such solutions. You need to know the TeX
 digestive system inside out to even attempt something like this. Inspired by
 Wolfgang’s solution, I tried the same thing with ConTeXt’s lesser known for
 loops.</p>
-
 <!--
 \bTABLE
   \bTR
@@ -383,7 +357,6 @@ loops.</p>
      \eTR}
 \eTABLE
 -->
-
 <pre><code><span class="Statement">\bTABLE</span>
   <span class="Statement">\bTR</span>
       <span class="Statement">\bTD</span> <span class="String">$(+)$</span> <span class="Statement">\eTD</span>
@@ -398,9 +371,7 @@ loops.</p>
      <span class="Statement">\eTR</span><span class="Delimiter">}</span>
 <span class="Statement">\eTABLE</span>
 </code></pre>
-
 <p>Don’t worry if you don’t understand how the above works. With LuaTeX, even normal users have hope. Luigi Scarso posted the following code:</p>
-
 <!--
 \startluacode
 tprint = function(s) tex.sprint(tex.ctxcatcodes,s) end
@@ -422,7 +393,6 @@ tprint('\\bTABLE')
 tprint('\\eTABLE')
 \stopluacode
 -->
-
 <pre><code><span class="Statement">\startluacode</span>
 tprint = function(s) tex.sprint(tex.ctxcatcodes,s) end
 tprint('<span class="Special">\\</span>bTABLE')
@@ -443,18 +413,13 @@ tprint('<span class="Special">\\</span>bTABLE')
 tprint('<span class="Special">\\</span>eTABLE')
 <span class="Statement">\stopluacode</span>
 </code></pre>
-
 <p>Finally, with LuaTeX, we can implement simple algorithms in a simple way
 inside TeX. In this case, the pure TeX solution using <code>\dorecurse</code> wasn’t too
 difficult. But try to come up with a pure TeX solution that prints the
 <strong>average</strong> of the numbers.</p>
-
 <p>Here is a hint. Convert the numbers to dimensions by multiplying by <code>1pt</code>, do averaging using <code>\dimexpr</code>, then get rid of the point using <code>\withoutpt</code> and hope that the fixed precision mathematics in TeX did not mess things up.</p>
-
 <h4 id="addendum">Addendum:</h4>
-
 <p>With current ConTeXt, I would use:</p>
-
 <!--
 \startluacode
 context.bTABLE()
@@ -474,7 +439,6 @@ context.bTABLE()
 context.eTABLE()
 \stopluacode
 -->
-
 <pre><code><span class="Statement">\startluacode</span>
 context.bTABLE()
   context.bTR()

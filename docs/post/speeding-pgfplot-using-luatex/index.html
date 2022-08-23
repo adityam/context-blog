@@ -83,18 +83,15 @@ Metapost and TikZ for drawing similar graphics and found that <strong>TikZ is th
 to five times slower than Metapost</strong>. Although TikZ is slower, it does provide
 a much higher level interface to drawing graphics and shifting to Metapost can
 take a lot of <em>user time</em>, which is often more valuable than <em>computer time</em>.</p>
-
 <p>As an example, consider the <a href="https://ctan.org/pkg/pgfplots">PGFPlots</a> package, which provides a high-level
 interface for drawing function plots. Although there is a <a href="https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv">Metapost package
 for drawing
 graphs</a>, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.</p>
-
 <p>As an example, consider the plot of the following function</p>
-<pre tabindex="0"><code>0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))</code></pre>
-<p>which is the step response of a second order dynamical system (the exact
+<pre tabindex="0"><code>0.5 - 0.5*exp(-3*x)*(cos(5.196*x) + 0.5774*sin(5.196*x))
+</code></pre><p>which is the step response of a second order dynamical system (the exact
 details are not relevant for this post). PGFPlots makes it very simple to plot
 such functions:</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">pgfplots</span><span class="Delimiter">]</span>
 <span class="PreProc">\starttext</span>
 <span class="Identifier">\starttikzpicture</span>
@@ -111,12 +108,10 @@ such functions:</p>
 <span class="Identifier">\stoptikzpicture</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>On my laptop, the above code takes <strong>1.341s</strong> (measured using the
 <code>\testfeatureonce</code> macro explained in the previous post). Most of the time is
 spent in calculating the algebric expression. We can speed this up by defining
 a Lua function that does the calculation.</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">pgfplots</span><span class="Delimiter">]</span>
 <span class="PreProc">\starttext</span>
 <span class="Identifier">\startluacode</span>
@@ -150,23 +145,18 @@ a Lua function that does the calculation.</p>
 <span class="Identifier">\stoptikzpicture</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>On my laptop, this takes <strong>0.333s</strong>. So, plotting in PGFPlots is <strong>four times
 faster</strong> if we use Lua to do more complicated calculations.</p>
-
 <p>I don&rsquo;t know the internals of PGFPlot well, but recent versions of PGFPlot do
 use Lua for some of the calcuations. So, I don&rsquo;t completely understand why I
 get such a big speedup by doing the calculations in Lua.</p>
-
 <h2 id="addendum">Addendum</h2>
-
 <p>Henri Menke pointed out in the comments that using <code>fpu=false</code> only works for
 simple plots and fails for plots with log scale. As explained in his excellent
 article on <a href="https://tug.org/TUGboat/tb39-1/tb121menke-ffi.pdf">using LuaTeX
 FFI</a>, a more robust
 solution is to convert back and forth between <code>fpu</code> float and <code>lua</code> float. The
 code below does that:</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">pgfplots</span><span class="Delimiter">]</span>
 <span class="PreProc">\starttext</span>
 <span class="Identifier">\startluacode</span>
@@ -201,33 +191,25 @@ code below does that:</p>
 <span class="Identifier">\stoptikzpicture</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>In his article, Henri mentions in PGF version 3, one can use Lua functions to
 convert between <code>fpu</code> float and <code>lua</code> float, but that version is not available
 in current texlive or context standalone. Running the above code on my laptop
 takes <strong>0.377s</strong>; slightly slower than the previous code but still in the
 ballpark of a factor of four improvement.</p>
-
 <h2 id="addendum-2">Addendum 2</h2>
-
 <p>Henri Menke pointed on in the comments that we ned to add</p>
-
 <pre><code><span class="Statement">\pgfplotsset</span><span class="Delimiter">{</span>compat=1.12<span class="Delimiter">}</span></code></pre>
-
 <p>or higher to activate the <code>lua</code> backend in pgfplots. Being a ConTeXt user, I
 always assumed that pgfplot always uses the latest version and I needed to add
 <code>compat=something</code> only if I wanted to use old syntax. It is actually the
 other way round! Like most LaTeX package, pgfplots errs on the side of being
 more conservative and uses newer features if they are explicitly activated.
 Adding:</p>
-
 <pre><code><span class="Statement">\pgfplotsset</span><span class="Delimiter">{</span>compat=newest<span class="Delimiter">}</span></code></pre>
-
 <p>reduces the runtime of the vanilla version to <strong>0.144s</strong>, which is a <strong>factor
 of three</strong> faster than my handwritten lua code, and thus almost a <strong>factor of
 ten</strong> faster than the old code. <strong>So, the simple way to speed up pgfplots is
 to add <code>\pgfplotsset{compat=1.12}</code> or higher in your code!</strong></p>
-
 <p>I&rsquo;ll leave this post here as a reminder to RTFM.</p>
 
 <hr />

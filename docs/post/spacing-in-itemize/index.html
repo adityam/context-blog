@@ -85,10 +85,8 @@ after the environment. The <a href="https://www.texfaq.org/FAQ-complist">TeX FAQ
 spacing around itemize environment in LaTeX. Reading that made me appreciate
 the control provided by ConTeXt. So, I thought that it is worthwhile to show
 that.</p>
-
 <p>Let&rsquo;s start with the default spacing. I am going to use the following sample
 document.</p>
-
 <pre><code><span class="Identifier">\usemodule</span><span class="Delimiter">[</span><span class="Type">visual</span><span class="Delimiter">]</span>
 <span class="PreProc">\starttext</span>
 <span class="Statement">\fakewords</span><span class="Delimiter">{</span>20<span class="Delimiter">}{</span>25<span class="Delimiter">}</span>
@@ -97,65 +95,48 @@ document.</p>
 <span class="Keyword">\stopitemize</span>
 <span class="Statement">\fakewords</span><span class="Delimiter">{</span>20<span class="Delimiter">}{</span>25<span class="Delimiter">}</span>
 <span class="PreProc">\stoptext</span></code></pre>
-
 <p>which gives:</p>
-
 <img class="center"
   alt="Itemize with default spacing"
   src="list-default.png" />
 
-
 <p>Notice the space before and after the itemize environment and the space
 between the items.</p>
-
-<p>Now, to get no spacing between the items, use:
+<p>Now, to get no spacing between the items, use:</p>
 <pre><code><span class="Keyword">\startitemize</span><span class="Delimiter">[</span><span class="Type">packed</span><span class="Delimiter">]</span>
   <span class="Statement">. . .</span>
-<span class="Keyword">\stopitemize</span></code></pre></p>
-
+<span class="Keyword">\stopitemize</span></code></pre>
 <p>which gives:</p>
-
 <img class="center"
   alt="Itemize with packed option"
   src="list-packed.png" />
 
-
-<p>To get no spacing between the items and no spacing around the environment, use:
+<p>To get no spacing between the items and no spacing around the environment, use:</p>
 <pre><code><span class="Keyword">\startitemize</span><span class="Delimiter">[</span><span class="Type">nowhite</span><span class="Delimiter">]</span>
   <span class="Statement">. . .</span>
-<span class="Keyword">\stopitemize</span></code></pre></p>
-
+<span class="Keyword">\stopitemize</span></code></pre>
 <p>which gives:</p>
-
 <img class="center"
   alt="Itemize with nowhite option"
   src="list-nowhite.png" />
 
-
-<p>Sometimes, this is too tight. To add spacing after the environment, use
+<p>Sometimes, this is too tight. To add spacing after the environment, use</p>
 <pre><code><span class="Keyword">\startitemize</span><span class="Delimiter">[</span><span class="Type">nowhite, after</span><span class="Delimiter">]</span>
   <span class="Statement">. . .</span>
-<span class="Keyword">\stopitemize</span></code></pre></p>
-
+<span class="Keyword">\stopitemize</span></code></pre>
 <p>which gives:</p>
-
 <img class="center"
   alt="Itemize with nowhite and after option"
   src="list-nowhite-after.png" />
 
-
 <p>Finally, to have space before the environment (but not after), use:</p>
-
 <pre><code><span class="Keyword">\startitemize</span><span class="Delimiter">[</span><span class="Type">nowhite, before</span><span class="Delimiter">]</span>
   <span class="Statement">. . .</span>
 <span class="Keyword">\stopitemize</span></code></pre>
-
 <p>which gives:</p>
-
 <img class="center"
   alt="Itemize with nowhite and before option"
   src="list-nowhite-before.png" />
-
 
 <p>That was simple. Now back to trying to wrap my head around the LaTeX spacing
 model.</p>

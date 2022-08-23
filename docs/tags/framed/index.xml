@@ -15,11 +15,9 @@
       <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</guid>
       <description>&lt;p&gt;As I had &lt;a href=&#34;../frame-with-solid-left-line&#34;&gt;posted earlier&lt;/a&gt;, I like the visual
 effect of placing a solid line on the left side of a block:&lt;/p&gt;
-
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
-
 
 &lt;p&gt;I use this for displaying short code snippets in the lecture notes of a course
 that I teach. Typically these are a few lines of Matlab code but recently I
@@ -37,11 +35,9 @@ explains a simple solution.&lt;/p&gt;</description>
       <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
       <description>&lt;p&gt;Adding a solid line on the left side of a frame, block quote, etc. creates a
 simple, clean, and attractive visual effect that I like.&lt;/p&gt;
-
 &lt;img class=&#34;center&#34;
   alt=&#34;Simple example&#34;
   src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;
-
 
 &lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on
 the Internet to show blockquotes. So, how do we get this style with ConTeXt?&lt;/p&gt;</description>

@@ -80,11 +80,9 @@
 
 <p>As I had <a href="../frame-with-solid-left-line">posted earlier</a>, I like the visual
 effect of placing a solid line on the left side of a block:</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
-
 
 <p>I use this for displaying short code snippets in the lecture notes of a course
 that I teach. Typically these are a few lines of Matlab code but recently I
@@ -92,9 +90,7 @@ needed to post a bigger code snippet where the frame should break across the
 page. In principle, this should have been a simple change—replace the <code>framed</code>
 with a <code>textbackground</code>—but that did not work out of the box. This blog post
 explains a simple solution.</p>
-
 <p>First, let&rsquo;s start with the naive solution:</p>
-
 <!--
 \definecolor[darkgray]  [s=0.5]
 \definecolor[lightgray] [s=0.95]
@@ -114,7 +110,6 @@ explains a simple solution.</p>
     backgroundcolor=lightgray,
   ]
 -->
-
 <pre><code><span class="Statement">\definecolor</span><span class="Delimiter">[</span>darkgray<span class="Delimiter">]</span>  <span class="Delimiter">[</span>s=0.5<span class="Delimiter">]</span>
 <span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightgray<span class="Delimiter">]</span> <span class="Delimiter">[</span>s=0.95<span class="Delimiter">]</span>
 
@@ -133,20 +128,16 @@ explains a simple solution.</p>
     backgroundcolor=lightgray,
   <span class="Delimiter">]</span>
 </code></pre>
-
 <p><code>Frame</code> and <code>textbackground</code> handle the offsets differently. Frame adds the
 <code>rulethickness</code> to the offset, while textbackground does not. So, I have
 manually set the offset in each direction. The above code gives the following
 output:</p>
-
 <img class="center"
   alt="Frame generated using textbackground"
   src="left-frame-0.png" />
 
-
 <p>So far, so good. So, all that we need is to replace <code>frame=on</code> with
 <code>frame=off, leftframe=on</code>. Unfortunately, that does not work.</p>
-
 <!-- 
 \definetextbackground
   [leftbartext]
@@ -164,7 +155,6 @@ output:</p>
     backgroundcolor=lightgray,
   ]
 -->
-
 <pre><code><span class="Statement">\definetextbackground</span>
   <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
   <span class="Delimiter">[</span>
@@ -174,20 +164,16 @@ output:</p>
     ...
   <span class="Delimiter">]</span>
 </code></pre>
-
 <p>gives</p>
-
 <img class="center"
   alt="Frame generated using textbackground"
   src="left-frame-1.png" />
-
 
 <p>Notice that the output has no frame! To understand why this happens, we need
 to dig a bit into how <code>textbackground</code>s work. Most of the heavy lifting for
 drawing the background is done by Metapost. The default setting of
 textbackground has (in
 <a href="https://github.com/contextgarden/context-mirror/blob/5794d8b0c845aad2ab4cf36dc14201b21ef5a784/tex/context/base/mkiv/anch-bck.mkvi#L515"><code>anch-bck.mkvi</code></a></p>
-
 <pre><code><span class="Statement">\setuptextbackground</span>
   <span class="Delimiter">[</span>
     ...
@@ -195,23 +181,18 @@ textbackground has (in
     ...
   <span class="Delimiter">]</span>
 </code></pre>
-
 <p>where <code>mpos:region:draw</code> is defined as</p>
-
 <!--
 \startuseMPgraphic{mpos:region:draw}
     draw_multi_pars
 \stopuseMPgraphic
 -->
-
 <pre><code><span class="Statement">\startuseMPgraphic</span><span class="Delimiter">{</span>mpos:region:draw<span class="Delimiter">}</span>
     draw_multi_pars
 <span class="Statement">\stopuseMPgraphic</span>
 </code></pre>
-
 <p>which simply calls <code>draw_multi_pars</code> defined in
 <a href="https://github.com/contextgarden/context-mirror/blob/052a096e160508ddbbbfcbf1522eb8ddbfc3b1cd/metapost/context/base/mpiv/mp-abck.mpiv#L130"><code>mp-abck.mpiv</code></a>. The reason that we don&rsquo;t get anything when <code>frame=off</code> is because <code>draw_multi_pars</code> does not include the code to selectively draw the boundary. <code>mp-abck.mpiv</code> also includes another macro called <code>draw_multi_side</code> to draw <em>only</em> the left boundary. So, we can define the left-bar textbackground as follows:</p>
-
 <!--
 \definetextbackground
   [leftbartext]
@@ -236,7 +217,6 @@ textbackground has (in
   draw_multi_side;
 \stopuseMPgraphic
 -->
-
 <pre><code><span class="Statement">\definetextbackground</span>
   <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
   <span class="Delimiter">[</span>
@@ -252,10 +232,8 @@ textbackground has (in
   draw_multi_side;
 <span class="Statement">\stopuseMPgraphic</span>
 </code></pre>
-
 <p>We don&rsquo;t need to specify <code>leftframe=on</code> because <code>draw_multi_side</code> only draws
 the leftframe. To conclude, here is the complete code:</p>
-
 <pre><code><span class="Statement">\definetextbackground</span>
   <span class="Delimiter">[</span>leftbartext<span class="Delimiter">]</span>
   <span class="Delimiter">[</span>
@@ -279,11 +257,9 @@ the leftframe. To conclude, here is the complete code:</p>
   draw_multi_side;
 <span class="Statement">\stopuseMPgraphic</span>
 </code></pre>
-
 <p>As in the case of the definition using <code>framedtext</code>, it is straight forward to
 inherit from <code>leftbartext</code> text background to get backgrounds with different
 color:</p>
-
 <!--
 \definecolor[lightred]   [0.95(red,white)]
 \definecolor[lightgreen] [0.95(green,white)]
@@ -313,7 +289,6 @@ color:</p>
     backgroundcolor=lightblue,
   ]
 -->
-
 <pre><code><span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightred<span class="Delimiter">]</span>   <span class="Delimiter">[</span>0.95(red,white)<span class="Delimiter">]</span>
 <span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightgreen<span class="Delimiter">]</span> <span class="Delimiter">[</span>0.95(green,white)<span class="Delimiter">]</span>
 <span class="Statement">\definecolor</span><span class="Delimiter">[</span>lightblue<span class="Delimiter">]</span>  <span class="Delimiter">[</span>0.95(blue,white)<span class="Delimiter">]</span>
@@ -342,9 +317,7 @@ color:</p>
     backgroundcolor=lightblue,
   <span class="Delimiter">]</span>
 </code></pre>
-
 <p>which gives</p>
-
 <img class="center"
   alt="text backgrounds with different colors"
   src="left-frame-2.png" />

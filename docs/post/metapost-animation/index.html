@@ -80,9 +80,8 @@
 
 <p>The <a href="http://wiki.contextgarden.net/Animation#Using_the_animation_module">animation</a> module provides a nice interface for using
 <a href="http://www.pragma-ade.com/general/manuals/mwidget-s.pdf">FieldStacks</a> to create a JavaScript controlled animations in
-ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For example, the following code will show <code>step-1.pdf</code>,
+ConTeXt.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> For example, the following code will show <code>step-1.pdf</code>,
 <code>step-2.pdf</code>, <code>step-3.pdf</code>, and <code>step-4.pdf</code> files one by one:</p>
-
 <!--
 \usemodule[animation]
 
@@ -93,7 +92,6 @@ ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For e
   {\useexternalfigure[step-4]}
 \stopanimation
 -->
-
 <pre><code><span class="Statement">\usemodule</span><span class="Delimiter">[</span>animation<span class="Delimiter">]</span>
 
 <span class="Statement">\startanimation</span><span class="Delimiter">[</span>menu=yes<span class="Delimiter">]</span>
@@ -103,17 +101,14 @@ ConTeXt.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> For e
   <span class="Delimiter">{</span><span class="Statement">\useexternalfigure</span><span class="Delimiter">[</span>step-4.pdf<span class="Delimiter">]}</span>
 <span class="Statement">\stopanimation</span>
 </code></pre>
-
 <p>Sometimes, I use animation to give the illusion of motion. For example, to
 show a particle moving along a trajectory (drawn using Metapost). In
 principle, it is possible to use the <code>animation</code> module to draw such
 animations (e.g., see Wolfgang&rsquo;s reply in <a href="https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html">on ntg-context mailing list</a>), but the
 interface gets a bit cumbersome. In this post, I show a helper macro to
 simplify drawing such animations.</p>
-
 <p>As an example, I&rsquo;ll consider the use case of drawing a particle moving in a
 circle. With the helper macros given below, we can use the following code:</p>
-
 <!--
 \startMPanimation{circle}{n=100}
     path p, q;
@@ -134,7 +129,6 @@ circle. With the helper macros given below, we can use the following code:</p>
 \useMPanimation[menu=yes,framerate=20]{circle}
 \stoptext
 -->
-
 <pre><code><span class="Identifier">\startMPanimation</span>{circle}{n=<span class="Number">100</span>}
     <span class="Type">path</span> p, q;
 
@@ -155,34 +149,26 @@ circle. With the helper macros given below, we can use the following code:</p>
 <span class="Identifier">\useMPanimation</span><span class="Delimiter">[</span><span class="Type">menu=yes,framerate=50</span><span class="Delimiter">]{</span>circle<span class="Delimiter">}</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>to generate this animation</p>
-
 <img class="center"
   alt="Simple animation"
   src="test-animation.gif" />
 
-
 <p>Thus, an animation is defined using <code>\startMPanimation ... \stopMPanimation</code>.
 The macro takes one argument <code>n=...</code>, which specifies the total number of
 frames. To use the animation, use</p>
-
 <pre><code><span class="Identifier">\useMPanimation</span><span class="Delimiter">[</span><span class="Type">menu=yes,framerate=50</span><span class="Delimiter">]{</span>circle<span class="Delimiter">}</span>
 </code></pre>
-
 <p>where the options (in square brackets) are options to the <code>\startanimation</code>
 macro from <code>animation</code> module. That&rsquo;s it.</p>
-
 <p>Behind the scenes, the <code>\startMPanimation</code> macro creates a <code>useMPgraphic</code> with
 the name <code>animation:circle</code>, which takes two arguments <code>n</code> (which is the same
 as before) and <code>t</code> (which specifies the current <em>time</em> or the current frame
 number). The body of the environment is the metapost code which draws a figure
 depending on the values of <code>t</code> and <code>n</code>. In the example above, I draw a circle
 and a point <code>t/n</code> along the circle.</p>
-
 <p>The macros <code>\startMPanimation</code> and <code>\useMPanimation</code> are a wrapper around the
 <a href="https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html">code by Wolfgang</a>:</p>
-
 <pre><code><span class="Character">\unprotect</span>
 
 <span class="Statement">\installnamespace</span><span class="Delimiter">{</span>MPanimationvariables<span class="Delimiter">}</span>
@@ -212,21 +198,18 @@ and a point <code>t/n</code> along the circle.</p>
 <span class="Character">\protect</span>
 
 </code></pre>
-
 <p>A test file and sample pdf output are below. The pdf file needs to be open in
 Adobe Acrobat to work:</p>
-
 <ul>
 <li><a href="test-animation.tex">test-animation.tex</a></li>
 <li><a href="test-animation.pdf">test-animation.pdf</a></li>
 </ul>
-<div class="footnotes">
-
-<hr />
-
+<div class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1"><strong>Warning</strong>: Such animations only work with Adobe Acrobat.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1">
+<p><strong>Warning</strong>: Such animations only work with Adobe Acrobat.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

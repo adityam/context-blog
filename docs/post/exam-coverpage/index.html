@@ -83,21 +83,17 @@ for exams, shown below. They circulate a Word template at the beginning of
 each term. Since I typeset my exams in ConTeXt, I decided to translate this
 cover page template to ConTeXt as well. In this post, I&rsquo;ll explain how I went
 about doing this translation.</p>
-
 <p><a
 href="/context-blog/post/exam-coverpage/exam-v6.png">
 <img src="/context-blog/post/exam-coverpage/exam-v6.png" class="right" alt="Exam Coverpage" width="300px" />
 </a></p>
-
 <h2 id="the-user-interface">The user interface</h2>
-
 <p>The cover page is just a fancy table with certain information filled in. At a
 high-level, I want to hide all the implementation details in an environment
 file (which I&rsquo;ll call <code>env-coverpage</code>), specify all the information using a
 key-value driven interface, and then call a macro (which I&rsquo;ll call
 <code>\placecoverpage</code>) which typesets the cover page. Thus, my main tex file looks
 like this:</p>
-
 <!--
 \environment env-coverpage
 % Other environments that I load
@@ -127,7 +123,6 @@ like this:</p>
 
 \stoptext
 -->
-
 <pre><code><span class="Statement">\environment</span> env-coverpage
 <span class="Comment">% Other environments that I load</span>
 
@@ -155,12 +150,10 @@ like this:</p>
 
 <span class="Statement">\stoptext</span>
 </code></pre>
-
 <p>Now, I&rsquo;ll explain how I design the <code>\placecoverpage</code> macro.
 Because this is a one-off macro, I use the simplest mechanism to store the
 key-value options: <code>\setvariables</code>. Thus, the basic skeleton of the
 <code>\placecoverpage</code> macro is as follows:</p>
-
 <!--
 \startenvironment env-coverpage
 \define\placecoverpage
@@ -173,7 +166,6 @@ key-value options: <code>\setvariables</code>. Thus, the basic skeleton of the
 \def\dodoplacecoverpage{}
 \stopenvironment
 -->
-
 <pre><code><span class="Identifier">\startenvironment </span>env-coverpage
 <span class="Identifier">\define\placecoverpage</span>
 <span class="Identifier">    </span><span class="Delimiter">{</span><span class="Identifier">\dosingleargument\doplacecoverpage</span><span class="Delimiter">}</span>
@@ -183,11 +175,9 @@ key-value options: <code>\setvariables</code>. Thus, the basic skeleton of the
      <span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:coverpage<span class="Delimiter">}}</span>
 <span class="Identifier">\stopenvironment</span>
 </code></pre>
-
 <p>Now all we need is to write the setup <code>exam:coverpage</code> to typeset the actual
 cover page. I divide that into smaller components, again using the setups
 mechanism.</p>
-
 <!--
 \startsetups exam:coverpage
   \setups{exam:banner}
@@ -199,7 +189,6 @@ mechanism.</p>
   \setups{exam:instructions}
 \stopsetups
 -->
-
 <pre><code><span class="Identifier">\startsetups </span>exam:coverpage
   <span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:banner<span class="Delimiter">}</span>
   <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">2*big</span><span class="Delimiter">]</span>
@@ -210,16 +199,12 @@ mechanism.</p>
 <span class="Delimiter">  </span><span class="Identifier">\setups</span><span class="Delimiter">{</span>exam:instructions<span class="Delimiter">}</span>
 <span class="Identifier">\stopsetups</span>
 </code></pre>
-
 <h2 id="drawing-the-banner">Drawing the banner</h2>
-
 <img class="right"
   alt="Exam Banner (barebones)"
   src="exam-v1.png" />
 
-
 <p>I start by using a simple framedtext to typeset the banner.</p>
-
 <pre><code><span class="Identifier">\defineframedtext</span>
 <span class="Identifier">  </span><span class="Delimiter">[</span><span class="Type">bannertext</span><span class="Delimiter">]</span>
 <span class="Delimiter">  [</span>
@@ -238,14 +223,11 @@ mechanism.</p>
   <span class="Identifier">\stopbannertext</span>
 <span class="Identifier">\stopsetups</span>
 </code></pre>
-
 <p>Note that we stored the key-values using <code>\setvariables{exam}{...}</code>. Now, we
 use <code>\getvariable{exam}{key}</code> to access the value of a particular key.</p>
-
 <p>Now, I change the simple border of the frame to the two-lined frame in the
 template. To do so, I set <code>frame=off</code> and use a metapost graphic as
 background.</p>
-
 <pre><code><span class="Identifier">\defineframedtext</span>
 <span class="Identifier">  </span><span class="Delimiter">[</span><span class="Type">bannertext</span><span class="Delimiter">]</span>
 <span class="Delimiter">  [</span>
@@ -256,14 +238,11 @@ background.</p>
 
 <span class="Identifier">\defineoverlay</span><span class="Delimiter">[</span><span class="Type">bannerlines</span><span class="Delimiter">][</span><span class="Type">\useMPgraphic</span><span class="Delimiter">{</span>bannerlines<span class="Delimiter">}]</span>
 </code></pre>
-
 <img class="right"
   alt="Exam Banner (barebones)"
   src="exam-v2.png" />
 
-
 <p>where</p>
-
 <pre><code><span class="Identifier">\startuseMPgraphic</span>{bannerlines}
   <span class="Statement">begingroup</span>
   <span class="Identifier">linecap</span> := <span class="Identifier">butt</span> ;
@@ -279,11 +258,9 @@ background.</p>
   <span class="Statement">endgroup</span>;
 <span class="Identifier">\stopuseMPgraphic</span>
 </code></pre>
-
 <p>Now, all I need is to do is add the university logo. There are different ways to add
 the logo, but I chose the simplest option in this case. Just place the logo at
 the appropriate place using Metapost.</p>
-
 <pre><code><span class="Identifier">\startuseMPgraphic</span>{bannerlines}
   <span class="Statement">begingroup</span>
   ...
@@ -293,19 +270,14 @@ the appropriate place using Metapost.</p>
   <span class="Statement">endgroup</span>;
 <span class="Identifier">\stopuseMPgraphic</span>
 </code></pre>
-
 <p>This completes the banner of the coverpage.</p>
-
 <img class="center"
   alt="Exam Banner (barebones)"
   src="exam-v3.png" />
 
-
 <h2 id="adding-the-course-information">Adding the course information</h2>
-
 <p>This is perhaps the simplest part. I simply mid-align the course title and
 exam time.</p>
-
 <pre><code><span class="Identifier">\startsetups </span>exam:courseinfo
   <span class="Identifier">\startalignment</span><span class="Delimiter">[</span><span class="Type">middle</span><span class="Delimiter">]</span>
 <span class="Delimiter">    </span><span class="Type">\bfa</span><span class="Identifier">\setupinterlinespace</span>
@@ -315,17 +287,13 @@ exam time.</p>
   <span class="Identifier">\stopalignment</span>
 <span class="Identifier">\stopsetups</span>
 </code></pre>
-
 <img class="center"
   alt="Exam Banner (barebones)"
   src="exam-v4.png" />
 
-
 <h2 id="adding-student-information">Adding student information</h2>
-
 <p>At first I was thinking of using Metapost to draw the boxes for the student
 information but then simply used a table for no other reason than laziness.</p>
-
 <pre><code><span class="Identifier">\startsetups </span>exam:studentinfo
   <span class="Identifier">\startTABLE</span>
 <span class="Identifier">  \setupTABLE</span><span class="Delimiter">[</span><span class="Type">c</span><span class="Delimiter">][</span><span class="Type">1,3</span><span class="Delimiter">][</span><span class="Type">background=color,backgroundcolor=lightgray,</span>
@@ -348,18 +316,14 @@ information but then simply used a table for no other reason than laziness.</p>
   <span class="Identifier">\stopTABLE</span>
 <span class="Identifier">\stopsetups</span>
 </code></pre>
-
 <img class="center"
   alt="Exam Banner (barebones)"
   src="exam-v5.png" />
 
-
 <h2 id="adding-exam-instructions">Adding exam instructions</h2>
-
 <p>OK, so all the simple parts of the cover page are done. Now, let&rsquo;s look at the
 fancy table for instructions. The instruction use multiple check boxes. I use
 <a href="https://fontawesome.com">FontAwesome</a> to show these check boxes.</p>
-
 <pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span>
 <span class="Identifier">\def\FONTAWESOME</span><span class="Delimiter">[</span><span class="Type">#1</span><span class="Delimiter">]{</span><span class="Identifier">\inlinedbox</span>
 <span class="Identifier">      </span><span class="Delimiter">{</span><span class="Identifier">\scale</span><span class="Delimiter">[</span><span class="Type">height=1em</span><span class="Delimiter">]{</span><span class="Identifier">\symbol</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">][</span><span class="Type">#1</span><span class="Delimiter">]}}}</span>
@@ -367,19 +331,14 @@ fancy table for instructions. The instruction use multiple check boxes. I use
 <span class="Identifier">\define\YES</span><span class="Delimiter">{</span><span class="Identifier">\FONTAWESOME</span><span class="Delimiter">[</span><span class="Type">check</span><span class="Delimiter">]}</span>
 <span class="Identifier">\define\NO </span><span class="Delimiter">{</span><span class="Identifier">\FONTAWESOME</span><span class="Delimiter">[</span><span class="Type">check_empty</span><span class="Delimiter">]}</span>
 </code></pre>
-
 <p>See my earlier post on <a href="../using-fontawesome">using fontawesome</a> to see why I use <code>\inlinedbox</code>.</p>
-
 <p>Next, I define a helper macro to show a empty or ticked check box depending on
 the option:</p>
-
 <pre><code><span class="Identifier">\define</span><span class="Delimiter">[</span><span class="Type">2</span><span class="Delimiter">]</span><span class="Identifier">\CHECKBOX</span>
 <span class="Identifier">    </span><span class="Delimiter">{</span><span class="Identifier">\doifelse</span><span class="Delimiter">{</span><span class="Identifier">\getvariable</span><span class="Delimiter">{</span>exam<span class="Delimiter">}{</span>#1<span class="Delimiter">}}{</span>#2<span class="Delimiter">}{</span><span class="Identifier">\YES</span><span class="Delimiter">}{</span><span class="Identifier">\NO</span><span class="Delimiter">}}</span>
 </code></pre>
-
 <p>Finally, I use a four column table (with carefully chosen spanned cells) to
 show all exam instructions.</p>
-
 <pre><code><span class="Identifier">\startsetups </span>exam:instructions
   <span class="Identifier">\midaligned</span><span class="Delimiter">{</span><span class="Type">\bfa</span> INSTRUCTIONS:<span class="Delimiter">}</span>
   <span class="Identifier">\blank</span><span class="Delimiter">[</span><span class="Type">halfline</span><span class="Delimiter">]</span>
@@ -453,20 +412,16 @@ show all exam instructions.</p>
 <span class="Identifier">  \eTABLE</span>
 <span class="Identifier">\stopsetups</span>
 </code></pre>
-
 <img class="center"
   alt="Exam Banner (barebones)"
   src="exam-v6.png" />
 
-
 <p>That&rsquo;s it. We can easily get a fancy looking cover page! The complete files are
 below:</p>
-
 <ul>
 <li><a href="env-coverpage.tex">env-coverpage.tex</a></li>
 <li><a href="exam.tex">exam.tex</a></li>
 </ul>
-
 <p>The <code>env-converpage.tex</code> file also contains the layout and font setups.</p>
 
 <hr />

@@ -13,10 +13,9 @@
       <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
       
       <guid>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</guid>
-      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;
 &lt;script src=&#34;../../js/highlight.pack.js&#34;&gt;&lt;/script&gt;
-&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
-
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
 &lt;p&gt;A while back, a had created a &lt;a href=&#34;../presentation-40-commits&#34;&gt;git based tutorial&lt;/a&gt; for learning how to
 create a presentation style in ConTeXt. I chose a git based style so that it
 was easy to see what changed in each commit and what effect did the change

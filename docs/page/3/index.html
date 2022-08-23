@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="generator" content="Hugo 0.101.0" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,16 +103,11 @@ to display icons for email, editing tasks, popular social media website, etc.
 It is easy to use Font Awesome in ConTeXt: the font ships with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt
 Standalone</a> and ConTeXt includes a <code>symbolset</code> to easily access the icons
 using names rather than icon numbers.</p>
-
 <p>To use FontAwesome icons in ConTeXt, simply load the symbolset <code>fontawesome</code>
 using</p>
-
 <pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span></code></pre>
-
 <p>and then any icon is accessible using</p>
-
 <pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span></code></pre>
-
 <p>where <code>...</code> is the name of the icon is listed in <a href="http://fontawesome.io/icons/">the Font Awesome icon list</a>.</p></p>
             <a class="btn btn-default" href="/context-blog/post/using-fontawesome/" id="read-more-button">
                 Read more >
@@ -140,22 +135,17 @@ using</p>
         <div class="post-content">
             <p><p>There is a new feature in ConTeXt that replaces some <em>ascii math</em> (I am using
 this term informally. The symbols do not match the <a href="http://asciimath.org">asciimath</a> symbol list).
-It is enabled using<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
-
+It is enabled using<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
 </code></pre>
-
 <p>and replaces a combination of characters by a glyph. For example,</p>
-
 <pre><code><span class="Identifier">\setupmathematics</span><span class="Delimiter">[</span><span class="Type">collapsing=3</span><span class="Delimiter">]</span>
 A function <span class="String">$f$</span> is an increasing function
   <span class="Identifier">\startformula</span>
 <span class="String">    x &lt;= y  ===&gt; f(x) &lt;= f(y)</span>
 <span class="String">  </span><span class="Identifier">\stopformula</span>
 </code></pre>
-
 <p>gives</p>
-
 <img class="center"
   alt="Example of combined characters"
   src="/context-blog/post/math-combined-characters/ex-1.png" /></p>
@@ -187,23 +177,18 @@ A function <span class="String">$f$</span> is an increasing function
         <div class="post-content">
             <p><p>This semester I am teaching a course involving linear differential equations,
 so I have typeset many differential equations that look like this:</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/typesetting-differential-equations/LDE.png" />
 
-
 <p>Believe me, writing such equations by hand gets tedious very quickly. So, I
 wanted a macro <code>\LDE</code> (for Linear Differential Equation), so that I
 could just type</p>
-
 <!--
 \LDE{1, -3, 2}{2, 1}
 -->
-
 <pre><code><span class="Statement">\LDE</span><span class="Delimiter">{</span>1, -3, 2<span class="Delimiter">}{</span>2, 1<span class="Delimiter">}</span>
 </code></pre>
-
 <p>and get the above result. This post describes how to write such a macro using
 LuaTeX + ConTeXt.</p></p>
             <a class="btn btn-default" href="/context-blog/post/typesetting-differential-equations/" id="read-more-button">
@@ -233,11 +218,9 @@ LuaTeX + ConTeXt.</p></p>
         <div class="post-content">
             <p><p>Adding a solid line on the left side of a frame, block quote, etc. creates a
 simple, clean, and attractive visual effect that I like.</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/frame-with-solid-left-line/leftframe-0.png" />
-
 
 <p>I don&rsquo;t know when I first came across this style, but it is used commonly on
 the Internet to show blockquotes. So, how do we get this style with ConTeXt?</p></p>
@@ -271,10 +254,8 @@ the Internet to show blockquotes. So, how do we get this style with ConTeXt?</p>
 <em>lifted</em> corner. For fun, I decided to translate the code to Metapost and
 release it as a module: <a href="https://github.com/adityam/context-backgrounds"><code>t-backgrounds</code></a>. I hope to add a few
 other backgrounds to the module in the near future.</p>
-
 <p>The module provides two overlays <code>liftedshadow:big</code> and <code>liftedshadow:medium</code>.
 These may be used like any other overlay. Let&rsquo;s see an example:</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/drop-shadow-with-lifted-corners/example.png" /></p>
@@ -306,7 +287,6 @@ These may be used like any other overlay. Let&rsquo;s see an example:</p>
         <div class="post-content">
             <p><p>There is a feature in <a href="https://github.com/adityam/filter/blob/master/vim-README.md"><code>t-vim</code></a> module that allows the use of TeX code
 in comments, which is useful when typeset math in comments. For example:</p>
-
 <!--
 \definevimtyping[C][syntax=c, escape=on]
 
@@ -318,7 +298,6 @@ in comments, which is useful when typeset math in comments. For example:</p>
 double root (double a, double b, double c) {....}
 \stopC
 -->
-
 <pre><code><span class="Identifier">\definevimtyping</span><span class="Delimiter">[</span><span class="Type">C</span><span class="Delimiter">][</span><span class="Type">syntax=c, escape=on</span><span class="Delimiter">]</span>
 
 <span class="Keyword">\startC</span>
@@ -384,23 +363,17 @@ attempt to restart that blog.</p></p>
         <div class="post-content">
             <p><p>Default Metapost has the concept of two types of labels, postscript labels and
 TeX labels. Postscript labels are created using</p>
-
 <!--
 label("text", location);
 -->
-
 <pre><code><span class="Macro">label</span>(<span class="String">&quot;text&quot;</span>, location);
 </code></pre>
-
 <p>while TeX labels are created using</p>
-
 <!-- 
 label(btex text etex, location);
 -->
-
 <pre><code><span class="Macro">label</span>(<span class="Statement">btex</span><span class="String"> text </span><span class="Statement">etex</span>, location);
 </code></pre>
-
 <p>In the latter case,  Metapost collects everything between <code>btex</code> and <code>etex</code>
 in a separate file, processes that file through TeX, and includes the
 resulting postscript code at an appropriate location. Such a Rube
@@ -461,18 +434,15 @@ tutorial</a> that should help you get started.</p></p>
 
         <div class="post-content">
             <p><p>Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from <a href="http://css.paperplaza.net/conferences/support/files/sample.tex">sample tex file</a> for the <a href="http://control.disp.uniroma2.it/cdc2012/author_info.php">IEEE Conference on Decision and Control</a>:</p>
-
 <!--
 \title{\LARGE \bf
 Preparation of Papers for IEEE CSS Sponsored Conferences \& Symposia
 }
 -->
-
 <pre><code><span class="PreCondit">\title{</span><span class="Type">\LARGE</span> <span class="Type">\bf</span>
 Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialChar">\&amp;</span> Symposia
 <span class="PreCondit">}</span>
 </code></pre>
-
 <p>(Seriously, how can anyone <strong>recommend</strong> writing TeX code like that!)</p></p>
             <a class="btn btn-default" href="/context-blog/post/formatting-tables/" id="read-more-button">
                 Read more >

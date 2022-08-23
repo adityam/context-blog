@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>A Blog about ConTeXt </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+  <script type="module" defer
+    src="//instant.page/3.0.0"
+    integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1">
+  </script>
+
+  <script data-goatcounter="https://adityam.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">A Blog about ConTeXt</a></span><br />
+      
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/compilation-speed/">Need for speed</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/luatex-as-a-scripting-language/">LuaTeX as a scripting language</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/include-multi-page-pdf/">Include multi-page PDF</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/spacing-in-itemize/">Spacing in itemize</a></li>
+            
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Need for speed</h1>
+<p class="post-time">Posted on February 3, 2022</p>
+
+<p>I remember that when I start using ConTeXt almost 20 years ago, one of the
+annoyances with ConTeXt was that compilation was slower compared to LaTeX. I
+regularly use both LaTeX and ConTeXt, and these days both are comparable.</p>
+<p>I haven&rsquo;t done any controlled experiments, but here is a result for two medium
+sized documents that I am working on:</p>
+<ul>
+<li>
+<p>A research paper written in LaTeX. It is like a standard math paper, 25
+pages, 8 pre-gerenrated PDF plots (generated using PyPlot in Julia),
+microtype enabled, using <code>acmart</code> class, and using additional packages
+<code>mathtools</code>, <code>amsfonts</code>, <code>dsfont</code>, <code>algorithm</code>, <code>algorithmic</code>, and
+<code>subcaption</code>. On a clean directory, compiled via pdflatex engine (version 3.141592653-2.6-1.40.23), and using latexmk for full compilation (which takes 3 runs):</p>
+<pre tabindex="0"><code>$time latexmk -pdf paper.tex
+
+[....]
+latexmk -pdf paper.tex  42.57s user 1.29s system 99% cpu 43.958 total
+</code></pre></li>
+<li>
+<p>Solutions for an exam written in ConTeXt. It is 16 pages, generates a few
+figures using TikZ (figures are not cached), includes a few plots generated
+using PGFplots with data generated using Octave (the octave results are
+cached using the <code>filter</code> module). On a clean directory, compiled via
+<code>luametatex</code> engine (level 20221202), and using the default context running
+for full compilatin (which takes 2 runs):</p>
+<pre tabindex="0"><code>$context exam.tex
+
+[....]
+system          | total runtime: 18.586 seconds of 18.827 seconds
+</code></pre></li>
+</ul>
+<p>So, on average, LaTeX is processing 1.76 pages per second, while ConTeXt is
+processing 1.72 pages per second. For both system, the time calculation
+includes the time spent by the helper scripts to resolve references etc. for
+the full run. Note that this is not an apples to apples comparison. The LaTeX
+document is just math + pre-generated figures, while the ConTeXt document
+extensively uses TikZ/PGFplots and external programs.</p>
+<p>For LaTeX, figure inclusion appears to be the bootleneck; for ConTeXt,
+pgfplots appear to be the bottleneck. But, as a user, I don&rsquo;t care what the
+bottleneck is as I need these features in the respective documents.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/remove-metadata-pdf/">&nbsp;&lt;Stripping metadata from PDF files</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/comparison">
+  Comparison</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/speed">speed</a>,
+<a href="https://adityam.github.io/context-blog/tags/latex">latex</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

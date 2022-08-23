@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="generator" content="Hugo 0.101.0" />
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -98,7 +98,7 @@
         </p>
 
         <div class="post-content">
-            <p><p>Sometimes, for example when sending a review of a paper, I do not want the pdf file to contain any metadata. Ideally, the editorial process should take care of this, but I do not want to take any chances. In this post<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, I explain a simple method to strip metadata from PDF files.</p></p>
+            <p><p>Sometimes, for example when sending a review of a paper, I do not want the pdf file to contain any metadata. Ideally, the editorial process should take care of this, but I do not want to take any chances. In this post<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, I explain a simple method to strip metadata from PDF files.</p></p>
             <a class="btn btn-default" href="/context-blog/post/remove-metadata-pdf/" id="read-more-button">
                 Read more >
             </a>
@@ -110,7 +110,7 @@
 
         <h1><a href="/context-blog/post/luatex-as-a-scripting-language/">LuaTeX as a scripting language</a></h1>
         <p class="post-time">16 August, 2021
-        (4 minute read).
+        (5 minute read).
         Category: 
         
         <a href="https://adityam.github.io/context-blog/categories/cli">
@@ -128,7 +128,6 @@
         <div class="post-content">
             <p><p>This post is not really about ConTeXt but about how I could use ConTeXt to
 quickly hash out an idea which involved some text processing.</p>
-
 <p>One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
 file using ConTeXt&rsquo;s XML helper&rsquo;s and convert the data to a Lua table, and
 then typeset it using <a href="https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf">ConTeXt Lua Documents</a>. When starting with this
@@ -254,9 +253,7 @@ $ mtxrun --script interface --meaning &lt;macroname&gt; For example:</p>
         <div class="post-content">
             <p><p>I occassionally give presentations where the presentation must include
 embedded videos. I typically include the movie using</p>
-
 <pre><code><span class="Statement">\externalfigure</span><span class="Delimiter">[</span>movie.mov<span class="Delimiter">][</span>height=..., width=..., preview=yes, repeat=yes<span class="Delimiter">]</span></code></pre>
-
 <p>Unfortunately, I could not find any reliable method to play such movies in
 linux. So, whenever I needed to make a presentation with embedded video, I
 would take out a rusty 9 year old Macbook and lug that around. Not anymore!</p></p>
@@ -286,10 +283,9 @@ would take out a rusty 9 year old Macbook and lug that around. Not anymore!</p><
         </p>
 
         <div class="post-content">
-            <p><p><link rel="stylesheet" href="../../css/atom-one-light.css">
+            <p><link rel="stylesheet" href="../../css/atom-one-light.css">
 <script src="../../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script></p>
-
+<script>hljs.initHighlightingOnLoad();</script>
 <p>A while back, a had created a <a href="../presentation-40-commits">git based tutorial</a> for learning how to
 create a presentation style in ConTeXt. I chose a git based style so that it
 was easy to see what changed in each commit and what effect did the change

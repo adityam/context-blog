@@ -19,7 +19,6 @@ extreme example of this is Luigi Scarso&amp;rsquo;s &lt;a href=&#34;https://www.
 which provides a two way bridge between Python and LuaTeX. Not being a Python
 fan, I never looked into the implementation details, in spite of Luigi&amp;rsquo;s
 impressive examples.&lt;/p&gt;
-
 &lt;p&gt;Recently, Henri Menke &lt;a href=&#34;https://tex.stackexchange.com/a/403794/323&#34;&gt;posted an interesting
 example&lt;/a&gt; that shows how to use a
 function from &lt;a href=&#34;https://www.gnu.org/software/gsl/&#34;&gt;GNU Scientific Library

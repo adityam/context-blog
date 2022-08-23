@@ -83,39 +83,27 @@ to display icons for email, editing tasks, popular social media website, etc.
 It is easy to use Font Awesome in ConTeXt: the font ships with <a href="http://wiki.contextgarden.net/ConTeXt_Standalone">ConTeXt
 Standalone</a> and ConTeXt includes a <code>symbolset</code> to easily access the icons
 using names rather than icon numbers.</p>
-
 <p>To use FontAwesome icons in ConTeXt, simply load the symbolset <code>fontawesome</code>
 using</p>
-
 <pre><code><span class="Identifier">\usesymbols</span><span class="Delimiter">[</span><span class="Type">fontawesome</span><span class="Delimiter">]</span></code></pre>
-
 <p>and then any icon is accessible using</p>
-
 <pre><code><span class="Statement">\symbol</span><span class="Delimiter">[</span>fontawesome<span class="Delimiter">][</span>...<span class="Delimiter">]</span></code></pre>
-
 <p>where <code>...</code> is the name of the icon is listed in <a href="http://fontawesome.io/icons/">the Font Awesome icon list</a>.</p>
-
 <p>Recently, I wanted to use Font Awesome icons in a document that was typeset
 with <a href="https://software.sil.org/charis/">CharisSIL</a> at 11pt and there was a size mismatch between the text
 font and font awesome icons. It took me some time to figure out how to scale
 the icons so that the result looks good, so I am writing this blog post as a
 reference for my future self.</p>
-
 <p>Almost all Font Awesome symbols are fixed width, so I decided to simply scale
 the height of the font to be equal to <code>1em</code>. This can be done using</p>
-
 <pre><code><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span>...<span class="Delimiter">}</span>
 </code></pre>
-
 <p>The tricky part was to ensure that the symbol sits at the right location on
 the baseline. After a bit of trial and error—and skimming through
 <a href="https://github.com/contextgarden/context-mirror/blob/beta/tex/context/base/mkiv/supp-box.mkiv#L1515">supp-box.mkiv</a>—the best solution was to use:</p>
-
 <pre><code><span class="Statement">\inlinedbox</span><span class="Delimiter">{</span><span class="Statement">\scale</span><span class="Delimiter">[</span>height=<span class="Number">1em</span><span class="Delimiter">]{</span>...<span class="Delimiter">}}</span>
 </code></pre>
-
 <p>Here is a complete example:</p>
-
 <!--
 \definetypeface[mainfont][rm][specserif][CharisSil][default]
 \definetypeface[mainfont][mm][math] [pagellaovereuler][default]
@@ -132,7 +120,6 @@ Checked box \FA[check-square-o]
 Unchecked box \FA[square-o]
 \stoptext
 -->
-
 <pre><code><span class="Identifier">\definetypeface</span><span class="Delimiter">[</span><span class="Type">mainfont</span><span class="Delimiter">][</span><span class="Type">rm</span><span class="Delimiter">][</span><span class="Type">specserif</span><span class="Delimiter">][</span><span class="Type">CharisSil</span><span class="Delimiter">][</span><span class="Type">default</span><span class="Delimiter">]</span>
 <span class="Identifier">\definetypeface</span><span class="Delimiter">[</span><span class="Type">mainfont</span><span class="Delimiter">][</span><span class="Type">mm</span><span class="Delimiter">][</span><span class="Type">math</span><span class="Delimiter">] [</span><span class="Type">pagellaovereuler</span><span class="Delimiter">][</span><span class="Type">default</span><span class="Delimiter">]</span>
 <span class="Identifier">\definetypeface</span><span class="Delimiter">[</span><span class="Type">mainfont</span><span class="Delimiter">][</span><span class="Type">tt</span><span class="Delimiter">][</span><span class="Type">mono</span><span class="Delimiter">] [</span><span class="Type">dejavu</span><span class="Delimiter">][</span><span class="Type">default</span><span class="Delimiter">] [</span><span class="Type">rscale=0.8, features=none</span><span class="Delimiter">]</span>
@@ -148,9 +135,7 @@ Checked box <span class="Statement">\FA</span><span class="Delimiter">[</span>ch
 Unchecked box <span class="Statement">\FA</span><span class="Delimiter">[</span>square-o<span class="Delimiter">]</span>
 <span class="PreProc">\stoptext</span>
 </code></pre>
-
 <p>which gives</p>
-
 <img class="center"
   alt="Output showing Font Awesome"
   src="fontawesome-2.png" />

@@ -80,31 +80,24 @@
 
 <p>This semester I am teaching a course involving linear differential equations,
 so I have typeset many differential equations that look like this:</p>
-
 <img class="center"
   alt="Simple example"
   src="/context-blog/post/typesetting-differential-equations/LDE.png" />
 
-
 <p>Believe me, writing such equations by hand gets tedious very quickly. So, I
 wanted a macro <code>\LDE</code> (for Linear Differential Equation), so that I
 could just type</p>
-
 <!--
 \LDE{1, -3, 2}{2, 1}
 -->
-
 <pre><code><span class="Statement">\LDE</span><span class="Delimiter">{</span>1, -3, 2<span class="Delimiter">}{</span>2, 1<span class="Delimiter">}</span>
 </code></pre>
-
 <p>and get the above result. This post describes how to write such a macro using
 LuaTeX + ConTeXt.</p>
-
 <p>I&rsquo;ll explain the implementation using a top-down approach. Writing macros in
 TeX is tough, so let&rsquo;s delegate all the high lifting to Lua. So, we define a
 ConTeXt command that simply invokes a Lua function with the appropriate
 arguments. This can be done using:</p>
-
 <!--
 \startluacode
 -- ... lua function LDE to be added ...
@@ -118,7 +111,6 @@ interfaces.definecommand {
 }
 \stopluacode
 -->
-
 <pre><code><span class="Identifier">\startluacode</span>
 <span class="Comment">-- ... lua function LDE to be added ...</span>
 interfaces.definecommand <span class="Structure">{</span>
@@ -131,9 +123,7 @@ interfaces.definecommand <span class="Structure">{</span>
 <span class="Structure">}</span>
 <span class="Identifier">\stopluacode</span>
 </code></pre>
-
 <p>The <code>name</code> argument specifies the name of the TeX command (<code>\LDE</code> in this case); the <code>macro</code> argument specifies the name of the Lua function (<code>LDE</code> in this case) which gets called when the TeX macro is invoked; the <code>arguments</code> tables specifies the list of arguments of the TeX macros. We specify that the macro has two arguments, both of them are <code>content</code> arguemnts (that is, the macro is invoked as <code>\LDE{...}{...}</code>) and each arguement should be passed on to the Lua function as a <code>list</code> (i.e., a Lua table of strings; other options include <code>hash</code> (for key-value list), <code>number</code>, and <code>string</code>).</p>
-
 <p>Now all we need to do is define the function <code>LDE</code>, which takes two comma
 separated lists as arguments and typesets the resulting differential equation.
 The basic logic is straight forward. Suppose we have defined a function
@@ -141,7 +131,6 @@ The basic logic is straight forward. Suppose we have defined a function
 the coefficient of an intermediate term is positive; not showing the
 coefficient if the coefficient is <code>+1</code> or <code>-1</code>; and not showing the term if
 the coefficient is <code>0</code>). Then, the <code>LDE</code> function is:</p>
-
 <!--
 \startluacode
 -- Lua function derivative to be added
@@ -160,7 +149,6 @@ end
 interfaces.definecommand { ... } 
 \stopluacode
 -->
-
 <pre><code><span class="Identifier">\startluacode</span>
 <span class="Comment">-- Lua function derivative to be added</span>
 
@@ -178,13 +166,10 @@ interfaces.definecommand { ... }
 interfaces.definecommand <span class="Structure">{</span> ... <span class="Structure">}</span>
 <span class="Identifier">\stopluacode</span>
 </code></pre>
-
 <p>The last term in the call to the <code>derivative</code> function passes a flag that
 indicates whether or not the term is the first term.</p>
-
 <p>I&rsquo;ll not go into the details of the <code>derivative</code> function because it is
 straight forward. So, here is the complete macro with a usage example:</p>
-
 <!--
 \startluacode
   local find, format = string.find, string.format
@@ -256,7 +241,6 @@ interfaces.definecommand {
 \stopformula
 \stoptext
 -->
-
 <pre><code><span class="Identifier">\startluacode</span>
   <span class="Statement">local</span> find, format = <span class="Identifier">string.find</span>, <span class="Identifier">string.format</span>
 
