@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>A Blog about ConTeXt </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog/css/paperclear.css" type="text/css" />
+  
+  <script type="module" defer
+    src="//instant.page/3.0.0"
+    integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1">
+  </script>
+
+  <script data-goatcounter="https://adityam.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog">A Blog about ConTeXt</a></span><br />
+      
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/moving-course-website-to-quarto/">Moving course website to quarto</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/luatex-as-a-scripting-language/">LuaTeX as a scripting language</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/include-multi-page-pdf/">Include multi-page PDF</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/spacing-in-itemize/">Spacing in itemize</a></li>
+            
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Moving course website to quarto</h1>
+<p class="post-time">Posted on April 23, 2023</p>
+
+<p>For some years now, I have been maintaining the course notes for my graduate course as a <a href="https://adityam.github.io/stochastic-control/notes/">website</a> rather than a PDF document. I started with handwritten course notes the first time I taught the course, and then I typed them up in ConTeXt the next year. However, I wanted to add interactivity to my notes and that was not possible with PDF. (Technically, it is possible using Javascript, but Javascript in PDF has very limited support). So I experimented with maintaining my notes as a website and have been doing so for multiple years now.</p>
+<p>Overall, it has been a pleasant experience. I used <a href="https://gohugo.io/">hugo</a> as a static website builder, which can use pandoc to convert markdown to HTML. The math is rendered by MathJax, and for the most part, the math typesetting is okay. However, I find that the overall typesetting of my website is not nice; in part because I am not too familiar with CSS + Javascript.</p>
+<p>On a whim, I decided to try using <a href="https://quarto.org/">quarto</a>, which is a framework built on pandoc to convert a single source to multiple output formats. I don&rsquo;t really need multiple output formats, but I decided to test quarto because the results look nice. A tested by converting a <a href="https://adityam.github.io/course-notes/">few pages</a> and am impressed by the output. Most of the improvement in the look-and-feel is because quarto uses <a href="https://getbootstrap.com/">bootstrap</a> behind the scenes. I could perhaps have done the same by using a bootstrap theme with my original website, but as I said, I am not familiar with CSS + Javascript. Quarto appears to be very well thought out, so I don&rsquo;t see a reason to reinvent the wheel.</p>
+<p>One of the features of quarto is the ability to embed computations. This is similar to what I do in a lot of my ConTeXt documents using the <a href="https://github.com/adityam/filter">filter</a> module. Amongst other languages, quarto can embed <a href="https://observablehq.com/">observable cells</a> as well. To me this is a big deal. A few years ago, I had experimented with different means to embed interactive widgets in HTML: geogebra, plotly, and observable. And observable provided the nicest experience.</p>
+<p>However, one drawback was that the observable notebook is separate from markdown source. But with quarto, I can keep the observable code as part of the the same source, so it makes everything more portable. Yay!</p>
+<p>I am also quite satisfied with the speed (both for compiling and rendering) as well as the quality. Look at a few examples: <a href="https://adityam.github.io/course-notes/notes/stochastic-optimization/newsvendor.html">the newsvendor problem</a> and <a href="https://adityam.github.io/course-notes/notes/mdps/gambling.html">optimal gambling</a> and judge for yourself.</p>
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/remove-metadata-pdf/">&nbsp;&lt;Stripping metadata from PDF files</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/web">
+  Web</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/hugo">hugo</a>,
+<a href="https://adityam.github.io/context-blog/tags/quarto">quarto</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

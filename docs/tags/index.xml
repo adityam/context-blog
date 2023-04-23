@@ -6,7 +6,25 @@
     <description>Recent content in Tags on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo</title>
+      <link>https://adityam.github.io/context-blog/tags/hugo/</link>
+      <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quarto</title>
+      <link>https://adityam.github.io/context-blog/tags/quarto/</link>
+      <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/tags/quarto/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>exifinfo</title>
       <link>https://adityam.github.io/context-blog/tags/exifinfo/</link>
@@ -76,24 +94,6 @@
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://adityam.github.io/context-blog/tags/yad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>externalfigure</title>
-      <link>https://adityam.github.io/context-blog/tags/externalfigure/</link>
-      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/externalfigure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>include</title>
-      <link>https://adityam.github.io/context-blog/tags/include/</link>
-      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/tags/include/</guid>
       <description></description>
     </item>
     

@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.111.3">
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,10 +40,15 @@
             
             
             
+            
+            
+            
+            <li><a href="/context-blog/post/moving-course-website-to-quarto/">Moving course website to quarto</a></li>
+            
+            
+            
+            
             <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
-            
-            
-            
             
             
             
@@ -61,11 +66,6 @@
             <li><a href="/context-blog/post/spacing-in-itemize/">Spacing in itemize</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/finding-the-meaning-of-a-command/">Finding the meaning of a command</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog/post">All Posts</a></strong></li>
@@ -77,6 +77,43 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/interfacing-with-julia/">Interfacing LuaTeX with Julia</a></h1>
+        <p class="post-time">27 December, 2017
+        (4 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/ffi">
+          FFI</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/julia">julia</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>One cool feature of LuaTeX is ability to interface with external
+libraries using Lua&rsquo;s <a href="http://luajit.org/ext_ffi.html">Foreign Function Interface (FFI)</a>. An
+extreme example of this is Luigi Scarso&rsquo;s <a href="https://www.tug.org/TUGboat/tb30-3/tb96scarso.pdf">LuaTeX lunatic</a>,
+which provides a two way bridge between Python and LuaTeX. Not being a Python
+fan, I never looked into the implementation details, in spite of Luigi&rsquo;s
+impressive examples.</p>
+<p>Recently, Henri Menke <a href="https://tex.stackexchange.com/a/403794/323">posted an interesting
+example</a> that shows how to use a
+function from <a href="https://www.gnu.org/software/gsl/">GNU Scientific Library
+(GSL)</a> to inteface with <a href="http://pgfplots.sourceforge.net">pgfplots</a>. This
+got me interested in looking into Lua&rsquo;s FFI in detail. After a bit of trial
+and error, I finally figured out how to interface LuaTeX with my current
+favorite programming language: <a href="https://julialang.org">Julia</a>.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/interfacing-with-julia/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -409,42 +446,6 @@ proper kerning, etc.; tasks that TeX can do but Postscript cannot.</p></p>
 written a <a href="https://github.com/adityam/context-slides-example/commits">git-based
 tutorial</a> that should help you get started.</p></p>
             <a class="btn btn-default" href="/context-blog/post/presentation-40-commits/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/formatting-tables/">Separation of content and presentation in tables</a></h1>
-        <p class="post-time">18 November, 2012
-        (4 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/formatting">
-          Formatting</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/tables">tables</a>,
-        <a href="https://adityam.github.io/context-blog/tags/separating-content-and-presentation">separating content and presentation</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from <a href="http://css.paperplaza.net/conferences/support/files/sample.tex">sample tex file</a> for the <a href="http://control.disp.uniroma2.it/cdc2012/author_info.php">IEEE Conference on Decision and Control</a>:</p>
-<!--
-\title{\LARGE \bf
-Preparation of Papers for IEEE CSS Sponsored Conferences \& Symposia
-}
--->
-<pre><code><span class="PreCondit">\title{</span><span class="Type">\LARGE</span> <span class="Type">\bf</span>
-Preparation of Papers for IEEE CSS Sponsored Conferences <span class="SpecialChar">\&amp;</span> Symposia
-<span class="PreCondit">}</span>
-</code></pre>
-<p>(Seriously, how can anyone <strong>recommend</strong> writing TeX code like that!)</p></p>
-            <a class="btn btn-default" href="/context-blog/post/formatting-tables/" id="read-more-button">
                 Read more >
             </a>
         </div>

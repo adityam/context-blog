@@ -6,7 +6,16 @@
     <description>Recent content in Posts on A Blog about ConTeXt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving course website to quarto</title>
+      <link>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</link>
+      <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</guid>
+      <description>&lt;p&gt;For some years now, I have been maintaining the course notes for my graduate course as a &lt;a href=&#34;https://adityam.github.io/stochastic-control/notes/&#34;&gt;website&lt;/a&gt; rather than a PDF document. I started with handwritten course notes the first time I taught the course, and then I typed them up in ConTeXt the next year. However, I wanted to add interactivity to my notes and that was not possible with PDF. (Technically, it is possible using Javascript, but Javascript in PDF has very limited support). So I experimented with maintaining my notes as a website and have been doing so for multiple years now.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Stripping metadata from PDF files</title>
       <link>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</link>
@@ -123,18 +132,6 @@ for a while: the ability to use the module with &lt;a href=&#34;https://neovim.i
       <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am
 happy to announce a release which adds a new feature: a new method to escape
 to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Formatting numbers in Lua</title>
-      <link>https://adityam.github.io/context-blog/post/formatting-numbers/</link>
-      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/formatting-numbers/</guid>
-      <description>&lt;p&gt;I often use Lua to generate solution for homework assignments. Ideally, I want
-the solution to look exactly how it would look if it were written by hand. But
-this can be tricker than it appears at first glance. In this post, I&amp;rsquo;ll
-explain the issue and how I solve it.&lt;/p&gt;</description>
     </item>
     
   </channel>
