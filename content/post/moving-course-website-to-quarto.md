@@ -27,7 +27,7 @@ One of the features of quarto is the ability to embed computations. This is simi
 
 However, one drawback was that the observable notebook is separate from markdown source. But with quarto, I can keep the observable code as part of the the same source, so it makes everything more portable. Yay!
 
-I am also quite satisfied with the speed (both for compiling and rendering) as well as the quality. Look at a few examples: [the newsvendor problem](https://adityam.github.io/course-notes/notes/stochastic-optimization/newsvendor.html) and [optimal gambling](https://adityam.github.io/course-notes/notes/mdps/gambling.html) and judge for yourself. 
+I am also quite satisfied with the speed (both for compiling and rendering) as well as the quality. Look at a few examples: [the newsvendor problem](https://adityam.github.io/course-notes/stochastic-control/stochastic-optimization/newsvendor.html) and [optimal gambling](https://adityam.github.io/course-notes/stochastic-control/mdps/gambling.html) and judge for yourself. 
 
 [filter]: https://github.com/adityam/filter
 [observable]: https://observablehq.com/
