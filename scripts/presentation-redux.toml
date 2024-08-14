@@ -1,0 +1,58 @@
+# Instructions: 
+# When testing a new version of ConTeXt, change `generate_pdf` to `true`
+# This will generate PDF files.
+generate_pdf = false
+
+# For local testing before updating the blog post:
+# Change `git_url` to local copy.
+# In the local copy run: `git rebase -i --root`
+# and then choose `reword` or `edit` to modify the commit as needed. 
+
+# git_url = "https://github.com/adityam/context-slides-example.git"
+git_url = "/home/adityam/temp/context-slides-example/"
+
+# Main file to run
+example = "example.tex"
+blogdir = "/home/adityam/Projects/context/context-blog-v1/content"
+tmpdir  = "/tmp/presentation-redux"
+post    = "presentation-40-commits-redux"
+
+input   = "example" # No extension
+output  = "example" # No extension
+env     = "slides" # No extension
+
+intro = """
+---
+title: "Creating a clean presentation style in 40 commits (redux)"
+linktitle: "Clean presentation style (redux)"
+tags:
+  - git
+  - presentation
+  - tutorial
+categories: 
+  - design
+date: 2020-05-14T02:30:00-04:00
+---
+
+<link rel="stylesheet" href="../../css/atom-one-light.css">
+<script src="../../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+A while back, a had created a [git based tutorial][post] for learning how to
+create a presentation style in ConTeXt. I chose a git based style so that it
+was easy to see what changed in each commit and what effect did the change
+have on the output. But it is cumbersome to work with, especially if you are new
+to ConTeXt as well as git. 
+
+[post]: ../presentation-40-commits
+
+<!--more-->
+
+So, I thought that it will be a good idea to automatically generate a single
+page from that git repo. This way, a new user can actually see the output
+without struggling with navigating git. I will try to update this post whenever I make any changes in the tutorial.
+
+I am not completely happy with how all the information is displayed on this page, but have run out my HTML coding skills. Any suggestions to improve the output are welcome. And I hope the embedded PDFs work on all modern browsers. 
+
+"""
+
