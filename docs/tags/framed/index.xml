@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Framed on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/framed/</link>
+    <link>https://adityam.github.io/context-blog/tags/framed/</link>
     <description>Recent content in Framed on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Mar 2019 12:07:55 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/framed/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/framed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Frame With Solid Left Line Redux</title>
-      <link>http://localhost:1313/context-blog/post/frame-with-solid-left-line-redux/</link>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</link>
       <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/frame-with-solid-left-line-redux/</guid>
-      <description>&lt;p&gt;As I had &lt;a href=&#34;../frame-with-solid-left-line&#34;&gt;posted earlier&lt;/a&gt;, I like the visual&#xA;effect of placing a solid line on the left side of a block:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I use this for displaying short code snippets in the lecture notes of a course&#xA;that I teach. Typically these are a few lines of Matlab code but recently I&#xA;needed to post a bigger code snippet where the frame should break across the&#xA;page. In principle, this should have been a simple change—replace the &lt;code&gt;framed&lt;/code&gt;&#xA;with a &lt;code&gt;textbackground&lt;/code&gt;—but that did not work out of the box. This blog post&#xA;explains a simple solution.&lt;/p&gt;</description>
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</guid>
+      <description>&lt;p&gt;As I had &lt;a href=&#34;../frame-with-solid-left-line&#34;&gt;posted earlier&lt;/a&gt;, I like the visual&#xA;effect of placing a solid line on the left side of a block:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I use this for displaying short code snippets in the lecture notes of a course&#xA;that I teach. Typically these are a few lines of Matlab code but recently I&#xA;needed to post a bigger code snippet where the frame should break across the&#xA;page. In principle, this should have been a simple change—replace the &lt;code&gt;framed&lt;/code&gt;&#xA;with a &lt;code&gt;textbackground&lt;/code&gt;—but that did not work out of the box. This blog post&#xA;explains a simple solution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Frame with solid left line</title>
-      <link>http://localhost:1313/context-blog/post/frame-with-solid-left-line/</link>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
       <pubDate>Fri, 18 Aug 2017 00:40:19 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/frame-with-solid-left-line/</guid>
-      <description>&lt;p&gt;Adding a solid line on the left side of a frame, block quote, etc. creates a&#xA;simple, clean, and attractive visual effect that I like.&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on&#xA;the Internet to show blockquotes. So, how do we get this style with ConTeXt?&lt;/p&gt;</description>
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
+      <description>&lt;p&gt;Adding a solid line on the left side of a frame, block quote, etc. creates a&#xA;simple, clean, and attractive visual effect that I like.&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on&#xA;the Internet to show blockquotes. So, how do we get this style with ConTeXt?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

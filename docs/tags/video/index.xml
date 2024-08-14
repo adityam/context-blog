@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Video on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/video/</link>
+    <link>https://adityam.github.io/context-blog/tags/video/</link>
     <description>Recent content in Video on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/video/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PDF with embedded video on linux</title>
-      <link>http://localhost:1313/context-blog/post/pdf-embedded-video-on-linux/</link>
+      <link>https://adityam.github.io/context-blog/post/pdf-embedded-video-on-linux/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/pdf-embedded-video-on-linux/</guid>
+      <guid>https://adityam.github.io/context-blog/post/pdf-embedded-video-on-linux/</guid>
       <description>&lt;p&gt;I occassionally give presentations where the presentation must include&#xA;embedded videos. I typically include the movie using&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\externalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;movie.mov&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;height=..., width=..., preview=yes, repeat=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Unfortunately, I could not find any reliable method to play such movies in&#xA;linux. So, whenever I needed to make a presentation with embedded video, I&#xA;would take out a rusty 9 year old Macbook and lug that around. Not anymore!&lt;/p&gt;</description>
     </item>
   </channel>

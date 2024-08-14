@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Formatting on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/code-formatting/</link>
+    <link>https://adityam.github.io/context-blog/tags/code-formatting/</link>
     <description>Recent content in Code Formatting on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Apr 2020 01:08:56 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/code-formatting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/code-formatting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New escape mechanism for t-vim</title>
-      <link>http://localhost:1313/context-blog/post/vim-btex-etex-escape/</link>
+      <link>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</link>
       <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/vim-btex-etex-escape/</guid>
+      <guid>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am&#xA;happy to announce a release which adds a new feature: a new method to escape&#xA;to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Correct math escape in t-vim</title>
-      <link>http://localhost:1313/context-blog/post/correct-math-escape-in-t-vim/</link>
+      <link>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</link>
       <pubDate>Sat, 22 Jul 2017 21:53:37 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/correct-math-escape-in-t-vim/</guid>
+      <guid>https://adityam.github.io/context-blog/post/correct-math-escape-in-t-vim/</guid>
       <description>&lt;p&gt;There is a feature in &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;&lt;code&gt;t-vim&lt;/code&gt;&lt;/a&gt; module that allows the use of TeX code&#xA;in comments, which is useful when typeset math in comments. For example:&lt;/p&gt;&#xA;&lt;!--&#xA;\definevimtyping[C][syntax=c, escape=on]&#xA;&#xA;\startC&#xA;/* The following function computes the roots of \m{ax^2+bx+c=0}&#xA; * using the determinant \m{\Delta=\frac{-b\pm\sqrt{b^2-2ac}}{2a}} &#xA; */&#xA;&#xA;double root (double a, double b, double c) {....}&#xA;\stopC&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Identifier&#34;&gt;\definevimtyping&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;syntax=c, escape=on&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&#xA;&#xA;&lt;span class=&#34;Keyword&#34;&gt;\startC&lt;/span&gt;&#xA;&lt;span class=&#34;Comment&#34;&gt;/*&lt;/span&gt;&lt;span class=&#34;Comment&#34;&gt; The following function computes the roots of &lt;span class=&#34;Statement&#34;&gt;\m&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;ax^2+bx+c=0&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;&#xA;&lt;span class=&#34;Comment&#34;&gt; * using the determinant &lt;span class=&#34;Statement&#34;&gt;\m&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\Delta&lt;/span&gt;=&lt;span class=&#34;Statement&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;-b&lt;span class=&#34;Statement&#34;&gt;\pm\sqrt&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;b^2-2ac&lt;span class=&#34;Delimiter&#34;&gt;}}{&lt;/span&gt;2a&lt;span class=&#34;Delimiter&#34;&gt;}}&lt;/span&gt;&#xA;&lt;span class=&#34;Comment&#34;&gt; &lt;/span&gt;&lt;span class=&#34;Comment&#34;&gt;*/&lt;/span&gt;&#xA;&#xA;&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; root (&lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; a, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; b, &lt;span class=&#34;Type&#34;&gt;double&lt;/span&gt; c) {....}&#xA;&lt;span class=&#34;Keyword&#34;&gt;\stopC&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Removing multiple blank lines when typesetting code listings</title>
-      <link>http://localhost:1313/context-blog/post/removing-blank-lines-t-vim/</link>
+      <link>https://adityam.github.io/context-blog/post/removing-blank-lines-t-vim/</link>
       <pubDate>Sat, 29 Sep 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/removing-blank-lines-t-vim/</guid>
+      <guid>https://adityam.github.io/context-blog/post/removing-blank-lines-t-vim/</guid>
       <description>&lt;p&gt;The &lt;code&gt;listings&lt;/code&gt; package in LaTeX has an option to collapse multiple empty lines&#xA;into a single empty line when typesetting code lists. Today, there was a&#xA;question on &lt;a href=&#34;https://tex.stackexchange.com/questions/74648/remove-blank-lines-in-minted&#34;&gt;TeX.SE&lt;/a&gt; how to do something similar when using the &lt;code&gt;minted&lt;/code&gt;&#xA;package. The &lt;code&gt;t-vim&lt;/code&gt; module uses the same principle as the &lt;code&gt;minted&lt;/code&gt; package.&#xA;So, I wondered how one could collapse multiple empty lines into a single&#xA;line in &lt;code&gt;t-vim&lt;/code&gt;?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Syntax Highlighting engines: Clean TeX output</title>
-      <link>http://localhost:1313/context-blog/post/clean-tex-output/</link>
+      <link>https://adityam.github.io/context-blog/post/clean-tex-output/</link>
       <pubDate>Mon, 06 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/clean-tex-output/</guid>
+      <guid>https://adityam.github.io/context-blog/post/clean-tex-output/</guid>
       <description>&lt;p&gt;The vim module uses the vim editor to syntax highlight code snippets in&#xA;ConTeXt. I thought that it should be straight forward to support other syntax&#xA;highlighting engines: &lt;code&gt;source-highlight&lt;/code&gt;, &lt;code&gt;pygments&lt;/code&gt;, &lt;code&gt;HsColor&lt;/code&gt;, etc. Unfortunately,&#xA;that is not the case. None of these syntax highlighting engines were written&#xA;with reuse in mind.&lt;/p&gt;</description>
     </item>
   </channel>

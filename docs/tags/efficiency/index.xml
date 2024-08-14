@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Efficiency on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/efficiency/</link>
+    <link>https://adityam.github.io/context-blog/tags/efficiency/</link>
     <description>Recent content in Efficiency on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Apr 2020 17:12:21 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>t-vim: A tale of two editors</title>
-      <link>http://localhost:1313/context-blog/post/vim-vs-neovim/</link>
+      <link>https://adityam.github.io/context-blog/post/vim-vs-neovim/</link>
       <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/vim-vs-neovim/</guid>
+      <guid>https://adityam.github.io/context-blog/post/vim-vs-neovim/</guid>
       <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that&#xA;this will also be a good time to implement a simple feature that was on hold&#xA;for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Speeding up PGFPlots using LuaTeX</title>
-      <link>http://localhost:1313/context-blog/post/speeding-pgfplot-using-luatex/</link>
+      <link>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</link>
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/speeding-pgfplot-using-luatex/</guid>
+      <guid>https://adityam.github.io/context-blog/post/speeding-pgfplot-using-luatex/</guid>
       <description>&lt;p&gt;In the &lt;a href=&#34;../metapost-vs-tikz-speed&#34;&gt;previous post&lt;/a&gt;, I compared the speed of&#xA;Metapost and TikZ for drawing similar graphics and found that &lt;strong&gt;TikZ is three&#xA;to five times slower than Metapost&lt;/strong&gt;. Although TikZ is slower, it does provide&#xA;a much higher level interface to drawing graphics and shifting to Metapost can&#xA;take a lot of &lt;em&gt;user time&lt;/em&gt;, which is often more valuable than &lt;em&gt;computer time&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;As an example, consider the &lt;a href=&#34;https://ctan.org/pkg/pgfplots&#34;&gt;PGFPlots&lt;/a&gt; package, which provides a high-level&#xA;interface for drawing function plots. Although there is a &lt;a href=&#34;https://github.com/contextgarden/context-mirror/blob/beta/metapost/context/base/mpiv/mp-grap.mpiv&#34;&gt;Metapost package&#xA;for drawing&#xA;graphs&lt;/a&gt;, PGFPlots has more features and better documentation. In this post, I show that we can speed up plotting functions using PGFPlots by offloading the function computation to LuaTeX.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Comparing the speed of Metapost and TikZ</title>
-      <link>http://localhost:1313/context-blog/post/metapost-vs-tikz-speed/</link>
+      <link>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/metapost-vs-tikz-speed/</guid>
+      <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
       <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is&#xA;considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?&#xA;Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Externalizing Metapost graphics</title>
-      <link>http://localhost:1313/context-blog/post/externalizing-metapost/</link>
+      <link>https://adityam.github.io/context-blog/post/externalizing-metapost/</link>
       <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/externalizing-metapost/</guid>
+      <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
       <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:&#xA;Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Poster on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/poster/</link>
+    <link>https://adityam.github.io/context-blog/tags/poster/</link>
     <description>Recent content in Poster on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/poster/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/poster/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making visaully attractive posters in ConTeXt</title>
-      <link>http://localhost:1313/context-blog/post/poster-in-context/</link>
+      <link>https://adityam.github.io/context-blog/post/poster-in-context/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/poster-in-context/</guid>
+      <guid>https://adityam.github.io/context-blog/post/poster-in-context/</guid>
       <description>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</description>
     </item>
   </channel>

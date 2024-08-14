@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/</link>
+    <link>https://adityam.github.io/context-blog/tags/</link>
     <description>Recent content in Tags on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
-      <link>http://localhost:1313/context-blog/tags/hugo/</link>
+      <link>https://adityam.github.io/context-blog/tags/hugo/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/hugo/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Quarto</title>
-      <link>http://localhost:1313/context-blog/tags/quarto/</link>
+      <link>https://adityam.github.io/context-blog/tags/quarto/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/quarto/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/quarto/</guid>
       <description></description>
     </item>
     <item>
       <title>Exifinfo</title>
-      <link>http://localhost:1313/context-blog/tags/exifinfo/</link>
+      <link>https://adityam.github.io/context-blog/tags/exifinfo/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/exifinfo/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/exifinfo/</guid>
       <description></description>
     </item>
     <item>
       <title>Metadata</title>
-      <link>http://localhost:1313/context-blog/tags/metadata/</link>
+      <link>https://adityam.github.io/context-blog/tags/metadata/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/metadata/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/metadata/</guid>
       <description></description>
     </item>
     <item>
       <title>Pdf</title>
-      <link>http://localhost:1313/context-blog/tags/pdf/</link>
+      <link>https://adityam.github.io/context-blog/tags/pdf/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/pdf/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/pdf/</guid>
       <description></description>
     </item>
     <item>
       <title>Qpdf</title>
-      <link>http://localhost:1313/context-blog/tags/qpdf/</link>
+      <link>https://adityam.github.io/context-blog/tags/qpdf/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/qpdf/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/qpdf/</guid>
       <description></description>
     </item>
     <item>
       <title>Mtxrun</title>
-      <link>http://localhost:1313/context-blog/tags/mtxrun/</link>
+      <link>https://adityam.github.io/context-blog/tags/mtxrun/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/mtxrun/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/mtxrun/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/context-blog/tags/programming/</link>
+      <link>https://adityam.github.io/context-blog/tags/programming/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/programming/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Script</title>
-      <link>http://localhost:1313/context-blog/tags/script/</link>
+      <link>https://adityam.github.io/context-blog/tags/script/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/script/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/script/</guid>
       <description></description>
     </item>
     <item>
       <title>Yad</title>
-      <link>http://localhost:1313/context-blog/tags/yad/</link>
+      <link>https://adityam.github.io/context-blog/tags/yad/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/tags/yad/</guid>
+      <guid>https://adityam.github.io/context-blog/tags/yad/</guid>
       <description></description>
     </item>
   </channel>

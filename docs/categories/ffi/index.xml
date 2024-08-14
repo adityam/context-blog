@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FFI on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/categories/ffi/</link>
+    <link>https://adityam.github.io/context-blog/categories/ffi/</link>
     <description>Recent content in FFI on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/categories/ffi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/categories/ffi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Interfacing LuaTeX with Julia</title>
-      <link>http://localhost:1313/context-blog/post/interfacing-with-julia/</link>
+      <link>https://adityam.github.io/context-blog/post/interfacing-with-julia/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/interfacing-with-julia/</guid>
+      <guid>https://adityam.github.io/context-blog/post/interfacing-with-julia/</guid>
       <description>&lt;p&gt;One cool feature of LuaTeX is ability to interface with external&#xA;libraries using Lua&amp;rsquo;s &lt;a href=&#34;http://luajit.org/ext_ffi.html&#34;&gt;Foreign Function Interface (FFI)&lt;/a&gt;. An&#xA;extreme example of this is Luigi Scarso&amp;rsquo;s &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-3/tb96scarso.pdf&#34;&gt;LuaTeX lunatic&lt;/a&gt;,&#xA;which provides a two way bridge between Python and LuaTeX. Not being a Python&#xA;fan, I never looked into the implementation details, in spite of Luigi&amp;rsquo;s&#xA;impressive examples.&lt;/p&gt;&#xA;&lt;p&gt;Recently, Henri Menke &lt;a href=&#34;https://tex.stackexchange.com/a/403794/323&#34;&gt;posted an interesting&#xA;example&lt;/a&gt; that shows how to use a&#xA;function from &lt;a href=&#34;https://www.gnu.org/software/gsl/&#34;&gt;GNU Scientific Library&#xA;(GSL)&lt;/a&gt; to inteface with &lt;a href=&#34;http://pgfplots.sourceforge.net&#34;&gt;pgfplots&lt;/a&gt;. This&#xA;got me interested in looking into Lua&amp;rsquo;s FFI in detail. After a bit of trial&#xA;and error, I finally figured out how to interface LuaTeX with my current&#xA;favorite programming language: &lt;a href=&#34;https://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

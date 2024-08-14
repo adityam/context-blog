@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backgrounds on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/backgrounds/</link>
+    <link>https://adityam.github.io/context-blog/tags/backgrounds/</link>
     <description>Recent content in Backgrounds on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Mar 2019 12:07:55 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/backgrounds/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/backgrounds/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Frame With Solid Left Line Redux</title>
-      <link>http://localhost:1313/context-blog/post/frame-with-solid-left-line-redux/</link>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</link>
       <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/frame-with-solid-left-line-redux/</guid>
-      <description>&lt;p&gt;As I had &lt;a href=&#34;../frame-with-solid-left-line&#34;&gt;posted earlier&lt;/a&gt;, I like the visual&#xA;effect of placing a solid line on the left side of a block:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I use this for displaying short code snippets in the lecture notes of a course&#xA;that I teach. Typically these are a few lines of Matlab code but recently I&#xA;needed to post a bigger code snippet where the frame should break across the&#xA;page. In principle, this should have been a simple change—replace the &lt;code&gt;framed&lt;/code&gt;&#xA;with a &lt;code&gt;textbackground&lt;/code&gt;—but that did not work out of the box. This blog post&#xA;explains a simple solution.&lt;/p&gt;</description>
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line-redux/</guid>
+      <description>&lt;p&gt;As I had &lt;a href=&#34;../frame-with-solid-left-line&#34;&gt;posted earlier&lt;/a&gt;, I like the visual&#xA;effect of placing a solid line on the left side of a block:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I use this for displaying short code snippets in the lecture notes of a course&#xA;that I teach. Typically these are a few lines of Matlab code but recently I&#xA;needed to post a bigger code snippet where the frame should break across the&#xA;page. In principle, this should have been a simple change—replace the &lt;code&gt;framed&lt;/code&gt;&#xA;with a &lt;code&gt;textbackground&lt;/code&gt;—but that did not work out of the box. This blog post&#xA;explains a simple solution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Making visaully attractive posters in ConTeXt</title>
-      <link>http://localhost:1313/context-blog/post/poster-in-context/</link>
+      <link>https://adityam.github.io/context-blog/post/poster-in-context/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/poster-in-context/</guid>
+      <guid>https://adityam.github.io/context-blog/post/poster-in-context/</guid>
       <description>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</description>
     </item>
     <item>
       <title>Frame with solid left line</title>
-      <link>http://localhost:1313/context-blog/post/frame-with-solid-left-line/</link>
+      <link>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</link>
       <pubDate>Fri, 18 Aug 2017 00:40:19 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/frame-with-solid-left-line/</guid>
-      <description>&lt;p&gt;Adding a solid line on the left side of a frame, block quote, etc. creates a&#xA;simple, clean, and attractive visual effect that I like.&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on&#xA;the Internet to show blockquotes. So, how do we get this style with ConTeXt?&lt;/p&gt;</description>
+      <guid>https://adityam.github.io/context-blog/post/frame-with-solid-left-line/</guid>
+      <description>&lt;p&gt;Adding a solid line on the left side of a frame, block quote, etc. creates a&#xA;simple, clean, and attractive visual effect that I like.&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;https://adityam.github.io/context-blog/context-blog/post/frame-with-solid-left-line/leftframe-0.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;I don&amp;rsquo;t know when I first came across this style, but it is used commonly on&#xA;the Internet to show blockquotes. So, how do we get this style with ConTeXt?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Drop shadows with lifted corners</title>
-      <link>http://localhost:1313/context-blog/post/drop-shadow-with-lifted-corners/</link>
+      <link>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</link>
       <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/drop-shadow-with-lifted-corners/</guid>
-      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a&#xA;&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and&#xA;release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few&#xA;other backgrounds to the module in the near future.&lt;/p&gt;&#xA;&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.&#xA;These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
+      <guid>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</guid>
+      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a&#xA;&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and&#xA;release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few&#xA;other backgrounds to the module in the near future.&lt;/p&gt;&#xA;&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.&#xA;These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
     </item>
   </channel>
 </rss>

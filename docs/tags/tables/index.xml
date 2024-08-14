@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tables on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/tables/</link>
+    <link>https://adityam.github.io/context-blog/tags/tables/</link>
     <description>Recent content in Tables on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/tables/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/tables/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Designing cover page for an exam</title>
-      <link>http://localhost:1313/context-blog/post/exam-coverpage/</link>
+      <link>https://adityam.github.io/context-blog/post/exam-coverpage/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/exam-coverpage/</guid>
+      <guid>https://adityam.github.io/context-blog/post/exam-coverpage/</guid>
       <description>&lt;p&gt;Our university has a specific style that courses need to use as a cover page&#xA;for exams, shown below. They circulate a Word template at the beginning of&#xA;each term. Since I typeset my exams in ConTeXt, I decided to translate this&#xA;cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went&#xA;about doing this translation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Separation of content and presentation in tables</title>
-      <link>http://localhost:1313/context-blog/post/formatting-tables/</link>
+      <link>https://adityam.github.io/context-blog/post/formatting-tables/</link>
       <pubDate>Sun, 18 Nov 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/formatting-tables/</guid>
+      <guid>https://adityam.github.io/context-blog/post/formatting-tables/</guid>
       <description>&lt;p&gt;Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from &lt;a href=&#34;http://css.paperplaza.net/conferences/support/files/sample.tex&#34;&gt;sample tex file&lt;/a&gt; for the &lt;a href=&#34;http://control.disp.uniroma2.it/cdc2012/author_info.php&#34;&gt;IEEE Conference on Decision and Control&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;!--&#xA;\title{\LARGE \bf&#xA;Preparation of Papers for IEEE CSS Sponsored Conferences \&amp; Symposia&#xA;}&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;PreCondit&#34;&gt;\title{&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;\LARGE&lt;/span&gt; &lt;span class=&#34;Type&#34;&gt;\bf&lt;/span&gt;&#xA;Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;SpecialChar&#34;&gt;\&amp;amp;&lt;/span&gt; Symposia&#xA;&lt;span class=&#34;PreCondit&#34;&gt;}&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;</description>
     </item>
     <item>
       <title>TeX Programming: The past, the present, and the future</title>
-      <link>http://localhost:1313/context-blog/post/tex-programming/</link>
+      <link>https://adityam.github.io/context-blog/post/tex-programming/</link>
       <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/tex-programming/</guid>
+      <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
       <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slightly. So, the solutions posted here were not part of the thread, but are in the same spirit.&#xA;Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:&#xA;One way to do this will be to type the whole thing by hand:</description>
     </item>
   </channel>

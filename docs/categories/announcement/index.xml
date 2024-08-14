@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Announcement on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/categories/announcement/</link>
+    <link>https://adityam.github.io/context-blog/categories/announcement/</link>
     <description>Recent content in Announcement on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jun 2017 16:26:40 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/categories/announcement/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/categories/announcement/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rising from the ashes</title>
-      <link>http://localhost:1313/context-blog/post/moving-from-wordpress/</link>
+      <link>https://adityam.github.io/context-blog/post/moving-from-wordpress/</link>
       <pubDate>Sat, 10 Jun 2017 16:26:40 -0700</pubDate>
-      <guid>http://localhost:1313/context-blog/post/moving-from-wordpress/</guid>
+      <guid>https://adityam.github.io/context-blog/post/moving-from-wordpress/</guid>
       <description>&lt;p&gt;I used to blog on &lt;a href=&#34;https://randomdeterminism.wordpress.com&#34;&gt;Wordpress&lt;/a&gt;, mainly about ConTeXt, but occasionally about&#xA;other stuff as well. It has been almost three years since I last posted&#xA;there. I got busy. Both in my personal and professional life. This is an&#xA;attempt to restart that blog.&lt;/p&gt;</description>
     </item>
   </channel>

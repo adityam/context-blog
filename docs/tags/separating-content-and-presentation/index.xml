@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Separating Content and Presentation on A Blog about ConTeXt</title>
-    <link>http://localhost:1313/context-blog/tags/separating-content-and-presentation/</link>
+    <link>https://adityam.github.io/context-blog/tags/separating-content-and-presentation/</link>
     <description>Recent content in Separating Content and Presentation on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/context-blog/tags/separating-content-and-presentation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adityam.github.io/context-blog/tags/separating-content-and-presentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A new key-value interface for Metapost</title>
-      <link>http://localhost:1313/context-blog/post/new-metafun-interface/</link>
+      <link>https://adityam.github.io/context-blog/post/new-metafun-interface/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/new-metafun-interface/</guid>
+      <guid>https://adityam.github.io/context-blog/post/new-metafun-interface/</guid>
       <description>&lt;p&gt;Recently, Hans &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html&#34;&gt;announced&lt;/a&gt; a new key-value driven interface for MetaFun and&#xA;posted a &lt;a href=&#34;http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf&#34;&gt;MyWay document&lt;/a&gt; illustrating its use. In this post, I am going to&#xA;present an example of how to use this interface.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Typesetting differential equations</title>
-      <link>http://localhost:1313/context-blog/post/typesetting-differential-equations/</link>
+      <link>https://adityam.github.io/context-blog/post/typesetting-differential-equations/</link>
       <pubDate>Mon, 18 Sep 2017 00:10:55 -0400</pubDate>
-      <guid>http://localhost:1313/context-blog/post/typesetting-differential-equations/</guid>
-      <description>&lt;p&gt;This semester I am teaching a course involving linear differential equations,&#xA;so I have typeset many differential equations that look like this:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;Believe me, writing such equations by hand gets tedious very quickly. So, I&#xA;wanted a macro &lt;code&gt;\LDE&lt;/code&gt; (for Linear Differential Equation), so that I&#xA;could just type&lt;/p&gt;&#xA;&lt;!--&#xA;\LDE{1, -3, 2}{2, 1}&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\LDE&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;1, -3, 2&lt;span class=&#34;Delimiter&#34;&gt;}{&lt;/span&gt;2, 1&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;and get the above result. This post describes how to write such a macro using&#xA;LuaTeX + ConTeXt.&lt;/p&gt;</description>
+      <guid>https://adityam.github.io/context-blog/post/typesetting-differential-equations/</guid>
+      <description>&lt;p&gt;This semester I am teaching a course involving linear differential equations,&#xA;so I have typeset many differential equations that look like this:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;https://adityam.github.io/context-blog/context-blog/post/typesetting-differential-equations/LDE.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;Believe me, writing such equations by hand gets tedious very quickly. So, I&#xA;wanted a macro &lt;code&gt;\LDE&lt;/code&gt; (for Linear Differential Equation), so that I&#xA;could just type&lt;/p&gt;&#xA;&lt;!--&#xA;\LDE{1, -3, 2}{2, 1}&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\LDE&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;1, -3, 2&lt;span class=&#34;Delimiter&#34;&gt;}{&lt;/span&gt;2, 1&lt;span class=&#34;Delimiter&#34;&gt;}&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;and get the above result. This post describes how to write such a macro using&#xA;LuaTeX + ConTeXt.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Separation of content and presentation in tables</title>
-      <link>http://localhost:1313/context-blog/post/formatting-tables/</link>
+      <link>https://adityam.github.io/context-blog/post/formatting-tables/</link>
       <pubDate>Sun, 18 Nov 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/formatting-tables/</guid>
+      <guid>https://adityam.github.io/context-blog/post/formatting-tables/</guid>
       <description>&lt;p&gt;Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from &lt;a href=&#34;http://css.paperplaza.net/conferences/support/files/sample.tex&#34;&gt;sample tex file&lt;/a&gt; for the &lt;a href=&#34;http://control.disp.uniroma2.it/cdc2012/author_info.php&#34;&gt;IEEE Conference on Decision and Control&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;!--&#xA;\title{\LARGE \bf&#xA;Preparation of Papers for IEEE CSS Sponsored Conferences \&amp; Symposia&#xA;}&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;PreCondit&#34;&gt;\title{&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;\LARGE&lt;/span&gt; &lt;span class=&#34;Type&#34;&gt;\bf&lt;/span&gt;&#xA;Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;SpecialChar&#34;&gt;\&amp;amp;&lt;/span&gt; Symposia&#xA;&lt;span class=&#34;PreCondit&#34;&gt;}&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;</description>
     </item>
     <item>
       <title>TeX Programming: The past, the present, and the future</title>
-      <link>http://localhost:1313/context-blog/post/tex-programming/</link>
+      <link>https://adityam.github.io/context-blog/post/tex-programming/</link>
       <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/context-blog/post/tex-programming/</guid>
+      <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
       <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slightly. So, the solutions posted here were not part of the thread, but are in the same spirit.&#xA;Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:&#xA;One way to do this will be to type the whole thing by hand:</description>
     </item>
   </channel>
