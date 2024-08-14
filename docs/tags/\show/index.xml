@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>\show on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/%5Cshow/</link>
-    <description>Recent content in \show on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>\Show on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/%5Cshow/</link>
+    <description>Recent content in \Show on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2020 23:44:38 -0400</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/%5Cshow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Jun 2020 23:44:38 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/%5Cshow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Finding the meaning of a command</title>
-      <link>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</link>
+      <link>http://localhost:1313/context-blog/post/finding-the-meaning-of-a-command/</link>
       <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</guid>
-      <description>ConTeXt has a nice command to find a meaning of a command. Sometimes the easiest way to find the meaning of a macro is to simply use
-\show\macroname In LMTX, context defaults to running with --batchmode, which means that you then have to hunt for the output of \show in the console output.
-ConTeXt comes with a nice script to simply get the meaning of a macro on console.
-$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt; For example:</description>
+      <guid>http://localhost:1313/context-blog/post/finding-the-meaning-of-a-command/</guid>
+      <description>ConTeXt has a nice command to find a meaning of a command. Sometimes the easiest way to find the meaning of a macro is to simply use&#xA;\show\macroname In LMTX, context defaults to running with --batchmode, which means that you then have to hunt for the output of \show in the console output.&#xA;ConTeXt comes with a nice script to simply get the meaning of a macro on console.&#xA;$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt; For example:</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>include on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/include/</link>
-    <description>Recent content in include on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Include on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/include/</link>
+    <description>Recent content in Include on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/include/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/include/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Include multi-page PDF</title>
-      <link>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</link>
+      <link>http://localhost:1313/context-blog/post/include-multi-page-pdf/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</guid>
-      <description>&lt;p&gt;As an academic, I often have to write letters and grant applications where I
-need to need to prepare a single PDF which includes the letter or the grant
-application with one of more research papers &amp;ldquo;attached&amp;rdquo; at the end. In
-principle, I could generate the letter/grant separately and use a tool such as
-&lt;code&gt;qpdf&lt;/code&gt; to merge multiple files into a single file. But I find it much easier
-to generate everything from a single tex file.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/include-multi-page-pdf/</guid>
+      <description>&lt;p&gt;As an academic, I often have to write letters and grant applications where I&#xA;need to need to prepare a single PDF which includes the letter or the grant&#xA;application with one of more research papers &amp;ldquo;attached&amp;rdquo; at the end. In&#xA;principle, I could generate the letter/grant separately and use a tool such as&#xA;&lt;code&gt;qpdf&lt;/code&gt; to merge multiple files into a single file. But I find it much easier&#xA;to generate everything from a single tex file.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

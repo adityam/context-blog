@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>yad on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/yad/</link>
-    <description>Recent content in yad on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Yad on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/yad/</link>
+    <description>Recent content in Yad on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/yad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/yad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LuaTeX as a scripting language</title>
-      <link>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</link>
+      <link>http://localhost:1313/context-blog/post/luatex-as-a-scripting-language/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</guid>
-      <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to
-quickly hash out an idea which involved some text processing.&lt;/p&gt;
-&lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
-file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and
-then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this
-project, I chose XML as a data format for two reasons. First, XML scema can be
-&lt;a href=&#34;https://en.wikipedia.org/wiki/XML_validation&#34;&gt;validated&lt;/a&gt; using a Schema. Second, I thought that since XML is so popular,
-there must be good tools for authoring XML documents.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/luatex-as-a-scripting-language/</guid>
+      <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to&#xA;quickly hash out an idea which involved some text processing.&lt;/p&gt;&#xA;&lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the&#xA;file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and&#xA;then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this&#xA;project, I chose XML as a data format for two reasons. First, XML scema can be&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/XML_validation&#34;&gt;validated&lt;/a&gt; using a Schema. Second, I thought that since XML is so popular,&#xA;there must be good tools for authoring XML documents.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

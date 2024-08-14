@@ -1,2 +1,3 @@
 ---
 BUNDLE_RUGGED__BUILD: "--use-system-libraries"
+BUNDLE_PATH: ".bundle"

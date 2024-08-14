@@ -2,56 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Formatting on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/categories/formatting/</link>
+    <link>http://localhost:1313/context-blog/categories/formatting/</link>
     <description>Recent content in Formatting on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/formatting/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/categories/formatting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adjust spacing in itemize environments</title>
-      <link>https://adityam.github.io/context-blog/post/spacing-in-itemize/</link>
+      <link>http://localhost:1313/context-blog/post/spacing-in-itemize/</link>
       <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/spacing-in-itemize/</guid>
-      <description>&lt;p&gt;Today I was working on a LaTeX doc and needed to adjust spacing around the
-LaTeX itemize environment. I wanted a list of item with no space before the
-list environment and the list of items, no space between the items, but space
-after the environment. The &lt;a href=&#34;https://www.texfaq.org/FAQ-complist&#34;&gt;TeX FAQ&lt;/a&gt; has a summary of how to adapt
-spacing around itemize environment in LaTeX. Reading that made me appreciate
-the control provided by ConTeXt. So, I thought that it is worthwhile to show
-that.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/spacing-in-itemize/</guid>
+      <description>&lt;p&gt;Today I was working on a LaTeX doc and needed to adjust spacing around the&#xA;LaTeX itemize environment. I wanted a list of item with no space before the&#xA;list environment and the list of items, no space between the items, but space&#xA;after the environment. The &lt;a href=&#34;https://www.texfaq.org/FAQ-complist&#34;&gt;TeX FAQ&lt;/a&gt; has a summary of how to adapt&#xA;spacing around itemize environment in LaTeX. Reading that made me appreciate&#xA;the control provided by ConTeXt. So, I thought that it is worthwhile to show&#xA;that.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Formatting numbers in Lua</title>
-      <link>https://adityam.github.io/context-blog/post/formatting-numbers/</link>
+      <link>http://localhost:1313/context-blog/post/formatting-numbers/</link>
       <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/formatting-numbers/</guid>
-      <description>&lt;p&gt;I often use Lua to generate solution for homework assignments. Ideally, I want
-the solution to look exactly how it would look if it were written by hand. But
-this can be tricker than it appears at first glance. In this post, I&amp;rsquo;ll
-explain the issue and how I solve it.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/formatting-numbers/</guid>
+      <description>&lt;p&gt;I often use Lua to generate solution for homework assignments. Ideally, I want&#xA;the solution to look exactly how it would look if it were written by hand. But&#xA;this can be tricker than it appears at first glance. In this post, I&amp;rsquo;ll&#xA;explain the issue and how I solve it.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Separation of content and presentation in tables</title>
-      <link>https://adityam.github.io/context-blog/post/formatting-tables/</link>
+      <link>http://localhost:1313/context-blog/post/formatting-tables/</link>
       <pubDate>Sun, 18 Nov 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/formatting-tables/</guid>
-      <description>&lt;p&gt;Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from &lt;a href=&#34;http://css.paperplaza.net/conferences/support/files/sample.tex&#34;&gt;sample tex file&lt;/a&gt; for the &lt;a href=&#34;http://control.disp.uniroma2.it/cdc2012/author_info.php&#34;&gt;IEEE Conference on Decision and Control&lt;/a&gt;:&lt;/p&gt;
-&lt;!--
-\title{\LARGE \bf
-Preparation of Papers for IEEE CSS Sponsored Conferences \&amp; Symposia
-}
---&gt;
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;PreCondit&#34;&gt;\title{&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;\LARGE&lt;/span&gt; &lt;span class=&#34;Type&#34;&gt;\bf&lt;/span&gt;
-Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;SpecialChar&#34;&gt;\&amp;amp;&lt;/span&gt; Symposia
-&lt;span class=&#34;PreCondit&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/formatting-tables/</guid>
+      <description>&lt;p&gt;Separation of content and presentation is one of the selling points of TeX over word-processors. Strictly speaking, TeX is not superior compared to word-processors in this regard. It is possible to obtain a clean separation between content and presentation in word-processors (using styles) and it is possible to mix content and presentation in TeX code, as is illustrated by the following example from &lt;a href=&#34;http://css.paperplaza.net/conferences/support/files/sample.tex&#34;&gt;sample tex file&lt;/a&gt; for the &lt;a href=&#34;http://control.disp.uniroma2.it/cdc2012/author_info.php&#34;&gt;IEEE Conference on Decision and Control&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;!--&#xA;\title{\LARGE \bf&#xA;Preparation of Papers for IEEE CSS Sponsored Conferences \&amp; Symposia&#xA;}&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;PreCondit&#34;&gt;\title{&lt;/span&gt;&lt;span class=&#34;Type&#34;&gt;\LARGE&lt;/span&gt; &lt;span class=&#34;Type&#34;&gt;\bf&lt;/span&gt;&#xA;Preparation of Papers for IEEE CSS Sponsored Conferences &lt;span class=&#34;SpecialChar&#34;&gt;\&amp;amp;&lt;/span&gt; Symposia&#xA;&lt;span class=&#34;PreCondit&#34;&gt;}&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;(Seriously, how can anyone &lt;strong&gt;recommend&lt;/strong&gt; writing TeX code like that!)&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

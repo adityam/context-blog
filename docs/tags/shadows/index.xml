@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shadows on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/shadows/</link>
-    <description>Recent content in shadows on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Shadows on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/shadows/</link>
+    <description>Recent content in Shadows on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/shadows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/shadows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Drop shadows with lifted corners</title>
-      <link>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</link>
+      <link>http://localhost:1313/context-blog/post/drop-shadow-with-lifted-corners/</link>
       <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</guid>
-      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a
-&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and
-release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few
-other backgrounds to the module in the near future.&lt;/p&gt;
-&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.
-These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
-&lt;img class=&#34;center&#34;
-  alt=&#34;Simple example&#34;
-  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/drop-shadow-with-lifted-corners/</guid>
+      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a&#xA;&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and&#xA;release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few&#xA;other backgrounds to the module in the near future.&lt;/p&gt;&#xA;&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.&#xA;These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -2,100 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/categories/</link>
+    <link>http://localhost:1313/context-blog/categories/</link>
     <description>Recent content in Categories on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web</title>
-      <link>https://adityam.github.io/context-blog/categories/web/</link>
+      <link>http://localhost:1313/context-blog/categories/web/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/web/</guid>
+      <guid>http://localhost:1313/context-blog/categories/web/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CLI</title>
-      <link>https://adityam.github.io/context-blog/categories/cli/</link>
+      <link>http://localhost:1313/context-blog/categories/cli/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/cli/</guid>
+      <guid>http://localhost:1313/context-blog/categories/cli/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>luatex</title>
-      <link>https://adityam.github.io/context-blog/categories/luatex/</link>
+      <title>Luatex</title>
+      <link>http://localhost:1313/context-blog/categories/luatex/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/luatex/</guid>
+      <guid>http://localhost:1313/context-blog/categories/luatex/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Formatting</title>
-      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
+      <link>http://localhost:1313/context-blog/categories/formatting/</link>
       <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
+      <guid>http://localhost:1313/context-blog/categories/formatting/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pdf viewers</title>
-      <link>https://adityam.github.io/context-blog/categories/pdf-viewers/</link>
+      <title>Pdf Viewers</title>
+      <link>http://localhost:1313/context-blog/categories/pdf-viewers/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/pdf-viewers/</guid>
+      <guid>http://localhost:1313/context-blog/categories/pdf-viewers/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>design</title>
-      <link>https://adityam.github.io/context-blog/categories/design/</link>
+      <title>Design</title>
+      <link>http://localhost:1313/context-blog/categories/design/</link>
       <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/design/</guid>
+      <guid>http://localhost:1313/context-blog/categories/design/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>t-vim</title>
-      <link>https://adityam.github.io/context-blog/categories/t-vim/</link>
+      <title>T-Vim</title>
+      <link>http://localhost:1313/context-blog/categories/t-vim/</link>
       <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/t-vim/</guid>
+      <guid>http://localhost:1313/context-blog/categories/t-vim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>metapost</title>
-      <link>https://adityam.github.io/context-blog/categories/metapost/</link>
+      <title>Metapost</title>
+      <link>http://localhost:1313/context-blog/categories/metapost/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/metapost/</guid>
+      <guid>http://localhost:1313/context-blog/categories/metapost/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>installation</title>
-      <link>https://adityam.github.io/context-blog/categories/installation/</link>
+      <title>Installation</title>
+      <link>http://localhost:1313/context-blog/categories/installation/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/installation/</guid>
+      <guid>http://localhost:1313/context-blog/categories/installation/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>visualization</title>
-      <link>https://adityam.github.io/context-blog/categories/visualization/</link>
+      <title>Visualization</title>
+      <link>http://localhost:1313/context-blog/categories/visualization/</link>
       <pubDate>Sun, 24 Mar 2019 12:07:55 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/categories/visualization/</guid>
+      <guid>http://localhost:1313/context-blog/categories/visualization/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

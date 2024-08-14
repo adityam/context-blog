@@ -2,137 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/</link>
+    <link>http://localhost:1313/context-blog/</link>
     <description>Recent content on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving course website to quarto</title>
-      <link>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</link>
+      <link>http://localhost:1313/context-blog/post/moving-course-website-to-quarto/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</guid>
+      <guid>http://localhost:1313/context-blog/post/moving-course-website-to-quarto/</guid>
       <description>&lt;p&gt;For some years now, I have been maintaining the course notes for my graduate course as a &lt;a href=&#34;https://adityam.github.io/stochastic-control/notes/&#34;&gt;website&lt;/a&gt; rather than a PDF document. I started with handwritten course notes the first time I taught the course, and then I typed them up in ConTeXt the next year. However, I wanted to add interactivity to my notes and that was not possible with PDF. (Technically, it is possible using Javascript, but Javascript in PDF has very limited support). So I experimented with maintaining my notes as a website and have been doing so for multiple years now.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Stripping metadata from PDF files</title>
-      <link>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</link>
+      <link>http://localhost:1313/context-blog/post/remove-metadata-pdf/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/remove-metadata-pdf/</guid>
+      <guid>http://localhost:1313/context-blog/post/remove-metadata-pdf/</guid>
       <description>&lt;p&gt;Sometimes, for example when sending a review of a paper, I do not want the pdf file to contain any metadata. Ideally, the editorial process should take care of this, but I do not want to take any chances. In this post&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, I explain a simple method to strip metadata from PDF files.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>LuaTeX as a scripting language</title>
-      <link>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</link>
+      <link>http://localhost:1313/context-blog/post/luatex-as-a-scripting-language/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/luatex-as-a-scripting-language/</guid>
-      <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to
-quickly hash out an idea which involved some text processing.&lt;/p&gt;
-&lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the
-file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and
-then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this
-project, I chose XML as a data format for two reasons. First, XML scema can be
-&lt;a href=&#34;https://en.wikipedia.org/wiki/XML_validation&#34;&gt;validated&lt;/a&gt; using a Schema. Second, I thought that since XML is so popular,
-there must be good tools for authoring XML documents.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/luatex-as-a-scripting-language/</guid>
+      <description>&lt;p&gt;This post is not really about ConTeXt but about how I could use ConTeXt to&#xA;quickly hash out an idea which involved some text processing.&lt;/p&gt;&#xA;&lt;p&gt;One of my long running (for more than a decade now) ConTeXt projects is typesetting my CV. I maintain the list of publications as an XML file. I parse the&#xA;file using ConTeXt&amp;rsquo;s XML helper&amp;rsquo;s and convert the data to a Lua table, and&#xA;then typeset it using &lt;a href=&#34;https://www.pragma-ade.com/general/manuals/cld-mkiv.pdf&#34;&gt;ConTeXt Lua Documents&lt;/a&gt;. When starting with this&#xA;project, I chose XML as a data format for two reasons. First, XML scema can be&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/XML_validation&#34;&gt;validated&lt;/a&gt; using a Schema. Second, I thought that since XML is so popular,&#xA;there must be good tools for authoring XML documents.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Include multi-page PDF</title>
-      <link>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</link>
+      <link>http://localhost:1313/context-blog/post/include-multi-page-pdf/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/include-multi-page-pdf/</guid>
-      <description>&lt;p&gt;As an academic, I often have to write letters and grant applications where I
-need to need to prepare a single PDF which includes the letter or the grant
-application with one of more research papers &amp;ldquo;attached&amp;rdquo; at the end. In
-principle, I could generate the letter/grant separately and use a tool such as
-&lt;code&gt;qpdf&lt;/code&gt; to merge multiple files into a single file. But I find it much easier
-to generate everything from a single tex file.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/include-multi-page-pdf/</guid>
+      <description>&lt;p&gt;As an academic, I often have to write letters and grant applications where I&#xA;need to need to prepare a single PDF which includes the letter or the grant&#xA;application with one of more research papers &amp;ldquo;attached&amp;rdquo; at the end. In&#xA;principle, I could generate the letter/grant separately and use a tool such as&#xA;&lt;code&gt;qpdf&lt;/code&gt; to merge multiple files into a single file. But I find it much easier&#xA;to generate everything from a single tex file.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Adjust spacing in itemize environments</title>
-      <link>https://adityam.github.io/context-blog/post/spacing-in-itemize/</link>
+      <link>http://localhost:1313/context-blog/post/spacing-in-itemize/</link>
       <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/spacing-in-itemize/</guid>
-      <description>&lt;p&gt;Today I was working on a LaTeX doc and needed to adjust spacing around the
-LaTeX itemize environment. I wanted a list of item with no space before the
-list environment and the list of items, no space between the items, but space
-after the environment. The &lt;a href=&#34;https://www.texfaq.org/FAQ-complist&#34;&gt;TeX FAQ&lt;/a&gt; has a summary of how to adapt
-spacing around itemize environment in LaTeX. Reading that made me appreciate
-the control provided by ConTeXt. So, I thought that it is worthwhile to show
-that.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/spacing-in-itemize/</guid>
+      <description>&lt;p&gt;Today I was working on a LaTeX doc and needed to adjust spacing around the&#xA;LaTeX itemize environment. I wanted a list of item with no space before the&#xA;list environment and the list of items, no space between the items, but space&#xA;after the environment. The &lt;a href=&#34;https://www.texfaq.org/FAQ-complist&#34;&gt;TeX FAQ&lt;/a&gt; has a summary of how to adapt&#xA;spacing around itemize environment in LaTeX. Reading that made me appreciate&#xA;the control provided by ConTeXt. So, I thought that it is worthwhile to show&#xA;that.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Finding the meaning of a command</title>
-      <link>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</link>
+      <link>http://localhost:1313/context-blog/post/finding-the-meaning-of-a-command/</link>
       <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</guid>
-      <description>ConTeXt has a nice command to find a meaning of a command. Sometimes the easiest way to find the meaning of a macro is to simply use
-\show\macroname In LMTX, context defaults to running with --batchmode, which means that you then have to hunt for the output of \show in the console output.
-ConTeXt comes with a nice script to simply get the meaning of a macro on console.
-$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt; For example:</description>
+      <guid>http://localhost:1313/context-blog/post/finding-the-meaning-of-a-command/</guid>
+      <description>ConTeXt has a nice command to find a meaning of a command. Sometimes the easiest way to find the meaning of a macro is to simply use&#xA;\show\macroname In LMTX, context defaults to running with --batchmode, which means that you then have to hunt for the output of \show in the console output.&#xA;ConTeXt comes with a nice script to simply get the meaning of a macro on console.&#xA;$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt; For example:</description>
     </item>
-    
     <item>
       <title>PDF with embedded video on linux</title>
-      <link>https://adityam.github.io/context-blog/post/pdf-embedded-video-on-linux/</link>
+      <link>http://localhost:1313/context-blog/post/pdf-embedded-video-on-linux/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/pdf-embedded-video-on-linux/</guid>
-      <description>&lt;p&gt;I occassionally give presentations where the presentation must include
-embedded videos. I typically include the movie using&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\externalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;movie.mov&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;height=..., width=..., preview=yes, repeat=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Unfortunately, I could not find any reliable method to play such movies in
-linux. So, whenever I needed to make a presentation with embedded video, I
-would take out a rusty 9 year old Macbook and lug that around. Not anymore!&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/pdf-embedded-video-on-linux/</guid>
+      <description>&lt;p&gt;I occassionally give presentations where the presentation must include&#xA;embedded videos. I typically include the movie using&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\externalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;movie.mov&lt;span class=&#34;Delimiter&#34;&gt;][&lt;/span&gt;height=..., width=..., preview=yes, repeat=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Unfortunately, I could not find any reliable method to play such movies in&#xA;linux. So, whenever I needed to make a presentation with embedded video, I&#xA;would take out a rusty 9 year old Macbook and lug that around. Not anymore!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Creating a clean presentation style in 40 commits (redux)</title>
-      <link>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</link>
+      <link>http://localhost:1313/context-blog/post/presentation-40-commits-redux/</link>
       <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;
-&lt;script src=&#34;../../js/highlight.pack.js&#34;&gt;&lt;/script&gt;
-&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
-&lt;p&gt;A while back, a had created a &lt;a href=&#34;../presentation-40-commits&#34;&gt;git based tutorial&lt;/a&gt; for learning how to
-create a presentation style in ConTeXt. I chose a git based style so that it
-was easy to see what changed in each commit and what effect did the change
-have on the output. But it is cumbersome to work with, especially if you are new
-to ConTeXt as well as git.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/presentation-40-commits-redux/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;&#xA;&lt;script src=&#34;../../js/highlight.pack.js&#34;&gt;&lt;/script&gt;&#xA;&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&#xA;&lt;p&gt;A while back, a had created a &lt;a href=&#34;../presentation-40-commits&#34;&gt;git based tutorial&lt;/a&gt; for learning how to&#xA;create a presentation style in ConTeXt. I chose a git based style so that it&#xA;was easy to see what changed in each commit and what effect did the change&#xA;have on the output. But it is cumbersome to work with, especially if you are new&#xA;to ConTeXt as well as git.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>t-vim: A tale of two editors</title>
-      <link>https://adityam.github.io/context-blog/post/vim-vs-neovim/</link>
+      <link>http://localhost:1313/context-blog/post/vim-vs-neovim/</link>
       <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/vim-vs-neovim/</guid>
-      <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that
-this will also be a good time to implement a simple feature that was on hold
-for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/vim-vs-neovim/</guid>
+      <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that&#xA;this will also be a good time to implement a simple feature that was on hold&#xA;for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>New escape mechanism for t-vim</title>
-      <link>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</link>
+      <link>http://localhost:1313/context-blog/post/vim-btex-etex-escape/</link>
       <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am
-happy to announce a release which adds a new feature: a new method to escape
-to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/vim-btex-etex-escape/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am&#xA;happy to announce a release which adds a new feature: a new method to escape&#xA;to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

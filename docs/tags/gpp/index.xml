@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gpp on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/gpp/</link>
-    <description>Recent content in gpp on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Gpp on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/gpp/</link>
+    <description>Recent content in Gpp on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jun 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/gpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jun 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/gpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Preprocessing Markdown with GPP: Or how I stopped worrying and started using Markdown like TeX</title>
-      <link>https://adityam.github.io/context-blog/post/markdown-with-gpp/</link>
+      <link>http://localhost:1313/context-blog/post/markdown-with-gpp/</link>
       <pubDate>Fri, 01 Jun 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/markdown-with-gpp/</guid>
-      <description>&lt;p&gt;These days I type most of simple documents (short articles, blog entries,
-course notes) in markdown. Markdown provides only the basic structured
-elements (sections, emphasis, urls, lists, footnotes, syntax highlighting,
-simple tables and figures) which makes it easy to transform the input into
-multiple output formats. Most of the time, I still want PDF output and for
-that, I use &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt; to convert markdown to &lt;a href=&#34;http://contextgarden.net/&#34;&gt;ConTeXt&lt;/a&gt;. At the same time, I
-have the peace of mind that if I need HTML or DOC output, I’ll be able to get
-that easily.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/markdown-with-gpp/</guid>
+      <description>&lt;p&gt;These days I type most of simple documents (short articles, blog entries,&#xA;course notes) in markdown. Markdown provides only the basic structured&#xA;elements (sections, emphasis, urls, lists, footnotes, syntax highlighting,&#xA;simple tables and figures) which makes it easy to transform the input into&#xA;multiple output formats. Most of the time, I still want PDF output and for&#xA;that, I use &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt; to convert markdown to &lt;a href=&#34;http://contextgarden.net/&#34;&gt;ConTeXt&lt;/a&gt;. At the same time, I&#xA;have the peace of mind that if I need HTML or DOC output, I’ll be able to get&#xA;that easily.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

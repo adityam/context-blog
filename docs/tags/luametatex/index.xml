@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>luametatex on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/luametatex/</link>
-    <description>Recent content in luametatex on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Luametatex on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/luametatex/</link>
+    <description>Recent content in Luametatex on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/luametatex/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/luametatex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seamlessly switching between different context versions</title>
-      <link>https://adityam.github.io/context-blog/post/setuptex/</link>
+      <link>http://localhost:1313/context-blog/post/setuptex/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/setuptex/</guid>
-      <description>&lt;p&gt;Recently, Hans
-&lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90783.html&#34;&gt;announced&lt;/a&gt; the
-prerelease of a new version of ConTeXt called LuaMetapostTeX or LMTX for short.
-LMTX is supposed to a streamlined and stripped down version of LuaTeX where
-most of the backend code for writing PDF and images has been removed from the
-engine and is handled by macro package using Lua code. Some of the rationale
-for the change in discussed &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90917.html&#34;&gt;in this
-post&lt;/a&gt; and more
-details including the source code and documentation will be available when
-LMTX will be formally released in this year&amp;rsquo;s ConTeXt meeting. Currently just
-the binary is available for testing from &lt;a href=&#34;http://www.pragma-ade.nl/install.htm&#34;&gt;Pragma Ade&amp;rsquo;s
-website&lt;/a&gt;. There is no change in
-user-facing code, so in principle, one can simply switch from ConTeXt MkIV to
-LMTX without making any change in the tex file.&lt;/p&gt;
-&lt;p&gt;In my tests so far, I could compile all my documents using LMTX without any
-noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for
-some critical projects like typesetting material for courses that I teach.
-In this post, I&amp;rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in
-parallel.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/setuptex/</guid>
+      <description>&lt;p&gt;Recently, Hans&#xA;&lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90783.html&#34;&gt;announced&lt;/a&gt; the&#xA;prerelease of a new version of ConTeXt called LuaMetapostTeX or LMTX for short.&#xA;LMTX is supposed to a streamlined and stripped down version of LuaTeX where&#xA;most of the backend code for writing PDF and images has been removed from the&#xA;engine and is handled by macro package using Lua code. Some of the rationale&#xA;for the change in discussed &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg90917.html&#34;&gt;in this&#xA;post&lt;/a&gt; and more&#xA;details including the source code and documentation will be available when&#xA;LMTX will be formally released in this year&amp;rsquo;s ConTeXt meeting. Currently just&#xA;the binary is available for testing from &lt;a href=&#34;http://www.pragma-ade.nl/install.htm&#34;&gt;Pragma Ade&amp;rsquo;s&#xA;website&lt;/a&gt;. There is no change in&#xA;user-facing code, so in principle, one can simply switch from ConTeXt MkIV to&#xA;LMTX without making any change in the tex file.&lt;/p&gt;&#xA;&lt;p&gt;In my tests so far, I could compile all my documents using LMTX without any&#xA;noticeable difference. Nonetheless, I want to keep ConTeXt MkIV around for&#xA;some critical projects like typesetting material for courses that I teach.&#xA;In this post, I&amp;rsquo;ll explain my setup for using ConTeXt MkIV and LMTX in&#xA;parallel.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

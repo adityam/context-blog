@@ -3,8 +3,10 @@
 # Instructions: 
 # When testing a new version of ConTeXt, change `generate_pdf` to `true`
 # This will generate PDF files.
-generate_pdf = false
+generate_pdf = true
 
+# To initialize bundle on a new machine, run:
+# bundle config set --local path '.bundle'
 # Run using
 # bundle exec ./slides.rb
 #
@@ -18,9 +20,9 @@ require 'fileutils'
 
 
 git_url = "https://github.com/adityam/context-slides-example.git"
-# git_url = "/home/adityam/temp/context-slides-example/"
+git_url = "/home/adityam/temp/context-slides-example/"
 example = "example.tex"
-blogdir = "/home/adityam/Projects/context/context-blog/content"
+blogdir = "/home/adityam/Projects/context/context-blog-v1/content"
 tmpdir  = "/tmp/slides"
 outdir  = "#{blogdir}/post"
 srcdir  = "#{tmpdir}/src"
@@ -71,10 +73,14 @@ I am not completely happy with how all the information is displayed on this page
 ]
 
 File.open("#{outdir}/#{post}.md", 'w') do |file|
-  repo = Rugged::Repository.clone_at(git_url, srcdir)
+  unless Dir.exists?(srcdir)
+    repo = Rugged::Repository.clone_at(git_url, srcdir)
+  else
+    repo = Rugged::Repository.new(srcdir)
+  end
+  FileUtils.cd srcdir
 
   file.puts intro
-  FileUtils.cd srcdir
 
   count = 0 
   repo.walk(repo.head.target_id,

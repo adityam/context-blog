@@ -1,145 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>metapost on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/metapost/</link>
-    <description>Recent content in metapost on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Metapost on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/metapost/</link>
+    <description>Recent content in Metapost on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/metapost/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/metapost/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A new key-value interface for Metapost</title>
-      <link>https://adityam.github.io/context-blog/post/new-metafun-interface/</link>
+      <link>http://localhost:1313/context-blog/post/new-metafun-interface/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/new-metafun-interface/</guid>
-      <description>&lt;p&gt;Recently, Hans &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html&#34;&gt;announced&lt;/a&gt; a new key-value driven interface for MetaFun and
-posted a &lt;a href=&#34;http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf&#34;&gt;MyWay document&lt;/a&gt; illustrating its use. In this post, I am going to
-present an example of how to use this interface.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/new-metafun-interface/</guid>
+      <description>&lt;p&gt;Recently, Hans &lt;a href=&#34;https://www.mail-archive.com/ntg-context@ntg.nl/msg91818.html&#34;&gt;announced&lt;/a&gt; a new key-value driven interface for MetaFun and&#xA;posted a &lt;a href=&#34;http://www.pragma-ade.com/general/magazines/mag-1104-mkiv.pdf&#34;&gt;MyWay document&lt;/a&gt; illustrating its use. In this post, I am going to&#xA;present an example of how to use this interface.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Designing cover page for an exam</title>
-      <link>https://adityam.github.io/context-blog/post/exam-coverpage/</link>
+      <link>http://localhost:1313/context-blog/post/exam-coverpage/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/exam-coverpage/</guid>
-      <description>&lt;p&gt;Our university has a specific style that courses need to use as a cover page
-for exams, shown below. They circulate a Word template at the beginning of
-each term. Since I typeset my exams in ConTeXt, I decided to translate this
-cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went
-about doing this translation.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/exam-coverpage/</guid>
+      <description>&lt;p&gt;Our university has a specific style that courses need to use as a cover page&#xA;for exams, shown below. They circulate a Word template at the beginning of&#xA;each term. Since I typeset my exams in ConTeXt, I decided to translate this&#xA;cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went&#xA;about doing this translation.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Comparing the speed of Metapost and TikZ</title>
-      <link>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</link>
+      <link>http://localhost:1313/context-blog/post/metapost-vs-tikz-speed/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/metapost-vs-tikz-speed/</guid>
-      <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is
-considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?
-Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/metapost-vs-tikz-speed/</guid>
+      <description>&lt;p&gt;As a frequent user of both Metapost and TikZ, I often observe that TikZ is&#xA;considerably slower than Metapost. But what&amp;rsquo;s the actual difference in speed?&#xA;Let&amp;rsquo;s consider basic operations: drawing straight lines and drawing circles.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Externalizing Metapost graphics</title>
-      <link>https://adityam.github.io/context-blog/post/externalizing-metapost/</link>
+      <link>http://localhost:1313/context-blog/post/externalizing-metapost/</link>
       <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/externalizing-metapost/</guid>
-      <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
-Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
+      <guid>http://localhost:1313/context-blog/post/externalizing-metapost/</guid>
+      <description>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:&#xA;Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</description>
     </item>
-    
     <item>
       <title>Making visaully attractive posters in ConTeXt</title>
-      <link>https://adityam.github.io/context-blog/post/poster-in-context/</link>
+      <link>http://localhost:1313/context-blog/post/poster-in-context/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/poster-in-context/</guid>
+      <guid>http://localhost:1313/context-blog/post/poster-in-context/</guid>
       <description>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</description>
     </item>
-    
     <item>
       <title>Drawing Metapost animations</title>
-      <link>https://adityam.github.io/context-blog/post/metapost-animation/</link>
+      <link>http://localhost:1313/context-blog/post/metapost-animation/</link>
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/metapost-animation/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;http://wiki.contextgarden.net/Animation#Using_the_animation_module&#34;&gt;animation&lt;/a&gt; module provides a nice interface for using
-&lt;a href=&#34;http://www.pragma-ade.com/general/manuals/mwidget-s.pdf&#34;&gt;FieldStacks&lt;/a&gt; to create a JavaScript controlled animations in
-ConTeXt.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; For example, the following code will show &lt;code&gt;step-1.pdf&lt;/code&gt;,
-&lt;code&gt;step-2.pdf&lt;/code&gt;, &lt;code&gt;step-3.pdf&lt;/code&gt;, and &lt;code&gt;step-4.pdf&lt;/code&gt; files one by one:&lt;/p&gt;
-&lt;!--
-\usemodule[animation]
-
-\startanimation[menu=yes]
-  {\useexternalfigure[step-1]}
-  {\useexternalfigure[step-2]}
-  {\useexternalfigure[step-3]}
-  {\useexternalfigure[step-4]}
-\stopanimation
---&gt;
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\usemodule&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;animation&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
-
-&lt;span class=&#34;Statement&#34;&gt;\startanimation&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;menu=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;
-  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-1.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
-  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-2.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
-  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-3.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
-  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-4.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;
-&lt;span class=&#34;Statement&#34;&gt;\stopanimation&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Sometimes, I use animation to give the illusion of motion. For example, to
-show a particle moving along a trajectory (drawn using Metapost). In
-principle, it is possible to use the &lt;code&gt;animation&lt;/code&gt; module to draw such
-animations (e.g., see Wolfgang&amp;rsquo;s reply in &lt;a href=&#34;https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html&#34;&gt;on ntg-context mailing list&lt;/a&gt;), but the
-interface gets a bit cumbersome. In this post, I show a helper macro to
-simplify drawing such animations.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/metapost-animation/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://wiki.contextgarden.net/Animation#Using_the_animation_module&#34;&gt;animation&lt;/a&gt; module provides a nice interface for using&#xA;&lt;a href=&#34;http://www.pragma-ade.com/general/manuals/mwidget-s.pdf&#34;&gt;FieldStacks&lt;/a&gt; to create a JavaScript controlled animations in&#xA;ConTeXt.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; For example, the following code will show &lt;code&gt;step-1.pdf&lt;/code&gt;,&#xA;&lt;code&gt;step-2.pdf&lt;/code&gt;, &lt;code&gt;step-3.pdf&lt;/code&gt;, and &lt;code&gt;step-4.pdf&lt;/code&gt; files one by one:&lt;/p&gt;&#xA;&lt;!--&#xA;\usemodule[animation]&#xA;&#xA;\startanimation[menu=yes]&#xA;  {\useexternalfigure[step-1]}&#xA;  {\useexternalfigure[step-2]}&#xA;  {\useexternalfigure[step-3]}&#xA;  {\useexternalfigure[step-4]}&#xA;\stopanimation&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\usemodule&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;animation&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&#xA;&#xA;&lt;span class=&#34;Statement&#34;&gt;\startanimation&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;menu=yes&lt;span class=&#34;Delimiter&#34;&gt;]&lt;/span&gt;&#xA;  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-1.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;&#xA;  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-2.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;&#xA;  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-3.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;&#xA;  &lt;span class=&#34;Delimiter&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;\useexternalfigure&lt;/span&gt;&lt;span class=&#34;Delimiter&#34;&gt;[&lt;/span&gt;step-4.pdf&lt;span class=&#34;Delimiter&#34;&gt;]}&lt;/span&gt;&#xA;&lt;span class=&#34;Statement&#34;&gt;\stopanimation&lt;/span&gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Sometimes, I use animation to give the illusion of motion. For example, to&#xA;show a particle moving along a trajectory (drawn using Metapost). In&#xA;principle, it is possible to use the &lt;code&gt;animation&lt;/code&gt; module to draw such&#xA;animations (e.g., see Wolfgang&amp;rsquo;s reply in &lt;a href=&#34;https://mailman.ntg.nl/pipermail/ntg-context/2013/070769.html&#34;&gt;on ntg-context mailing list&lt;/a&gt;), but the&#xA;interface gets a bit cumbersome. In this post, I show a helper macro to&#xA;simplify drawing such animations.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Drop shadows with lifted corners</title>
-      <link>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</link>
+      <link>http://localhost:1313/context-blog/post/drop-shadow-with-lifted-corners/</link>
       <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/drop-shadow-with-lifted-corners/</guid>
-      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a
-&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and
-release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few
-other backgrounds to the module in the near future.&lt;/p&gt;
-&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.
-These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;
-&lt;img class=&#34;center&#34;
-  alt=&#34;Simple example&#34;
-  src=&#34;https://adityam.github.io/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/drop-shadow-with-lifted-corners/</guid>
+      <description>&lt;p&gt;There is an old question on &lt;a href=&#34;https://tex.stackexchange.com/questions/180431/lifted-or-curved-drop-shadow&#34;&gt;TeX.SE&lt;/a&gt; asking how to draw drop shadows with a&#xA;&lt;em&gt;lifted&lt;/em&gt; corner. For fun, I decided to translate the code to Metapost and&#xA;release it as a module: &lt;a href=&#34;https://github.com/adityam/context-backgrounds&#34;&gt;&lt;code&gt;t-backgrounds&lt;/code&gt;&lt;/a&gt;. I hope to add a few&#xA;other backgrounds to the module in the near future.&lt;/p&gt;&#xA;&lt;p&gt;The module provides two overlays &lt;code&gt;liftedshadow:big&lt;/code&gt; and &lt;code&gt;liftedshadow:medium&lt;/code&gt;.&#xA;These may be used like any other overlay. Let&amp;rsquo;s see an example:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Simple example&#34;&#xA;  src=&#34;http://localhost:1313/context-blog/context-blog/post/drop-shadow-with-lifted-corners/example.png&#34; /&gt;</description>
     </item>
-    
     <item>
       <title>Metapost and TeX labels</title>
-      <link>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</link>
+      <link>http://localhost:1313/context-blog/post/metapost-and-tex-labels/</link>
       <pubDate>Wed, 22 Jan 2014 19:25:23 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/metapost-and-tex-labels/</guid>
-      <description>&lt;p&gt;Default Metapost has the concept of two types of labels, postscript labels and
-TeX labels. Postscript labels are created using&lt;/p&gt;
-&lt;!--
-label(&#34;text&#34;, location);
---&gt;
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;String&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, location);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;while TeX labels are created using&lt;/p&gt;
-&lt;!-- 
-label(btex text etex, location);
---&gt;
-&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;Statement&#34;&gt;btex&lt;/span&gt;&lt;span class=&#34;String&#34;&gt; text &lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;etex&lt;/span&gt;, location);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In the latter case,  Metapost collects everything between &lt;code&gt;btex&lt;/code&gt; and &lt;code&gt;etex&lt;/code&gt;
-in a separate file, processes that file through TeX, and includes the
-resulting postscript code at an appropriate location. Such a Rube
-Golberg-esque mechanism is needed to propertly typeset mathematics, get
-proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/metapost-and-tex-labels/</guid>
+      <description>&lt;p&gt;Default Metapost has the concept of two types of labels, postscript labels and&#xA;TeX labels. Postscript labels are created using&lt;/p&gt;&#xA;&lt;!--&#xA;label(&#34;text&#34;, location);&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;String&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, location);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;while TeX labels are created using&lt;/p&gt;&#xA;&lt;!-- &#xA;label(btex text etex, location);&#xA;--&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Macro&#34;&gt;label&lt;/span&gt;(&lt;span class=&#34;Statement&#34;&gt;btex&lt;/span&gt;&lt;span class=&#34;String&#34;&gt; text &lt;/span&gt;&lt;span class=&#34;Statement&#34;&gt;etex&lt;/span&gt;, location);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;In the latter case,  Metapost collects everything between &lt;code&gt;btex&lt;/code&gt; and &lt;code&gt;etex&lt;/code&gt;&#xA;in a separate file, processes that file through TeX, and includes the&#xA;resulting postscript code at an appropriate location. Such a Rube&#xA;Golberg-esque mechanism is needed to propertly typeset mathematics, get&#xA;proper kerning, etc.; tasks that TeX can do but Postscript cannot.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

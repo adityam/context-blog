@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quarto on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/quarto/</link>
-    <description>Recent content in quarto on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Quarto on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/quarto/</link>
+    <description>Recent content in Quarto on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/quarto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/quarto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving course website to quarto</title>
-      <link>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</link>
+      <link>http://localhost:1313/context-blog/post/moving-course-website-to-quarto/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</guid>
+      <guid>http://localhost:1313/context-blog/post/moving-course-website-to-quarto/</guid>
       <description>&lt;p&gt;For some years now, I have been maintaining the course notes for my graduate course as a &lt;a href=&#34;https://adityam.github.io/stochastic-control/notes/&#34;&gt;website&lt;/a&gt; rather than a PDF document. I started with handwritten course notes the first time I taught the course, and then I typed them up in ConTeXt the next year. However, I wanted to add interactivity to my notes and that was not possible with PDF. (Technically, it is possible using Javascript, but Javascript in PDF has very limited support). So I experimented with maintaining my notes as a website and have been doing so for multiple years now.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

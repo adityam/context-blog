@@ -1,51 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tutorial on A Blog about ConTeXt</title>
-    <link>https://adityam.github.io/context-blog/tags/tutorial/</link>
-    <description>Recent content in tutorial on A Blog about ConTeXt</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Tutorial on A Blog about ConTeXt</title>
+    <link>http://localhost:1313/context-blog/tags/tutorial/</link>
+    <description>Recent content in Tutorial on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 May 2020 02:30:00 -0400</lastBuildDate><atom:link href="https://adityam.github.io/context-blog/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 May 2020 02:30:00 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/context-blog/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a clean presentation style in 40 commits (redux)</title>
-      <link>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</link>
+      <link>http://localhost:1313/context-blog/post/presentation-40-commits-redux/</link>
       <pubDate>Thu, 14 May 2020 02:30:00 -0400</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/presentation-40-commits-redux/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;
-&lt;script src=&#34;../../js/highlight.pack.js&#34;&gt;&lt;/script&gt;
-&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
-&lt;p&gt;A while back, a had created a &lt;a href=&#34;../presentation-40-commits&#34;&gt;git based tutorial&lt;/a&gt; for learning how to
-create a presentation style in ConTeXt. I chose a git based style so that it
-was easy to see what changed in each commit and what effect did the change
-have on the output. But it is cumbersome to work with, especially if you are new
-to ConTeXt as well as git.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/presentation-40-commits-redux/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;../../css/atom-one-light.css&#34;&gt;&#xA;&lt;script src=&#34;../../js/highlight.pack.js&#34;&gt;&lt;/script&gt;&#xA;&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&#xA;&lt;p&gt;A while back, a had created a &lt;a href=&#34;../presentation-40-commits&#34;&gt;git based tutorial&lt;/a&gt; for learning how to&#xA;create a presentation style in ConTeXt. I chose a git based style so that it&#xA;was easy to see what changed in each commit and what effect did the change&#xA;have on the output. But it is cumbersome to work with, especially if you are new&#xA;to ConTeXt as well as git.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Designing cover page for an exam</title>
-      <link>https://adityam.github.io/context-blog/post/exam-coverpage/</link>
+      <link>http://localhost:1313/context-blog/post/exam-coverpage/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/exam-coverpage/</guid>
-      <description>&lt;p&gt;Our university has a specific style that courses need to use as a cover page
-for exams, shown below. They circulate a Word template at the beginning of
-each term. Since I typeset my exams in ConTeXt, I decided to translate this
-cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went
-about doing this translation.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/exam-coverpage/</guid>
+      <description>&lt;p&gt;Our university has a specific style that courses need to use as a cover page&#xA;for exams, shown below. They circulate a Word template at the beginning of&#xA;each term. Since I typeset my exams in ConTeXt, I decided to translate this&#xA;cover page template to ConTeXt as well. In this post, I&amp;rsquo;ll explain how I went&#xA;about doing this translation.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Creating a clean presentation style in 40 commits</title>
-      <link>https://adityam.github.io/context-blog/post/presentation-40-commits/</link>
+      <link>http://localhost:1313/context-blog/post/presentation-40-commits/</link>
       <pubDate>Sun, 13 Jan 2013 19:54:48 -0700</pubDate>
-      
-      <guid>https://adityam.github.io/context-blog/post/presentation-40-commits/</guid>
-      <description>&lt;p&gt;Did you always want to learn ConTeXt, but did not know where to start? I have
-written a &lt;a href=&#34;https://github.com/adityam/context-slides-example/commits&#34;&gt;git-based
-tutorial&lt;/a&gt; that should help you get started.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/context-blog/post/presentation-40-commits/</guid>
+      <description>&lt;p&gt;Did you always want to learn ConTeXt, but did not know where to start? I have&#xA;written a &lt;a href=&#34;https://github.com/adityam/context-slides-example/commits&#34;&gt;git-based&#xA;tutorial&lt;/a&gt; that should help you get started.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
