@@ -118,25 +118,25 @@ times, saving the output to a box (so that we don&rsquo;t include the overhead o
 writing the content to PDF), and measuring the elapsed time. The result is as
 follows (formatted for clarity).</p>
 <table>
-<thead>
-<tr>
-<th>Shape</th>
-<th>Metapost</th>
-<th>TikZ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Line</td>
-<td>0.434s</td>
-<td>1.239s</td>
-</tr>
-<tr>
-<td>Circle</td>
-<td>0.533s</td>
-<td>1.597s</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Shape</th>
+          <th>Metapost</th>
+          <th>TikZ</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Line</td>
+          <td>0.434s</td>
+          <td>1.239s</td>
+      </tr>
+      <tr>
+          <td>Circle</td>
+          <td>0.533s</td>
+          <td>1.597s</td>
+      </tr>
+  </tbody>
 </table>
 <p>So, <strong>TikZ is almost 3 times slower than Metapost</strong> for basic shapes.</p>
 <p>Now, let&rsquo;s try something more complicated: drawing a 2 state Markov chain. One

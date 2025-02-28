@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.130.0">
+	<meta name="generator" content="Hugo 0.139.0">
   <title>A Blog about ConTeXt </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -336,8 +336,22 @@ Let&rsquo;s consider basic operations: drawing straight lines and drawing circle
         </p>
 
         <div class="post-content">
-            <p>TikZ has a library external that converts a TikZ picture to a separate PDF. The TikZ documentation provides three reasons of why external images are useful:
-Compiling large images takes a lot of time. However, most images do not change from run to run. So, it can save time to export finished images and include them as external figures. Sometimes, it is desirable to have separate graphics, for example to include them in third party programs (think XHTML export).</p>
+            <p><p>TikZ has a library <code>external</code> that converts a TikZ picture to a separate PDF.
+The TikZ documentation provides three reasons of why external images are
+useful:</p>
+<ol>
+<li>Compiling large images takes a lot of time. However, most images do not
+change from run to run. So, it can save time to export finished images and
+include them as external figures.</li>
+<li>Sometimes, it is desirable to have separate graphics, for example to
+include them in third party programs (think XHTML export).</li>
+<li>It may be necessary to typeset a file in an environment where PGF or TikZ
+are not available.</li>
+</ol>
+<p>The third and to a large extent the first point are moot for Metapost+ConTeXt.
+Metapost is integrated with LuaTeX, so there is no issue of Metapost not being
+available. Moreover, Metapost is extremely fast so compiling Metapost figures
+has very little overhead.</p></p>
             <a class="btn btn-default" href="/context-blog/post/externalizing-metapost/" id="read-more-button">
                 Read more >
             </a>
@@ -364,7 +378,17 @@ Compiling large images takes a lot of time. However, most images do not change f
         </p>
 
         <div class="post-content">
-            <p>Posters are not or rather were not too common in my research field, so I have never really had a need to create posters. But this is now changing and every now and then, we have to make a poster presentation. I have looked at the different options available for creating posters (see, for example, this TeX.SE post) but I find all of them to be boring. Given that poster sessions are crammed, it is important to create a poster that is visually distinct.</p>
+            <p><p>Posters are not or rather were not too common in my research field, so I have
+never really had a need to create posters. But this is now changing and every
+now and then, we have to make a poster presentation. I have looked at the
+different options available for creating posters (see, for example, this
+<a href="https://tex.stackexchange.com/q/341/323">TeX.SE</a> post) but I find all of them
+to be boring. Given that poster sessions are crammed, it is important to
+create a poster that is visually distinct. So, when it came time to create a
+poster for a paper that we will be presenting at <a href="https://fwn06.housing.rug.nl/necsys2018/">NecSys
+2018</a> next week, we started looking
+at something visually distinct. Inspired by a <a href="http://monanews.info/best-poster-presentation-template/">template</a> that my co-author,
+Mohammad, found, we created the poster shown below.</p></p>
             <a class="btn btn-default" href="/context-blog/post/poster-in-context/" id="read-more-button">
                 Read more >
             </a>

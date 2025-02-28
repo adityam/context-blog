@@ -13,7 +13,7 @@
       <link>https://adityam.github.io/context-blog/post/tex-programming/</link>
       <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
       <guid>https://adityam.github.io/context-blog/post/tex-programming/</guid>
-      <description>There was an interesting thread on the ConTeXt mailing list, which I am summarizing in this post. To make the post interesting, I changed the problem slightly. So, the solutions posted here were not part of the thread, but are in the same spirit.&#xA;Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:&#xA;One way to do this will be to type the whole thing by hand:</description>
+      <description>&lt;p&gt;There was an interesting thread on the ConTeXt &lt;a href=&#34;https://mailman.ntg.nl/pipermail/ntg-context/2009/038576.html&#34;&gt;mailing list&lt;/a&gt;, which I&#xA;am summarizing in this post. To make the post interesting, I changed the&#xA;problem slightly. So, the solutions posted here were not part of the thread,&#xA;but are in the same spirit.&lt;/p&gt;&#xA;&lt;p&gt;Suppose you want to typeset (in ConTeXt) all possible sum of roll of two die. Something like this:&lt;/p&gt;&#xA;&lt;img class=&#34;center&#34;&#xA;  alt=&#34;Multiplication table&#34;&#xA;  src=&#34;table.png&#34; /&gt;&#xA;&#xA;&lt;p&gt;One way to do this will be to type the whole thing by hand:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

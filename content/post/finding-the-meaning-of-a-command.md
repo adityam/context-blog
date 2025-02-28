@@ -2,7 +2,7 @@
 title     : "Finding the meaning of a command"
 date  : 2020-06-16T23:44:38-04:00
 tags  :
-  - \show
+  - show
 categories :
   - CLI
 ---

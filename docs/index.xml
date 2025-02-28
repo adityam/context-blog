@@ -48,7 +48,7 @@
       <link>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</link>
       <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
       <guid>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</guid>
-      <description>ConTeXt has a nice command to find a meaning of a command. Sometimes the easiest way to find the meaning of a macro is to simply use&#xA;\show\macroname In LMTX, context defaults to running with --batchmode, which means that you then have to hunt for the output of \show in the console output.&#xA;ConTeXt comes with a nice script to simply get the meaning of a macro on console.&#xA;$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt; For example:</description>
+      <description>&lt;p&gt;ConTeXt has a nice command to find a meaning of a command. Sometimes the&#xA;easiest way to find the meaning of a macro is to simply use&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\show\macroname&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;In LMTX, &lt;code&gt;context&lt;/code&gt; defaults to running with &lt;code&gt;--batchmode&lt;/code&gt;, which means that&#xA;you then have to hunt for the output of &lt;code&gt;\show&lt;/code&gt; in the console output.&lt;/p&gt;&#xA;&lt;p&gt;ConTeXt comes with a nice script to simply get the meaning of a macro on&#xA;console.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For example:&lt;/p&gt;</description>
     </item>
     <item>
       <title>PDF with embedded video on linux</title>
