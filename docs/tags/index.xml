@@ -6,8 +6,36 @@
     <description>Recent content in Tags on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://adityam.github.io/context-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fmtlabel</title>
+      <link>https://adityam.github.io/context-blog/tags/fmtlabel/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/tags/fmtlabel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Label</title>
+      <link>https://adityam.github.io/context-blog/tags/label/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/tags/label/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Metapost</title>
+      <link>https://adityam.github.io/context-blog/tags/metapost/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/tags/metapost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>https://adityam.github.io/context-blog/tags/programming/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Hugo</title>
       <link>https://adityam.github.io/context-blog/tags/hugo/</link>
@@ -48,34 +76,6 @@
       <link>https://adityam.github.io/context-blog/tags/qpdf/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       <guid>https://adityam.github.io/context-blog/tags/qpdf/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Mtxrun</title>
-      <link>https://adityam.github.io/context-blog/tags/mtxrun/</link>
-      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://adityam.github.io/context-blog/tags/mtxrun/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>https://adityam.github.io/context-blog/tags/programming/</link>
-      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://adityam.github.io/context-blog/tags/programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Script</title>
-      <link>https://adityam.github.io/context-blog/tags/script/</link>
-      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://adityam.github.io/context-blog/tags/script/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Yad</title>
-      <link>https://adityam.github.io/context-blog/tags/yad/</link>
-      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://adityam.github.io/context-blog/tags/yad/</guid>
       <description></description>
     </item>
   </channel>

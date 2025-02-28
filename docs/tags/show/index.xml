@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Show on A Blog about ConTeXt</title>
+    <link>https://adityam.github.io/context-blog/tags/show/</link>
+    <description>Recent content in Show on A Blog about ConTeXt</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jun 2020 23:44:38 -0400</lastBuildDate>
+    <atom:link href="https://adityam.github.io/context-blog/tags/show/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finding the meaning of a command</title>
+      <link>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</link>
+      <pubDate>Tue, 16 Jun 2020 23:44:38 -0400</pubDate>
+      <guid>https://adityam.github.io/context-blog/post/finding-the-meaning-of-a-command/</guid>
+      <description>&lt;p&gt;ConTeXt has a nice command to find a meaning of a command. Sometimes the&#xA;easiest way to find the meaning of a macro is to simply use&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&lt;span class=&#34;Statement&#34;&gt;\show\macroname&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;In LMTX, &lt;code&gt;context&lt;/code&gt; defaults to running with &lt;code&gt;--batchmode&lt;/code&gt;, which means that&#xA;you then have to hunt for the output of &lt;code&gt;\show&lt;/code&gt; in the console output.&lt;/p&gt;&#xA;&lt;p&gt;ConTeXt comes with a nice script to simply get the meaning of a macro on&#xA;console.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ mtxrun --script interface --meaning &amp;lt;macroname&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For example:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

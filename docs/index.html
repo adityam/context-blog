@@ -43,6 +43,11 @@
             
             
             
+            <li><a href="/context-blog/post/formatting-metapost-label/">Formatting metapost labels</a></li>
+            
+            
+            
+            
             <li><a href="/context-blog/post/moving-course-website-to-quarto/">Moving course website to quarto</a></li>
             
             
@@ -61,11 +66,6 @@
             <li><a href="/context-blog/post/include-multi-page-pdf/">Include multi-page PDF</a></li>
             
             
-            
-            
-            <li><a href="/context-blog/post/spacing-in-itemize/">Spacing in itemize</a></li>
-            
-            
           </ul>
         </li>
         <li><strong><a href="https://adityam.github.io/context-blog//post">All Posts</a></strong></li>
@@ -77,6 +77,34 @@
     <div id="content" role="main">
 
 
+     
+    <article class="post">
+
+        <h1><a href="/context-blog/post/formatting-metapost-label/">Formatting metapost labels</a></h1>
+        <p class="post-time">27 February, 2025
+        (6 minute read).
+        Category: 
+        
+        <a href="https://adityam.github.io/context-blog/categories/formatting">
+          Formatting</a>.
+         
+        Tags:
+        
+        <a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
+        <a href="https://adityam.github.io/context-blog/tags/label">label</a>,
+        <a href="https://adityam.github.io/context-blog/tags/fmtlabel">fmtlabel</a>,
+        <a href="https://adityam.github.io/context-blog/tags/programming">programming</a>.
+         
+        </p>
+
+        <div class="post-content">
+            <p><p>The standard way to typeset labels in metapost is using <code>label(btex ... etex, pos)</code>, which uses TeX to typeset the label and then includes it in the metapost graphic. ConTeXt simplifies the user interface a little: instead of using <code>btex ... etex</code>, one can simply use <code>label(&quot;...&quot;, pos)</code>, and the string argument is typeset using ConTeXt and included in the meapost graphic. However, both of these are cumbersome to use for dynamically generated labels (i.e., labels whose text depends on the value of some metapost variable). In this post, I show how to use <code>fmtlabel</code>, makes it simple to use dynamically generated labels.</p></p>
+            <a class="btn btn-default" href="/context-blog/post/formatting-metapost-label/" id="read-more-button">
+                Read more >
+            </a>
+        </div>
+
+    </article>
      
     <article class="post">
 
@@ -350,33 +378,6 @@ to ConTeXt as well as git.</p></p>
 this will also be a good time to implement a simple feature that was on hold
 for a while: the ability to use the module with <a href="https://neovim.io/">Neovim</a> instead of <code>vim</code>.</p></p>
             <a class="btn btn-default" href="/context-blog/post/vim-vs-neovim/" id="read-more-button">
-                Read more >
-            </a>
-        </div>
-
-    </article>
-     
-    <article class="post">
-
-        <h1><a href="/context-blog/post/vim-btex-etex-escape/">New escape mechanism for t-vim</a></h1>
-        <p class="post-time">28 April, 2020
-        (4 minute read).
-        Category: 
-        
-        <a href="https://adityam.github.io/context-blog/categories/t-vim">
-          T-Vim</a>.
-         
-        Tags:
-        
-        <a href="https://adityam.github.io/context-blog/tags/code-formatting">code formatting</a>.
-         
-        </p>
-
-        <div class="post-content">
-            <p><p>The <a href="https://github.com/adityam/filter/blob/master/vim-README.md">t-vim</a> module has been on a maintenance only mode for while, so I am
-happy to announce a release which adds a new feature: a new method to escape
-to TeX using <code>/BTEX</code> and <code>/ETEX</code> tags.</p></p>
-            <a class="btn btn-default" href="/context-blog/post/vim-btex-etex-escape/" id="read-more-button">
                 Read more >
             </a>
         </div>

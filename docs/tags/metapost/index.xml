@@ -6,8 +6,15 @@
     <description>Recent content in Metapost on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://adityam.github.io/context-blog/tags/metapost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formatting metapost labels</title>
+      <link>https://adityam.github.io/context-blog/post/formatting-metapost-label/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/post/formatting-metapost-label/</guid>
+      <description>&lt;p&gt;The standard way to typeset labels in metapost is using &lt;code&gt;label(btex ... etex, pos)&lt;/code&gt;, which uses TeX to typeset the label and then includes it in the metapost graphic. ConTeXt simplifies the user interface a little: instead of using &lt;code&gt;btex ... etex&lt;/code&gt;, one can simply use &lt;code&gt;label(&amp;quot;...&amp;quot;, pos)&lt;/code&gt;, and the string argument is typeset using ConTeXt and included in the meapost graphic. However, both of these are cumbersome to use for dynamically generated labels (i.e., labels whose text depends on the value of some metapost variable). In this post, I show how to use &lt;code&gt;fmtlabel&lt;/code&gt;, makes it simple to use dynamically generated labels.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>A new key-value interface for Metapost</title>
       <link>https://adityam.github.io/context-blog/post/new-metafun-interface/</link>

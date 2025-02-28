@@ -6,8 +6,15 @@
     <description>Recent content in Posts on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://adityam.github.io/context-blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formatting metapost labels</title>
+      <link>https://adityam.github.io/context-blog/post/formatting-metapost-label/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/post/formatting-metapost-label/</guid>
+      <description>&lt;p&gt;The standard way to typeset labels in metapost is using &lt;code&gt;label(btex ... etex, pos)&lt;/code&gt;, which uses TeX to typeset the label and then includes it in the metapost graphic. ConTeXt simplifies the user interface a little: instead of using &lt;code&gt;btex ... etex&lt;/code&gt;, one can simply use &lt;code&gt;label(&amp;quot;...&amp;quot;, pos)&lt;/code&gt;, and the string argument is typeset using ConTeXt and included in the meapost graphic. However, both of these are cumbersome to use for dynamically generated labels (i.e., labels whose text depends on the value of some metapost variable). In this post, I show how to use &lt;code&gt;fmtlabel&lt;/code&gt;, makes it simple to use dynamically generated labels.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Moving course website to quarto</title>
       <link>https://adityam.github.io/context-blog/post/moving-course-website-to-quarto/</link>
@@ -70,13 +77,6 @@
       <pubDate>Wed, 29 Apr 2020 17:12:21 -0400</pubDate>
       <guid>https://adityam.github.io/context-blog/post/vim-vs-neovim/</guid>
       <description>&lt;p&gt;Since I am looking at merging a few pull requests for &lt;code&gt;t-vim&lt;/code&gt;, I thought that&#xA;this will also be a good time to implement a simple feature that was on hold&#xA;for a while: the ability to use the module with &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; instead of &lt;code&gt;vim&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>New escape mechanism for t-vim</title>
-      <link>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</link>
-      <pubDate>Tue, 28 Apr 2020 01:08:56 -0400</pubDate>
-      <guid>https://adityam.github.io/context-blog/post/vim-btex-etex-escape/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/adityam/filter/blob/master/vim-README.md&#34;&gt;t-vim&lt;/a&gt; module has been on a maintenance only mode for while, so I am&#xA;happy to announce a release which adds a new feature: a new method to escape&#xA;to TeX using &lt;code&gt;/BTEX&lt;/code&gt; and &lt;code&gt;/ETEX&lt;/code&gt; tags.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

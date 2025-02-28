@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>A Blog about ConTeXt </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Aditya Mahajan" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog//css/styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://adityam.github.io/context-blog//css/paperclear.css" type="text/css" />
+  
+  <script type="module" defer
+    src="//instant.page/3.0.0"
+    integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1">
+  </script>
+
+  <script data-goatcounter="https://adityam.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  
+  
+  
+  <div id="container">
+    <div id="header" role="banner">
+      <span id="title"><a href="https://adityam.github.io/context-blog/">A Blog about ConTeXt</a></span><br />
+      
+    </div>
+    
+    
+    
+    <div id="menu" role="navigation">
+      <ul class="nav tree">
+        <li>
+        <strong>Recent Posts</strong>
+          <ul>
+            
+            
+            
+            
+            
+            
+            <li><a href="/context-blog/post/formatting-metapost-label/">Formatting metapost labels</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/moving-course-website-to-quarto/">Moving course website to quarto</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/remove-metadata-pdf/">Stripping metadata from PDF files</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/luatex-as-a-scripting-language/">LuaTeX as a scripting language</a></li>
+            
+            
+            
+            
+            <li><a href="/context-blog/post/include-multi-page-pdf/">Include multi-page PDF</a></li>
+            
+            
+          </ul>
+        </li>
+        <li><strong><a href="https://adityam.github.io/context-blog//post">All Posts</a></strong></li>
+      </ul>
+    </div>
+    
+    
+    
+    <div id="content" role="main">
+
+
+<h1>Formatting metapost labels</h1>
+<p class="post-time">Posted on February 27, 2025</p>
+
+<p>The standard way to typeset labels in metapost is using <code>label(btex ... etex, pos)</code>, which uses TeX to typeset the label and then includes it in the metapost graphic. ConTeXt simplifies the user interface a little: instead of using <code>btex ... etex</code>, one can simply use <code>label(&quot;...&quot;, pos)</code>, and the string argument is typeset using ConTeXt and included in the meapost graphic. However, both of these are cumbersome to use for dynamically generated labels (i.e., labels whose text depends on the value of some metapost variable). In this post, I show how to use <code>fmtlabel</code>, makes it simple to use dynamically generated labels.</p>
+<!-- more -->
+<p>Let me illustrate this by an example. Suppose I want to create a metapost <code>\useMPgraphic</code> such that</p>
+<pre><code><span class="Identifier">\useMPgraphic</span><span class="Delimiter">{</span>example<span class="Delimiter">}{</span>length=2<span class="Delimiter">}</span>
+</code></pre>
+<p>gives</p>
+<img class="center"
+  alt="Output of metapost example"
+  src="example-1.png" />
+
+<p>and</p>
+<pre><code><span class="Identifier">\useMPgraphic</span><span class="Delimiter">{</span>example<span class="Delimiter">}{</span>length=3<span class="Delimiter">}</span>
+</code></pre>
+<p>gives</p>
+<img class="center"
+  alt="Output of metapost example"
+  src="example-2.png" />
+
+<p>Such a command is rather straight forward to write in metapost:</p>
+<pre><code><span class="Identifier">\setupMPvariables</span><span class="Delimiter">[</span><span class="Type">example</span><span class="Delimiter">][</span><span class="Type">length=3, sy=2bp</span><span class="Delimiter">]</span>
+<span class="Identifier">\startuseMPgraphic</span><span class="metapost">{example}</span>
+<span class="metapost">    </span><span class="Type">newpair</span><span class="metapost"> A, B;</span>
+<span class="metapost">    A := </span><span class="Constant">origin</span><span class="metapost">;</span>
+<span class="metapost">    B := (\MPvar{</span><span class="Statement">length</span><span class="metapost">}*</span><span class="Number">cm</span><span class="metapost">, </span><span class="Number">0</span><span class="metapost">);</span>
+
+<span class="metapost">    </span><span class="Type">newnumeric</span><span class="metapost"> sy_scale, sy_shift; </span>
+<span class="metapost">    sy_scale := \MPvar{sy};</span>
+<span class="metapost">    sy_shift := -(</span><span class="Number">2</span><span class="metapost">*\MPvar{sy} - </span><span class="Number">1bp</span><span class="metapost">);</span>
+
+<span class="metapost">    </span><span class="Function">draw</span><span class="metapost"> A -- B ;</span>
+<span class="metapost">    </span><span class="Function">drawdot</span><span class="metapost"> A </span><span class="Statement">withpen</span><span class="metapost"> </span><span class="Statement">pencircle</span><span class="metapost"> </span><span class="Statement">scaled</span><span class="metapost"> </span><span class="Number">1.5bp</span><span class="metapost">;</span>
+<span class="metapost">    </span><span class="Function">drawdot</span><span class="metapost"> B </span><span class="Statement">withpen</span><span class="metapost"> </span><span class="Statement">pencircle</span><span class="metapost"> </span><span class="Statement">scaled</span><span class="metapost"> </span><span class="Number">1.5bp</span><span class="metapost">;</span>
+
+<span class="metapost">    </span><span class="Conditional">for</span><span class="metapost"> dx = A, B :</span>
+<span class="metapost">      </span><span class="Function">draw</span><span class="metapost"> (</span><span class="Constant">up</span><span class="metapost"> -- </span><span class="Constant">down</span><span class="metapost">) </span><span class="Statement">scaled</span><span class="metapost"> sy_scale </span><span class="Statement">shifted</span><span class="metapost"> dx yshifted sy_shift</span>
+<span class="metapost">           </span><span class="Statement">withpen</span><span class="metapost"> </span><span class="Statement">pencircle</span><span class="metapost"> </span><span class="Statement">scaled</span><span class="metapost"> </span><span class="Number">0.2bp</span><span class="metapost">;</span>
+<span class="metapost">    </span><span class="Conditional">endfor</span>
+
+<span class="metapost">    </span><span class="Function">drawdblarrow</span><span class="metapost"> (A -- B)</span> <span class="metapost">yshifted sy_shift</span>
+<span class="metapost">           </span><span class="Statement">withpen</span><span class="metapost"> </span><span class="Statement">pencircle</span><span class="metapost"> </span><span class="Statement">scaled</span><span class="metapost"> </span><span class="Number">0.2bp</span><span class="metapost">;</span>
+
+<span class="metapost">    </span><span class="Function">label</span><span class="metapost">.</span><span class="Function">bot</span><span class="metapost">(</span><span class="String">&quot;\switchtobodyfont[8pt]$\unit{&quot;</span><span class="metapost"> &amp; </span><span class="Statement">decimal</span><span class="metapost"> \MPvar{</span><span class="Statement">length</span><span class="metapost">} &amp; </span><span class="String">&quot;cm}$&quot;</span><span class="metapost">, </span>
+<span class="metapost">               </span><span class="Number">0.5</span><span class="metapost">[A, B] + (</span><span class="Number">0</span><span class="metapost">, sy_shift) );</span>
+<span class="Identifier">\stopuseMPgraphic</span>
+</code></pre>
+<p>Here I have used the <code>MPvar</code> method to pass variables from TeX to metapost. The above code can then be used to produce the examples above (except that I don&rsquo;t like the default metapost arrows, so I am using old code borrowed long time ago from Donald Knuth&rsquo;s webpage; more on that at the end).</p>
+<p>The label command is a bit clumsy to write:
+<code>decimal \MPvar{length}</code> converts <code>\MPvar{length}</code> (which is a numeric value) to a metapost string), which we then concatenate with other formatting instructions.</p>
+<p>However, apart from being clumsy to write, the above code gives unusable output when <code>length</code> is not an integer. For example</p>
+<pre><code><span class="Identifier">\useMPgraphic</span><span class="Delimiter">{</span>example<span class="Delimiter">}{</span>length=5/3<span class="Delimiter">}</span>
+</code></pre>
+<p>gives</p>
+<img class="center"
+  alt="Output of metapost example"
+  src="example-3.png" />
+
+<p>Hmm &hellip; it would be nice if we could round to two decimal places. Metapost has a round function, but it rounds to the nearest decimal. I can do a bit of algebra and round it to two decimal places, but &hellip; wouldn&rsquo;t it be much nicer if we could simply use <code>printf</code> like formatting instructions? The <code>thefmtlabel</code> macro does exactly that. We can simply replace the <code>label.bot</code> line with:</p>
+<pre><code><span class="metapost">    </span><span class="Function">draw</span><span class="metapost"> thefmttext.</span><span class="Function">bot</span><span class="metapost">(</span><span class="String">&quot;\switchtobodyfont[8pt]$\unit{@0.2N cm}$&quot;</span><span class="metapost">, \MPvar{</span><span class="Statement">length</span><span class="metapost">}, </span>
+<span class="metapost">                        </span><span class="Number">0.5</span><span class="metapost">[A, B] + (</span><span class="Number">0</span><span class="metapost">,sy_shift) );</span>
+</code></pre>
+<p>which then gives</p>
+<img class="center"
+  alt="Output of metapost example"
+  src="example-4.png" />
+
+<p>The command uses the lua formatters available in ConTeXt. The format specifications are similar to C format specifications used in <code>printf</code> family of C functions (and borrowed in many other languages, including in Lua <code>format</code> function), but ConTeXt formatters adds a few additional options. The main thing to remember is that it uses <code>@f</code>, <code>@d</code>, etc, instead of the usual <code>%f</code>, <code>%d</code> because <code>%</code> is a commend character in metapost.</p>
+<p>In the above example, I use <code>@0.2N</code>, where <code>N</code> means <em>stripped number</em>. So, if the argument is an integer, it is display as an integer and if the argument is a float, it is rounded to two decimal places. (Hans had told me about these extended formatter available in ConTeXt after seeing my <a href="../formatting-numbers/">old post on formatting lua numbers</a>.</p>
+<p>The function <code>thefmttext</code> takes a <em>suffix</em> (<code>top</code>, <code>bot</code>, etc.; just like <code>label</code>) and variable number of arguments: the first argument is the format specification, then remaining all but one arguments are variables which are passed to the formatter, and the last argument is the location. The command works similar to <code>thelabel</code> function in metapost but there are two minor differences:</p>
+<ol>
+<li>
+<p>The <code>thelabel</code> places the label at an offset specified by <code>labeloffset</code>. In context, <code>thefmttext</code> places the label at an offset specified by <code>textextoffset</code>. However, the default value of <code>labeloffset</code> is <code>3pt</code> while, inexplicably, the default value of <code>textextoffset</code> is <code>0</code>! In the above example, I have set it to <code>3pt</code>.</p>
+</li>
+<li>
+<p>The function <code>label</code> is defined as <code>draw thelabel(...)</code>. So, in typical metapost examples, you always see <code>label(&quot;...&quot;, pos)</code>, rather than <code>draw thelabel(&quot;...&quot;, pos)</code>. A <code>fmtlabel(...)</code> function is defined in ConTeXt, but it is equal to <code>thefmtlabel(..., origin)</code> &hellip; so you still have to write <code>draw</code> and then <code>shift</code> the label to the desired position. I don&rsquo;t understand the rationale for this choice.</p>
+</li>
+</ol>
+<p>So, in my code, I always use <code>draw thelabel(...)</code>. Being able to use standard formatting instructions does make metapost appear like a normal programming language!</p>
+<h2 id="a-note-about-arrows">A note about arrows</h2>
+<p>I don&rsquo;t like the default metapost arrows. If you simply copy-paste the above code and run it, you will get the following:</p>
+<img class="center"
+  alt="Output of metapost example"
+  src="example-5.png" />
+
+<p>The arrow head is too big. In metapost, the size of the arrow head is controlled via two variables <code>ahlength</code> and <code>ahangle</code>. The default values are appropriate for the default line width and look very awkward on a thin line. We can get the arrow size to scale with line width by setting</p>
+<pre><code><span class="metapost">autoarrows := </span><span class="Statement">true</span><span class="metapost">;</span></code></pre>
+<p>With <code>autoarrows</code>, the default arrows look as follows:</p>
+<img class="center"
+  alt="Output of metapost example"
+  src="example-6.png" />
+
+<p>A bit better, but I don&rsquo;t like them visually. I use an arrow head style that I had seen somewhere in a document by Donald Knuth &hellip; perhaps 20 years ago or so, which looks nicer to me. I have used the same arrow style ever since. Since the arrow is drawn in an &ldquo;open&rdquo; style, I typically leave <code>autoarrows</code> to its default value of <code>false</code>. Below is the code for it.</p>
+<pre><code><span class="Identifier">\startMPdefinitions</span>
+<span class="metapost">  </span><span class="Comment">% Arrowhead Modifications for TAOCP. Copied from some webpage of Knuth. </span>
+<span class="metapost">  </span><span class="Comment">% I like these arrows better than the default mp arrows..</span>
+<span class="metapost">  </span><span class="Statement">vardef</span><span class="metapost"> </span><span class="Function">arrowhead</span><span class="metapost"> </span><span class="Statement">expr</span><span class="metapost"> p =</span>
+<span class="metapost">    </span><span class="Statement">save</span><span class="metapost"> q, e, f, g; </span><span class="Type">path</span><span class="metapost"> q; </span><span class="Type">pair</span><span class="metapost"> e; </span><span class="Type">pair</span><span class="metapost"> f; </span><span class="Type">pair</span><span class="metapost"> g;</span>
+<span class="metapost">    e = </span><span class="Statement">point</span><span class="metapost"> </span><span class="Statement">length</span><span class="metapost"> p </span><span class="Statement">of</span><span class="metapost"> p;</span>
+<span class="metapost">    q = </span><span class="Function">gobble</span><span class="metapost">(p </span><span class="Statement">shifted</span><span class="metapost"> -e </span><span class="Function">cutafter</span><span class="metapost"> </span><span class="Statement">makepath</span><span class="metapost">(</span><span class="Statement">pencircle</span><span class="metapost"> </span><span class="Statement">scaled</span><span class="metapost"> </span><span class="Number">2</span><span class="Identifier">ahlength</span><span class="metapost">))</span>
+<span class="metapost">      </span><span class="Identifier">cuttings</span><span class="metapost">;</span>
+<span class="metapost">    f = </span><span class="Statement">point</span><span class="metapost"> </span><span class="Number">0</span><span class="metapost"> </span><span class="Statement">of</span><span class="metapost"> (q </span><span class="Statement">rotated</span><span class="metapost"> </span><span class="Number">0.5</span><span class="Identifier">ahangle</span><span class="metapost">) </span><span class="Statement">shifted</span><span class="metapost"> e;</span>
+<span class="metapost">    g = </span><span class="Statement">point</span><span class="metapost"> </span><span class="Statement">length</span><span class="metapost"> q </span><span class="Statement">of</span><span class="metapost"> (</span><span class="Statement">reverse</span><span class="metapost"> q </span><span class="Statement">rotated</span><span class="metapost"> </span><span class="Number">-0.5</span><span class="Identifier">ahangle</span><span class="metapost">) </span><span class="Statement">shifted</span><span class="metapost"> e;</span>
+<span class="metapost">    f .. {</span><span class="Function">dir</span><span class="metapost"> (</span><span class="Statement">angle</span><span class="metapost"> </span><span class="Function">direction</span><span class="metapost"> </span><span class="Statement">length</span><span class="metapost"> q </span><span class="Statement">of</span><span class="metapost"> (q </span><span class="Statement">rotated</span><span class="metapost"> </span><span class="Number">0.5</span><span class="Identifier">ahangle</span><span class="metapost">) - </span><span class="Number">0.3</span><span class="Identifier">ahangle</span><span class="metapost">)}e</span>
+<span class="metapost">      &amp; e{</span><span class="Function">dir</span><span class="metapost"> (</span><span class="Statement">angle</span><span class="metapost"> </span><span class="Function">direction</span><span class="metapost"> </span><span class="Number">0</span><span class="metapost"> </span><span class="Statement">of</span><span class="metapost"> ((</span><span class="Statement">reverse</span><span class="metapost"> q) </span><span class="Statement">rotated</span><span class="metapost"> </span><span class="Number">-0.5</span><span class="Identifier">ahangle</span><span class="metapost">)+</span><span class="Number">0.3</span><span class="Identifier">ahangle</span><span class="metapost">)} .. g</span>
+<span class="metapost">  </span><span class="Statement">enddef</span><span class="metapost">;</span>
+
+<span class="metapost">  </span><span class="Statement">vardef</span><span class="metapost"> arrowpath </span><span class="Statement">expr</span><span class="metapost"> p =</span>
+<span class="metapost">    p</span>
+<span class="metapost">  </span><span class="Statement">enddef</span><span class="metapost">;</span>
+
+<span class="metapost">  </span><span class="Statement">def</span><span class="metapost"> mfun_draw_arrow_path </span><span class="Statement">text</span><span class="metapost"> t =</span>
+<span class="metapost">      </span><span class="Conditional">if</span><span class="metapost"> autoarrows :</span>
+<span class="metapost">          set_ahlength(t) ;</span>
+<span class="metapost">      </span><span class="Conditional">fi</span>
+<span class="metapost">      </span><span class="Function">draw</span><span class="metapost"> arrowpath mfun_arrow_path t ;</span>
+<span class="metapost">      </span><span class="Function">draw</span><span class="metapost"> </span><span class="Function">arrowhead</span><span class="metapost"> mfun_arrow_path t ;</span>
+<span class="metapost">      </span><span class="Statement">endgroup</span><span class="metapost"> ;</span>
+<span class="metapost">  </span><span class="Statement">enddef</span><span class="metapost"> ;</span>
+
+<span class="metapost">  </span><span class="Statement">def</span><span class="metapost"> mfun_draw_arrow_path_double </span><span class="Statement">text</span><span class="metapost"> t =</span>
+<span class="metapost">      </span><span class="Conditional">if</span><span class="metapost"> autoarrows :</span>
+<span class="metapost">          set_ahlength(t) ;</span>
+<span class="metapost">      </span><span class="Conditional">fi</span>
+<span class="metapost">      </span><span class="Function">draw</span><span class="metapost"> arrowpath (</span><span class="Statement">reverse</span><span class="metapost"> arrowpath mfun_arrow_path) t ;</span>
+<span class="metapost">      </span><span class="Function">draw</span><span class="metapost"> </span><span class="Function">arrowhead</span><span class="metapost"> mfun_arrow_path t ;</span>
+<span class="metapost">      </span><span class="Function">draw</span><span class="metapost"> </span><span class="Function">arrowhead</span><span class="metapost"> </span><span class="Statement">reverse</span><span class="metapost"> mfun_arrow_path t ;</span>
+<span class="metapost">      </span><span class="Statement">endgroup</span><span class="metapost"> ;</span>
+<span class="metapost">  </span><span class="Statement">enddef</span><span class="metapost"> ;</span>
+
+<span class="Identifier">\stopMPdefinitions</span></code></pre>
+
+
+<hr />
+
+<p class="nav">
+
+<a href="/context-blog/post/moving-course-website-to-quarto/">&nbsp;&lt;Moving course website to quarto</a>
+
+
+</p>
+
+<p>
+This entry was posted in 
+
+<a href="https://adityam.github.io/context-blog/categories/formatting">
+  Formatting</a> 
+and tagged 
+
+<a href="https://adityam.github.io/context-blog/tags/metapost">metapost</a>,
+<a href="https://adityam.github.io/context-blog/tags/label">label</a>,
+<a href="https://adityam.github.io/context-blog/tags/fmtlabel">fmtlabel</a>,
+<a href="https://adityam.github.io/context-blog/tags/programming">programming</a>.
+ 
+</p>
+
+<div id="disqus_thread"></div>
+<div id="disqus_comments">
+  <button onclick="load_disqus()">Show Comments</button>
+</div>
+<script>
+    function load_disqus() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//random-determinism.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        var load_button = document.getElementById('disqus_comments');
+        load_button.parentNode.removeChild(load_button);
+    };
+   (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//random-determinism.disqus.com/count.js';
+        (d.head || d.body).appendChild(s);
+    }()); 
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    
+    
+    
+    <div id="pied" role="contentinfo">
+      Content distributed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -6,8 +6,15 @@
     <description>Recent content in Categories on A Blog about ConTeXt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://adityam.github.io/context-blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formatting</title>
+      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
+      <pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Web</title>
       <link>https://adityam.github.io/context-blog/categories/web/</link>
@@ -27,13 +34,6 @@
       <link>https://adityam.github.io/context-blog/categories/luatex/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
       <guid>https://adityam.github.io/context-blog/categories/luatex/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Formatting</title>
-      <link>https://adityam.github.io/context-blog/categories/formatting/</link>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://adityam.github.io/context-blog/categories/formatting/</guid>
       <description></description>
     </item>
     <item>
